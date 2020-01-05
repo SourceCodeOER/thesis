@@ -1,0 +1,38 @@
+% See example at 
+% https://www.overleaf.com/learn/latex/Management_in_a_large_project
+% Section "Preamble in a separate file"
+\ProvidesPackage{commonPreamble}
+
+% Common packages
+\usepackage{graphicx}
+\usepackage{listings}
+
+% Custom common user defined commands
+
+% Include \frontmatter , \mainmatter , \backmatter
+% http://www-igm.univ-mlv.fr/~dr/XPOSE2004/latex/mise_en_page.html
+\makeatletter
+
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
+
+\makeatother
+
+% Hide Overfull hbox warnings
+%\hfuzz=10000pt 

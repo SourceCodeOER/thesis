@@ -1,0 +1,50 @@
+% EPL master thesis covers template
+\documentclass{EPL-master-thesis-covers-FR}
+
+% Recommanded by Overleaf docs : 
+% https://www.overleaf.com/learn/latex/Management_in_a_large_project
+\usepackage{import}
+\usepackage{commonPreamble}
+
+% Please fill in the following boxes
+% Title of the thesis
+\title{Titre principal du mémoire (éventuellement sur plusieurs lignes)}
+
+% Subtitle - remove this line if not applicable
+\subtitle{Sous-titre éventuel}
+
+% Name of the student author(s)
+\author{Alexandre \textsc{Dewit}}
+\secondauthor{Jacques \textsc{Yakoub}}
+%\thirdauthor{Prénom \textsc{Nom}}			% remove if not applicable
+
+% Official title of the master degree
+\degreetitle{Master [120] en sciences informatiques}
+
+% Name of the supervisor(s)
+\supervisor{Kim \textsc{Mens}}
+\secondsupervisor{Olivier \textsc{Goletti}}
+%\thirdsupervisor{Prénom \textsc{Nom}}		% remove if not applicable
+
+% Name of the reader(s)
+\readerone{Prénom \textsc{Nom}}
+\readertwo{Prénom \textsc{Nom}}				% remove if not applicable
+\readerthree{Prénom \textsc{Nom}}			% remove if not applicable
+%\readerfour{Prénom \textsc{Nom}}			% remove if not applicable
+%\readerfive{Prénom \textsc{Nom}}			% remove if not applicable
+
+% Academic year (update if necessary)
+\years{2019--2020}
+
+% Document
+\begin{document}
+  % Front cover page
+  \maketitle
+  
+  % Contents of the memory
+  \import{./}{structure}
+
+  % Back cover page
+  \backcoverpage
+
+\end{document}

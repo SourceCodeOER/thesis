@@ -1,0 +1,84 @@
+% Fichier qui contiendra tout la structure du mémoire
+
+% Use french everywhere
+\selectlanguage{french}
+
+% Pour include d'autres fichiers
+% ./ si folder courant
+%\import{folder}{fichier.tex}
+
+% Numérotation en chiffres romains ( I , II )
+\frontmatter
+
+% Table des matières + autres tables
+\import{sections/}{tables}
+
+% Remerciements ( Un classique )
+\import{sections/}{remerciements}
+
+% Le Préambule
+\import{sections/}{preambule}
+
+% Numérotation en chiffres arabes ( 1, 2 , )
+\mainmatter
+
+% Pour l'instant, je garde les autres titres des chapitres ici car on va sûrement en débattre / changer des trucs
+
+% WARNING : comme expliqué au dessus, les lecteurs sont économes de leur temps : ils ne lisent bien souvent que l'introduction, la conclusion et quelques passages par ci par là . Du coup, bien travailler l'intro et la ccl
+\chapter{Introduction}
+
+\chapter{Contexte}
+\section{Situation actuelle}
+\section{Analyse des plate-formes existantes}
+\section{Défis à relever}
+
+\chapter{Organisation du travail}
+\section{Méthodologie}
+\section{Planning}
+% Une illustration résumée est appréciable à un millier de mots ^^
+\section{Répartition des tâches}
+
+\chapter{}
+% Partie dans laquelle on 
+% - diagrammes de cas d'utilisations
+
+\chapter{Application}
+\section{Partie API}
+\subsection{Choix technologiques}
+\subsection{Architecture du projet}
+\subsection{Points clés de l'implémention}
+% Pas besoin d'expliquer tout , seulement l'essentiel : 
+% - OpenAPI (introduit dans les choix) mais montrer la validation/doc/etc
+% - Les middelwares ( securité, validation, etc... )
+% - ORM 
+\section{Partie Client}
+\subsection{Choix technologiques}
+\subsection{Architecture du projet}
+% TODO : Je me doute que tu as ta propre manière d'aborder la chose ici, à toi de jouer ;)
+% Pour moi, on doit y retrouver : 
+% - des captures d'écrans montrant les principales fonctionnalités :
+%    - recherche ( un exemple avec multi critères )
+%    - création d'exercice
+%    - la modération d'exercices par un admin ( la main page avec plusieurs)
+% - avec les captures, des explications sur la conception des pages
+% ( Par exemple, "Afin de résoudre les problèmes UX que nous avons constatés avec les autres plateformes, nous avons ...")
+% - ETC 
+
+% Truc qu'Olivier a tellement insisté
+\chapter{Analyse critique}
+\section{État du projet}
+\section{Métriques} 
+% Petits rappels de SQA ^^ 
+% LOC ( lines of code ) / Code coverage 
+\section{Idées de fonctionnalités futures}
+
+\chapter{Conclusion}
+
+% juste avant la bibliographie et les annexes
+\backmatter
+
+% Bibliographie
+\import{sections/}{bibliographie}
+
+% Annexes
+% \appendix
