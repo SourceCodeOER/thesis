@@ -27,24 +27,45 @@
 % WARNING : comme expliqué au dessus, les lecteurs sont économes de leur temps : ils ne lisent bien souvent que l'introduction, la conclusion et quelques passages par ci par là . Du coup, bien travailler l'intro et la ccl
 \chapter{Introduction}
 
-\chapter{Contexte}
+\paragraph{} Dans une époque dominée par la technologie, la programmation se révèle aujourd’hui être un atout irréfutable pour se bâtir une perspective professionnelle durable. Compte tenu de cela, de plus en plus d’institutions pédagogiques intègrent une section informatique afin d’enseigner cette discipline prometteuse. Au-delà de l’aspect théorique, la programmation se découvre aussi par la pratique, ce pourquoi les chargés de cours constituent dans leur cursus un \textit{catalogue} d’exercices de programmation pour que les élèves puissent les résoudre au cours de l'année. 
+
+\paragraph{} Créer des énoncés est une activité \textit{chronophage} et bien souvent, nous ne faisons que réinventer la roue car une autre personne a très certainement déjà envisagé ce même exercice par le passé.
+
+\paragraph{} Dans une ère où l’information se trouve à quelques clics de souri, pourquoi ne pas proposer un service entièrement basé sur la \textit{contribution d’un catalogue « Open Source »} ? C’est donc ici que démarre notre projet : \texttt{Source Code}.
+
+\paragraph{} A l’instar des \textit{Open Educational Resources (OER)}, notre plateforme offre la possibilité à des équipes pédagogiques de collaborer sur la problématique de création et de partage des exercices. Cette dernière consiste à référencer des ressources informatiques, en permettant à un public varié de profiter de toutes contributions. 
+
+% Parler du problème
+
+
+\chapter{Problématique}
 \section{Situation actuelle}
-\section{Analyse des plate-formes existantes}
+% Tableau avec les plateformes existantes
+% discord ? Oui
+\section{Problème}
 \section{Défis à relever}
 
-\chapter{Organisation du travail}
+\chapter{Approche}
 \section{Méthodologie}
+% Parler de notre façon de fonctionner : SUPER AGILE !
 \section{Planning}
 % Une illustration résumée est appréciable à un millier de mots ^^
-\section{Répartition des tâches}
+\section{Organisation du travail}
+% Backend
+% Front
 
-\chapter{Analyse initiale}
+\chapter{Cahier des charges}
 % Partie dans laquelle on explique les features / requirements attendues
 % On y trouve sans doute :
 
-\section {Fonctionnalités}
+\section{Analyse fonctionnelle}
 % - diagrammes de cas d'utilisations ( + visuel qu'une liste de user stories )
 % - explications des différents rôles dans l'application ( guest, user, admin )
+
+\section{Analyse non-fonctionnelle}
+% On explique ici ( design, ergonomie )
+% Donner les critères d'ergonomie
+% Pas forcément des tonnes de page : à priori 3-4 max devraient suffire
 
 \section {Contraintes}
 % Expliquer les contraintes :
@@ -53,24 +74,16 @@
 %    - Interface orienté vers l'UX ( une jolie instruction UI VS UX
 %    - etc...
 
-\section{Langue de programmation}
+
+\chapter{Solution}
+
+\section{Technologies}
 % Explication du choix de Node.Js : 
 % - 
 % - pourquoi est ce intéressant à choisir 
 %    - expliquer les concepts de taches async avec une illustration
 
-\chapter{Application}
-\section{Partie API}
-\subsection{Choix technologiques}
-\subsection{Architecture du projet}
-\subsection{Points clés de l'implémention}
-% Pas besoin d'expliquer tout , seulement l'essentiel : 
-% - OpenAPI (introduit dans les choix) mais montrer la validation/doc/etc
-% - Les middelwares ( securité, validation, etc... )
-% - ORM 
-
-
-\section{Partie Client}
+\section{Client}
 \subsection{Choix technologiques}
 \subsection{Architecture du projet}
 % TODO : Je me doute que tu as ta propre manière d'aborder la chose ici, à toi de jouer ;)
@@ -83,14 +96,29 @@
 % ( Par exemple, "Afin de résoudre les problèmes UX que nous avons constatés avec les autres plateformes, nous avons ...")
 % - ETC 
 
+\section{API}
+\subsection{Choix technologiques}
+\subsection{Architecture du projet}
+\subsection{Points clés de l'implémention}
+% Pas besoin d'expliquer tout , seulement l'essentiel : 
+% - OpenAPI (introduit dans les choix) mais montrer la validation/doc/etc
+% - Les middelwares ( securité, validation, etc... )
+% - ORM 
+
+%\section{CLI}
 
 % Truc qu'Olivier a tellement insisté
 \chapter{Analyse critique}
-\section{État du projet}
-\section{Métriques} 
+\section{Validation}
+\section{Métriques}
 % Petits rappels de SQA ^^ 
-% LOC ( lines of code ) / Code coverage 
-\section{Idées de fonctionnalités futures}
+% LOC ( lines of code ) / Code coverage
+\section{État du projet}
+% Fonctionnalité
+% Etat du prototype
+
+ 
+\chapter{Pour aller plus loin}
 
 \chapter{Conclusion}
 
