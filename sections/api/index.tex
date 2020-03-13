@@ -1,0 +1,65 @@
+\clearpage
+\section{API}
+\subsection{Choix technologiques}
+
+\subsubsection*{Choix du framework}
+
+% Sans doute une référence à mettre
+Un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage ; 
+\begin{itemize}
+    \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
+    \item Une standardisation de la programmation permettant ainsi d'interchanger, d'injecter et/ou réutiliser du code existant pour ne pas "réinventer la roue".
+\end{itemize}
+Dès lors, ce choix, qui comme toute solution a son lot d'inconvénients, ne saurait être pris à la légère car il constitue le squelette de l'application. C'est pourquoi vous pourrez retrouver dans la table ci dessous une liste non-exhaustive des frameworks que nous avons étudié ainsi que les critères retenus pour les départager. 
+
+\begin{center}
+\begin{tabular}{| l | l | l | l | l | l | l |}
+\hline
+Framework & Doc & Fcts & Maint & Popularité & Performances & Total \\
+\hline
+    \href{https://expressjs.com/}{Express} &
+    &  
+    &
+    &            
+    &              
+    &       \\
+\hline
+    \href{https://loopback.io/}{LoopBack} &
+    &                
+    &   
+    &
+    &              
+    &       \\
+\hline
+    \href{https://feathersjs.com/}{Feathers} &
+    &                
+    &     
+    &
+    &              
+    &       \\  
+\hline
+\end{tabular}
+\end{center}
+\thinspace % 
+
+\noindent\textbf{Critères : [M]auvais, [S]ufficient, [B]on}
+
+\begin{itemize}
+    \item[\textbf{Doc}] Documentation : \\
+    La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
+    La qualifier n'est pas une tâche aisée puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives tel que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas car quantité n'est pas synonyme de qualité .. 
+    \item[\textbf{Fcts}] Fonctionnalités : \\
+    Le nombre de possibilités ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un comportement binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
+    \item[\textbf{Maint}] Maintenabilité : \\
+    Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
+\end{itemize}
+
+\subsection{Architecture du projet}
+
+\subsection{Points clés de l'implémention}
+% Pas besoin d'expliquer tout , seulement l'essentiel : 
+% - OpenAPI (introduit dans les choix) mais montrer la validation/doc/etc
+% - Les middelwares ( securité, validation, etc... )
+% - ORM 
+
+\subsubsection*{Spécification OpenAPI}
