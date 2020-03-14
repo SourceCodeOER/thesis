@@ -10,12 +10,32 @@ Un framework peut être considéré comme une boite à outils très pratique nou
     \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
     \item Une standardisation de la programmation permettant ainsi d'interchanger, d'injecter et/ou réutiliser du code existant pour ne pas "réinventer la roue".
 \end{itemize}
-Dès lors, ce choix, qui comme toute solution a son lot d'inconvénients, ne saurait être pris à la légère car il constitue le squelette de l'application. C'est pourquoi vous pourrez retrouver dans la table ci dessous une liste non-exhaustive des frameworks que nous avons étudié ainsi que les critères retenus pour les départager. 
+Dès lors, ce choix, qui comme toute solution a son lot d'inconvénients, ne saurait être pris à la légère car il constitue le squelette de l'application. C'est pourquoi vous pourrez retrouver ci dessous une liste non-exhaustive des frameworks que nous avons étudié ainsi que les critères retenus pour les départager. \\
 
+\noindent\textbf{Critères : [M]auvais, [S]ufficient, [B]on}
+
+\begin{itemize}
+    \item[\textbf{Doc}] Documentation : \\
+    La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
+    La qualifier n'est pas une tâche aisée puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives tel que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas car quantité n'est pas synonyme de qualité .. 
+    \item[\textbf{Fcts}] Fonctionnalités : \\
+    Le nombre de possibilités ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un comportement binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
+    \item[\textbf{Maint}] Maintenabilité : \\
+    Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
+    \item[\textbf{Pop}] Popularité : \\
+    Le fait d'être connu et d'être utilisé par un grand nombre d'utilisateurs.
+    Puisque notre solution est entièrement basée sur Node.js, nous pouvons consulter des données publiques du registre par défaut (NPM) notamment par des sites comme \href{https://www.npmtrends.com/}{NPM Trends}.
+    \item[\textbf{Perfs}] Performances : \\
+    TODO
+\end{itemize}
+
+% Par exemple ici c'est pour l'API
+\clearpage
+\thinspace % 
 \begin{center}
 \begin{tabular}{| l | l | l | l | l | l | l |}
 \hline
-Framework & Doc & Fcts & Maint & Popularité & Performances & Total \\
+Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
 \hline
     \href{https://expressjs.com/}{Express} &
     &  
@@ -42,17 +62,6 @@ Framework & Doc & Fcts & Maint & Popularité & Performances & Total \\
 \end{center}
 \thinspace % 
 
-\noindent\textbf{Critères : [M]auvais, [S]ufficient, [B]on}
-
-\begin{itemize}
-    \item[\textbf{Doc}] Documentation : \\
-    La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
-    La qualifier n'est pas une tâche aisée puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives tel que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas car quantité n'est pas synonyme de qualité .. 
-    \item[\textbf{Fcts}] Fonctionnalités : \\
-    Le nombre de possibilités ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un comportement binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
-    \item[\textbf{Maint}] Maintenabilité : \\
-    Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
-\end{itemize}
 
 \subsection{Architecture du projet}
 
