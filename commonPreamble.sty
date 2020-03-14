@@ -4,8 +4,18 @@
 \ProvidesPackage{commonPreamble}
 
 % Common packages
+% Recommanded by Overleaf docs : 
+% https://www.overleaf.com/learn/latex/Management_in_a_large_project
+\usepackage{import}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{hyperref}
+\usepackage[toc]{glossaries}
+% Styles for table
+% J'ai choisi la "long3col-booktabs" mais il y en a d'autres :
+% https://www.dickimaw-books.com/gallery/glossaries-styles/
+\usepackage{glossary-longbooktabs}
+\makeglossaries
 
 % Set up margin here
 % No problem with cover and back of the memory : the UCLouvain sty does its own
