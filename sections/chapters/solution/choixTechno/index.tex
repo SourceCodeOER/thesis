@@ -39,41 +39,114 @@ Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait êt
 \end{itemize}
 
 Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun des critères avec notre système de notation : \textbf{M}, \textbf{S} et \textbf{B} (resp. 0, 0.5 et 1).
-% 
+% TODO Un petit texte en plus du simple tableau aidera à justifier ton choix et montrera que t'as pas simplement choisi le framework X parce que tu aimes Vue.js ^^
+
 \subsubsection*{Framework pour le front-end}
+% TODO à remplacer par ceux que tu as "comparé"
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+        Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
+    \hline
+        \href{https://nuxtjs.org/}{Nuxt.js} &
+        &  
+        &
+        &            
+        &              
+        &       \\
+    \hline
+        \href{https://angularjs.org/}{AngularJS} &
+        &                
+        &   
+        &
+        &              
+        &       \\
+    \hline
+        \href{}{} &
+        &                
+        &     
+        &
+        &              
+        &       \\  
+    \hline
+    \end{tabular}
+    \caption{Comparatif de quelques frameworks pour le \Gls{frontend}}
+\end{table}
+
 
 \subsubsection*{Framework pour l'API}
 
-% Par exemple ici c'est pour l'API
 %\thinspace % 
-\begin{center}
-\begin{tabular}{| l | l | l | l | l | l | l |}
-\hline
-Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
-\hline
-    \href{https://expressjs.com/}{Express} &
-    &  
-    &
-    &            
-    &              
-    &       \\
-\hline
-    \href{https://loopback.io/}{LoopBack} &
-    &                
-    &   
-    &
-    &              
-    &       \\
-\hline
-    \href{https://feathersjs.com/}{Feathers} &
-    &                
-    &     
-    &
-    &              
-    &       \\  
-\hline
-\end{tabular}
-\end{center}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+        Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
+    \hline
+        \href{https://expressjs.com/}{Express} &
+        B &  
+        S &
+        S &            
+        B &              
+        B &
+        4 \\
+    \hline
+        \href{https://loopback.io/}{LoopBack} &
+        B &                
+        B &   
+        S &
+        M &              
+        S &      
+        3 \\
+    \hline
+        \href{https://feathersjs.com/}{Feathers} &
+        B &                
+        B &     
+        S &
+        M &              
+        S &       
+        3 \\  
+    \hline
+    \end{tabular}
+    \caption{Comparatif de quelques frameworks pour l'\Gls{api}}
+\end{table}
 \thinspace % 
 
 \subsubsection*{Framework pour le CLI}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| l | l | l | l | l | l | l |}
+    \hline
+        Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
+    \hline
+        \href{http://yargs.js.org/}{Yargs} &
+        B &  
+        B &
+        B &            
+        S &              
+        B &   
+        4.5 \\
+    \hline
+        \href{https://github.com/tj/commander.js}{Commander.js} &
+        S &                
+        S &   
+        M &
+        S &              
+        S &  
+        2 \\
+    \hline
+        \href{https://github.com/SBoudrias/Inquirer.js}{Inquirer.js} &
+        S &                
+        B &     
+        S &
+        S &              
+        S &      
+        3 \\  
+    \hline
+    \end{tabular}
+    \caption{Comparatif de quelques frameworks pour le \Gls{cli}}
+\end{table}
+\thinspace % 

@@ -2,19 +2,20 @@
 \tableofcontents
 \addcontentsline{toc}{chapter}{\contentsname}
 
-% Pourquoi 2 autres tables ? Plusieurs raisons :
+% Pourquoi les 3 autres tables ? Plusieurs raisons :
 % - Permettre de plus rapidement disposer des ressources nécessaires lors de la défense orale
 % - Facilite la lecture rapide ( oui les lecteurs sont généralement peu enclin à lire trop et cherchent à voir direct comment est structuré le tout )
 
 % Par défaut, on ne va les afficher dans la toc : cela risque d'être redondant avec "Tables des matières"
+% Pour désactiver les sauts de pages pour ces tables
+\begingroup
+    \let\clearpage\relax
+    \listoffigures
+    \listoftables
+    \renewcommand\lstlistlistingname{Table des extraits de code}
+    \lstlistoflistings
+\endgroup
 
-% Table des extraits de code
-\renewcommand\lstlistlistingname{Table des extraits de code}
-\lstlistoflistings
-%\addcontentsline{toc}{chapter}{\lstlistlistingname}
 
 % Rappel sur les différentes possibilités de structures
 % https://www.overleaf.com/learn/latex/Sections_and_chapters
-
-\listoffigures
-%\addcontentsline{toc}{chapter}{\listfigurename}
