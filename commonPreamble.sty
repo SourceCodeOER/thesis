@@ -16,6 +16,19 @@
 % https://www.dickimaw-books.com/gallery/glossaries-styles/
 \usepackage{glossary-longbooktabs}
 \makeglossaries
+% Pour la bibliographie, on va utiliser biblatex
+\usepackage{csquotes}
+\usepackage{biblatex}
+\addbibresource{memory.bib}
+% Pour fixer le in
+\DefineBibliographyStrings{french}{in={dans},inseries={dans}}
+% Pour mettre des épigraphe
+\usepackage{epigraph}
+% Pour les images
+\usepackage{graphicx}
+% Pour utiliser l'option [H] dans begin{figure}
+\usepackage{float}
+
 
 % Set up margin here
 % No problem with cover and back of the memory : the UCLouvain sty does its own

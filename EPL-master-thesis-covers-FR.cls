@@ -5,7 +5,8 @@
 \LoadClass[12pt, a4paper, openright]{report}
 
 % Usefull packages
-\usepackage[utf8x]{inputenc}
+% A l'origine, c'était utf8x mais cela faisait tout sauter avec biblatex
+\usepackage[utf8]{inputenc}
 \usepackage[french,english]{babel} % Both french and english 
 \RequirePackage{microtype}   % Improves typography
 \RequirePackage[T1]{fontenc}
