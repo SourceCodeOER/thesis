@@ -30,7 +30,7 @@ Au cours de notre analyse des processus de partage/modération de ressources inf
     \item Le manque d'évolutivité dans la gestion des fiches. Conséquence du point précédent, cette lacune rend difficile l'ajout de nouvelles fonctionnalités telles que l'archivage numérique de ces ressources. 
 \end{itemize}
 
-C'est ainsi que nous avons décidé d'associer un état à chaque fiche, pour permettre de distinguer la situation de chacune au cours de ses processus. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
+C'est ainsi que nous avons décidé d'associer un état à chaque fiche, permettant ainsi de distinguer la situation de chacune au cours de ses processus. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
@@ -40,7 +40,7 @@ C'est ainsi que nous avons décidé d'associer un état à chaque fiche, pour pe
     \label{pic:stateDiagramForFiches}
 \end{figure}
 
-\subsection*{État des mots clés}
+\subsection*{État d'un mot clé}
 
 Une des questions annexes au sujet des fiches est la gestion des mots clés. En effet, les mots clés étant des éléments indispensables d'une fiche de qualité pour une meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
 
@@ -52,7 +52,7 @@ Durant notre analyse, nous avons pu constater deux écoles de pensée bien disti
 \end{itemize}
 
 Nous avons remarqué qu'aucune de ces deux possibilités ne se distinguait suffisamment de l'autre pour répondre de manière optimale à la problématique.
-C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre ces 2 manières de penser. Tout comme les fiches, il s'agit d'ajouter un état à chaque mot clé pour distinguer sa situation propre. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
+C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre ces 2 manières de penser. Tout comme les fiches, il s'agit d'associer un état à chaque mot clé pour distinguer sa situation propre. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
@@ -61,6 +61,14 @@ C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre c
     \caption{Diagramme UML à états pour l'état d'un mot clé}
     \label{pic:stateDiagramForTags}
 \end{figure}
+
+\subsection*{Maintenabilité aisée des données}
+
+Lors de notre analyse, un besoin particulièrement criant s'est présenté à nous : sans être informaticien ou connaître les technologies réalisant le stockage de données, il faut disposer d'un moyen de lire/modifier ces données avec aisance. \\
+
+Cela implique dès lors de proposer des opérations de type \Gls{crud} sur les différentes ressources de notre application ( fiches, mots clés, catégories de mots clés, etc... ). Pour compléter la panoplie, nous avons conçu un moyen d'importer / exporter les fiches, notamment pour répondre aux besoins d'archivage.
+
+\pagebreak
 
 \subsection*{Fonctionnalités}
 
