@@ -1,13 +1,32 @@
 \section{Choix technologiques}
 
+
+
 % 1. Explication du choix de Node.Js : 
 % - pourquoi est ce intéressant à choisir 
 %    - expliquer les concepts de taches async avec une illustration
-% 2. Les frameworks utilisés
 
 \subsection*{Choix du langage de programmation}
 
 TODO
+
+% width=\textwidth,height=\textheight,keepaspectratio
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/SchemaNodejs.png}
+    \centering
+    % Un caption alternative pour ne pas afficher la ref dans la table des figures
+    \caption[Du JavaScript aussi bien côté serveur que client]{Du JavaScript aussi bien côté serveur que client~\cite{NodejsIllustrations}}
+    \label{pic:WhatIsNodeJs}
+\end{figure}
+
+% width=\textwidth,height=\textheight,keepaspectratio
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
+    \centering
+    % Un caption alternative pour ne pas afficher la ref dans la table des figures
+    \caption[Bloquant/non-bloquant : un exemple pour l'illustrer]{Bloquant/non-bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
+    \label{pic:BloquantOrNot}
+\end{figure}
 
 \subsection*{Choix des frameworks}
 
@@ -115,9 +134,11 @@ Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun
     \label{table:compFrameworksAPI}
 \end{table}
 
+Express a été la solution que nous avons retenu car celui-ci offre, bien qu'ayant un nombre de fonctionnalités restreints par rapport à ses concurrents, des possibilités de configuration  adaptées dans le contexte de ce projet. Il est en effet plus aisé d'y incorporer du code écrit par autrui tandis que les autres étudiés se concentrent principalement sur eux mêmes. 
+
 \subsubsection*{Framework pour le CLI}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
@@ -151,3 +172,5 @@ Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun
     \caption{Comparatif de quelques frameworks pour le \Gls{cli}}
     \label{table:compFrameworksCLI}
 \end{table}
+
+Yargs a été la solution que nous retenu car celui-ci surclasse de manière incontestable les autres solutions existantes. En effet, la documentation (très claire et complète) et le nombre de fonctionnalités permettent une rapide adoption pour construire une solution dans les plus brefs délais. 
