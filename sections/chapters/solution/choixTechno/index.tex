@@ -1,14 +1,15 @@
 \section{Choix technologiques}
 
+\subsection*{Choix de l'environnement de programmation}
 
+Parmi la myriade de langages de programmations ( avec leurs différentes plate-formes logicielles existantes ) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js aussi bien pour le \Gls{backend} que pour le \Gls{frontend}. \\
 
-% 1. Explication du choix de Node.Js : 
-% - pourquoi est ce intéressant à choisir 
-%    - expliquer les concepts de taches async avec une illustration
+Ce langage ne vous est peut-être pas tout à fait inconnu en effet, il est souvent utilisé conjointement avec les interfaces HTML du côté client. Le JavaScript est souvent mal considéré par les utilisateurs, lesquels mettent en cause ses difficultés. \\
 
-\subsection*{Choix du langage de programmation}
+Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avantages et pour illustrer ce panel, je ne citerai que quelques points : \\
+JavaScript est un langage basé sur les événements ; il permet ainsi de mettre à jour dynamiquement l’interface qu’il assiste, et c’est notamment le cas pour la quasi-totalité des fameuses messageries instantanées utilisées partout.\\
 
-TODO
+Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript du côté serveur qui servira à répondre aux requêtes du client, tout en bénéficiant des avantages du JavaScript. \\
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
@@ -19,6 +20,14 @@ TODO
     \label{pic:WhatIsNodeJs}
 \end{figure}
 
+Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de Nodejs : le moteur Javascript V8 et son fonctionnement non bloquant. \\
+
+Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation).
+Sans entrer dans des détails trop techniques, cela permet de convertir le code source en code machine très rapidement et de ce fait, de profiter d'un gain de performance non négligeable. \\ 
+
+Dans tout système, il existe des tâches coûteuses en temps : des appels à la base de données, etc.
+Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces taches avant de réaliser autre chose. Ceci est un gâchis dans la mesure où des tâches moins gourmandes en temps sont ainsi bloquées. Node.js permet, par son mode de fonctionnement non bloquant, des gains de performances, comme illustré ci-dessous.
+
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
@@ -28,10 +37,12 @@ TODO
     \label{pic:BloquantOrNot}
 \end{figure}
 
+\pagebreak
+
 \subsection*{Choix des frameworks}
 
 % Sans doute une référence à mettre
-Un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage ; 
+Un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage : 
 \begin{itemize}
     \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
     \item Une standardisation de la programmation permettant ainsi d'interchanger, d'injecter et/ou réutiliser du code existant pour ne pas "réinventer la roue".
