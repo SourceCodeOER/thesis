@@ -72,18 +72,68 @@ Cela implique dès lors de proposer des opérations de type \Gls{crud} sur les d
 
 \subsection*{Fonctionnalités}
 
-TODO ( cela sera sans doute une liste de user stories , en fonction des utilisateurs )
+\subsubsection*{Tout visiteur peut : }
 
+\begin{itemize}
+    \item Se connecter à l'application via une adresse mail et un mot de passe
+    \item S'inscrire à l'application
+    \item Rechercher des fiches dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
+    \begin{itemize}
+        \item Rechercher dans le titre des fiches
+        \item Rechercher dans les mots clés des fiches ( cf TODO : Ce point sera expliqué en détail au point x.z.y )
+        \item Filtrer les fiches par leurs identifiants
+        \item Filtrer les fiches par leurs créateurs
+        \item Filtrer les fiches par leurs états
+        \item Filtrer les fiches sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
+    \end{itemize}
+    Il est également possible d'y associer les fonctionnalités suivantes :
+    \begin{itemize}
+        \item Ordonner les fiches avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
+        \begin{itemize}
+            \item le résultat moyen des votants pour une fiche
+            \item le nombre de votants pour une fiche
+            \item la date de la dernière modification de la fiche
+            \item le titre de la fiche
+            \item l'état de la fiche
+            \item l'identifiant de la fiche
+        \end{itemize}
+        \item Choisir quelles propriétés des fiches inclure dans le résultat
+    \end{itemize}
+    \item Consulter une fiche
+    \item Consulter les mots clés et catégories de mots clés existants ( avec si demandé, des statistiques d'utilisation de ceux ci )
+    \item Télécharger la source d'une fiche 
+\end{itemize}
 
-% Image
+\subsubsection*{Tout utilisateur peut : }
+\begin{itemize}
+    \item Consulter / Modifier ses informations personnelles
+    \item Mettre en ligne une fiche
+    \item Modifier les informations d'une fiche l'appartenant
+    \item Changer l'état d'une fiche l'appartenant ( des restrictions existent pour éviter des dérives )
+    \item Proposer un nouveau ou plusieurs mot(s) clé(s)
+    \item Évaluer une fiche 
+    \item \Gls{crud} des recherches favorites
+\end{itemize}
 
-% Users
-% Exercise states
-% Tag states
-% Fonctionnalités 
+\subsubsection*{Tout administrateur peut : }
+\begin{itemize}
+    \item Exporter des fiches au format JSON
+    \item Mettre en ligne plusieurs fiches (avec éventuellement un état spécifique pour chacune)
+    \item Proposer un nouveau ou plusieurs mot(s) clé(s) (avec éventuellement un état spécifique pour chacun)
+    \item Modifier un mot clé
+    \item Modifier une catégorie de mots clés
+    \item Changer l'état d'un ou plusieurs mot(s) clé(s)
+    \item Modifier les informations d'une fiche
+    \item Changer l'état d'une fiche ( aucune restriction)
+    \item Créer ou trouver des catégories de mots clés
+    \item Lister tous les utilisateurs de l'application ( sans distinction )
+\end{itemize}
 
-% - diagrammes de cas d'utilisations ( + visuel qu'une liste de user stories )
-% - explications des différents rôles dans l'application ( guest, user, admin )
+\subsubsection*{Tout super administrateur peut : }
+\begin{itemize}
+    \item Supprimer des fiches / mot(s) clé(s) / catégories de mots clés
+    \item Modifier le type d'un utilisateur
+\end{itemize}
 
 \section{Analyse non-fonctionnelle}
 % On explique ici ( design, ergonomie )
