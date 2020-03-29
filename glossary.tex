@@ -9,6 +9,11 @@
 % Pour le pluriel : \glspl
 % ( https://tex.stackexchange.com/questions/128396/defining-plural-form-for-glossaries-entries )
 
+% Pour les majuscules, c'est un G majuscule
+% Pour le singulier : \Glsp
+% Pour le pluriel : \Glspl
+% ( http://ctan.cs.uu.nl/macros/latex/contrib/glossaries/glossariesbegin.html )
+
 \newglossaryentry{api}
 {
     name={API},
@@ -85,5 +90,43 @@
     }
 }
 
-% TODO
-% fiche , mot clé , catégorie de mot clé, 
+\newglossaryentry{tagCat}
+{
+    name={Catégorie de mots-clés},
+    text={catégorie de mots-clés},
+    plural={catégories de mots-clés},
+    description={
+        Rubrique contenant des \glspl{tag} de même nature. 
+    }
+}
+
+\newglossaryentry{tag}
+{
+    name={Mot-clé},
+    text={mot-clé},
+    plural={mots-clés},
+    description={
+        Mot (ou groupe de mots) permettant de caractériser une ou plusieurs \gls{fiche}(s).
+        Un mot clé est toujours lié à une \gls{tagCat}.
+    }
+}
+
+\newglossaryentry{fiche}
+{
+    name={Fiche},
+    text={fiche},
+    plural={fiches},
+    description={
+        Document décrivant une ressource informatique ainsi que les \glspl{metadata} liées à elle. Parmi les informations renseignées, on trouve notamment des \glspl{tag}.
+    }
+}
+
+\newglossaryentry{metadata}
+{
+    name={Métadonnée},
+    text={métadonnée},
+    plural={métadonnées},
+    description={
+        Type de données permettant de caractériser et structurer des ressources numériques.
+    }
+}
