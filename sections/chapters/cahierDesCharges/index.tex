@@ -8,7 +8,7 @@
 
 La phase d'analyse est dans la vie d'un projet l'une des phases les plus critiques car celle-ci formalise les besoins des clients sous tous ses aspects afin que toutes les parties (dont les développeurs) puissent se mettre d'accord. Pour pallier les nombreuses difficultés inhérentes au contexte, plusieurs méthodes reconnues existent (notamment \Gls{QQOQCCP} et UML). \\
 
-La principale fonctionnalité attendue de l'application web est la recherche de fiches sur base d'une combinaison de critères divers et variés (dont notamment des mots-clés) pourrait sembler à première vue simple mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de ressources informatiques. Contrairement à d'autres domaines (par exemple la littérature), il n'existe pas de consensus sur au moins une manière d'organiser les informations d'une ressource informatique.
+La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de ressources informatiques. Contrairement à d'autres domaines (par exemple la littérature), il n'existe pas de consensus sur au moins une manière d'organiser les informations d'une ressource informatique.
 
 \section{Analyse fonctionnelle}
 
@@ -20,9 +20,9 @@ Comme expliqué par les Echos\cite{SOD}, la séparation des tâches est "un conc
 En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécessite un certain nombre de garde-fous afin de maintenir un outil qui dispose de ressources aussi bien de manière qualitative que quantitative. Notre analyse nous a permis d'isoler 4 types d'utilisateurs qui disposent de privilèges de manière incrémentale (en plus de disposer de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
 
 \begin{itemize}
-    \item Visiteur : Il s'agit d'un utilisateur non inscrit à notre plate-forme. Il ne peut rechercher et consulter que les fiches de ressources validés par un administrateur.
-    \item Utilisateur : Il s'agit d'un utilisateur  inscrit à notre plate-forme. Celui-ci peut proposer des nouvelles ressources ainsi que de maintenir les fiches dont il est le créateur.
-    \item Administrateur : Celui-ci crée/modifie des ressources de toute nature (fiches proposées par les utilisateurs, mots clés et catégories de mots clé), en plus de classifier les fiches.
+    \item Visiteur : Il s'agit d'un utilisateur non inscrit à notre plate-forme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validés par un administrateur.
+    \item Utilisateur : Il s'agit d'un utilisateur  inscrit à notre plate-forme. Celui-ci peut proposer des nouvelles ressources ainsi que de maintenir les \glspl{fiche} dont il est le créateur.
+    \item Administrateur : Celui-ci crée/modifie des ressources de toute nature (\glspl{fiche} proposées par les utilisateurs, \glspl{tag} et \glspl{tagCat}), en plus de classifier les \glspl{fiche}.
     \item Super Administrateur : Celui-ci dispose du droit de supprimer de manière définitive les différentes ressources de notre plate-forme.
 \end{itemize}
 
@@ -33,100 +33,100 @@ En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécess
 \begin{itemize}
     \item Se connecter à l'application via une adresse mail et un mot de passe
     \item S'inscrire à l'application
-    \item Rechercher des fiches dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
+    \item Rechercher des \glspl{fiche} dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
     \begin{itemize}
-        \item Rechercher dans le titre des fiches
-        \item Rechercher dans les mots clés des fiches ( cf TODO : Ce point sera expliqué en détail au point x.z.y )
-        \item Filtrer les fiches par leurs identifiants
-        \item Filtrer les fiches par leurs créateurs
-        \item Filtrer les fiches par leurs états
-        \item Filtrer les fiches sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
+        \item Rechercher dans le titre des \glspl{fiche}
+        \item Rechercher dans les \glspl{tag} des \glspl{fiche} ( cf TODO : Ce point sera expliqué en détail au point x.z.y )
+        \item Filtrer les \glspl{fiche} par leurs identifiants
+        \item Filtrer les \glspl{fiche} par leurs créateurs
+        \item Filtrer les \glspl{fiche} par leurs états
+        \item Filtrer les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
     \end{itemize}
     Il est également possible d'y associer les fonctionnalités suivantes :
     \begin{itemize}
-        \item Ordonner les fiches avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
+        \item Ordonner les \glspl{fiche} avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
         \begin{itemize}
-            \item le résultat moyen des votants pour une fiche
-            \item le nombre de votants pour une fiche
-            \item la date de la dernière modification de la fiche
-            \item le titre de la fiche
-            \item l'état de la fiche
-            \item l'identifiant de la fiche
+            \item le résultat moyen des votants pour une \gls{fiche}
+            \item le nombre de votants pour une \gls{fiche}
+            \item la date de la dernière modification de la \gls{fiche}
+            \item le titre de la \gls{fiche}
+            \item l'état de la \gls{fiche}
+            \item l'identifiant de la \gls{fiche}
         \end{itemize}
-        \item Choisir quelles propriétés des fiches inclure dans le résultat
+        \item Choisir quelles propriétés des \glspl{fiche} inclure dans le résultat
     \end{itemize}
-    \item Consulter une fiche
-    \item Consulter les mots clés et catégories de mots clés existants ( avec si demandé, des statistiques d'utilisation de ceux ci )
-    \item Télécharger la source d'une fiche 
+    \item Consulter une \gls{fiche}
+    \item Consulter les \glspl{tag} et \glspl{tagCat} existants ( avec si demandé, des statistiques d'utilisation de ceux ci )
+    \item Télécharger la source d'une \gls{fiche} 
 \end{itemize}
 
 \subsubsection*{Tout utilisateur peut : }
 \begin{itemize}
     \item Consulter / Modifier ses informations personnelles
-    \item Mettre en ligne une fiche (avec éventuellement un fichier )
-    \item Modifier les informations d'une fiche l'appartenant
-    \item Changer l'état d'une fiche l'appartenant ( des restrictions existent pour éviter des dérives )
+    \item Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier )
+    \item Modifier les informations d'une \gls{fiche}  l'appartenant
+    \item Changer l'état d'une \gls{fiche}  l'appartenant ( des restrictions existent pour éviter des dérives )
     \item Proposer un nouveau ou plusieurs mot(s) clé(s)
-    \item Évaluer une fiche 
+    \item Évaluer une \gls{fiche}  
     \item \Gls{crud} des recherches favorites
 \end{itemize}
 
 \subsubsection*{Tout administrateur peut : }
 \begin{itemize}
-    \item Exporter des fiches au format JSON
-    \item Mettre en ligne plusieurs fiches (avec éventuellement un état spécifique pour chacune)
+    \item Exporter des \glspl{fiche} au format JSON
+    \item Mettre en ligne plusieurs \glspl{fiche} (avec éventuellement un état spécifique pour chacune)
     \item Proposer un nouveau ou plusieurs mot(s) clé(s) (avec éventuellement un état spécifique pour chacun)
-    \item Modifier un mot clé
-    \item Modifier une catégorie de mots clés
+    \item Modifier un \gls{tag} 
+    \item Modifier une \gls{tagCat} 
     \item Changer l'état d'un ou plusieurs mot(s) clé(s)
-    \item Modifier les informations d'une fiche
-    \item Changer l'état d'une fiche ( aucune restriction)
-    \item Créer ou trouver des catégories de mots clés
+    \item Modifier les informations d'une \gls{fiche} 
+    \item Changer l'état d'une \gls{fiche} ( aucune restriction)
+    \item Créer ou trouver des \glspl{tagCat}
     \item Lister tous les utilisateurs de l'application ( sans distinction )
 \end{itemize}
 
 \subsubsection*{Tout super administrateur peut : }
 \begin{itemize}
-    \item Supprimer des fiches / mot(s) clé(s) / catégories de mots clés
+    \item Supprimer des \glspl{fiche} / \glspl{tag} / \glspl{tagCat}
     \item Modifier le type d'un utilisateur
 \end{itemize}
 \pagebreak
-\subsection*{État d'une fiche}
+\subsection*{État d'une \gls{fiche}}
 
 Au cours de notre analyse des processus de partage/modération de ressources informatiques, nous avons été confrontés à de nombreuses lacunes dans des systèmes similaires dont notamment :
 \begin{itemize}
-    \item Une manière très simplifiée de considérer les fiches : il n'y a pas de nuance claire pour différencier la situation d'une fiche par rapport à une autre. Pour l'illustrer, prenons l'exemple d'une fiche qui est en cours de rédaction (et donc n'est pas encore prête à être publique) : bien souvent, cette information est absente.
-    \item Le manque d'évolutivité technique dans la gestion des fiches, que nous pouvons sans doute imputer à une analyse très restrictive. Conséquence du point précédent, cette lacune rend difficile l'ajout de nouvelles fonctionnalités telles que l'archivage numérique de ces ressources. 
+    \item Une manière très simplifiée de considérer les \glspl{fiche} : il n'y a pas de nuance claire pour différencier la situation d'une \gls{fiche} par rapport à une autre. Pour l'illustrer, prenons l'exemple d'une \gls{fiche} qui est en cours de rédaction (et donc n'est pas encore prête à être publique) : bien souvent, cette information est absente.
+    \item Le manque d'évolutivité technique dans la gestion des \glspl{fiche}, que nous pouvons sans doute imputer à une analyse très restrictive. Conséquence du point précédent, cette lacune rend difficile l'ajout de nouvelles fonctionnalités telles que l'archivage numérique de ces ressources. 
 \end{itemize}
 
-C'est ainsi que nous avons décidé d'associer un état à chaque fiche, permettant ainsi de distinguer la situation de chacune au cours de ses processus. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
+C'est ainsi que nous avons décidé d'associer un état à chaque \gls{fiche}, permettant ainsi de distinguer la situation de chacune au cours de ses processus. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/StateFiches.png}
     \centering
-    \caption{Diagramme UML à états pour l'état d'une fiche}
+    \caption{Diagramme UML à états pour l'état d'une \gls{fiche}}
     \label{pic:stateDiagramForFiches}
 \end{figure}
 
-\subsection*{État d'un mot clé}
+\subsection*{État d'un \gls{tag}}
 
-Une des questions annexes au sujet des fiches est la gestion des mots clés. En effet, les mots clés étant des éléments indispensables d'une fiche de qualité pour une meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
+Une des questions annexes au sujet des \glspl{fiche} est la gestion des \glspl{tag}. En effet, les \glspl{tag} étant des éléments indispensables d'une \gls{fiche} de qualité pour une meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
 
 Durant notre analyse, nous avons pu constater deux écoles de pensée bien distinctes (comparable à ce qui existe en économie) : 
 \begin{itemize}
-    \item laissez-faire : Il s'agit de donner une liberté totale en matière de marquage (en utilisant aussi bien des mots clés existants que non). Bien que cette approche a le mérite de faire émerger de nouveaux mots clés par les contributions d'utilisateurs, cela restreint les possibilités de modération.
-    \item l'interventionnisme : Il s'agit de restreindre le choix en matière de marquage (exclusivement des mots clés existants). Bien que cette approche rend la modération facile, cela restreint les possibilités de s'adapter à une réalité changeante.
+    \item laissez-faire : Il s'agit de donner une liberté totale en matière de marquage (en utilisant aussi bien des \glspl{tag} existants que non). Bien que cette approche a le mérite de faire émerger de nouveaux \glspl{tag} par les contributions d'utilisateurs, cela restreint les possibilités de modération.
+    \item l'interventionnisme : Il s'agit de restreindre le choix en matière de marquage (exclusivement des \glspl{tag} existants). Bien que cette approche rend la modération facile, cela restreint les possibilités de s'adapter à une réalité changeante.
 \end{itemize}
 
 Nous avons remarqué qu'aucune de ces deux possibilités ne se distinguait suffisamment de l'autre pour répondre de manière optimale à la problématique.
-C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre ces 2 manières de penser. Tout comme les fiches, il s'agit d'associer un état à chaque mot clé pour distinguer sa situation propre. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
+C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre ces 2 manières de penser. Tout comme les \glspl{fiche}, il s'agit d'associer un état à chaque \gls{tag} pour distinguer sa situation propre. Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/StateTags.png}
     \centering
-    \caption{Diagramme UML à états pour l'état d'un mot clé}
+    \caption{Diagramme UML à états pour l'état d'un \gls{tag}}
     \label{pic:stateDiagramForTags}
 \end{figure}
 
@@ -134,7 +134,7 @@ C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre c
 
 Lors de notre analyse, un besoin particulièrement criant s'est présenté à nous : sans être informaticien ou connaître les technologies réalisant le stockage de données, il faut disposer d'un moyen de lire/modifier ces données avec aisance. \\
 
-Cela implique dès lors de proposer des opérations pour manipuler les différentes ressources de notre application ( fiches, mots clés, catégories de mots clés, etc... ). Pour compléter la panoplie, nous avons conçu un moyen d'importer / exporter les fiches, notamment pour répondre aux besoins d'archivage.
+Cela implique dès lors de proposer des opérations pour manipuler les différentes ressources de notre application ( \glspl{fiche}, \glspl{tag}, \glspl{tagCat}, etc... ). Pour compléter la panoplie, nous avons conçu un moyen d'importer / exporter les \glspl{fiche}, notamment pour répondre aux besoins d'archivage.
 
 \pagebreak
 
