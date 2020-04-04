@@ -11,6 +11,7 @@ La phase d'analyse est dans la vie d'un projet l'une des phases les plus critiqu
 La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de ressources informatiques. Contrairement à d'autres domaines (par exemple la littérature), il n'existe pas de consensus sur au moins une manière d'organiser les informations d'une ressource informatique.
 
 \section{Analyse fonctionnelle}
+\label{section:analyseFonctionnelle}
 
 \subsection*{Séparation des tâches}
 
@@ -74,7 +75,14 @@ En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécess
 \subsubsection*{Tout administrateur peut : }
 \begin{itemize}
     \item Exporter des \glspl{fiche} au format JSON
-    \item Mettre en ligne plusieurs \glspl{fiche} (avec éventuellement un état spécifique pour chacune)
+    \item Importer plusieurs \glspl{fiche} sur base d'un fichier JSON.
+        Cette fonctionnalité comprend les fonctionnalités sous jacentes suivantes :
+        \begin{itemize}
+            \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer
+            \item Créer automatiquement les \glspl{tag} non existants dans le système (avec éventuellement un état de départ)
+            \item Créer automatiquement les \glspl{tagCat} non existantes dans le système
+            \item Associer les \glspl{tag} à leurs \glspl{fiche} respectives. 
+        \end{itemize}
     \item Proposer un nouveau ou plusieurs mot(s) clé(s) (avec éventuellement un état spécifique pour chacun)
     \item Modifier un \gls{tag} 
     \item Modifier une \gls{tagCat} 
@@ -111,7 +119,7 @@ C'est ainsi que nous avons décidé d'associer un état à chaque \gls{fiche}, p
 
 \subsection*{État d'un \gls{tag}}
 
-Une des questions annexes au sujet des \glspl{fiche} est la gestion des \glspl{tag}. En effet, les \glspl{tag} étant des éléments indispensables d'une \gls{fiche} de qualité pour une meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
+Une des questions annexes au sujet des \glspl{fiche} est la gestion des \glspl{tag}. En effet, les \glspl{tag} étant des éléments indispensables d'une \gls{fiche} de qualité pour un meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
 
 Durant notre analyse, nous avons pu constater deux écoles de pensée bien distinctes (comparable à ce qui existe en économie) : 
 \begin{itemize}
@@ -143,6 +151,22 @@ Cela implique dès lors de proposer des opérations pour manipuler les différen
 % On explique ici ( design, ergonomie )
 % Donner les critères d'ergonomie
 % Pas forcément des tonnes de page : à priori 3-4 max devraient suffire
+
+\subsection*{Securité}
+
+La sécurité d'une application doit faire l'objet d'une attention non négligeable, particulièrement dans le contexte de notre époque mouvementée dans bien des domaines. Il est donc essentiel de se poser les bonnes questions ( par exemple en utilisant \Gls{QQOQCCP} ). Pour relever ce défi, une méthode possible est la \textbf{AAA}\footnote{Acronyme anglophone pour "\textbf{A}uthentication/\textbf{A}uthorization/\textbf{A}ccounting", que l'on peut traduire en français par "authentification/autorisation/traçabilité" }
+consistant en 3 piliers : 
+
+\begin{description}
+    \item[Authentification :] Il s'agit du fait de prouver l'utilisateur que l'on prétend être. Une manière fréquemment utilisée sur de nombreux sites consiste en association d'un nom d'utilisateur et d'un mot de passe.
+    \item[Autorisation :] Il s'agit du fait de vérifier quelles ressources accessibles et les opérations (par exemple les \Gls{crud}) permises sur celles-ci pour l'utilisateur authentifié.
+    \item[Traçabilité :] Il s'agit du fait d'enregistrer tous les faits et gestes des utilisateurs authentifiés. Les informations ainsi collectées permettent principalement de prévenir/comprendre des problèmes. 
+\end{description}
+
+\subsection*{Maintenance et évolution}
+
+\subsection*{Ergonomie}
+TODO ( partie Alexandre )
 
 \section {Contraintes}
 % Expliquer les contraintes :
