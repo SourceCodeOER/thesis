@@ -28,7 +28,25 @@
 \usepackage{graphicx}
 % Pour utiliser l'option [H] dans begin{figure}
 \usepackage{float}
-
+% Pour rajouter ces fameuses sous sections
+\usepackage[compact]{titlesec}
+% Pour styler les chapitres
+% Je préfère la Glenn car elle est assez agréable pour tout (y compris la bibliographie)
+\usepackage[Glenn]{fncychap}
+% Pour éviter que les chapitres prennent trop de place
+% https://tex.stackexchange.com/a/174539/129702
+\usepackage{etoolbox} % provides macros for patching macros
+\makeatletter
+    \patchcmd{\@makechapterhead}{50\p@}{0\p@}{}{}
+    \patchcmd{\@makeschapterhead}{50\p@}{0\p@}{}{}
+\makeatother
+% Pour réduire l'espace après les chapitres
+% https://tex.stackexchange.com/a/111645/129702
+% TODO on peut adapter selon les besoins
+\makeatletter
+    \patchcmd{\DOTI}{\vskip 80\p@}{\vskip 40\p@}{}{}
+    \patchcmd{\DOTIS}{\vskip 40\p@}{\vskip 0\p@}{}{}
+\makeatother
 
 % Set up margin here
 % No problem with cover and back of the memory : the UCLouvain sty does its own
