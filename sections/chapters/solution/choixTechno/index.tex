@@ -72,7 +72,7 @@ Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun
 
 \subsubsection*{Framework pour le front-end}
 % TODO à remplacer par ceux que tu as "comparé"
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
@@ -104,12 +104,13 @@ Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun
     \label{table:compFrameworksFrontend}
 \end{table}
 
+TODO ( Alexandre)
 
 \subsubsection*{Framework pour l'API}
 
 %\thinspace % 
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
@@ -187,15 +188,10 @@ Yargs a été la solution que nous avons retenue car celui-ci surclasse de mani�
 
 \subsection*{Choix des librairies externes}
 
-Comme expliqué par Wikipédia\cite{libraryDef}, le terme librairie désigne "une collection de fonctions utilitaires prêtes à être utilisées par des programmes". 
+Comme expliqué par Wikipédia\cite{libraryDef}, le terme librairie désigne "une collection de fonctions utilitaires prêtes à être utilisées par des programmes". En effet, de nombreuses applications dont la nôtre partagent des besoins communs : de ce fait, il est donc adéquat de réutiliser le travail d'autrui plutôt que de "réinventer la roue". \\
 
-Nous évoquerons ici uniquement que les plus conséquentes que nous avons utilisées dans notre solution.\\
+Compte tenu du nombre relativement élevé de librairies que nous avons utilisées dans les divers parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
 
-TODO
-
-% Vu que Latex n'a pas nativement des subsubsubsections, 2 solutions :
-% - Utiliser des subsubsection* et préciser quelle partie cela touche
-% - un truc du genre ( https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection )
 
 % Pour l'instant, j'ai listé ceci ( mais à voir si tu vois d'autres à expliquer )
 % Liste des libraries à expliquer :
@@ -205,9 +201,63 @@ TODO
 % Sequelize ( avec une explication sur les ORM, qui devra tôt ou tard arriver)
 % OpenAPI-enforcer ( mon truc qui autovalide des trucs en OAS )
 % passport ( pour gérer les stratégies d'authentification )
-% jsonwebtoken ( pour l'autorisation )
+% supertest ( pour les tests )
+% ( jsonwebtoken ( pour l'autorisation ) ( TODO : peut être pas aussi intéressant ?) )
 
 % vee-validate ( ce que tu utilises pour valider des forms )
 % Highlight.js ( ce que tu utilises pour render les blocs de code )
 % Tiptap ( éditeur de texte )
 % Axios ( pour les requests )
+
+% Un page break
+\pagebreak
+\subsubsubsection{Librairies communes}
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+% Une \noindent\underline{} est cependant possibles
+\underline{Lodash}\\
+
+TODO
+
+\subsubsubsection{Librairies pour le \Gls{frontend}}
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{Vee-validate}\\
+
+TODO \\
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{Tiptap}\\
+
+TODO \\
+
+\noindent\underline{Highlight.js}\\
+
+TODO \\
+
+\noindent\underline{Axios}\\
+
+TODO \\
+
+\subsubsubsection{Librairies pour le \Gls{backend}}
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{Sequelize}\\
+
+TODO \\
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{OpenAPI-enforcer}\\
+
+TODO \\
+
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{Passport}\\
+
+TODO \\
+
+% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\noindent\underline{Supertest}\\
+
+TODO \\

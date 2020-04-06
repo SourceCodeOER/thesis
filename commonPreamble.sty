@@ -48,6 +48,8 @@
     \patchcmd{\DOTIS}{\vskip 40\p@}{\vskip 0\p@}{}{}
 \makeatother
 
+% Pour afficher les numéros
+
 % Set up margin here
 % No problem with cover and back of the memory : the UCLouvain sty does its own
 % geometry things with \newgeometry
@@ -87,3 +89,67 @@
 
 % Hide Overfull hbox warnings
 %\hfuzz=10000pt 
+
+% créer une subsubsubsection (voir même une subsubsubsubsection si tu en abuses )
+% Ici solution copiée de 
+% https://github.com/davidstutz/latex-resources/blob/master/general-subsubsubsection/subsubsubsection-subsubsubsubsection.tex
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+
+\titleformat{\subsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{5}{\z@}{3.25ex \@plus1ex \@minus.2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+\renewcommand\subparagraph{%
+  \@startsection{subparagraph}{6}{\parindent}{3.25ex \@plus1ex \@minus .2ex}{-1em}{\normalfont\normalsize\bfseries}
+}
+    \def\toclevel@subsubsubsection{4}
+    \def\toclevel@paragraph{5}
+    \def\toclevel@paragraph{6}
+    \def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+    \def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+    \def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+    \@addtoreset{subsubsubsection}{section}
+    \@addtoreset{subsubsubsection}{subsection}
+    \@addtoreset{paragraph}{subsubsubsection}
+\makeatother
+
+% Pour mettre un listings Javascript (+ ES6 qu'Alexandre va avoir besoin)
+% https://github.com/ghammock/LaTeX_Listings_JavaScript_ES6
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+    new, return, this, typeof, var, void, while, with},
+  % Literals, primitive types, and reference types.
+  morekeywords=[2]{false, null, true, boolean, number, undefined,
+    Array, Boolean, Date, Math, Number, String, Object},
+  % Built-ins.
+  morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape},
+  sensitive,
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morecomment=[s]{/**}{*/}, % JavaDoc style comments
+  morestring=[b]',
+  morestring=[b]"
+}[keywords, comments, strings]
+
+\lstalias[]{ES6}[ECMAScript2015]{JavaScript}
+\lstdefinelanguage[ECMAScript2015]{JavaScript}[]{JavaScript}{
+  morekeywords=[1]{await, async, case, catch, class, const, default, do,
+    enum, export, extends, finally, from, implements, import, instanceof,
+    let, static, super, switch, throw, try},
+  morestring=[b]` % Interpolation strings.
+}
+
+% Pour les créer
+% \begin{lstlisting}[style=ES6, caption={ES6 (ECMAScript-2015) Listing}]
+% \begin{lstlisting}[style=JavaScript, caption={JavaScript Listing}]
