@@ -1,12 +1,13 @@
 \section{Choix technologiques}
+\label{section:choixTechnologiques}
 
 \subsection*{Choix de l'environnement de programmation}
 
-Parmi la myriade de langages de programmations ( avec leurs différentes plate-formes logicielles existantes ) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js aussi bien pour le \Gls{backend} que pour le \Gls{frontend}. \\
+Parmi la myriade de langages de programmations (avec leurs différentes plate-formes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js aussi bien pour le \Gls{backend} que pour le \Gls{frontend}. \\
 
 Ce langage ne vous est peut-être pas tout à fait inconnu en effet, il est souvent utilisé conjointement avec les interfaces HTML du côté client. Le JavaScript est souvent mal considéré par les utilisateurs, lesquels mettent en cause ses difficultés. \\
 
-Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avantages et pour illustrer ce panel, je ne citerai que quelques points : JavaScript est un langage basé sur les événements ; il permet ainsi de mettre à jour dynamiquement l’interface qu’il assiste, et c’est notamment le cas pour la quasi-totalité des fameuses messageries instantanées utilisées partout.\\
+Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avantages et pour illustrer ce panel, nous n'en citerons que quelques points : JavaScript est un langage basé sur les événements ; il permet ainsi de mettre à jour dynamiquement l’interface qu’il assiste, et c’est notamment le cas pour la quasi-totalité des fameuses messageries instantanées utilisées partout.\\
 
 Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript du côté serveur qui servira à répondre aux requêtes du client, tout en bénéficiant des avantages du JavaScript. \\
 
@@ -21,8 +22,20 @@ Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript
 
 Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de Nodejs : le moteur Javascript V8 et son fonctionnement non bloquant. \\
 
-Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation).
-Sans entrer dans des détails trop techniques, cela permet de convertir le code source en code machine très rapidement et de ce fait, de profiter d'un gain de performance non négligeable. \\ 
+Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation) , approche hybride entre la compilation et l'interprétation, dont nous pouvons schématiser le mode de fonctionnement individuel par la figure suivante :
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/compilationVSinterpretation.png}
+    \centering
+    \caption{Compilation et interprétation - mode de fonctionnement}
+\end{figure}
+
+Malheureusement, la compilation et l'interprétation ont chacune leurs qualités et défauts, que l'on peut synthétiser en 4 grand points :
+\begin{itemize}
+    \item Une fois compilé, on ne peut plus changer le programme (contrairement à l'interprétation)
+    \item En cas d'erreur(s) dans le programme, la compilation les affiche dans la phase "compilation" contrairement à l'interprétation qui les affiche à l'exécution. 
+    \item La compilation permet d'optimiser les performances d'un programme (car disposant de l'intégralité du code source au départ) mais nécessite un certain temps pour traduire le programme en code machine.
+    \item L'interprétation possède moins d'étapes que la compilation.
+\end{itemize}
 
 Dans tout système, il existe des tâches coûteuses en temps : des appels à la base de données, etc.
 Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces taches avant de réaliser autre chose. Ceci est un gâchis dans la mesure où des tâches moins gourmandes en temps sont ainsi bloquées. Node.js permet, par son mode de fonctionnement non bloquant, des gains de performances, comme illustré ci-dessous.
@@ -55,8 +68,8 @@ Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait êt
     La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
     La qualifier n'est pas une tâche aisée puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives tel que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas car quantité n'est pas synonyme de qualité .. 
     \item[\textbf{Fcts}] Fonctionnalités : \\
-    Le nombre de possibilités ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un comportement binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
-    \item[\textbf{Maint}] Maintenabilité : \\
+    Le nombre de fonctions utilitaires ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un choix binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
+    \item[\textbf{Maint}] Maintenabilité d'une application créée avec ce framework : \\
     Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
     \item[\textbf{Pop}] Popularité : \\
     Le fait d'être connu et d'être utilisé par un grand nombre d'utilisateurs.
@@ -67,7 +80,7 @@ Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait êt
     De ce fait, les performances d'un framework sont principalement influencés par les technologies utilisés. 
 \end{itemize}
 
-Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun des critères avec notre système de notation : \textbf{M}, \textbf{S} et \textbf{B} (resp. 0, 0.5 et 1).
+Pour calculer le résultat total pour un framework précis, il s'agit de la somme des résultats obtenus pour chacun des critères avec notre système de notation : \textbf{M}, \textbf{S} et \textbf{B} (resp. 0, 0.5 et 1).
 % TODO Un petit texte en plus du simple tableau aidera à justifier ton choix et montrera que t'as pas simplement choisi le framework X parce que tu aimes Vue.js ^^
 
 \subsubsection*{Framework pour le front-end}
@@ -78,35 +91,42 @@ Pour calculer le total, il s'agit de la somme des résultats obtenus pour chacun
     \hline
         Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
     \hline
-        \href{https://nuxtjs.org/}{Nuxt.js} &
-        &  
-        &
-        &            
-        &              
-        &       \\
+        \href{https://vuejs.org}{Vue.js} &
+        B &  
+        B &
+        B &            
+        S &              
+        B &
+        4.5 \\
     \hline
-        \href{https://angularjs.org/}{AngularJS} &
-        &                
-        &   
-        &
-        &              
-        &       \\
+        \href{https://angular.io}{Angular} &
+        B &                
+        B &   
+        B &
+        S &              
+        B &       
+        4.5 \\
     \hline
-        \href{}{} &
-        &                
-        &     
-        &
-        &              
-        &       \\  
+        \href{https://fr.reactjs.org}{React} &
+        B &                
+        B &     
+        S &
+        B &              
+        B &       
+        4.5 \\  
     \hline
     \end{tabular}
     \caption{Comparatif de quelques frameworks pour le \Gls{frontend}}
     \label{table:compFrameworksFrontend}
 \end{table}
 
-TODO ( Alexandre)
+Le choix entre ces trois frameworks s'apparente à une décision plus que subjective car ce sont tous les trois d'excellents outils de développement. \\
 
-\subsubsection*{Framework pour l'API}
+Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Cependant, Vue détient le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
+
+Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} qui permet d'encapsuler la logique des routes, des stores, des plugins et des middlewares de telle manière à ce que le code soit encore plus maintenable. En outre, il ajoute aussi le mode \textit{SSR} (Server Side Rendering), qui permet à l'application d'être performante, tout en profitant d'un boost pour le référencement naturel (SEO).
+
+\subsubsection*{Framework pour l'\Gls{api}}
 
 %\thinspace % 
 
@@ -147,7 +167,7 @@ TODO ( Alexandre)
 
 Express a été la solution que nous avons retenue car celui-ci offre, bien qu'ayant un nombre de fonctionnalités restreints par rapport à ses concurrents, des possibilités de configuration  adaptées dans le contexte de ce projet. Il est en effet plus aisé d'y incorporer du code écrit par autrui tandis que les autres étudiés se concentrent principalement sur eux mêmes. 
 
-\subsubsection*{Framework pour le CLI}
+\subsubsection*{Framework pour le \Gls{cli}}
 
 \begin{table}[H]
     \centering
@@ -193,21 +213,21 @@ Comme expliqué par Wikipédia\cite{libraryDef}, le terme librairie désigne "un
 Compte tenu du nombre relativement élevé de librairies que nous avons utilisées dans les divers parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
 
 
-% Pour l'instant, j'ai listé ceci ( mais à voir si tu vois d'autres à expliquer )
+% Pour l'instant, j'ai listé ceci (mais à voir si tu vois d'autres à expliquer)
 % Liste des libraries à expliquer :
 
-% Lodash ( toi et moi on l'utilise tôt ou tard )
+% Lodash (toi et moi on l'utilise tôt ou tard)
 
-% Sequelize ( avec une explication sur les ORM, qui devra tôt ou tard arriver)
-% OpenAPI-enforcer ( mon truc qui autovalide des trucs en OAS )
-% passport ( pour gérer les stratégies d'authentification )
-% supertest ( pour les tests )
-% ( jsonwebtoken ( pour l'autorisation ) ( TODO : peut être pas aussi intéressant ?) )
+% Sequelize (avec une explication sur les ORM, qui devra tôt ou tard arriver)
+% OpenAPI-enforcer (mon truc qui autovalide des trucs en OAS)
+% passport (pour gérer les stratégies d'authentification)
+% supertest (pour les tests)
+% (jsonwebtoken (pour l'autorisation) (TODO : peut être pas aussi intéressant ?))
 
-% vee-validate ( ce que tu utilises pour valider des forms )
-% Highlight.js ( ce que tu utilises pour render les blocs de code )
-% Tiptap ( éditeur de texte )
-% Axios ( pour les requests )
+% vee-validate (ce que tu utilises pour valider des forms)
+% Highlight.js (ce que tu utilises pour render les blocs de code)
+% Tiptap (éditeur de texte)
+% Axios (pour les requests)
 
 % Un page break
 \pagebreak

@@ -1,6 +1,174 @@
 % Parler du problème
 \chapter{Problématique}
 \section{Situation actuelle}
+
+Pour mieux comprendre l'univers des ressources informatiques, nous avons analysé différentes plateformes. Bien que ces dernières n'apportent pas de solution précisément axée sur notre problématique, elles nous ont tout de même permis d'extraire des éléments pertinents à la création de notre plateforme : \texttt{SourceCode}.\\
+
+Le tableau ci-dessous regroupent les différents sites web parcourus. Dans les sous-sections suivantes, nous listons les qualités et les défauts de chacune de ces plateformes.\\
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l |}
+    \hline
+        Plateforme & Lien \\
+    \hline
+        Practice-it &
+        \href{https://practiceit.cs.washington.edu/problem/list}{https://practiceit.cs.washington.edu/problem/list} \\ 
+    \hline
+        Hackerrank &
+        \href{https://www.hackerrank.com/dashboard}{https://www.hackerrank.com/dashboard} \\ 
+    \hline
+        Leetcode &
+        \href{https://leetcode.com/problemset/all/}{https://leetcode.com/problemset/all/} \\ 
+    \hline
+        Codeforces &
+        \href{https://codeforces.com/problemset/}{https://codeforces.com/problemset/} \\ 
+    \hline
+        Codechef &
+        \href{https://www.codechef.com/problems/challenge/}{https://www.codechef.com/problems/challenge/} \\ 
+    \hline
+        Coderbyte &
+        \href{https://coderbyte.com/challenges/}{https://coderbyte.com/challenges/} \\ 
+    \hline
+        Wiki Haskell &
+        \href{https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems}{https://wiki.haskell.org/H-99:\_Ninety\-Nine\_Haskell\_Problems} \\ 
+    \hline
+    \end{tabular}
+    \caption{Les différentes plateformes analysées}
+    \label{table:compPlateforme}
+\end{table}
+
+\subsection*{Practice-it}
+
+\href{https://practiceit.cs.washington.edu/problem/list}{Practice-it} est une plateforme permettant de résoudre des problèmes en Java en ligne. Comme le site le relate : \textit{la plupart des problèmes viennent des cours d'introduction en Java de l'université de Washington}.
+
+\subsubsection*{Qualité(s)}
+
+\begin{itemize}
+    \item Les problèmes peuvent être résolus de manière interactive depuis la plateforme.
+    \item La progression d'exercices résolus est sauvegardée.
+    \item Les problèmes sont organisés sur plusieurs niveaux : par cours ou par l'année d'édition du livre contenant ces exercices -> Chapitres -> Thématiques -> Exercices.
+    \item Accès à une recherche avancée par mots clés ou titre de recherche.
+    \item Un exercice contient les informations suivantes :
+    \begin{itemize}
+        \item Titre
+        \item Auteur
+        \item Date de modification/création
+        \item Langage de programmation
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Défaut(s)}
+
+\begin{itemize}
+    \item Interface très simpliste.
+    \item \textbf{On doit se connecter} pour accéder à la recherche avancée.
+    \item Pas de catégorie de mots clés pour la recherche avancée : les éléments sont affichés de manière pêle-mêle dans une liste déroulante conséquente.
+    \item La recherche de problèmes sans la recherche avancée n'est pas pratique.
+\end{itemize}
+
+\subsection*{Hackerrank}
+
+Cette plateforme a la volonté d'aider les développeurs à améliorer leurs compétences en programmation. Elle est aussi faite pour que les grandes entreprises puissent facilement trouver des développeurs ayant les compétences requises. Seule la partie "\textit{Practice}" du site est intéressante pour notre problématique.
+
+\subsubsection*{Qualité(s)}
+
+\begin{itemize}
+    \item Le tableau de bord est séparée en plusieurs sections pratiques :
+    \begin{itemize}
+        \item Compétences de l'utilisateur
+        \item Les différentes compétences proposées (langage de programmation, mathématiques,...)
+        \item Tutoriel
+    \end{itemize}
+    \item Une barre de recherche est disponible pour trouver des exercices / challenges par leur titre.
+    \item Lorsqu'on choisit un langage de programmation, l'interface de recherche présente trois catégories de tags :
+    \begin{itemize}
+        \item Statut (résolu ou non)
+        \item Difficulté
+        \item Sous-domaine (thématique)
+    \end{itemize}
+    \item Parmi les tags, on peut en sélectionner plusieurs dans la même catégorie (OU logique) tout en sélectionnant d'autres tags dans une autre catégorie (ET logique entre les différentes catégories).
+    \item On peut résoudre de manière interactive le challenge depuis la plateforme (à condition d'être connecté).
+    \item On peut noter le challenge sur 5 étoiles.
+    \item Les tests cases et énoncés du challenge peuvent être téléchargés.
+    \item Une section "\textit{Discussions}" est mise à disposition pour chaque challenge.
+\end{itemize}
+
+\subsubsection*{Défaut(s)}
+
+\begin{itemize}
+    \item Peu de catégories et de tags pour rechercher un challenge.
+    \item Il faut obligatoirement se créer un compte pour suivre un tutoriel ou soumettre un challenge.
+    \item La moyenne de note d'un challenge ne figure pas dans l'interface. On peut noter un exercice, mais on ne peut pas connaître "l'avis" général.
+\end{itemize}
+
+\subsection*{Leetcode}
+
+Cette plateforme cherche à améliorer les compétences des développeurs en proposant des exercices et tutoriels sur des thématiques variées. Elle permet d'étendre ses connaissances en programmation en vue de préparer un prochain entretien avec une entreprise.
+
+\subsubsection*{Qualité(s)}
+
+\begin{itemize}
+    \item Une barre de recherche est disponible pour trouver des exercices par leur titre, description ou identifiant (ID).
+    \item Choix parmi différentes catégories :
+    \begin{itemize}
+        \item Algorithmes
+        \item Base de données
+        \item Terminal
+        \item Concurrence
+    \end{itemize}
+    \item Deux grandes catégories de tags sont présentes :
+    \begin{itemize}
+        \item Topics
+        \item Entreprises
+    \end{itemize}
+    \item Chacun des tags est associé à un nombre correspondant au nombre d'exercices contenant ce tag.
+    \item Possibilité de filtrer les exercices en fonction de la difficulté, du statut (résolu, à faire, essayé).
+    \item On peut résoudre de manière interactive le challenge depuis la plateforme (à condition d'être connecté).
+    \item On peut liker ou disliker un exercice.
+    \item Une section "\textit{Discussions}" est mise à disposition pour chaque exercice.
+    \item Chaque exercice peut se résoudre avec son langage de prédilection.
+\end{itemize}
+
+\subsubsection*{Défaut(s)}
+
+\begin{itemize}
+    \item Malgré un choix varié de tags, ces derniers ne sont pas classés dans des catégories différentes.
+    \item Les tags ne sont pas directement accessibles depuis l'interface car il faut scroller.
+    \item Aucune spécificité au niveau des langages de programmation (exemple: des exercices en C pour la gestion de la mémoire).
+    \item Il faut obligatoirement se connecter pour s'exercer avec la plateforme.
+\end{itemize}
+
+\subsection*{Codeforces}
+
+CodeForces est une plateforme créée par une communauté de programmation axée sur la compétition et les concours.
+
+\subsubsection*{Qualité(s)}
+
+\begin{itemize}
+    \item Sur la page d'accueil, les derniers challenges créés sont publiés par leur créateur
+\end{itemize}
+\subsubsection*{Défaut(s)}
+
+\subsection*{Codechef}
+
+\subsubsection*{Qualité(s)}
+
+\subsubsection*{Défaut(s)}
+
+\subsection*{Coderbyte}
+
+\subsubsection*{Qualité(s)}
+
+\subsubsection*{Défaut(s)}
+
+\subsection*{Wiki Haskell}
+
+\subsubsection*{Qualité(s)}
+
+\subsubsection*{Défaut(s)}
+
+
 % Tableau avec les plateformes existantes
 \section{Problème}
 \section{Défis à relever}

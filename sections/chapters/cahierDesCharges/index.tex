@@ -13,18 +13,18 @@ La principale fonctionnalité attendue de l'application web est la recherche de 
 \section{Analyse fonctionnelle}
 \label{section:analyseFonctionnelle}
 
-\subsection*{Séparation des tâches}
+\subsection*{Les différents types d'utilisateurs}
 
-Comme expliqué par les Echos\cite{SOD}, la séparation des tâches est "un concept qui requière différents acteurs possédant des rôles et responsabilités différents pour la réalisation d’un ensemble de tâches dont l’exécution par un unique acteur pourrait potentiellement conduire à des fraudes ou des erreurs". \\
+% Comme expliqué par les Echos\cite{SOD}, la séparation des tâches est "un concept qui requière différents acteurs possédant des rôles et responsabilités différents pour la réalisation d’un ensemble de tâches dont l’exécution par un unique acteur pourrait potentiellement conduire à des fraudes ou des erreurs". \\
 
 
-En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécessite un certain nombre de garde-fous afin de maintenir un outil qui dispose de ressources aussi bien de manière qualitative que quantitative. Notre analyse nous a permis d'isoler 4 types d'utilisateurs qui disposent de privilèges de manière incrémentale (en plus de disposer de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
+\paragraph{} \texttt{SourceCode} repose sur la participation active d'acteurs variés. Cela nécessite la mise en place d'une organisation sous forme de rôles afin de maintenir cette plateforme de ressources \textit{cohérente} et \textit{qualitative}. Notre analyse nous a permis d'isoler \textbf{4 types d'utilisateurs} disposant de \textit{privilèges additionnels} (en plus de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
 
 \begin{itemize}
-    \item Visiteur : Il s'agit d'un utilisateur non inscrit à notre plate-forme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validés par un administrateur.
-    \item Utilisateur : Il s'agit d'un utilisateur  inscrit à notre plate-forme. Celui-ci peut proposer des nouvelles ressources ainsi que de maintenir les \glspl{fiche} dont il est le créateur.
-    \item Administrateur : Celui-ci crée/modifie des ressources de toute nature (\glspl{fiche} proposées par les utilisateurs, \glspl{tag} et \glspl{tagCat}), en plus de classifier les \glspl{fiche}.
-    \item Super Administrateur : Celui-ci dispose du droit de supprimer de manière définitive les différentes ressources de notre plate-forme.
+    \item \textbf{Visiteur} : Il s'agit d'un utilisateur non inscrit à notre plateforme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validés par un administrateur.
+    \item \textbf{Utilisateur} : Il s'agit d'un utilisateur  inscrit à notre plateforme. Celui-ci peut proposer de nouvelles ressources et maintenir les \glspl{fiche} dont il est le créateur.
+    \item \textbf{Administrateur} : Celui-ci crée/modifie des ressources de toute nature (\glspl{fiche} proposées par les utilisateurs, \glspl{tag} et \glspl{tagCat}), en plus de classifier les \glspl{fiche}.
+    \item \textbf{Super Administrateur} : Celui-ci dispose du droit de supprimer de manière définitive les différentes ressources de notre plateforme (y compris les \glspl{tag} et \glspl{tagCat}).
 \end{itemize}
 
 \subsection*{Fonctionnalités}
@@ -37,16 +37,14 @@ En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécess
     \item Rechercher des \glspl{fiche} dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
     \begin{itemize}
         \item Rechercher dans le titre des \glspl{fiche}
-        \item Rechercher dans les \glspl{tag} des \glspl{fiche} ( cf TODO : Ce point sera expliqué en détail au point x.z.y )
-        \item Filtrer les \glspl{fiche} par leurs identifiants
-        \item Filtrer les \glspl{fiche} par leurs créateurs
-        \item Filtrer les \glspl{fiche} par leurs états
-        \item Filtrer les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
+        \item Rechercher dans les \glspl{tag} des \glspl{fiche} (cf TODO : Ce point sera expliqué en détail au point x.z.y)
+        \item Rechercher les \glspl{fiche} par leurs identifiants
+        \item Rechercher les \glspl{fiche} par leurs créateurs
+        \item Rechercher les \glspl{fiche} par leurs états
+        \item Rechercher les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
     \end{itemize}
-    Il est également possible d'y associer les fonctionnalités suivantes :
-    \begin{itemize}
-        \item Ordonner les \glspl{fiche} avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
-        \begin{itemize}
+    \item Ordonner les \glspl{fiche} lors de la recherche avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
+            \begin{itemize}
             \item le résultat moyen des votants pour une \gls{fiche}
             \item le nombre de votants pour une \gls{fiche}
             \item la date de la dernière modification de la \gls{fiche}
@@ -54,22 +52,22 @@ En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécess
             \item l'état de la \gls{fiche}
             \item l'identifiant de la \gls{fiche}
         \end{itemize}
-        \item Choisir quelles propriétés des \glspl{fiche} inclure dans le résultat
-    \end{itemize}
+    \item Choisir quelles propriétés des \glspl{fiche} que l'on souhaite consulter
     \item Consulter une \gls{fiche}
-    \item Consulter les \glspl{tag} et \glspl{tagCat} existants ( avec si demandé, des statistiques d'utilisation de ceux ci )
+    \item Consulter les \glspl{tag} et \glspl{tagCat} existants (optionnellement avec des statistiques d'utilisation de ceux-ci)
     \item Télécharger la source d'une \gls{fiche} 
 \end{itemize}
 
 \subsubsection*{Tout utilisateur peut : }
 \begin{itemize}
     \item Consulter / Modifier ses informations personnelles
-    \item Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier )
-    \item Modifier les informations d'une \gls{fiche}  l'appartenant
-    \item Changer l'état d'une \gls{fiche}  l'appartenant ( des restrictions existent pour éviter des dérives )
+    \item Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier)
+    \item Modifier les informations d'une \gls{fiche}  lui appartenant
+    \item Changer l'état d'une \gls{fiche}  lui appartenant
     \item Proposer un nouveau ou plusieurs mot(s) clé(s)
     \item Évaluer une \gls{fiche}  
-    \item \Gls{crud} des recherches favorites
+    \item Gestion de favoris
+    \item Utilisation des favoris dans la recherche de \gls{fiche}s
 \end{itemize}
 
 \subsubsection*{Tout administrateur peut : }
@@ -88,9 +86,9 @@ En effet, ce catalogue qui repose sur la collaboration d'acteurs variés nécess
     \item Modifier une \gls{tagCat} 
     \item Changer l'état d'un ou plusieurs mot(s) clé(s)
     \item Modifier les informations d'une \gls{fiche} 
-    \item Changer l'état d'une \gls{fiche} ( aucune restriction)
+    \item Changer l'état d'une \gls{fiche} (aucune restriction)
     \item Créer ou trouver des \glspl{tagCat}
-    \item Lister tous les utilisateurs de l'application ( sans distinction )
+    \item Lister tous les utilisateurs de l'application (sans distinction)
 \end{itemize}
 
 \subsubsection*{Tout super administrateur peut : }
@@ -142,19 +140,19 @@ C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre c
 
 Lors de notre analyse, un besoin particulièrement criant s'est présenté à nous : sans être informaticien ou connaître les technologies réalisant le stockage de données, il faut disposer d'un moyen de lire/modifier ces données avec aisance. \\
 
-Cela implique dès lors de proposer des opérations pour manipuler les différentes ressources de notre application ( \glspl{fiche}, \glspl{tag}, \glspl{tagCat}, etc... ). Pour compléter la panoplie, nous avons conçu un moyen d'importer / exporter les \glspl{fiche}, notamment pour répondre aux besoins d'archivage.
+Cela implique dès lors de proposer des opérations pour manipuler les différentes ressources de notre application (\glspl{fiche}, \glspl{tag}, \glspl{tagCat}, etc...). Pour compléter la panoplie, nous avons conçu un moyen d'importer / exporter les \glspl{fiche}, notamment pour répondre aux besoins d'archivage.
 
 \pagebreak
 
 
 \section{Analyse non-fonctionnelle}
-% On explique ici ( design, ergonomie )
+% On explique ici (design, ergonomie)
 % Donner les critères d'ergonomie
 % Pas forcément des tonnes de page : à priori 3-4 max devraient suffire
 
 \subsection*{Securité}
 
-La sécurité d'une application doit faire l'objet d'une attention non négligeable, particulièrement dans le contexte de notre époque mouvementée dans bien des domaines. Il est donc essentiel de se poser les bonnes questions ( par exemple en utilisant \Gls{QQOQCCP} ). Pour relever ce défi, une méthode possible est la \textbf{AAA}\footnote{Acronyme anglophone pour "\textbf{A}uthentication/\textbf{A}uthorization/\textbf{A}ccounting", que l'on peut traduire en français par "authentification/autorisation/traçabilité" }
+La sécurité d'une application doit faire l'objet d'une attention non négligeable, particulièrement dans le contexte de notre époque mouvementée dans bien des domaines. Il est donc essentiel de se poser les bonnes questions (par exemple en utilisant \Gls{QQOQCCP}). Pour relever ce défi, une méthode possible est la \textbf{AAA}\footnote{Acronyme anglophone pour "\textbf{A}uthentication/\textbf{A}uthorization/\textbf{A}ccounting", que l'on peut traduire en français par "authentification/autorisation/traçabilité" }
 consistant en 3 piliers : 
 
 \begin{description}
@@ -163,14 +161,20 @@ consistant en 3 piliers :
     \item[Traçabilité :] Il s'agit du fait d'enregistrer tous les faits et gestes des utilisateurs authentifiés. Les informations ainsi collectées permettent principalement de prévenir/comprendre des problèmes. 
 \end{description}
 
+% TODO maybe citer la section dans l'implémentation
+
 \subsection*{Maintenance et évolution}
 
+Ce travail s'est déroulé dans le cadre d'un mémoire universitaire. Étant donné que la problématique du mémoire ne risque pas de faiblir d'intensité dans les années à venir, une reprise/évolution du projet par une équipe ultérieure inconnue est une possibilité à ne pas exclure. Il convient donc de mettre en place les dispositions nécessaires pour faciliter la maintenance de notre application. \\
+
+Pour cela, nous avons sélectionné des technologies relativement bien documentées et populaires de telle sorte que nos successeurs n'éprouvent pas de difficulté à se former à celles-ci. Vous pourrez retrouver des explications plus détaillées à ce sujet dans la section \ref{section:choixTechnologiques}.
+
 \subsection*{Ergonomie}
-TODO ( partie Alexandre )
+TODO (partie Alexandre)
 
 \section {Contraintes}
 % Expliquer les contraintes :
 %    - Maintenabilité / Extensibilité  du code
-%    - Gestion simple du système ( quand Mens disait que les admins ne devaient pas avoir à toucher à la DB pour faire x ou y truc )
-%    - Interface orienté vers l'UX ( une jolie instruction UI VS UX
+%    - Gestion simple du système (quand Mens disait que les admins ne devaient pas avoir à toucher à la DB pour faire x ou y truc)
+%    - Interface orienté vers l'UX (une jolie instruction UI VS UX
 %    - etc...
