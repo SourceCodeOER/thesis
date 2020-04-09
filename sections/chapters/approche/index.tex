@@ -27,8 +27,61 @@ De part la nature ouverte du projet à accueillir continuellement des nouvelles 
 % - Version alpha en décembre
 % - ...
 
+Pouvoir baliser les grandes étapes de ce travail est nécessaire  
+%TODO %
+\\ TODO
 
 % une section sur la communication
+\subsection*{Communication}
+
+En méthode Agile\cite{agileManifeste}, il y a de manière générale 2 questions récurrentes, et ce peu importe la taille et la nature des projets :
+\begin{itemize}
+    \item Où on en est ? 
+    \begin{itemize}
+        \item À quelle vitesse on progresse ?
+        \item Qu'avons nous réalisé ?
+    \end{itemize}
+    \item Quand on délivre le produit ?
+    \begin{itemize}
+        \item Que reste il à faire ?
+        \item Comment estimer le temps/travail nécessaire pour réaliser les différentes tâches ?
+    \end{itemize}
+\end{itemize}
+
+Pour y répondre, il convient d'utiliser des moyens/outils de communication suffisamment explicites. Étant donné que notre solution est hébergé sur Github, nous avons décidé d'utiliser les fonctionnalités suivantes de Github : le "Project Board" \footnote{\url{https://help.github.com/en/github/managing-your-work-on-github/about-project-boards}} et les issues \footnote{\url{https://help.github.com/en/github/managing-your-work-on-github/about-issues}}. (dont vous pourrez trouver une illustration respectivement aux figures \ref{pic:GithubBoard} et \ref{pic:GithubIssues} )\\
+
+Comme nous pouvons le voir, par l'usage des ces outils/moyens, l'état et la progression générale du projet sont accessibles au plus grand nombre : 
+\begin{itemize}
+    \item Avec le "Project Board", on représente les tâches sous la forme de cartes amovibles dans un tableau, avec les caractéristiques suivantes :
+    \begin{itemize}
+        \item Chaque tâche est catégorisée dans une colonne bien précise ( "to do"/ à réaliser, "in progress"/ en cours, "done" / réalisée, "enhancements" / améliorations  )
+        \item Une barre de progression nous notifie de l'avancement générale du projet
+    \end{itemize}
+    \item Avec les issues (figure \ref{pic:GithubIssues}), chaque tâche/problème dispose des éléments suivants : 
+    \begin{itemize}
+        \item un titre pour expliquer brièvement celle-ci
+        \item une étiquette en couleur pour notifier sa nature (problème, amélioration, documentation, etc)
+        \item la personne assignée sur celle-ci
+        \item le statut de celle-ci (ouverte/fermée)
+    \end{itemize}
+\end{itemize}
+
+
+% width=\textwidth,height=\textheight,keepaspectratio
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/trelloLike.PNG}
+    \centering
+    \caption{Exemple simplifié d'interface Github Project Board}
+    \label{pic:GithubBoard}
+\end{figure}
+
+% width=\textwidth,height=\textheight,keepaspectratio
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/issueList.PNG}
+    \centering
+    \caption{Exemple simplifié d'issues sur Github}
+    \label{pic:GithubIssues}
+\end{figure}
 
 \section{Planning}
 % Une illustration résumée est appréciable à un millier de mots ^^

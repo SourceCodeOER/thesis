@@ -30,9 +30,6 @@ Le tableau ci-dessous regroupent les différents sites web parcourus. Dans les s
         Coderbyte &
         \href{https://coderbyte.com/challenges/}{https://coderbyte.com/challenges/} \\ 
     \hline
-        Wiki Haskell &
-        \href{https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems}{https://wiki.haskell.org/H-99:\_Ninety\-Nine\_Haskell\_Problems} \\ 
-    \hline
     \end{tabular}
     \caption{Les différentes plateformes analysées}
     \label{table:compPlateforme}
@@ -81,13 +78,13 @@ Cette plateforme a la volonté d'aider les développeurs à améliorer leurs com
         \item Tutoriel
     \end{itemize}
     \item Une barre de recherche est disponible pour trouver des exercices / challenges par leur titre.
-    \item Lorsqu'on choisit un langage de programmation, l'interface de recherche présente trois catégories de tags :
+    \item Lorsqu'on choisit un langage de programmation, l'interface de recherche présente trois catégories de \glspl{tag} :
     \begin{itemize}
         \item Statut (résolu ou non)
         \item Difficulté
         \item Sous-domaine (thématique)
     \end{itemize}
-    \item Parmi les tags, on peut en sélectionner plusieurs dans la même catégorie (OU logique) tout en sélectionnant d'autres tags dans une autre catégorie (ET logique entre les différentes catégories).
+    \item Parmi les \glspl{tag}, on peut en sélectionner plusieurs dans la même catégorie (OU logique) tout en sélectionnant d'autres \glspl{tag} dans une autre catégorie (ET logique entre les différentes catégories).
     \item On peut résoudre de manière interactive le challenge depuis la plateforme (à condition d'être connecté).
     \item On peut noter le challenge sur 5 étoiles.
     \item Les tests cases et énoncés du challenge peuvent être téléchargés.
@@ -97,7 +94,7 @@ Cette plateforme a la volonté d'aider les développeurs à améliorer leurs com
 \subsubsection*{Défaut(s)}
 
 \begin{itemize}
-    \item Peu de catégories et de tags pour rechercher un challenge.
+    \item Peu de catégories et de \glspl{tag} pour rechercher un challenge.
     \item Il faut obligatoirement se créer un compte pour suivre un tutoriel ou soumettre un challenge.
     \item La moyenne de note d'un challenge ne figure pas dans l'interface. On peut noter un exercice, mais on ne peut pas connaître "l'avis" général.
 \end{itemize}
@@ -117,12 +114,12 @@ Cette plateforme cherche à améliorer les compétences des développeurs en pro
         \item Terminal
         \item Concurrence
     \end{itemize}
-    \item Deux grandes catégories de tags sont présentes :
+    \item Deux grandes catégories de \glspl{tag} sont présentes :
     \begin{itemize}
         \item Topics
         \item Entreprises
     \end{itemize}
-    \item Chacun des tags est associé à un nombre correspondant au nombre d'exercices contenant ce tag.
+    \item Chacun des \glspl{tag} est associé à un nombre correspondant au nombre d'exercices contenant ce \gls{tag}.
     \item Possibilité de filtrer les exercices en fonction de la difficulté, du statut (résolu, à faire, essayé).
     \item On peut résoudre de manière interactive le challenge depuis la plateforme (à condition d'être connecté).
     \item On peut liker ou disliker un exercice.
@@ -133,8 +130,8 @@ Cette plateforme cherche à améliorer les compétences des développeurs en pro
 \subsubsection*{Défaut(s)}
 
 \begin{itemize}
-    \item Malgré un choix varié de tags, ces derniers ne sont pas classés dans des catégories différentes.
-    \item Les tags ne sont pas directement accessibles depuis l'interface car il faut scroller.
+    \item Malgré un choix varié de \glspl{tag}, ces derniers ne sont pas classés dans des catégories différentes.
+    \item Les \glspl{tag} ne sont pas directement accessibles depuis l'interface car il faut scroller.
     \item Aucune spécificité au niveau des langages de programmation (exemple: des exercices en C pour la gestion de la mémoire).
     \item Il faut obligatoirement se connecter pour s'exercer avec la plateforme.
 \end{itemize}
@@ -146,29 +143,79 @@ CodeForces est une plateforme créée par une communauté de programmation axée
 \subsubsection*{Qualité(s)}
 
 \begin{itemize}
-    \item Sur la page d'accueil, les derniers challenges créés sont publiés par leur créateur
+    \item On peut voir le nombre d'utilisateurs ayant résolu le challenge.
 \end{itemize}
+
 \subsubsection*{Défaut(s)}
+
+Cette plateforme est un exemple concret de site web que nous ne voulons pas créer tant l'ergonomie et les différentes fonctionnalités ne sont pas assez matures ou pertinentes à notre égard.\\
+
+\begin{itemize}
+    \item La recherche n'est pas claire du tout. Pour afficher la barre de recherche, il faut cliquer sur une flèche bleue (pas logique).
+    \item On peut filtrer les challenges en cliquant sur un des \gls{tag} présent sur un des exercices, mais on ne peut pas y rajouter un autre \gls{tag} (cela efface la précédente sélection).
+    \item Possibilité de rajouter des \glspl{tag} avec un panneau latéral (sur la droite), mais les options sont très sommaires (difficultés, \glspl{tag} dans une liste déroulante conséquente). C'est aussi le seul moyen de prendre connaissance avec la panoplie de \glspl{tag} proposés.
+    \item On peut filtrer les exercices par niveau de difficulté, mais il n'y a aucune indication pour nous dire ce que cela représente. Concrètement, il faut entrer un nombre entre plancher X et plafond Y (le plus grand nombre enregistré pour identifier la difficulté d'un exercice était de 3800).
+    \item Aucun moyen de réinitialiser la recherche. La seule manière est de retirer manuellement les \glspl{tag} sélectionnés et le titre de recherche.
+\end{itemize}
 
 \subsection*{Codechef}
 
+\textit{CodeChef est un site de programmation compétitif. Il s'agit d'une initiative éducative à but non lucratif de Directi, qui vise à fournir une plate-forme pour les étudiants, les jeunes professionnels du logiciel, afin qu'ils puissent s'exercer et affiner leurs compétences en programmation grâce à des concours en ligne. En outre, le programme "CodeChef For Schools" vise à atteindre les jeunes étudiants et à inculquer une culture de la programmation dans les écoles indiennes.}
+
 \subsubsection*{Qualité(s)}
 
+\begin{itemize}
+    \item La recherche est basée sur le niveau de difficulté : débutant, facile, normal, difficile et challenge.
+    \item On interagir de manière interactive avec la plateforme pour soumettre son code.
+    \item On peut filtrer des exercices par \glspl{tag} en utilisant une interface dédiée.
+    \item On peut connaître le nombre d'exercices se rapportant à un \gls{tag}.
+    \item Possibilité de filtrer par auteur.
+\end{itemize}
+
 \subsubsection*{Défaut(s)}
+
+\begin{itemize}
+    \item Il faut obligatoirement se connecter pour soumettre un exercice.
+    \item Il n'y a pas de catégorie de \glspl{tag}, ils sont tous affichés de manière pêle-mêle depuis l'interface.
+    \item Pas de barre de recherche pour trouver un exercice en fonction de son titre.
+\end{itemize}
 
 \subsection*{Coderbyte}
 
-\subsubsection*{Qualité(s)}
-
-\subsubsection*{Défaut(s)}
-
-\subsection*{Wiki Haskell}
+\textit{CoderByte} est une plateforme proposant divers challenges de programmation en vue d'améliorer les compétences des développeurs et les préparer à une future interview avec une entreprise.
 
 \subsubsection*{Qualité(s)}
 
+\begin{itemize}
+    \item La plateforme propose un système de \glspl{tag} avec 3 catégories : difficulté, entreprise, \glspl{tag}. Il se situe dans un panneau latéral accessible sur le coté droit de l'écran.
+    \item Parmi les \glspl{tag}, on peut en sélectionner plusieurs dans la même catégorie (OU logique) tout en sélectionnant d'autres \glspl{tag} dans une autre catégorie (ET logique entre les différentes catégories).
+    \item On peut résoudre les challenges directement depuis la plateforme et sélectionner son langage de prédilection.
+    \item Pas besoin de se connecter pour résoudre un challenge.
+    \item On peut participer à une discussion autour d'un challenge particulier.
+\end{itemize}
+
 \subsubsection*{Défaut(s)}
 
+\begin{itemize}
+    \item Pas de barre de recherche pour trouver un exercice en fonction de son titre.
+    \item Classification sommaire des \glspl{tag} (les langages de programmation sont mélangés avec les thématiques,...).
+\end{itemize}
 
-% Tableau avec les plateformes existantes
+
 \section{Problème}
+
+L'analyse précédente des plateformes existantes nous a permis d'esquisser les fondements de notre application web. Dans cette section, nous allons donc nous intéresser aux obstacles à franchir pour créer une plateforme de partage de ressources informatiques, en particulier la nôtre.\\
+
+Le recherche de ressources informatiques demeure la base de \texttt{SourceCode}. Par conséquent, l'élaboration d'une \textbf{bibliothèque} proposant une recherche efficace et pratique est un premier jalon à traverser.\\
+
+Se pose ensuite la question du \textbf{contenu d'une \gls{fiche}}. Cette dernière contiendrait probablement un titre et une description, mais le plus important reste son \textbf{référencement} à travers l'application. Il s'agirait alors d'intégrer \textbf{un système de \glspl{tag}} cohérent permettant de retrouver rapidement une \gls{fiche}.\\
+
+\textbf{Le système de \glspl{tag}} serait incontestablement le cœur de l'interface de recherche de ressources informatiques. Non seulement il devrait être facilement accessible, mais il devrait aussi proposer une \textbf{\textit{taxonomie}} logique et compréhensible par les utilisateurs de la plateforme. Nous entendons par \textit{taxonomie}, une catégorisation des différents \glspl{tag} pour faciliter la recherche.\\
+
+Un autre besoin à satisfaire serait la création d'une \textbf{interface de gestion} permettant d'ajouter des ressources, de créer des \glspl{tag},... Qui dit ajout, dit forcément \textbf{modération} si l'application souhaite prétendre à du \textit{contenu qualitatif}. Dans cette perspective, il est alors question de déterminer une organisation sous \textit{différents types d'utilisateurs} avec des privilèges propres.\\
+
+Étant donné que \textit{la qualité} du contenu est un critère important, il serait judicieux d'élaborer un \textbf{système de statuts} pour les ressources publiées. Cela permettrait ainsi de garder une \textbf{bibliothèque} ayant du contenu filtré. Reste à déterminer le nombre de statuts et leur utilité.\\
+
+
+
 \section{Défis à relever}
