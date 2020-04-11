@@ -60,7 +60,8 @@ Le tableau ci-dessous regroupent les différents sites web parcourus. Dans les s
 \begin{itemize}
     \item Interface très simpliste.
     \item \textbf{On doit se connecter} pour accéder à la recherche avancée.
-    \item Pas de catégorie de mots clés pour la recherche avancée : les éléments sont affichés de manière pêle-mêle dans une liste déroulante conséquente.
+    % TODO glossaire ?
+    \item Pas de \gls{tagCat} pour la recherche avancée : les éléments sont affichés de manière pêle-mêle dans une liste déroulante conséquente.
     \item La recherche de problèmes sans la recherche avancée n'est pas pratique.
 \end{itemize}
 
@@ -214,8 +215,16 @@ Se pose ensuite la question du \textbf{contenu d'une \gls{fiche}}. Cette derniè
 
 Un autre besoin à satisfaire serait la création d'une \textbf{interface de gestion} permettant d'ajouter des ressources, de créer des \glspl{tag},... Qui dit ajout, dit forcément \textbf{modération} si l'application souhaite prétendre à du \textit{contenu qualitatif}. Dans cette perspective, il est alors question de déterminer une organisation sous \textit{différents types d'utilisateurs} avec des privilèges propres.\\
 
-Étant donné que \textit{la qualité} du contenu est un critère important, il serait judicieux d'élaborer un \textbf{système de statuts} pour les ressources publiées. Cela permettrait ainsi de garder une \textbf{bibliothèque} ayant du contenu filtré. Reste à déterminer le nombre de statuts et leur utilité.\\
-
-
+\textit{la qualité} du contenu est un critère important pour une telle application, il serait donc judicieux d'élaborer un \textbf{système de statuts} pour les ressources publiées. Cela permettrait ainsi de garder une \textbf{bibliothèque} avec du contenu filtré. Reste à déterminer le nombre de statuts et leur utilité.\\
 
 \section{Défis à relever}
+
+\begin{itemize}
+    \item Proposer une \textbf{\textit{interface}} \textbf{simple et ergonomique} à destination d'un public varié. Pour rappel, la cible principale est l'équipe pédagogique (professeurs, doctorants, formateurs,...), le reste étant majoritairement des étudiants.
+    \item Créer un \textbf{\textit{système de \glspl{tag}}} \textbf{évolutif et extensible}. Nous entendons par là la possibilité de créer/modifier des \glspl{tag}, créer/modifier des \glspl{tagCat},...
+    \item Proposer une \textbf{\textit{interface} de modération complète} pour gérer les \glspl{tag}, les \glspl{tagCat}, les ressources informatique et les utilisateurs.
+    \item La \textbf{\textit{recherche de ressources informatiques}} doit fonctionner de manière \textbf{efficace}. À ce propos, le site \textit{coderByte} propose une bonne façon de rechercher des exercices avec un panneau latéral comportant des \glspl{tag} rangés dans des catégories. Nous allons donc nous inspirer de cette pratique pour naviguer dans la bibliothèque, tout en ajoutant une barre de recherche pour naviguer dans les titres des ressources informatiques.
+    \item Créer et intégrer à l'application un \textbf{\textit{outil pour importer/exporter}} rapidement des ressources informatiques, des \glspl{tag} et \glspl{tagCat}. 
+    \item Une piste non explorée par les différentes plateformes précédemment analysées est de proposer une \textbf{\textit{recherche de ressources informatiques}} plus \textbf{pratique}. Nous pensons donc à intégrer un \textbf{\textit{historique}} et un \textbf{\textit{système de favoris}} pour naviguer plus aisément dans les recherches effectuées antérieurement.
+\end{itemize}
+
