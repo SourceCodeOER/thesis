@@ -3,7 +3,7 @@
 
 \subsection*{Choix de l'environnement de programmation}
 
-Parmi la myriade de langages de programmations (avec leurs différentes plate-formes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js aussi bien pour le \Gls{backend} que pour le \Gls{frontend}. \\
+Parmi la myriade de langages de programmations (avec leurs différentes plate-formes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js pour toutes les parties de notre solution (\Gls{backend}, \Gls{frontend} et \Gls{cli}). \\
 
 Ce langage ne vous est peut-être pas tout à fait inconnu en effet, il est souvent utilisé conjointement avec les interfaces HTML du côté client. Le JavaScript est souvent mal considéré par les utilisateurs, lesquels mettent en cause ses difficultés. \\
 
@@ -12,8 +12,10 @@ Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avanta
 Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript du côté serveur qui servira à répondre aux requêtes du client, tout en bénéficiant des avantages du JavaScript. \\
 
 % width=\textwidth,height=\textheight,keepaspectratio
+% height=0.24\textheight semble être la seule solution
+% car scale fait n'importe quoi
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/SchemaNodejs.png}
+    \includegraphics[width=\textwidth,height=0.24\textheight,keepaspectratio]{images/SchemaNodejs.png}
     \centering
     % Un caption alternative pour ne pas afficher la ref dans la table des figures
     \caption[Du JavaScript aussi bien côté serveur que client]{Du JavaScript aussi bien côté serveur que client~\cite{NodejsIllustrations}}
@@ -24,7 +26,7 @@ Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de No
 
 Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation) , approche hybride entre la compilation et l'interprétation, dont nous pouvons schématiser leur mode de fonctionnement individuel par la figure suivante :
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/compilationVSinterpretation.png}
+    \includegraphics[width=\textwidth,height=0.2\textheight,keepaspectratio]{images/compilationVSinterpretation.png}
     \centering
     \caption{Compilation et interprétation - mode de fonctionnement}
 \end{figure}
@@ -42,7 +44,7 @@ Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces ta
 
 % width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
+    \includegraphics[width=\textwidth,height=0.19\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
     \centering
     % Un caption alternative pour ne pas afficher la ref dans la table des figures
     \caption[Bloquant/non-bloquant : un exemple pour l'illustrer]{Bloquant/non-bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
@@ -87,11 +89,12 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
 % TODO à remplacer par ceux que tu as "comparé"
 \begin{table}[H]
     \centering
+    \begin{threeparttable}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
         Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
     \hline
-        \href{https://vuejs.org}{Vue.js} &
+        \href{https://vuejs.org}{Vue.js}\tnote{1} &
         B &  
         B &
         B &            
@@ -99,7 +102,7 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
         B &
         4.5 \\
     \hline
-        \href{https://angular.io}{Angular} &
+        \href{https://angular.io}{Angular}\tnote{2} &
         B &                
         B &   
         B &
@@ -107,7 +110,7 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
         B &       
         4.5 \\
     \hline
-        \href{https://fr.reactjs.org}{React} &
+        \href{https://fr.reactjs.org}{React}\tnote{3} &
         B &                
         B &     
         S &
@@ -116,6 +119,12 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
         4.5 \\  
     \hline
     \end{tabular}
+    \begin{tablenotes}
+        \item[1] \url{https://vuejs.org}
+        \item[2] \url{https://angular.io}
+        \item[3] \url{https://fr.reactjs.org}
+    \end{tablenotes}
+    \end{threeparttable}
     \caption{Comparatif de quelques frameworks pour le \Gls{frontend}}
     \label{table:compFrameworksFrontend}
 \end{table}
@@ -132,11 +141,12 @@ Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} 
 
 \begin{table}[H]
     \centering
+    \begin{threeparttable}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
         Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
     \hline
-        \href{https://expressjs.com/}{Express} &
+        \href{https://expressjs.com/}{Express}\tnote{1} &
         B &  
         S &
         S &            
@@ -144,7 +154,7 @@ Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} 
         B &
         4 \\
     \hline
-        \href{https://loopback.io/}{LoopBack} &
+        \href{https://loopback.io/}{LoopBack}\tnote{2} &
         B &                
         B &   
         S &
@@ -152,7 +162,7 @@ Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} 
         S &      
         3 \\
     \hline
-        \href{https://feathersjs.com/}{Feathers} &
+        \href{https://feathersjs.com/}{Feathers}\tnote{3} &
         B &                
         B &     
         S &
@@ -161,6 +171,12 @@ Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} 
         3 \\  
     \hline
     \end{tabular}
+    \begin{tablenotes}
+        \item[1] \url{https://expressjs.com/}
+        \item[2] \url{https://loopback.io/}
+        \item[3] \url{https://feathersjs.com/}
+    \end{tablenotes}
+    \end{threeparttable}
     \caption{Comparatif de quelques frameworks pour l'\Gls{api}}
     \label{table:compFrameworksAPI}
 \end{table}
@@ -171,11 +187,12 @@ Express a été la solution que nous avons retenue car celui-ci offre, bien qu'a
 
 \begin{table}[H]
     \centering
+    \begin{threeparttable}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
         Framework & Doc & Fcts & Maint & Pop & Perfs & Total \\
     \hline
-        \href{http://yargs.js.org/}{Yargs} &
+        \href{http://yargs.js.org/}{Yargs}\tnote{1} &
         B &  
         B &
         B &            
@@ -183,7 +200,7 @@ Express a été la solution que nous avons retenue car celui-ci offre, bien qu'a
         B &   
         4.5 \\
     \hline
-        \href{https://github.com/tj/commander.js}{Commander.js} &
+        \href{https://github.com/tj/commander.js}{Commander.js}\tnote{2} &
         S &                
         S &   
         M &
@@ -191,7 +208,7 @@ Express a été la solution que nous avons retenue car celui-ci offre, bien qu'a
         S &  
         2 \\
     \hline
-        \href{https://github.com/SBoudrias/Inquirer.js}{Inquirer.js} &
+        \href{https://github.com/SBoudrias/Inquirer.js}{Inquirer.js}\tnote{3} &
         S &                
         B &     
         S &
@@ -200,6 +217,12 @@ Express a été la solution que nous avons retenue car celui-ci offre, bien qu'a
         3 \\  
     \hline
     \end{tabular}
+        \begin{tablenotes}
+        \item[1] \url{http://yargs.js.org/}
+        \item[2] \url{https://github.com/tj/commander.js}
+        \item[3] \url{https://github.com/SBoudrias/Inquirer.js}
+    \end{tablenotes}
+    \end{threeparttable}
     \caption{Comparatif de quelques frameworks pour le \Gls{cli}}
     \label{table:compFrameworksCLI}
 \end{table}
