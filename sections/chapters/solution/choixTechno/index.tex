@@ -31,7 +31,7 @@ Ce moteur, développé par Google, très performant et optimisé propose la comp
     \caption{Compilation et interprétation - mode de fonctionnement}
 \end{figure}
 
-Malheureusement, la compilation et l'interprétation ont chacune leurs qualités et défauts, que l'on peut synthétiser en 4 grand points :
+Malheureusement, la compilation et l'interprétation ont chacune leurs qualités et défauts, que l'on peut synthétiser en 4 grands points :
 \begin{itemize}
     \item Une fois compilé, on ne peut plus changer le programme (contrairement à l'interprétation)
     \item En cas d'erreur(s) dans le programme, la compilation les affiche dans la phase "compilation" contrairement à l'interprétation qui les affiche à l'exécution. 
@@ -56,7 +56,7 @@ Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces ta
 \subsection*{Choix des frameworks}
 
 % Sans doute une référence à mettre
-Un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage : 
+De manière générale, un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage : 
 \begin{itemize}
     \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
     \item Une standardisation de la programmation permettant ainsi d'interchanger, d'injecter et/ou réutiliser du code existant pour ne pas "réinventer la roue".
@@ -133,7 +133,13 @@ Le choix entre ces trois frameworks s'apparente à une décision plus que subjec
 
 Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Cependant, Vue détient le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
 
-Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js} qui permet d'encapsuler la logique des routes, des stores, des plugins et des middlewares de telle manière à ce que le code soit plus facilement maintenable. En outre, il ajoute aussi le mode \textit{SSR} (Server Side Rendering), qui permet à l'application d'être performante, tout en profitant d'un boost pour le référencement naturel (SEO).
+% Temporairement on va changer le style de footnote, pour éviter une confusion
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js}\footnote{\url{https://fr.nuxtjs.org/}} qui permet d'encapsuler la logique des routes, des stores, des plugins et des middlewares de telle manière à ce que le code soit plus facilement maintenable. En outre, il ajoute aussi le mode \textit{SSR} (Server Side Rendering), qui permet à l'application d'être performante, tout en profitant d'un boost pour le référencement naturel (SEO).
+
+% On n'oublie pas de le resetter
+\renewcommand{\thefootnote}{\arabic{footnote}}
 
 \subsubsection*{Framework pour l'\Gls{api}}
 
@@ -252,8 +258,8 @@ Compte tenu du nombre relativement élevé de librairies que nous avons utilisé
 % Tiptap (éditeur de texte)
 % Axios (pour les requests)
 
-% Un page break
-%\pagebreak
+% Un page break pour l'instant
+\pagebreak
 \subsubsubsection{Librairies communes}
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
