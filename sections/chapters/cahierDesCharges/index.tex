@@ -41,8 +41,6 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
 \subsubsection*{Tout visiteur peut : }
 
 \begin{itemize}
-    \item[\textcolor{red}{\textbf{M}}] Se connecter à l'application via une adresse mail et un mot de passe
-    \item[\textcolor{red}{\textbf{M}}] S'inscrire à l'application
     \item[\textcolor{red}{\textbf{M}}] Rechercher des \glspl{fiche} dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
     \begin{itemize}
         \item Rechercher dans le titre des \glspl{fiche}
@@ -54,6 +52,8 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \end{itemize}
         \item[\textcolor{red}{\textbf{M}}] Consulter une \gls{fiche}
     \item[\textcolor{red}{\textbf{M}}] Consulter les \glspl{tag} et \glspl{tagCat} existants (optionnellement avec des statistiques d'utilisation de ceux-ci)
+    \item[\textcolor{red}{\textbf{M}}] S'inscrire à l'application
+    \item[\textcolor{red}{\textbf{M}}] Se connecter à l'application via une adresse mail et un mot de passe
     \item[\textcolor{orange}{\textbf{S}}] Ordonner les \glspl{fiche} lors de la recherche avec une libre combinaison des paramètres suivants (en précisant pour chacun l'ordre du tri : ascendant / descendant) :
             \begin{itemize}
             \item le résultat moyen des votants pour une \gls{fiche}
@@ -71,17 +71,16 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier)
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche}  lui appartenant
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche}  lui appartenant
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (des restrictions que nous détaillerons dans la section TODO sont présentes pour éviter des dérives)
     \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s)
-    \item[\textcolor{orange}{\textbf{S}}] Évaluer une \gls{fiche}  
     \item[\textcolor{orange}{\textbf{S}}] Gestion de favoris
     \item[\textcolor{orange}{\textbf{S}}] Utilisation des favoris dans la recherche de \gls{fiche}s
+    \item[\textcolor{orange}{\textbf{S}}] Évaluer une \gls{fiche}  
     \item[\textcolor{orange}{\textbf{S}}] Consulter / Modifier ses informations personnelles
 \end{itemize}
 
 \subsubsection*{Tout administrateur peut : }
 \begin{itemize}
-    \item[\textcolor{red}{\textbf{M}}] Exporter des \glspl{fiche} au format JSON
     \item[\textcolor{red}{\textbf{M}}] Importer plusieurs \glspl{fiche} sur base d'un fichier JSON.
         Cette fonctionnalité comprend les fonctionnalités sous jacentes suivantes :
         \begin{itemize}
@@ -90,6 +89,7 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
             \item Créer automatiquement les \glspl{tagCat} non existantes dans le système
             \item Associer les \glspl{tag} à leurs \glspl{fiche} respectives. 
         \end{itemize}
+    \item[\textcolor{red}{\textbf{M}}] Exporter des \glspl{fiche} au format JSON
     \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s) (avec éventuellement un état spécifique pour chacun)
     \item[\textcolor{red}{\textbf{M}}] Modifier un \gls{tag} 
     \item[\textcolor{red}{\textbf{M}}] Modifier une \gls{tagCat} 
