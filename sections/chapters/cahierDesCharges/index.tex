@@ -73,8 +73,8 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche}  lui appartenant
     \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (des restrictions que nous détaillerons dans la section TODO sont présentes pour éviter des dérives)
     \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s)
-    \item[\textcolor{orange}{\textbf{S}}] Gestion de favoris
-    \item[\textcolor{orange}{\textbf{S}}] Utilisation des favoris dans la recherche de \gls{fiche}s
+    \item[\textcolor{orange}{\textbf{S}}] Gérer des favoris
+    \item[\textcolor{orange}{\textbf{S}}] Utiliser des favoris dans la recherche de \gls{fiche}s
     \item[\textcolor{orange}{\textbf{S}}] Évaluer une \gls{fiche}  
     \item[\textcolor{orange}{\textbf{S}}] Consulter / Modifier ses informations personnelles
 \end{itemize}
@@ -180,9 +180,18 @@ Ce travail s'est déroulé dans le cadre d'un mémoire universitaire. Étant don
 Pour cela, nous avons sélectionné des technologies relativement bien documentées et populaires de telle sorte que nos successeurs n'éprouvent pas de difficulté à se former à celles-ci. Vous pourrez retrouver des explications plus détaillées à ce sujet dans la section \ref{section:choixTechnologiques}.
 
 \subsection*{Ergonomie}
-TODO (partie Alexandre)
 
+Un application web à destination d'un public varié et conséquent se doit d'avoir une interface simple et efficace. On peut considérer que le design d'une application est subjectif d'une certaine manière, mais un point à ne sûrement pas négliger se situe autour de l'ergonomie. La question à se poser pour chaque interface est alors de savoir comment disposer les éléments afin de rendre la navigation la plus claire et pratique possible. Nous nous sommes donc concentrés sur cette problématique en élaborant un patchwork que vous pouvez consulter à la fin de la section \ref{section:problem}\\
+
+Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Olivier Goletti}, les conseils et recommandations ont souvent été pris en compte pour améliorer l'expérience utilisateur. Par la même occasion, nous avons fait tester l'application à différents utilisateurs (amis, designer) tout au long de la phase de développement afin de nous faire part de leur ressenti.
+
+% Expliquer la contrainte  Postgresql, cela va prendre de la place
+\pagebreak
 \section {Contraintes}
+
+Une première contrainte évidente est indubitablement le temps. Nous avons consacré année académique entière sur ce mémoire mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
+
+Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout,...).
 % Expliquer les contraintes :
 %    - Maintenabilité / Extensibilité  du code
 %    - Gestion simple du système (quand Mens disait que les admins ne devaient pas avoir à toucher à la DB pour faire x ou y truc)
