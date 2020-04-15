@@ -171,3 +171,11 @@
 \renewcommand{\appendixname}{Annexe}
 \renewcommand{\appendixpagename}{Annexes}
 \renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\setthesection}{\Alph{section}}
+
+% Pour ignorer des figures / tables des tables
+% C'est uniquement pour les annexes, pour ne pas polluer le tout
+% \captionsetup{list=no} pour cacher
+% https://latex.org/forum/viewtopic.php?t=8034
+% https://texblog.org/2010/05/02/excluding-items-from-list-of-figures-list-of-tables/
+\usepackage{caption}
