@@ -179,3 +179,13 @@
 % https://latex.org/forum/viewtopic.php?t=8034
 % https://texblog.org/2010/05/02/excluding-items-from-list-of-figures-list-of-tables/
 \usepackage{caption}
+
+% Puisque qu'on risque d'avoir besoin de numéroter avec un niveau de profondeur différent pour chaque chapitre, voici une commande custom pour setter
+% Origine de l'idée 
+% https://tex.stackexchange.com/questions/290973/hide-sections-of-specific-chapter-from-table-of-contents
+
+% L'argument, c'est le niveau de profondeur pour ce chapitre
+\newcommand{\setcustomtocdepth}[1]{
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}
+    %\setcounter{tocdepth}{#1}%
+}
