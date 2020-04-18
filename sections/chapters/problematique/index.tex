@@ -1,5 +1,8 @@
 % Parler du problème
 \chapter{Problématique}
+
+Dans ce chapitre, nous allons nous concentrer sur l'analyse d'applications web existantes. Cette dernière est importante car elle nous permettra de définir les besoins clés d'une application de partage de \glspl{resinfo}. Cette étape correspond à la première phase de notre planning (voir figure \ref{pic:ganttChart} en rouge). Vous pouvez considérez ce chapitre comme une introduction au chapitre 4, où nous développerons plus en détail les besoins spécifiques de \texttt{SourceCode}.
+
 \section{Situation actuelle}
 
 Pour mieux comprendre l'univers des \glspl{resinfo}, nous avons analysé différentes plateformes. Bien que ces dernières n'apportent pas de solution précisément axée sur notre problématique, elles nous ont tout de même permis d'extraire des éléments pertinents à la création de notre plateforme : \texttt{SourceCode}.\\
@@ -357,9 +360,11 @@ Afin de vous donner une petite idée de ce que nous avons imaginé après la pre
 \section{Défis à relever}
 \label{section:challengesToDefeat}
 
+Après avoir formalisé les besoins d'une application de partage de \glspl{resinfo}, nous allons maintenant lister ce que nous allons mettre en place pour réaliser notre plateforme. Notez que cette liste est introductive à l'analyse fonctionnelle relatée dans la section \ref{section:analyseFonctionnelle} mais nous avions besoin de cette étape pour avoir une vue au global de \texttt{SourceCode} avant d'aller un peu plus dans les détails.
+
 \begin{itemize}
-    \item Proposer une interface simple et ergonomique à destination d'un public varié. Pour rappel, la cible principale est l'équipe pédagogique (professeurs, doctorants, formateurs,...), le reste étant majoritairement des étudiants.
-    \item Créer un système de \glspl{tag} évolutif et extensible. Nous entendons par là la possibilité de créer/modifier des \glspl{tag}, créer/modifier des \glspl{tagCat},...
+    \item Proposer une interface simple et ergonomique à destination d'un public varié. Pour rappel, la cible principale est l'équipe pédagogique (professeurs, doctorants, formateurs,...), le reste étant majoritairement des étudiants. Peu importe le type d'utilisateur, l'outil doit être suffisamment clair que pour comprendre les fonctionnalités clés de l'application (recherche de \glspl{resinfo}, création de \glspl{fiche}, gestion des favoris,...).
+    \item Créer un système de \glspl{tag} évolutif et extensible. Nous entendons par là la possibilité de créer/modifier/proposer des \glspl{tag}, créer/modifier des \glspl{tagCat},... Cela permettra ainsi de ne pas figer l'application sur une poignée de \glspl{tag} mais aussi de s'adapter à de nouvelles conventions en renommant certains d'entre eux.
     \item Proposer une interface de modération complète pour gérer les \glspl{tag}, les \glspl{tagCat}, les \glspl{resinfo} et les utilisateurs. En outre, les interfaces d'administration ne seraient disponibles qu'à partir du moment où l'utilisateur possède un compte éligible d'administrateur. Les autres interfaces de gestion pour ses propres \glspl{resinfo} devraient être accessibles aux utilisateurs possédant un simple compte utilisateur.
     \item La recherche de \glspl{resinfo} doit fonctionner de manière efficace. À ce propos, le site \textit{coderByte} propose une bonne façon de rechercher des exercices, avec un panneau latéral comportant des \glspl{tag} rangés dans des catégories. Nous allons donc nous inspirer de cette pratique pour naviguer dans la bibliothèque, tout en ajoutant une barre de recherche pour naviguer dans les titres des \glspl{resinfo}.
     \item Créer et intégrer à l'application un outil pour importer/exporter rapidement des \glspl{resinfo}, des \glspl{tag} et \glspl{tagCat}. Ajouter des \glspl{resinfo} peut être chronophage dans le cas où il y aurait quelques dizaines de \glspl{fiche} à créer depuis l'interface de gestion. Nous souhaitons donc automatiser le processus de création en proposant un format d'import acceptant les éléments précédemment cités. À l'inverse, exporter des \glspl{resinfo} depuis notre plateforme devrait être rendu possible afin de partager les ressources avec d'autres plateformes par exemple.
