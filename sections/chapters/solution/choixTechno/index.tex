@@ -271,30 +271,52 @@ TODO
 \subsubsubsection{Librairies pour le \Gls{frontend}}
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-\noindent\underline{VeeValidate}\\
+\noindent\underline{\href{https://logaretm.github.io/vee-validate/}{VeeValidate}}\\
 
 Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de charactères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire,...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
 
 Voici un petit exemple d'utilisation tiré du fichier \texttt{login.vue}, responsable d'afficher la page de connexion à un compte :\\
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/libraries/veevalidate.png}
+    \centering
+    \caption[VeeValidate : Exemple d'utilisation]{Exemple sur la page login}
+\end{figure}
 
 ValidationObserver et ValidationProvider sont deux composants de VeeValidate permettant de gérer un formulaire. Le premier fait office de conteneur, auquel on attache un ou plusieurs ValidationProvider responsables d'un champ en particulier (texte, checkbox,...). Pour chaque ValidationProvider, il suffit d'ajouter une règle de validation comme c'est le cas pour le champ email : required|email (champ obligatoire et doit être un email).\\
 
 Lorsque l'utilisateur cliquera sur le bouton de connexion, une fonction de validation va être lancée pour dans un premier temps valider le formulaire. Si toutes les règles sont respectées, alors les données sont envoyées à l'API, sinon, un message d'erreur avec l'explication de la règle non respectée s'affichera juste en dessous du champ incorrect.\\
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-\noindent\underline{Tiptap}\\
+\noindent\underline{\href{https://tiptap.scrumpy.io}{Tiptap}}\\
 
 Tiptap est un éditeur de texte riche "renderless" (Ce terme signifie que la conception du design nous appartient). Cette librairie prévue pour fonctionner avec VueJS permet de mettre en place assez rapidement un éditeur de texte complet et flexible. On peut aisément y rajouter des options comme des trigger que l'on peut attacher à des boutons pour styliser le texte plus facilement. Pour exemple, voici à quoi ressemble l'éditeur de texte de la description d'une \gls{resinfo} :\\
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/libraries/tiptap.png}
+    \centering
+    \caption[Tiptap : Exemple d'utilisation]{Exemple d'un éditeur de texte}
+\end{figure}
+
 Les boutons en dessous du champ texte permettent de formatter le texte (gras, italique, souligné, barré). En cliquant sur un d'eux, le trigger attaché au bouton va lancer une des méthodes appartenant à Tiptap pour modifier le texte et rendre les modifications automatiquement visibles pour l'utilisateur dans l'éditeur de texte.\\
 
-\noindent\underline{Highlight.js}\\
+\noindent\underline{\href{https://highlightjs.org}{Highlight.js}}\\
 
 Librairie permettant de détecter automatiquement le langage de programmation dans un texte et de lui appliquer la coloration syntaxique adéquate. Highlight.js est utilisé conjointement avec la libraire Tiptap pour écrire du code dans l'éditeur et profiter de la coloration syntaxique (voir image précédente).\\
 
-\noindent\underline{Axios}\\
+\noindent\underline{\href{https://axios.nuxtjs.org/}{Axios}}\\
 
-Librairie facilitant de manière drastique la conception de requêtes HTTP. Nous utilisons Axios pour communiquer avec notre API dont voici un exemple : \\
+Librairie facilitant de manière drastique la conception de requêtes HTTP. Nous utilisons donc Axios pour communiquer avec notre API. Voici un exemple d'utilisation : \\
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/libraries/axios.png}
+    \centering
+    \caption[Axios : Exemple d'utilisation]{Exemple d'une POST request}
+\end{figure}
+
+Axios contient plusieurs méthodes dont \$post qui est utilisée dans l'exemple. Il suffit de donner en premier argument le endpoint (/api/search) et le payload que l'on veut envoyer en deuxième argument.\\
+
+Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses}{Promesse} contenant la réponse ou une erreur si la requête ne s'est pas bien executée. Une bonne pratique consiste donc à entourer la requête avec un bloc try/catch pour gérer les deux cas.\\
 
 \subsubsubsection{Librairies pour le \Gls{backend}}
 
