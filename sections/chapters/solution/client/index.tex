@@ -13,7 +13,9 @@ Pour vous donner une idée plus claire de ce qui va être abordé, voici une rep
 \end{figure}
 
 Cette figure sera notre fil conducteur tout au long de cette section car nous allons analyser chaque partie en profondeur. 
-Les URL en noir signifient qu'elles renferment un niveau supplémentaire d'URL tandis que les bleu désignent une page de contenu. Lorsqu'une URL contient \textit{\_id}, cela peut être remplacé par un nombre naturel $ n $  $\epsilon$   $\mathbb{N}$ $/ \{0\}$.\\
+Les URL en noir signifient qu'elles renferment un niveau supplémentaire d'URL tandis que les bleu désignent une page de contenu.\\
+
+\textbf{Attention :} Lorsqu'une URL contient \textit{\_id}, cela peut être remplacé par un nombre naturel $ n $  $\epsilon$   $\mathbb{N}$ $/ \{0\}$. Les id's représentent l'id d'une entité stockée dans la base de données. Exemple : pour récupérer l'exercice ayant l'id 42 (pour autant qu'il existe), il suffit de renseigner l'URL \textit{/exercices/42}.\\
 
 Les deux premières URL de la figure désignent les interfaces de connexion à \texttt{SourceCode} ainsi que la création d'un compte.\\
 
@@ -26,6 +28,7 @@ L'URL \textit{/administration} contient les fonctionnalités exigeant le plus ha
 
 L'URL \textit{/tutoriel} concerne un aspect plus ludique de \texttt{SourceCode}. Au travers différentes pages, une thématique de l'application est décortiquée afin que l'utilisateur puisse améliorer sa prise en main avec la plateforme.\\
 
+Avant d'aller plus loin, considérez la section \ref{section:challengesToDefeat} afin de vous remettre en tête ce que nous voulions apporter à \texttt{SourceCode}. Une liste plus exhaustive des fonctionnalités à intégrer se trouve en section \ref{section:analyseFonctionnelle}.
 
 \subsection{Connexion et création de compte}
 
@@ -54,7 +57,7 @@ Le formulaire de création nécessite une adresse email (unique), un mot de pass
     \caption[SourceCode : interface de connexion]{Interface de connexion}
 \end{figure}
 
-Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son adresse email et son mot de passe. Une session d'une heure lui sera attribuée pour gérer ses ressources, favoris,... Après quoi il sera redirigé vers la page de login pour entrer à nouveau ses identifiants. Ce comportement est bien évidement modifiable depuis l'api (voir section \textbf{???}).\\
+Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son adresse email et son mot de passe. Pour l'instant, une session d'une heure lui sera attribuée pour gérer ses ressources, favoris,... Après quoi il sera redirigé vers la page de login pour entrer à nouveau ses identifiants. Ce comportement est bien évidement modifiable depuis l'api (voir section \textbf{???}) mais nous avions surtout choisi ce timing pour la séance de validation de notre plateforme (section ???).\\
 
 
 \subsection{Exercices}
@@ -70,13 +73,15 @@ La bibliothèque constitue l'élément central de \texttt{SourceCode} pour le pa
 Cette section peut se découper en deux parties distinctes :
 
 \begin{itemize}
-    \item La bibliothèque, accessible depuis l'URL \textit{/exercices}. Nous y aborderons le système de recherche mis en place, les privilèges utilisateurs sur cette page ainsi que les choix ergonomiques.\\
-    \item La \gls{fiche} d'une \gls{resinfo}, accessible depuis l'URL \textit{/exercices/\_id}. Nous y expliquerons le référencement de la \gls{fiche} afin d'établir un lien avec de la bibliothèque.
+    \item La bibliothèque (accessible depuis l'URL \textit{/exercices}) : nous y aborderons le système de recherche mis en place, les privilèges utilisateurs sur cette page ainsi que les choix ergonomiques.\\
+    \item La \gls{fiche} d'une \gls{resinfo} (accessible depuis l'URL \textit{/exercices/\_id}) : nous y expliquerons le référencement de la \gls{fiche} afin d'établir un lien avec de la bibliothèque.
 \end{itemize}
 
 \subsubsection{La bibliothèque}
 
-La page \textit{bibliothèque} contient toutes les \glspl{resinfo} ajoutées par la communauté et ayant été validées par les administrateurs de la plateforme. Elle est accessible publiquement, pour tout type d'utilisateurs.
+La page \textit{bibliothèque} contient toutes les \glspl{resinfo} ajoutées par la communauté et ayant été validées par les administrateurs de la plateforme. Elle est accessible publiquement, pour tout type d'utilisateurs.\\
+
+Concernant l'interface, nous nous sommes inspiré de \textit{Coderbyte} et \textit{Hackerrank} pour le panneau de filtres et la preview des \glspl{resinfo} (voir section \ref{section:situation}). Il était important pour nous de conserver une interface simple et déjà utilisée par certaines applications web.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/library.png}
@@ -108,7 +113,7 @@ La preview d'une ressource contient les informations suivantes :
         \item Le type d'exercice
     \end{itemize}
     Les autres \glspl{tag} seront consultables depuis l'interface de la \gls{fiche} (voir section \ref{section:ficheResInfo})
-    \item La cotation de la ressource (sur 5)
+    \item La cotation de la ressource (sur 5). Nous détaillons d'ailleurs son utilité dans la section suivante (\ref{section:ficheResInfo}).
 \end{itemize}
 
 \subsubsubsection*{Le panneau à onglets}
@@ -118,7 +123,7 @@ Pour effectuer une recherche dans la bibliothèque, il suffit de taper un titre 
 
 Il existe dès lors 3 types d'onglets :
 
-\paragraph{Filtres} permettent d'affiner la recherche de \glspl{resinfo}. Les \glspl{tag} cochés apparaitront juste au-dessus des résultats. Si un \gls{tag} ne convient plus à la recherche, il suffit de décocher un des tags en question ou de cliquer sur la croix du label représentant le \gls{tag} sélectionné.\\
+\paragraph{Filtres} Ils permettent d'affiner la recherche de \glspl{resinfo}. Les \glspl{tag} cochés apparaitront juste au-dessus des résultats. Si un \gls{tag} ne convient plus à la recherche, il suffit de décocher un des tags en question ou de cliquer sur la croix du label représentant le \gls{tag} sélectionné.\\
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/search-library.png}
@@ -126,9 +131,12 @@ Il existe dès lors 3 types d'onglets :
     \caption[SourceCode : recherche dans la bibliothèque]{Recherche dans la bibliothèque}
 \end{figure}
 
-Plusieurs \glspl{tag} peuvent être choisis dans une même catégorie. Dans ce cas, la recherche donnera des résultats comprenant au moins un des \glspl{tag} sélectionnés.\\
+Le système de filtres fonctionne comme \textit{Hackerrank} et \textit{Coderbyte} (section \ref{section:situation}) :
 
-Lorsqu'un \gls{tag} est sélectionné dans deux catégories différentes, la recherche prendra en compte toutes les \glspl{resinfo} comprenant au moins un \gls{tag} sélectionné dans chacune des catégories.\\
+\begin{itemize}
+    \item Plusieurs \glspl{tag} peuvent être choisis dans une même catégorie. Dans ce cas, la recherche donnera des résultats comprenant au moins un des \glspl{tag} sélectionnés.
+    \item Lorsqu'un \gls{tag} est sélectionné dans deux catégories différentes, la recherche prendra en compte toutes les \glspl{resinfo} comprenant au moins un \gls{tag} sélectionné dans chacune des catégories.
+\end{itemize}
 
 Si vous possédez un compte, vous pouvez enregistrer les critères de recherche actuels en cliquant sur "Ajouter aux favoris". Après avoir fourni un nom pour le favori, ce dernier apparaitra désormais dans l'onglet favoris.\\
 
@@ -148,7 +156,7 @@ Si vous possédez un compte, vous pouvez enregistrer les critères de recherche 
 
 L'historique affiche les recherches précédemment effectuées, de la plus récente à la plus ancienne. Le titre de recherche s'affichera en bleu tandis que les \glspl{tag} sélectionnés seront affichés en mode "pêle-mêle", séparés par une barre verticale (|).\\
 
-\paragraph{Favoris (seulement lorsqu'on est connecté !)} Les favoris créés apparaitront dans ce panneau. Pour utiliser un des favoris, il suffit de cliquer sur l'un d'eux et la recherche s'actualisera depuis la même page avec les nouveaux critères de recherche pris en compte.
+\paragraph{Favoris (seulement lorsqu'on est connecté)} Les favoris créés apparaitront dans ce panneau. Pour utiliser un des favoris, il suffit de cliquer sur l'un d'eux et la recherche s'actualisera depuis la même page avec les nouveaux critères de recherche pris en compte.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/favorite-panel.png}
@@ -159,8 +167,8 @@ L'historique affiche les recherches précédemment effectuées, de la plus réce
 Vous pouvez supprimer ou modifier les favoris depuis ce panneau en passant la souris sur un favori, puis en sélectionnant une des deux icônes qui s'affichent.
 
 \begin{itemize}
-    \item Le crayon permet de modifier le favori. Il mènera donc sur la page de modification de ce favori (voir section \ref{section:gestionFavorite}).
-    \item La poubelle permet de supprimer le favori directement depuis le panneau.
+    \item \textbf{Le crayon} permet de modifier le favori. Il mènera donc sur la page de modification de ce favori (voir section \ref{section:gestionFavorite}).
+    \item \textbf{La poubelle} permet de supprimer le favori directement depuis le panneau.
 \end{itemize}
 
 
@@ -188,11 +196,11 @@ De la même manière, plus la \gls{resinfo} contient de \glspl{tag} dans des \gl
 
 \subsubsubsection*{Système de vote}
 
-Les détails d'une fiche peuvent être retrouvés dans cette section ???.
-
 Sur la \gls{fiche} de la \gls{resinfo}, vous pouvez donner une note sur la qualité de la ressource sur 5 étoiles. Il suffit de cliquer sur une des étoiles pour donner un score (seulement si vous possédez un compte).\\
 
 Là aussi, le vote joue un rôle important dans le référencement de la \gls{resinfo} car les utilisateurs peuvent filtrer les \glspl{resinfo} en fonction de leur note.\\
+
+Nous avons choisi un système de vote sur 5 étoiles car les utilisateurs sont généralement habitués à celui-ci. La plateforme \textit{Hackerrank} utilise d'ailleurs ce système.
 
 
 \subsection{Gestion}
@@ -362,7 +370,7 @@ Nous parlons du statut des \glspl{tag} de manière plus concise dans la section 
 
 \subsubsection{La consultation de profil}
 
-À ce stade ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En renvanche, cette fonctionnalité est déjà disponible coté backend (voir section ???).\\
+À ce stade-ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En renvanche, cette fonctionnalité est déjà disponible coté backend (voir section ???).\\
 
 Dans le chapitre ???, nous développons quelques pistes d'améliorations concernant cette page afin de la rendre encore plus utile.
 
