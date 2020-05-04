@@ -4,7 +4,7 @@ Cette section est entièrement dédiée à la conception du \gls{frontend} de \t
 
 Pour ce faire, nous allons naviguer à travers les différentes pages de la plateforme en expliquant nos choix d'implémentation et les fonctionnalités qui ont été mises en place.\\
 
-Pour vous donner une idée plus claire de ce qui va être abordé, voici une représentation du groupe d'URL de premier niveau que contient \texttt{SourceCode}.\\
+Afin de vous donner une idée plus claire de ce qui va être abordé, voici une représentation du groupe d'URL de premier niveau que contient \texttt{SourceCode}.\\
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{images/client/overview_client.jpeg}
@@ -40,7 +40,7 @@ La création d'un compte permet d'accéder à des fonctionnalités supplémentai
     \caption[SourceCode : interface de création de compte]{Interface de création de compte}
 \end{figure}
 
-Par défaut, un compte créé offre les privilèges d'un \textbf{utilisateur}. Voici pour rappel les différents types d'utilisateurs pouvant accéder à la plateforme :
+Par défaut, un compte créé offre les privilèges d'un \textbf{utilisateur}. Voici pour rappel (section \ref{section:analyseFonctionnelle}) les différents types d'utilisateurs pouvant accéder à la plateforme :
 
 \begin{itemize}
     \item \textbf{Visiteur} : C'est la forme la plus simple. Les droits de ce type d'utilisateur se limitent à la navigation dans la bibliothèque de \glspl{resinfo}. Le système de favoris n'est accessible qu'à partir du moment où vous êtes membre de la plateforme. Nous entendons par là l'utilisateur ou l'administrateur.
@@ -125,10 +125,17 @@ Il existe dès lors 3 types d'onglets :
 
 \paragraph{Filtres} Ils permettent d'affiner la recherche de \glspl{resinfo}. Les \glspl{tag} cochés apparaitront juste au-dessus des résultats. Si un \gls{tag} ne convient plus à la recherche, il suffit de décocher un des tags en question ou de cliquer sur la croix du label représentant le \gls{tag} sélectionné.\\
 
+Comme vous pourrez le constater sur la figure \ref{figure:rechercheBibliotheque}, le panneau de filtres n'est plus à la même position que ce que nous avions imaginé avec notre patchwork \ref{figure:patchwork}. Dans ce dernier, nous avions intégré le filtrage de \glspl{tag} dans une interface dédiée à cet effet.\\
+
+Dans l'interface actuelle, nous voulions que tout soit facilement accessible compte tenu du fait que nous allions intégrer l'historique et le système de favori au même endroit (ce que nous n'avions pas encore décidé au stade du patchwork).\\
+
+La page que nous avions prévu sur le patchwork pour les filtres (figure \ref{figure:systemeDeFiltres}) s'apparente plutôt à une interface avancée. Nous expliquerons d'ailleurs les quelques pistes d'améliorations qui pourraient être apportées à ce sujet dans une prochaine mise à jour de la plateforme en chapitre ???.
+
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/search-library.png}
     \centering
     \caption[SourceCode : recherche dans la bibliothèque]{Recherche dans la bibliothèque}
+    \label{figure:rechercheBibliotheque}
 \end{figure}
 
 Le système de filtres fonctionne comme \textit{Hackerrank} et \textit{Coderbyte} (section \ref{section:situation}) :
@@ -185,7 +192,7 @@ Voici à quoi ressemble la structure d'une \gls{fiche} :
     \caption[SourceCode : la représentation d'une \gls{fiche}]{la représentation d'une \gls{fiche}}
 \end{figure}
 
-Lorsque la ressource vous appartient ou que vous êtes un administrateur, un bouton de modification apparait dans le coin supérieur droit de la \gls{fiche} de la ressource. Cliquer sur le bouton mènera sur le formulaire de modification de la ressource (voir section \ref{section:gestionResInfo} pour la gestion coté utilisateur ou voir section \ref{section:resInfoAdmin} pour la gestion coté (super-)administrateur).\\
+Lorsque la ressource vous appartient ou que vous êtes un administrateur, un bouton de modification apparait dans le coin supérieur droit de la \gls{fiche} de la ressource. Cliquer sur le bouton mènera sur le formulaire de modification de la ressource (voir section \ref{section:gestionResInfo} pour la gestion côté utilisateur ou voir section \ref{section:resInfoAdmin} pour la gestion côté (super-)administrateur).\\
 
 \subsubsubsection*{Panneau de détails}
 
@@ -200,7 +207,7 @@ Sur la \gls{fiche} de la \gls{resinfo}, vous pouvez donner une note sur la quali
 
 Là aussi, le vote joue un rôle important dans le référencement de la \gls{resinfo} car les utilisateurs peuvent filtrer les \glspl{resinfo} en fonction de leur note.\\
 
-Nous avons choisi un système de vote sur 5 étoiles car les utilisateurs sont généralement habitués à celui-ci. La plateforme \textit{Hackerrank} utilise d'ailleurs ce système.
+Nous avons choisi un système de vote sur 5 étoiles car notre analyse (section \ref{section:situation}) a révélé cette caractérisque commune sur de nombreux sites. La plateforme \textit{Hackerrank} utilise d'ailleurs ce système.
 
 
 \subsection{Gestion}
@@ -246,9 +253,9 @@ Plusieurs informations sont disponibles pour identifier les ressources informati
 
 \subsubsubsection*{Statuts d'une \gls{resinfo}}
 
-Nous prêtons attention à la qualité du contenu sur la plateforme. Nous avons donc mis en place un système de statuts pour donner une indication sur l'état d'une \gls{resinfo}.
+Nous prêtons attention à la qualité du contenu sur la plateforme. Nous avons donc mis en place un système de statuts pour donner une indication sur l'état d'une \gls{resinfo}.\\
 
-Voici les différents états que peuvent prendre la \gls{resinfo} :
+Voici les différents états que peuvent prendre la \gls{resinfo} (découle de notre analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}) :
 
 \begin{itemize}
     \item \includegraphics[valign=b,height=1.4\fontcharht\font`X]{images/client/draft.png} \textbf{Brouillon}
@@ -272,6 +279,8 @@ Voici les différents états que peuvent prendre la \gls{resinfo} :
         \item Quand une ressource est archivée, elle est alors uniquement accessible par les administrateurs et par son créateur.
     \end{itemize}
 \end{itemize}
+
+Le diagramme UML pour l'état d'un \gls{resinfo} se retrouve en figure \ref{pic:stateDiagramForFiches}.
 
 \subsubsubsection*{Gestion du statut de la ressource}
 
@@ -310,6 +319,7 @@ Lorsque vous remplissez le champ titre et/ou ajoutez des tags, le panneau à ong
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{images/client/similarity.png}
+    \centering
 \end{figure}
 
 \subsubsubsection*{Soumission de la ressource}
@@ -317,7 +327,7 @@ Lorsque vous remplissez le champ titre et/ou ajoutez des tags, le panneau à ong
 Deux options de soumission sont disponibles :
 
 \begin{itemize}
-    \item \textbf{Brouillon :} Vous estimez que la \gls{resinfo} n'est pas encore prête pour être validée, vous la laissez donc en stand-by pour la modifier plus tard. À noter que vous \textbf{DEVEZ} remplir les champs obligatoires pour l'enregistrer sous cet état. C'est un choix d'archicture qui a été décidé au niveau de l'api car cela impliquait de gros changements (voir section ???).
+    \item \textbf{Brouillon :} Vous estimez que la \gls{resinfo} n'est pas encore prête pour être validée, vous la laissez donc en stand-by pour la modifier plus tard. À noter que vous \textbf{DEVEZ} remplir les champs obligatoires pour l'enregistrer sous cet état. Il s'agit d'un choix technique décidé au niveau de l'\gls{api}, pour conserver un seuil minimal de qualité dans les contributions.
     \item \textbf{Soumettre :} Vous estimez que la \gls{resinfo} est prête pour inspection. En cliquant sur soumettre, la ressource se met automatiquement en mode "en attente", jusqu'à ce qu'un administrateur la prenne en charge pour validation. Ce texte est remplacé par \textbf{valider} dans le cas de l'administrateur. Le statut de la ressource sera ainsi valide.
 \end{itemize}
 
@@ -357,7 +367,7 @@ Voici les différents champs à remplir pour créer un favori :
     \centering
 \end{figure}
 
-En ce qui concerne l'ajout de \glspl{tag}, un code couleur représentant leur statut est présenté :
+En ce qui concerne l'ajout de \glspl{tag}, un code couleur représentant leur statut est présenté (figure \ref{pic:stateDiagramForTags} pour le schéma UML à états). À noter que ce choix de statuts découle de notre analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}. :
 
 \begin{itemize}
     \item Un \gls{tag} \textbf{valide} pourra être utilisé depuis la bibliothèque pour filtrer les \glspl{resinfo}. Ceci garanti un meilleur référencement pour la ressource.
@@ -366,11 +376,11 @@ En ce qui concerne l'ajout de \glspl{tag}, un code couleur représentant leur st
     \item Un \gls{tag} \textbf{non valide} n'a pas été accepté l'administration. Il se peut qu'il soit modifié ultérieurement.
 \end{itemize}
 
-Nous parlons du statut des \glspl{tag} de manière plus concise dans la section \ref{section:tagAdmin} concernant la gestion des \glspl{tag} coté administrateur.
+Nous parlons du statut des \glspl{tag} de manière plus concise dans la section \ref{section:tagAdmin} concernant la gestion des \glspl{tag} côté administrateur.
 
 \subsubsection{La consultation de profil}
 
-À ce stade-ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En renvanche, cette fonctionnalité est déjà disponible coté backend (voir section ???).\\
+À ce stade-ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En revanche, cette fonctionnalité est déjà disponible côté backend (voir section ???).\\
 
 Dans le chapitre ???, nous développons quelques pistes d'améliorations concernant cette page afin de la rendre encore plus utile.
 
@@ -412,7 +422,7 @@ La gestion des \glspl{resinfo} fonctionne exactement comme la gestion de ses pro
 
 L'administrateur possède les fonctionnalités additionnelles suivantes pour la gestion des \glspl{resinfo} :
 
-\paragraph{Export des résultats de recherche} En filtrant les \glspl{resinfo} par \glspl{tag} et/ou par titre de recherche, vous pouvez exporter tous les résultats correspondant à ce filtrage dans un fichier JSON. Le format de ce fichier est décrit sur l'api (https://sourcecodeoer.github.io/sourcecode\_api/\#operation/ExportExercises).
+\paragraph{Export des résultats de recherche} En filtrant les \glspl{resinfo} par \glspl{tag} et/ou par titre de recherche, vous pouvez exporter tous les résultats correspondant à ce filtrage dans un fichier JSON. Le format de ce fichier est décrit sur l'api (\url{https://sourcecodeoer.github.io/sourcecode_api/#operation/ExportExercises}).
 
 \paragraph{Actions supplémentaires} Par rapport à un utilisateur classique, vous pouvez changer l'état d'une \gls{resinfo} de manière plus large avec les états suivants :
 
@@ -441,11 +451,11 @@ Améliorer le processus de création de \glspl{resinfo} est une de nos principal
 Les \glspl{resinfo} doivent être importées avec un fichier JSON respectant un des deux formats que nous vous invitons à consulter :
 
 \begin{itemize}
-    \item \href{https://sourcecodeoer.github.io/sourcecode_api/#operation/createMultipleExercises}{Format d'import classique}
-    \item \href{https://sourcecodeoer.github.io/sourcecode_api/#operation/ExportExercises}{Format d'export de ressources informatiques}
+    \item Format d'import classique (\url{https://sourcecodeoer.github.io/sourcecode_api/#operation/createMultipleExercises})
+    \item Format d'export de ressources informatiques (\url{https://sourcecodeoer.github.io/sourcecode_api/#operation/ExportExercises})
 \end{itemize}
 
-Nous avons choisi de réserver cette fonctionnalité aux (super-)administrateurs car il pourrait y avoir des abus du coté des simples utilisateurs (utilisation massive de la fonctionnalité afin de casser l'api,...). À ce propos, la section \textbf{???} de la partie backend explique de manière plus concise notre choix concernant les privilèges de cette fonctionnalité.
+Nous avons choisi de réserver cette fonctionnalité aux (super-)administrateurs car il pourrait y avoir des dérives au niveau des simples utilisateurs (attaques DDOS sur l'\gls{api}, ...). À ce propos, la section \textbf{???} de la partie backend explique de manière plus concise notre choix concernant les privilèges de cette fonctionnalité.
 
 \subsubsection{La gestion des \glspl{tag}}
 \label{section:tagAdmin}
@@ -462,9 +472,9 @@ L'interface de gestion prévu à cet effet est semblable à celle de la gestion 
 
 \subsubsubsection*{Statuts des \glspl{tag}}
 
-De la même manière que pour les \glspl{resinfo}, nous proposons un système de statuts pour donner une indication sur l'état d'un \gls{tag}. Nous voulons que le système de \glspl{tag} soit évolutif et flexible. Nous laissons donc les utilisateurs de la plateforme ajouter leurs \glspl{resinfo}, mais aussi des propositions de \glspl{tag} afin d'agrandir le vocabulaire de \texttt{SourceCode}.\\
+De la même manière que pour les \glspl{resinfo}, nous proposons un système de statuts pour donner une indication sur l'état d'un \gls{tag} (la figure \ref{pic:stateDiagramForTags} représente ces états sur un diagramme UML). Nous voulons que le système de \glspl{tag} soit évolutif et flexible. Nous laissons donc les utilisateurs de la plateforme ajouter leurs \glspl{resinfo}, mais aussi des propositions de \glspl{tag} afin d'agrandir le vocabulaire de \texttt{SourceCode}.\\
 
-Cela passe bien évidement par la validation des administrateurs, qui agissent de concerts pour offrir un vocabulaire contrôlé aux utilisateurs, évoluant ainsi en fonction des besoins.
+Cela passe bien évidement par la validation des administrateurs, qui agissent de concert pour offrir un vocabulaire contrôlé aux utilisateurs, évoluant ainsi en fonction des besoins (voir analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}).
 
 Voici la liste des différents status que peut prendre un \gls{tag} :
 
