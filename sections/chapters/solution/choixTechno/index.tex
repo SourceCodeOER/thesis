@@ -3,7 +3,7 @@
 
 \subsection*{Choix de l'environnement de programmation}
 
-Parmi la myriade de langages de programmations (avec leurs différentes plate-formes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js pour toutes les parties de notre solution (\Gls{backend}, \Gls{frontend} et \Gls{cli}). \\
+Parmi la myriade de langages de programmation (avec leurs différentes plateformes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js pour toutes les parties de notre solution (\Gls{backend}, \Gls{frontend} et \Gls{cli}). \\
 
 Ce langage ne vous est peut-être pas tout à fait inconnu en effet, il est souvent utilisé conjointement avec les interfaces HTML du côté client. Le JavaScript est souvent mal considéré par les utilisateurs, lesquels mettent en cause ses difficultés. \\
 
@@ -22,7 +22,7 @@ Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript
     \label{pic:WhatIsNodeJs}
 \end{figure}
 
-Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de Nodejs : le moteur Javascript V8 et son fonctionnement non bloquant. \\
+Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de Nodejs : le moteur JavaScript V8 et son fonctionnement non bloquant. \\
 
 Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation) , approche hybride entre la compilation et l'interprétation, dont nous pouvons schématiser leur mode de fonctionnement individuel par la figure suivante :
 \begin{figure}[H]
@@ -47,7 +47,7 @@ Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces ta
     \includegraphics[width=\textwidth,height=0.19\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
     \centering
     % Un caption alternative pour ne pas afficher la ref dans la table des figures
-    \caption[Bloquant/non-bloquant : un exemple pour l'illustrer]{Bloquant/non-bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
+    \caption[Bloquant/non bloquant : un exemple pour l'illustrer]{Bloquant/non bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
     \label{pic:BloquantOrNot}
 \end{figure}
 
@@ -61,25 +61,25 @@ De manière générale, un framework peut être considéré comme une boite à o
     \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
     \item Une standardisation de la programmation permettant ainsi d'interchanger, d'injecter et/ou réutiliser du code existant pour ne pas "réinventer la roue".
 \end{itemize}
-Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait être pris à la légère car il constitue le squelette de l'application. C'est pourquoi vous pourrez retrouver ci dessous une liste non-exhaustive des frameworks (dans les tables \ref{table:compFrameworksFrontend}, \ref{table:compFrameworksAPI} et \ref{table:compFrameworksCLI}) que nous avons étudié ainsi que les critères retenus pour les départager. \\
+Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait être pris à la légère, car il constitue le squelette de l'application. C'est pourquoi vous pourrez retrouver ci-dessous une liste non exhaustive des frameworks (dans les tables \ref{table:compFrameworksFrontend}, \ref{table:compFrameworksAPI} et \ref{table:compFrameworksCLI}) que nous avons étudiés ainsi que les critères retenus pour les départager. \\
 
 \noindent\textbf{Critères - [M]auvais, [S]ufficient, [B]on}
 
 \begin{itemize}
     \item[\textbf{Doc}] Documentation : \\
     La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
-    La qualifier n'est pas une tâche aisée puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives tel que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas car quantité n'est pas synonyme de qualité .. 
+    La qualifier n'est pas une tâche aisée, puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives telles que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas, car quantité n'est pas synonyme de qualité ... 
     \item[\textbf{Fcts}] Fonctionnalités : \\
     Le nombre de fonctions utilitaires ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un choix binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
     \item[\textbf{Maint}] Maintenabilité d'une application créée avec ce framework : \\
-    Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
+    Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère, car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
     \item[\textbf{Pop}] Popularité : \\
     Le fait d'être connu et d'être utilisé par un grand nombre d'utilisateurs.
     Puisque notre solution est entièrement basée sur Node.js, nous pouvons consulter des données publiques du registre par défaut (NPM) notamment par des sites comme \href{https://www.npmtrends.com/}{NPM Trends}.
     \item[\textbf{Perfs}] Performances : \\
     Elles se mesurent en fonction du temps de réponse à une requête client.
     Il convient cependant d'être prudent avec cette explication simpliste : certaines requêtes peuvent nécessiter plus ou moins de ressources.
-    De ce fait, les performances d'un framework sont principalement influencés par les technologies utilisés. 
+    De ce fait, les performances d'un framework sont principalement influencées par les technologies utilisées. 
 \end{itemize}
 
 Pour calculer le résultat total pour un framework précis, il s'agit de la somme des résultats obtenus pour chacun des critères avec notre système de notation : \textbf{M}, \textbf{S} et \textbf{B} (resp. 0, 0.5 et 1).
@@ -129,14 +129,14 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
     \label{table:compFrameworksFrontend}
 \end{table}
 
-Le choix entre ces trois frameworks s'apparente à une décision plus que subjective car ce sont tous les trois d'excellents outils de développement. \\
+Le choix entre ces trois frameworks s'apparente à une décision plus que subjective, car ce sont tous les trois d'excellents outils de développement. \\
 
 Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Cependant, Vue détient le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
 
 % Temporairement on va changer le style de footnote, pour éviter une confusion
 \renewcommand{\thefootnote}{\alph{footnote}}
 
-Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js}\footnote{\url{https://fr.nuxtjs.org/}} qui permet d'encapsuler la logique des routes, des stores, des plugins et des middlewares de telle manière à ce que le code soit plus facilement maintenable. En outre, il ajoute aussi le mode \textit{SSR} (Server Side Rendering), qui permet à l'application d'être performante, tout en profitant d'un boost pour le référencement naturel (SEO).
+Au-dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js}\footnote{\url{https://fr.nuxtjs.org/}} qui permet d'encapsuler la logique des routes, des stores, des plugins et des middlewares de telle manière à ce que le code soit plus facilement maintenable. En outre, il ajoute aussi le mode \textit{SSR} (Server Side Rendering), qui permet à l'application d'être performante, tout en profitant d'un boost pour le référencement naturel (SEO).
 
 % On n'oublie pas de le resetter
 \renewcommand{\thefootnote}{\arabic{footnote}}
@@ -187,7 +187,7 @@ Au dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js}\
     \label{table:compFrameworksAPI}
 \end{table}
 
-Express a été la solution que nous avons retenue car celui-ci offre, bien qu'ayant un nombre de fonctionnalités restreints par rapport à ses concurrents, des possibilités de configuration  adaptées dans le contexte de ce projet. Il est en effet plus aisé d'y incorporer du code écrit par autrui tandis que les autres étudiés se concentrent principalement sur eux mêmes. 
+Express a été la solution que nous avons retenue, car celui-ci offre, bien qu'ayant un nombre de fonctionnalités restreint par rapport à ses concurrents, des possibilités de configuration  adaptées dans le contexte de ce projet. Il est en effet plus aisé d'y incorporer du code écrit par autrui tandis que les autres étudiés se concentrent principalement sur eux-mêmes. 
 
 \subsubsection*{Framework pour le \Gls{cli}}
 
@@ -233,13 +233,13 @@ Express a été la solution que nous avons retenue car celui-ci offre, bien qu'a
     \label{table:compFrameworksCLI}
 \end{table}
 
-Yargs a été la solution que nous avons retenue car celui-ci surclasse de manière incontestable les autres solutions existantes. En effet, la documentation (très claire et complète) et le nombre de fonctionnalités permettent une rapide adoption pour construire une solution dans les plus brefs délais. 
+Yargs a été la solution que nous avons retenue, car celui-ci surclasse de manière incontestable les autres solutions existantes. En effet, la documentation (très claire et complète) et le nombre de fonctionnalités permettent une rapide adoption pour construire une solution dans les plus brefs délais. 
 
 \subsection*{Choix des librairies externes}
 
-Comme expliqué par Wikipédia\cite{libraryDef}, le terme librairie désigne "une collection de fonctions utilitaires prêtes à être utilisées par des programmes". En effet, de nombreuses applications dont la nôtre partagent des besoins communs : de ce fait, il est donc adéquat de réutiliser le travail d'autrui plutôt que de "réinventer la roue". \\
+Comme expliqué par Wikipédia\cite{libraryDef}, le terme librairie désigne "une collection de fonctions utilitaires prêtes à être utilisées par des programmes". En effet, de nombreuses applications y compris la nôtre partagent des besoins communs : de ce fait, il est donc adéquat de réutiliser le travail d'autrui plutôt que de "réinventer la roue". \\
 
-Compte tenu du nombre relativement élevé de librairies que nous avons utilisées dans les divers parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
+Compte tenu du nombre relativement élevé de librairies que nous avons utilisées dans les diverses parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
 
 
 % Pour l'instant, j'ai listé ceci (mais à voir si tu vois d'autres à expliquer)
@@ -273,7 +273,7 @@ TODO
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{\href{https://logaretm.github.io/vee-validate/}{VeeValidate}}\\
 
-Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de charactères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire,...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
+Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de caractères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire, ...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
 
 Voici un petit exemple d'utilisation tiré du fichier \texttt{login.vue}, responsable d'afficher la page de connexion à un compte :\\
 
@@ -283,14 +283,14 @@ Voici un petit exemple d'utilisation tiré du fichier \texttt{login.vue}, respon
     \caption[VeeValidate : Exemple d'utilisation]{Exemple sur la page login}
 \end{figure}
 
-ValidationObserver et ValidationProvider sont deux composants de VeeValidate permettant de gérer un formulaire. Le premier fait office de conteneur, auquel on attache un ou plusieurs ValidationProvider responsables d'un champ en particulier (texte, checkbox,...). Pour chaque ValidationProvider, il suffit d'ajouter une règle de validation comme c'est le cas pour le champ email : required|email (champ obligatoire et doit être un email).\\
+ValidationObserver et ValidationProvider sont deux composants de VeeValidate permettant de gérer un formulaire. Le premier fait office de conteneur, auquel on attache un ou plusieurs ValidationProvider responsables d'un champ en particulier (texte, checkbox, ...). Pour chaque ValidationProvider, il suffit d'ajouter une règle de validation comme c'est le cas pour le champ email : required|email (champ obligatoire et doit être un email).\\
 
 Lorsque l'utilisateur cliquera sur le bouton de connexion, une fonction de validation va être lancée pour dans un premier temps valider le formulaire. Si toutes les règles sont respectées, alors les données sont envoyées à l'API, sinon, un message d'erreur avec l'explication de la règle non respectée s'affichera juste en dessous du champ incorrect.\\
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{\href{https://tiptap.scrumpy.io}{Tiptap}}\\
 
-Tiptap est un éditeur de texte riche "renderless" (Ce terme signifie que la conception du design nous appartient). Cette librairie prévue pour fonctionner avec VueJS permet de mettre en place assez rapidement un éditeur de texte complet et flexible. On peut aisément y rajouter des options comme des trigger que l'on peut attacher à des boutons pour styliser le texte plus facilement. Pour exemple, voici à quoi ressemble l'éditeur de texte de la description d'une \gls{resinfo} :\\
+Tiptap est un éditeur de texte riche "renderless" (ce terme signifie que la conception du design nous appartient). Cette librairie prévue pour fonctionner avec VueJS permet de mettre en place assez rapidement un éditeur de texte complet et flexible. On peut aisément y rajouter des options comme des triggers que l'on peut attacher à des boutons pour styliser le texte plus facilement. Pour exemple, voici à quoi ressemble l'éditeur de texte de la description d'une \gls{resinfo} :\\
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/libraries/tiptap.png}
@@ -298,7 +298,7 @@ Tiptap est un éditeur de texte riche "renderless" (Ce terme signifie que la con
     \caption[Tiptap : Exemple d'utilisation]{Exemple d'un éditeur de texte}
 \end{figure}
 
-Les boutons en dessous du champ texte permettent de formatter le texte (gras, italique, souligné, barré). En cliquant sur un d'eux, le trigger attaché au bouton va lancer une des méthodes appartenant à Tiptap pour modifier le texte et rendre les modifications automatiquement visibles pour l'utilisateur dans l'éditeur de texte.\\
+Les boutons en dessous du champ texte permettent de formater le texte (gras, italique, souligné, barré). En cliquant sur un d'eux, le trigger attaché au bouton va lancer une des méthodes appartenant à Tiptap pour modifier le texte et rendre les modifications automatiquement visibles pour l'utilisateur dans l'éditeur de texte.\\
 
 \noindent\underline{\href{https://highlightjs.org}{Highlight.js}}\\
 
@@ -316,7 +316,7 @@ Librairie facilitant de manière drastique la conception de requêtes HTTP. Nous
 
 Axios contient plusieurs méthodes dont \$post qui est utilisée dans l'exemple. Il suffit de donner en premier argument le endpoint (/api/search) et le payload que l'on veut envoyer en deuxième argument.\\
 
-Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses}{Promesse} contenant la réponse ou une erreur si la requête ne s'est pas bien executée. Une bonne pratique consiste donc à entourer la requête avec un bloc try/catch pour gérer les deux cas.\\
+Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses}{Promesse} contenant la réponse ou une erreur si la requête ne s'est pas bien exécutée. Une bonne pratique consiste donc à entourer la requête avec un bloc try/catch pour gérer les deux cas.\\
 
 \subsubsubsection{Librairies pour le \Gls{backend}}
 

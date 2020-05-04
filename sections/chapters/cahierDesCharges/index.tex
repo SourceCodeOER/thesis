@@ -6,9 +6,9 @@
 
 \epigraph{<< Les choses paraissent simples jusqu'à ce qu'on commence à les analyser >>}{Audrey Niffenegger}
 
-La phase d'analyse est dans la vie d'un projet l'une des phases les plus critiques car celle-ci formalise les besoins des clients sous tous ses aspects afin que toutes les parties (dont les développeurs) puissent se mettre d'accord. Pour pallier les nombreuses difficultés inhérentes au contexte, plusieurs méthodes reconnues existent (notamment \Gls{QQOQCCP} et UML). \\
+La phase d'analyse est dans la vie d'un projet l'une des phases les plus critiques, car celle-ci formalise les besoins des clients sous tous ses aspects afin que toutes les parties (dont les développeurs) puissent se mettre d'accord. Pour pallier les nombreuses difficultés inhérentes au contexte, plusieurs méthodes reconnues existent (notamment \Gls{QQOQCCP} et UML). \\
 
-La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de \glspl{resinfo}. Contrairement à d'autres domaines et l'existence de normes pour organiser les informations d'une \gls{resinfo} (\textit{Dublin Core} / \textit{LOM} pour ne citer que quelques unes), il n'existe pas de consensus sur l'arborescence / la taxonomie des \glspl{tag} (cf annexe \ref{annexe:AnalyseBiblio}).
+La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple mais, il n'en est rien. En effet, la question sous-jacente est le problème du référencement de \glspl{resinfo}. Contrairement à d'autres domaines et l'existence de normes pour organiser les informations d'une \gls{resinfo} (\textit{Dublin Core} / \textit{LOM} pour ne citer que quelques unes), il n'existe pas de consensus sur l'arborescence / la taxonomie des \glspl{tag} (cf annexe \ref{annexe:AnalyseBiblio}).
 
 \section{Analyse fonctionnelle}
 \label{section:analyseFonctionnelle}
@@ -21,7 +21,7 @@ La principale fonctionnalité attendue de l'application web est la recherche de 
 \paragraph{} \texttt{SourceCode} repose sur la participation active d'acteurs variés. Cela nécessite la mise en place d'une organisation sous forme de rôles afin de maintenir cette plateforme de ressources \textit{cohérente} et \textit{qualitative}. Notre analyse nous a permis d'isoler \textbf{4 types d'utilisateurs} disposant de \textit{privilèges additionnels} (en plus de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
 
 \begin{itemize}
-    \item \textbf{Visiteur} : Il s'agit d'un utilisateur non inscrit à notre plateforme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validés par un administrateur.
+    \item \textbf{Visiteur} : Il s'agit d'un utilisateur non inscrit à notre plateforme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validées par un administrateur.
     \item \textbf{Utilisateur} : Il s'agit d'un utilisateur  inscrit à notre plateforme. Celui-ci peut proposer de nouvelles ressources et maintenir les \glspl{fiche} dont il est le créateur.
     \item \textbf{Administrateur} : Celui-ci crée/modifie des ressources de toute nature (\glspl{fiche} proposées par les utilisateurs, \glspl{tag} et \glspl{tagCat}), en plus de classifier les \glspl{fiche}.
     \item \textbf{Super Administrateur} : Celui-ci dispose du droit de supprimer de manière définitive les différentes ressources de notre plateforme (y compris les \glspl{tag} et \glspl{tagCat}).
@@ -35,7 +35,7 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item \textcolor{red}{\textbf{M}ust} : C'est ce qui "doit être fait" (\textbf{vital})
     \item \textcolor{orange}{\textbf{S}hould} : C'est ce qui "devrait être fait dans la mesure du possible" (\textbf{essentiel})
     \item \textcolor{green}{\textbf{C}ould} : C'est ce qui "pourrait être fait dans la mesure où cela n'a pas d'impact sur les autres tâches" (\textbf{confort})
-    \item \textcolor{gray}{\textbf{W}on't} : C'est ce qui "ne sera pas fait cette fois mais sera fait plus tard" (\textbf{luxe})
+    \item \textcolor{gray}{\textbf{W}on't} : C'est ce qui "ne sera pas fait cette fois, mais sera fait plus tard" (\textbf{luxe})
 \end{itemize}
 
 \subsubsection*{Tout visiteur peut : }
@@ -82,7 +82,7 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
 \subsubsection*{Tout administrateur peut : }
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Importer plusieurs \glspl{fiche} sur base d'un fichier JSON.
-        Cette fonctionnalité comprend les fonctionnalités sous jacentes suivantes :
+        Cette fonctionnalité comprend les fonctionnalités sous-jacentes suivantes :
         \begin{itemize}
             \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer
             \item Créer automatiquement les \glspl{tag} non existants dans le système (avec éventuellement un état de départ)
@@ -155,12 +155,12 @@ Cela implique dès lors de proposer des opérations pour manipuler les différen
 \pagebreak
 
 
-\section{Analyse non-fonctionnelle}
+\section{Analyse non fonctionnelle}
 % On explique ici (design, ergonomie)
 % Donner les critères d'ergonomie
 % Pas forcément des tonnes de page : à priori 3-4 max devraient suffire
 
-\subsection*{Securité}
+\subsection*{Sécurité}
 
 La sécurité d'une application doit faire l'objet d'une attention non négligeable, particulièrement dans le contexte de notre époque mouvementée dans bien des domaines. Il est donc essentiel de se poser les bonnes questions (par exemple en utilisant \Gls{QQOQCCP}). Pour relever ce défi, une méthode possible est la \textbf{AAA}\footnote{Acronyme anglophone pour "\textbf{A}uthentication/\textbf{A}uthorization/\textbf{A}ccounting", que l'on peut traduire en français par "authentification/autorisation/traçabilité" }
 consistant en 3 piliers : 
@@ -181,7 +181,7 @@ Pour cela, nous avons sélectionné des technologies relativement bien document�
 
 \subsection*{Ergonomie}
 
-Un application web à destination d'un public varié et conséquent se doit d'avoir une interface simple et efficace pour ne pas perdre ses utilisateurs et gagner en popularité. On pourrait considérer que le design d'une application est subjectif, mais un point à ne sûrement pas négliger se situe autour de l'ergonomie. La question à se poser pour chaque interface est alors de savoir comment disposer les éléments afin de rendre la navigation la plus claire possible. Nous nous sommes donc concentrés sur cette problématique en élaborant un patchwork que vous pouvez consulter à la fin de la section \ref{section:problem}\\
+Une application web à destination d'un public varié et conséquent se doit d'avoir une interface simple et efficace pour ne pas perdre ses utilisateurs et gagner en popularité. On pourrait considérer que le design d'une application est subjectif, mais un point à ne sûrement pas négliger se situe autour de l'ergonomie. La question à se poser pour chaque interface est alors de savoir comment disposer les éléments afin de rendre la navigation la plus claire possible. Nous nous sommes donc concentrés sur cette problématique en élaborant un patchwork que vous pouvez consulter à la fin de la section \ref{section:problem}\\
 
 Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Olivier Goletti}, les conseils et recommandations ont souvent été pris en compte pour améliorer l'expérience utilisateur. Par la même occasion, nous avons fait tester l'application à différents utilisateurs (amis, designer) tout au long de la phase de développement afin de nous faire part de leur ressenti.
 
@@ -189,9 +189,9 @@ Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Oli
 \pagebreak
 \section {Contraintes}
 
-Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
+Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
 
-Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout,...).
+Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...).
 
 
 % Expliquer les contraintes :
