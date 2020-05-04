@@ -12,32 +12,32 @@ Afin de vous donner une idée plus claire de ce qui va être abordé, voici une 
     \caption[SourceCode : Représentation des URL de premier niveau]{URL de premier niveau}
 \end{figure}
 
-Cette figure sera notre fil conducteur tout au long de cette section car nous allons analyser chaque partie en profondeur. 
-Les URL en noir signifient qu'elles renferment un niveau supplémentaire d'URL tandis que les bleu désignent une page de contenu.\\
+Cette figure sera notre fil conducteur tout au long de cette section, car nous allons analyser chaque partie en profondeur. 
+Les URL en noir signifient qu'elles renferment un niveau supplémentaire d'URL tandis que les bleus désignent une page de contenu.\\
 
 \textbf{Attention :} Lorsqu'une URL contient \textit{\_id}, cela peut être remplacé par un nombre naturel $ n $  $\epsilon$   $\mathbb{N}$ $/ \{0\}$. Les id's représentent l'id d'une entité stockée dans la base de données. Exemple : pour récupérer l'exercice ayant l'id 42 (pour autant qu'il existe), il suffit de renseigner l'URL \textit{/exercices/42}.\\
 
 Les deux premières URL de la figure désignent les interfaces de connexion à \texttt{SourceCode} ainsi que la création d'un compte.\\
 
-L'URL \textit{/exercices} représente la bibliothèque de \glspl{resinfo}. C'est dans cet espace que le coeur de \texttt{SourceCode} réside car c'est là que le système de recherche a été pensé pour tout le reste de la plateforme. En outre,
+L'URL \textit{/exercices} représente la bibliothèque de \glspl{resinfo}. C'est dans cet espace que le coeur de \texttt{SourceCode} réside, car c'est là que le système de recherche a été pensé pour tout le reste de la plateforme. En outre,
 cette même URL contient aussi la consultation de \glspl{fiche} lorsque les critères de recherche de l'utilisateur sont satisfaits. À noter que tout type d'utilisateur peut accéder à ces pages.\\
 
 L'URL \textit{/gestion} renferme tout ce dont un utilisateur (connecté avec son compte) peut effectuer sur la plateforme pour enrichir son utilisation. On y répertorie la gestion/création/modification de ses propres \glspl{resinfo}, la gestion/création/modification de ses favoris pour faciliter la recherche et enfin, la consultation de son profil. Cette partie est accessible aux utilisateurs et (super-)administrateurs.\\
 
 L'URL \textit{/administration} contient les fonctionnalités exigeant le plus haut niveau de privilèges sur \texttt{SourceCode}. Cette partie est donc entièrement dédiée aux administrateurs et super-administrateurs. Ils peuvent gérer absolument toutes les \glspl{resinfo} disponibles sur la plateforme (impliquant aussi la modification et création de celles-ci), l'importation/exportation de \glspl{resinfo}, la gestion/création/modification de \glspl{tag}, la gestion/création/modification des \glspl{tagCat} et finalement la gestion des utilisateurs de la plateforme.\\
 
-L'URL \textit{/tutoriel} concerne un aspect plus ludique de \texttt{SourceCode}. Au travers différentes pages, une thématique de l'application est décortiquée afin que l'utilisateur puisse améliorer sa prise en main avec la plateforme.\\
+L'URL \textit{/tutoriel} concerne un aspect plus ludique de \texttt{SourceCode}. À travers différentes pages, une thématique de l'application est décortiquée afin que l'utilisateur puisse améliorer sa prise en main avec la plateforme.\\
 
 Avant d'aller plus loin, considérez la section \ref{section:challengesToDefeat} afin de vous remettre en tête ce que nous voulions apporter à \texttt{SourceCode}. Une liste plus exhaustive des fonctionnalités à intégrer se trouve en section \ref{section:analyseFonctionnelle}.
 
-\subsection{Connexion et création de compte}
+\subsection{Connexion et création de comptes}
 
 La création d'un compte permet d'accéder à des fonctionnalités supplémentaires comme la création de favoris ou de \glspl{resinfo}.\\
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/client/register.png}
     \centering
-    \caption[SourceCode : interface de création de compte]{Interface de création de compte}
+    \caption[SourceCode : interface de création de comptes]{Interface de création de comptes}
 \end{figure}
 
 Par défaut, un compte créé offre les privilèges d'un \textbf{utilisateur}. Voici pour rappel (section \ref{section:analyseFonctionnelle}) les différents types d'utilisateurs pouvant accéder à la plateforme :
@@ -45,7 +45,7 @@ Par défaut, un compte créé offre les privilèges d'un \textbf{utilisateur}. V
 \begin{itemize}
     \item \textbf{Visiteur} : C'est la forme la plus simple. Les droits de ce type d'utilisateur se limitent à la navigation dans la bibliothèque de \glspl{resinfo}. Le système de favoris n'est accessible qu'à partir du moment où vous êtes membre de la plateforme. Nous entendons par là l'utilisateur ou l'administrateur.
     \item \textbf{Utilisateur} : L'utilisateur est membre de l'application. Il possède donc un compte et peut participer au partage de \glspl{resinfo}. L'utilisateur a la possibilité de créer des favoris qu'il pourra ainsi utiliser dans la bibliothèque ou depuis ses interfaces de gestion.
-    \item \textbf{(Super-)administrateur} : L'administrateur est un rôle capital car lui seul permet de garantir du contenu de qualité. Il est chargé de valider les \glspl{resinfo} soumises par les utilisateurs, de valider les \glspl{tag} et de créer de nouvelles \glspl{tagCat}. En plus de ces droits-ci, l'administrateur possède bien évidement tous les droits de l'utilisateur !
+    \item \textbf{(Super-)administrateur} : L'administrateur est un rôle capital, car lui seul permet de garantir du contenu de qualité. Il est chargé de valider les \glspl{resinfo} soumises par les utilisateurs, de valider les \glspl{tag} et de créer de nouvelles \glspl{tagCat}. En plus de ces droits-ci, l'administrateur possède bien évidemment tous les droits de l'utilisateur !
 \end{itemize}
 
 Le formulaire de création nécessite une adresse email (unique), un mot de passe et un nom complet.
@@ -57,7 +57,7 @@ Le formulaire de création nécessite une adresse email (unique), un mot de pass
     \caption[SourceCode : interface de connexion]{Interface de connexion}
 \end{figure}
 
-Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son adresse email et son mot de passe. Pour l'instant, une session d'une heure lui sera attribuée pour gérer ses ressources, favoris,... Après quoi il sera redirigé vers la page de login pour entrer à nouveau ses identifiants. Ce comportement est bien évidement modifiable depuis l'api (voir section \textbf{???}) mais nous avions surtout choisi ce timing pour la séance de validation de notre plateforme (section ???).\\
+Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son adresse email et son mot de passe. Pour l'instant, une session d'une heure lui sera attribuée pour gérer ses ressources, favoris, ... Après quoi il sera redirigé vers la page de login pour entrer à nouveau ses identifiants. Ce comportement est bien évidemment modifiable depuis l'api (voir section \textbf{???}) mais nous avions surtout choisi ce timing pour la séance de validation de notre plateforme (section ???).\\
 
 
 \subsection{Exercices}
@@ -81,7 +81,7 @@ Cette section peut se découper en deux parties distinctes :
 
 La page \textit{bibliothèque} contient toutes les \glspl{resinfo} ajoutées par la communauté et ayant été validées par les administrateurs de la plateforme. Elle est accessible publiquement, pour tout type d'utilisateurs.\\
 
-Concernant l'interface, nous nous sommes inspiré de \textit{Coderbyte} et \textit{Hackerrank} pour le panneau de filtres et la preview des \glspl{resinfo} (voir section \ref{section:situation}). Il était important pour nous de conserver une interface simple et déjà utilisée par certaines applications web.
+Concernant l'interface, nous nous sommes inspirés de \textit{Coderbyte} et \textit{Hackerrank} pour le panneau de filtres et le preview des \glspl{resinfo} (voir section \ref{section:situation}). Il était important pour nous de conserver une interface simple et déjà utilisée par certaines applications web.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/library.png}
@@ -100,11 +100,11 @@ La section de droite représente tous les exercices correspondants aux critères
     \caption[SourceCode : preview d'une \gls{resinfo}]{Preview d'une \gls{resinfo}}
 \end{figure}
 
-La preview d'une ressource contient les informations suivantes :
+Le preview d'une ressource contient les informations suivantes :
 
 \begin{itemize}
     \item Le titre de la ressource
-    \item Quelques \glspl{tag} que nous jugeons important pour mieux identifier le type de ressource (si référencés sur celle-ci) : 
+    \item Quelques \glspl{tag} que nous jugeons importants pour mieux identifier le type de ressource (si référencés sur celle-ci) : 
     \begin{itemize}
         \item Le cours
         \item Le langage
@@ -129,7 +129,7 @@ Comme vous pourrez le constater sur la figure \ref{figure:rechercheBibliotheque}
 
 Dans l'interface actuelle, nous voulions que tout soit facilement accessible compte tenu du fait que nous allions intégrer l'historique et le système de favori au même endroit (ce que nous n'avions pas encore décidé au stade du patchwork).\\
 
-La page que nous avions prévu sur le patchwork pour les filtres (figure \ref{figure:systemeDeFiltres}) s'apparente plutôt à une interface avancée. Nous expliquerons d'ailleurs les quelques pistes d'améliorations qui pourraient être apportées à ce sujet dans une prochaine mise à jour de la plateforme en chapitre ???.
+La page que nous avions prévue sur le patchwork pour les filtres (figure \ref{figure:systemeDeFiltres}) s'apparente plutôt à une interface avancée. Nous expliquerons d'ailleurs les quelques pistes d'améliorations qui pourraient être apportées à ce sujet dans une prochaine mise à jour de la plateforme en chapitre ???.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/search-library.png}
@@ -182,7 +182,7 @@ Vous pouvez supprimer ou modifier les favoris depuis ce panneau en passant la so
 \subsubsection{La \gls{fiche} d’une \gls{resinfo}}
 \label{section:ficheResInfo}
 
-Les \glspl{resinfo} sont le cœur de \texttt{SourceCode}. Elles représentent toutes les contributions émises par la communauté. Elle peuvent être consultées depuis la bibliothèque en cliquant sur "voir l'exercice".\\
+Les \glspl{resinfo} sont le cœur de \texttt{SourceCode}. Elles représentent toutes les contributions émises par la communauté. Elles peuvent être consultées depuis la bibliothèque en cliquant sur "voir l'exercice".\\
 
 Voici à quoi ressemble la structure d'une \gls{fiche} :
 
@@ -207,7 +207,7 @@ Sur la \gls{fiche} de la \gls{resinfo}, vous pouvez donner une note sur la quali
 
 Là aussi, le vote joue un rôle important dans le référencement de la \gls{resinfo} car les utilisateurs peuvent filtrer les \glspl{resinfo} en fonction de leur note.\\
 
-Nous avons choisi un système de vote sur 5 étoiles car notre analyse (section \ref{section:situation}) a révélé cette caractérisque commune sur de nombreux sites. La plateforme \textit{Hackerrank} utilise d'ailleurs ce système.
+Nous avons choisi un système de vote sur 5 étoiles, car notre analyse (section \ref{section:situation}) a révélé cette caractéristique commune sur de nombreux sites. La plateforme \textit{Hackerrank} utilise d'ailleurs ce système.
 
 
 \subsection{Gestion}
@@ -255,7 +255,7 @@ Plusieurs informations sont disponibles pour identifier les ressources informati
 
 Nous prêtons attention à la qualité du contenu sur la plateforme. Nous avons donc mis en place un système de statuts pour donner une indication sur l'état d'une \gls{resinfo}.\\
 
-Voici les différents états que peuvent prendre la \gls{resinfo} (découle de notre analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}) :
+Voici les différents états que peut prendre la \gls{resinfo} (découle de notre analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}) :
 
 \begin{itemize}
     \item \includegraphics[valign=b,height=1.4\fontcharht\font`X]{images/client/draft.png} \textbf{Brouillon}
@@ -334,7 +334,7 @@ Deux options de soumission sont disponibles :
 Dans le cas de l'administrateur, ce dernier possède les options suivantes, en plus des précédentes :
 
 \begin{itemize}
-    \item \textbf{Invalider :} Vous estimez que la \gls{resinfo} n'est pas correcte car elle comporte des défauts, des incohérences ou est un dupliqué d'une autre \gls{resinfo}.
+    \item \textbf{Invalider :} Vous estimez que la \gls{resinfo} n'est pas correcte, car elle comporte des défauts, des incohérences ou est un dupliqué d'une autre \gls{resinfo}.
     \item \textbf{Archiver :} Vous estimez que la \gls{resinfo} n'a plus d'utilité à demeurer dans la bibliothèque. En choisissant cette option, seuls les administrateurs et le créateur de la ressource pourront consulter cette ressource dans le futur.
     \item \textbf{Mettre en attente :} Vous estimez que la \gls{resinfo} est prête pour inspection. En cliquant sur soumettre, la ressource se met automatiquement en mode "en attente", jusqu'à ce qu'un administrateur la prenne en charge pour validation.
 \end{itemize}
@@ -344,7 +344,7 @@ Dans le cas de l'administrateur, ce dernier possède les options suivantes, en p
 
 Les favoris permettent d'enregistrer des critères de recherche (titre de recherche et filtres) pour pouvoir les réutiliser par après, sans devoir parcourir le panneau de filtres pour effectuer la même recherche.\\
 
-Pour gérer les favoris, il suffit de passser la souris sur l'un d'eux. Deux icônes apparaitront, le crayon permettant de modifier le favori et la poubelle permettant de le supprimer.
+Pour gérer les favoris, il suffit de passer la souris sur l'un d'eux. Deux icônes apparaitront, le crayon permettant de modifier le favori et la poubelle permettant de le supprimer.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/gestion-favorite.png}
@@ -370,7 +370,7 @@ Voici les différents champs à remplir pour créer un favori :
 En ce qui concerne l'ajout de \glspl{tag}, un code couleur représentant leur statut est présenté (figure \ref{pic:stateDiagramForTags} pour le schéma UML à états). À noter que ce choix de statuts découle de notre analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}. :
 
 \begin{itemize}
-    \item Un \gls{tag} \textbf{valide} pourra être utilisé depuis la bibliothèque pour filtrer les \glspl{resinfo}. Ceci garanti un meilleur référencement pour la ressource.
+    \item Un \gls{tag} \textbf{valide} pourra être utilisé depuis la bibliothèque pour filtrer les \glspl{resinfo}. Ceci garantit un meilleur référencement pour la ressource.
     \item Un \gls{tag} \textbf{obsolète} risque d'être remplacé par un autre \gls{tag} ou d'être supprimé ultérieurement.
     \item Un \gls{tag} \textbf{en attente} n'a pas encore passé la validation d'un administrateur.
     \item Un \gls{tag} \textbf{non valide} n'a pas été accepté l'administration. Il se peut qu'il soit modifié ultérieurement.
@@ -434,13 +434,13 @@ L'administrateur possède les fonctionnalités additionnelles suivantes pour la 
     \item Brouillon
 \end{itemize}
 
-Pour connaître la signification de ces états, reportez vous à la section \ref{section:gestionResInfo} concernant la partie : statuts d'une \gls{resinfo}
+Pour connaître la signification de ces états, reportez-vous à la section \ref{section:gestionResInfo} concernant la partie : statuts d'une \gls{resinfo}
 
-\paragraph{Champ supplémentaire dans le tableau des ressources} le créateur de la \gls{resinfo}. À ce stade du développement, nous ne pouvons pas contacter l'utilisateur directement depuis la plateforme. C'est définitivement une piste que nous allons explorer dans le chapitre ??? car nous aurions voulu intégrer un système de feedback complétant la validation par statut d'une ressource.
+\paragraph{Champ supplémentaire dans le tableau des ressources} le créateur de la \gls{resinfo}. À ce stade du développement, nous ne pouvons pas contacter l'utilisateur directement depuis la plateforme. C'est définitivement une piste que nous allons explorer dans le chapitre ???, car nous aurions voulu intégrer un système de feedback complétant la validation par statut d'une ressource.
 
 \subsubsection{L'importation de \glspl{resinfo}}
 
-Améliorer le processus de création de \glspl{resinfo} est une de nos principales préocupations pour \texttt{SourceCode}. Nous avons alors développé une interface prenant en charge l'importation de \glspl{resinfo}.
+Améliorer le processus de création de \glspl{resinfo} est une de nos principales préoccupations pour \texttt{SourceCode}. Nous avons alors développé une interface prenant en charge l'importation de \glspl{resinfo}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/import.png}
@@ -462,7 +462,7 @@ Nous avons choisi de réserver cette fonctionnalité aux (super-)administrateurs
 
 Les (super-)administrateurs ont la possibilité de gérer les \glspl{tag} présents sur la plateforme. Ils peuvent donc créer des \glspl{tag}, les modifier et changer le statut de ceux-ci.\\
 
-L'interface de gestion prévu à cet effet est semblable à celle de la gestion des ressources informatiques (voir \ref{section:resInfoAdmin}), mis à part que les filtres se limitent aux \glspl{tagCat} et au statut des \glspl{tag}.
+L'interface de gestion prévue à cet effet est semblable à celle de la gestion des ressources informatiques (voir \ref{section:resInfoAdmin}), mis à part que les filtres se limitent aux \glspl{tagCat} et au statut des \glspl{tag}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/tag-admin.png}
@@ -474,9 +474,9 @@ L'interface de gestion prévu à cet effet est semblable à celle de la gestion 
 
 De la même manière que pour les \glspl{resinfo}, nous proposons un système de statuts pour donner une indication sur l'état d'un \gls{tag} (la figure \ref{pic:stateDiagramForTags} représente ces états sur un diagramme UML). Nous voulons que le système de \glspl{tag} soit évolutif et flexible. Nous laissons donc les utilisateurs de la plateforme ajouter leurs \glspl{resinfo}, mais aussi des propositions de \glspl{tag} afin d'agrandir le vocabulaire de \texttt{SourceCode}.\\
 
-Cela passe bien évidement par la validation des administrateurs, qui agissent de concert pour offrir un vocabulaire contrôlé aux utilisateurs, évoluant ainsi en fonction des besoins (voir analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}).
+Cela passe bien évidemment par la validation des administrateurs, qui agissent de concert pour offrir un vocabulaire contrôlé aux utilisateurs, évoluant ainsi en fonction des besoins (voir analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}).
 
-Voici la liste des différents status que peut prendre un \gls{tag} :
+Voici la liste des différents statuts que peut prendre un \gls{tag} :
 
 \begin{itemize}
     \item \includegraphics[valign=b,height=1.4\fontcharht\font`X]{images/client/pending.png} \textbf{En attente de validation}
@@ -489,7 +489,7 @@ Voici la liste des différents status que peut prendre un \gls{tag} :
     \end{itemize} 
     \item \includegraphics[valign=b,height=1.4\fontcharht\font`X]{images/client/not-validated.png} \textbf{Invalide}
     \begin{itemize}
-        \item Lorsque le \gls{tag} n'est pas considérée comme valide (faute de frappe, doublons, incohérences), l'administrateur se réserve le droit d'invalider le tag. Il pourra néanmoins être modifié (par un admin) pour le revalider plus tard.
+        \item Lorsque le \gls{tag} n'est pas considéré comme valide (faute de frappe, doublons, incohérences), l'administrateur se réserve le droit d'invalider le tag. Il pourra néanmoins être modifié (par un admin) pour le revalider plus tard.
     \end{itemize}
     \item \includegraphics[valign=b,height=1.4\fontcharht\font`X]{images/client/archive.png} \textbf{Archive}
     \begin{itemize}
@@ -497,11 +497,11 @@ Voici la liste des différents status que peut prendre un \gls{tag} :
     \end{itemize}
 \end{itemize}
 
-La suppression physique d'un \gls{tag} est possible, mais elle est réservée au super-administrateur car c'est une opération irréversible. C'est pour cela que l'existance d'un statut "obsolète" a été mis en place : garder une trace sur l'évolution du vocabulaire de \texttt{SourceCode}.
+La suppression physique d'un \gls{tag} est possible, mais elle est réservée au super-administrateur car c'est une opération irréversible. C'est pour cela que l'existence d'un statut "obsolète" a été mis en place : garder une trace sur l'évolution du vocabulaire de \texttt{SourceCode}.
 
 \subsubsubsection*{Création/modification de \glspl{tag}}
 
-Le formulaire de création/modification d'un \gls{tag} recquiert les éléments suivants pour être publié :
+Le formulaire de création/modification d'un \gls{tag} requiert les éléments suivants pour être publié :
 
 \begin{itemize}
     \item \textbf{Un nom} : le nom du \gls{tag}
