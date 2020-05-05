@@ -190,17 +190,17 @@ Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Oli
 
 Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
 
-Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...).
+Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...). \\
 
 Pour la partie \gls{backend}, il nous a été imposé de travailler avec une base de données relationnelle\footnote{
     \href{https://fr.wikipedia.org/wiki/Base\_de\_donn\%C3\%A9es\_relationnelle}
     {https://fr.wikipedia.org/wiki/Base\_de\_données\_relationnelle}
 } dont PostgreSQL\footnote{
     \url{https://www.postgresql.org/}
-} a été le système de gestion imposé. Ce type de base de données dispose de propriétés très intéressantes dont notammes les \textbf{ACID}\footnote{
+} a été le système de gestion imposé. Ce type de base de données dispose de propriétés très intéressantes dont notamment les \textbf{ACID}\footnote{
     \href{https://fr.wikipedia.org/wiki/Propri\%C3\%A9t\%C3\%A9s\_ACID}
     {https://fr.wikipedia.org/wiki/Propriétés\_ACID}
-} :
+}, que vous retrouvez sur la figure \ref{pic:ACIDproperties} (par souci de clarté, l'abréviation \textbf{MAJ} désigne le terme "mise(s) à jour") :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ACID.png}
@@ -209,7 +209,9 @@ Pour la partie \gls{backend}, il nous a été imposé de travailler avec une bas
     \label{pic:ACIDproperties}
 \end{figure}
 
-Étant donné que ces propriétés sont assez contraignantes, le lecteur / lectrice attentif / attentive que vous êtes est en droit de remettre en question cette contrainte technique et il est donc utile de recourir au théorème \textbf{CAP} pour la justifier.
+\pagebreak
+
+Étant donné que ces propriétés sont assez contraignantes, le lecteur attentif (ou lectrice attentive) que vous êtes est en droit de remettre en question cette contrainte technique et il est donc utile de recourir au théorème \textbf{CAP} pour la justifier.
 Comme expliqué par un article \cite{acid_cap}, chaque lettre de cette anagramme représente une certaine propriété :
 \begin{description}
     \item[\textbf{C}onsistency (Cohérence) :] "Une donnée n'a qu'un seul état visible, quel que soit le nombre de réplicas"
