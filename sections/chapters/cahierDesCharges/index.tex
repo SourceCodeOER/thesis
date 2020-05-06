@@ -38,12 +38,15 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item \textcolor{gray}{\textbf{W}on't} : C'est ce qui "ne sera pas fait cette fois, mais sera fait plus tard" (\textbf{luxe})
 \end{itemize}
 
+À titre informatif, le choix du \textbf{JSON} se justifie par la norme que nous avons élaborée (cf annexe \ref{annexe:AnalyseBiblio}), qui l'utilise afin de pouvoir manipuler plus aisément les données contenues dans celui-ci.
+Des explications complémentaires sur d'autres aspects de cet inventaire seront apportées dans les prochaines sections de ce chapitre.
+
 \subsubsection*{Tout visiteur peut : }
 
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Rechercher des \glspl{fiche} dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
     \begin{itemize}
-        \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche} (cf TODO : Ce point sera expliqué en détail au point x.z.y)
+        \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans le titre des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
@@ -106,6 +109,52 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item[\textcolor{orange}{\textbf{S}}] Modifier le type d'un utilisateur
     \item[\textcolor{gray}{\textbf{W}}] Créer de nouveaux utilisateurs
 \end{itemize}
+\pagebreak
+
+\subsection*{Recherche par \glspl{tag}}
+
+Une interrogation légitime est de savoir comment exprimer la recherche par \glspl{tag}, ce qui n'est bien entendu pas chose aisée.
+Pour l'illustrer, prenons l'exemple de quelques \glspl{fiche} et \glspl{tag}, que nous noterons resp. \textit{F}\textbf{X} et \textit{M}\textbf{X}
+(\textbf{X} étant remplacé par un numéro pour les distinguer), avec quelques exemples de requêtes.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+            & M1 & M2 & M3 \\ \hline
+            F1 & X  & X  &    \\ \hline
+            F2 &    & X  & X  \\ \hline
+            F3 & X  &    &    \\ \hline
+    \end{tabular}
+    \caption{Problématique de la recherche par \glspl{tag}}
+    \label{tab:fichesWithTagExample}
+\end{table}
+
+\begin{itemize}
+    \item Quelles sont les \glspl{fiche} qui disposent des \glspl{tag} M1 ou M2 ?
+    \item Quelles sont les \glspl{fiche} qui disposent du \gls{tag} M2 mais pas le M1 et le M2 réunis ?
+    \item Quelles sont les \glspl{fiche} qui ne disposent pas du \gls{tag} M3 ?
+\end{itemize}
+
+Comme vous pouvez le constater, ces requêtes, souvent particulièrement verbeuses, peuvent viser des réalités différentes et donc provoquer des situations confuses aussi bien pour un être humain que pour une machine (par exemple, si on combine des "et" et "ou" dans une même phrase, sans ponctuation adaptée). 
+Ceci pose de facto la question de la manière de représenter de telles requêtes.\\
+
+Afin d'exprimer le plus clairement possible cette grande diversité des requêtes, nous avons fait le choix de la 
+\textbf{FNC}\footnote{
+    Forme normale conjonctive - 
+    \url{https://fr.wikipedia.org/wiki/Forme\_normale\_conjonctive}
+}. De ce fait, nous pouvons ainsi exprimer respectivement par une forme non ambigue les exemples de requêtes précédentes \footnote{
+    Par souci de simplicité, nous n'allons pas introduire de nouvelles notations pour les littéraux : M\textbf{X} devant ici est compris comme "la fiche dispose du \gls{tag} n°X"
+} :
+
+\begin{itemize}
+    \item $M1 \lor M2$
+    \item $M2 \land (\neg M1 \lor \neg M2)$
+    \item $\neg M3$
+\end{itemize}
+
+Nous reviendrons d'ailleurs ultérieurement (cf section TODO, figure \ref{figure:rechercheBibliotheque}, ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+
 \pagebreak
 \subsection*{État d'une \gls{fiche}}
 
