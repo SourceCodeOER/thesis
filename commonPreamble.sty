@@ -9,15 +9,9 @@
 \usepackage{import}
 \usepackage{graphicx}
 \usepackage{listings}
-\usepackage[toc,nonumberlist,nogroupskip,nopostdot]{glossaries}
 \usepackage{amssymb}
 \usepackage[export]{adjustbox}
 \usepackage{enumitem}
-% Styles for table
-% J'ai choisi la "long3col-booktabs" mais il y en a d'autres :
-% https://www.dickimaw-books.com/gallery/glossaries-styles/
-\usepackage{glossary-longbooktabs}
-\makeglossaries
 % Pour la bibliographie, on va utiliser biblatex
 \usepackage{csquotes}
 \usepackage{biblatex}
@@ -197,3 +191,11 @@
 \usepackage[bottom]{footmisc}
 
 \usepackage{hyperref}
+
+% Remark from glossaries : If you use hyperref and glossaries, you must load hyperref first (although hyperref should be loaded after most other packages). 
+% Styles for table
+% J'ai choisi la "long3col-booktabs" mais il y en a d'autres :
+% https://www.dickimaw-books.com/gallery/glossaries-styles/
+\usepackage[toc,nonumberlist,nogroupskip,nopostdot]{glossaries}
+\usepackage{glossary-longbooktabs}
+\makeglossaries
