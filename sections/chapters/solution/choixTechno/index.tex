@@ -348,14 +348,50 @@ Nous vons proposons d'ailleurs une illustration récapitulatif en figure \ref{fi
     \label{fig:ORMExplanations}
 \end{figure}
 
-De ce fait, cela permet de simplifier les interactions entre le \Gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
+De ce fait, cela permet de simplifier les interactions entre le \gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
     quelques restrictions / spécificités / différences techniques peuvent néanmois se présenter entre le système d'origine et de destination ...
 ). \\
 
 \noindent\underline{OpenAPI-enforcer}\\
 
-TODO \\
+Il s'agit d'une librairie développée et massivement utilisée par la \textbf{BYU}\footnote{
+    Brigham Young University - \url{https://www.byu.edu/about}
+}. 
+Elle permet, sur base de document(s) respectant la \Gls{oas}, d'enrichir notre \Gls{api} de nombreuses fonctionnalités très intéressantes dont voici quelques-unes :
 
+\begin{itemize}
+    \item Analyse, désérialisation et validation des paramètres de requêtes \textbf{HTTP}.
+    \item Mécanisme de réponse automatique en cas d'erreur
+    \item Association automatique des chemins au code
+\end{itemize}
+
+Nous vous invitons à découvrir la figure \ref{fig:OASEnforcer} qui propose une explication condensée de la librairie.
+Nous reviendrons plus en détail sur son intégration dans la section \ref{chapter:api} : cette sous-section ne constituant qu'une brève introduction.
+À titre informatif, cette librairie se décline en 3 sous-librairies :
+
+\begin{itemize}
+    \item openapi-enforcer\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer}
+    } : le cœur de la librairie
+    \item openapi-enforcer-middleware\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer-middleware}
+    } : le \gls{middleware} de la librairie
+    \item openapi-enforcer-multer\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer-multer}
+    } : un \gls{middleware} optionnel qui s'occupe automatique de l'upload de fichiers (cf section \ref{section:analyseFonctionnelle})
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/libraries/openapi-enforcer.png}
+    \centering
+    \caption[Vue globale de la librairie openapi-enforcer]{Vue globale de la librairie openapi-enforcer 
+        \footnotemark
+    }
+    \label{fig:OASEnforcer}
+\end{figure}
+\footnotetext{
+    \url{https://byu-oit.github.io/openapi-enforcer-middleware/getting-started\#setup}
+}
 
 \noindent\underline{Passport}\\
 
@@ -364,3 +400,4 @@ TODO \\
 \noindent\underline{Supertest}\\
 
 TODO \\
+\pagebreak
