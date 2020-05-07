@@ -39,12 +39,15 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item \textcolor{gray}{\textbf{W}on't} : C'est ce qui "ne sera pas fait cette fois, mais sera fait plus tard" (\textbf{luxe})
 \end{itemize}
 
+À titre informatif, le choix du \textbf{JSON} se justifie par la norme que nous avons élaborée (cf annexe \ref{annexe:AnalyseBiblio}), qui l'utilise afin de pouvoir manipuler plus aisément les données contenues dans celui-ci.
+Des explications complémentaires sur d'autres aspects de cet inventaire seront apportées dans les prochaines sections de ce chapitre.
+
 \subsubsection*{Tout visiteur peut : }
 
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Rechercher des \glspl{fiche} dans l'application. La recherche se porte sur une combinaison libre des critères suivants : 
     \begin{itemize}
-        \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche} (cf TODO : Ce point sera expliqué en détail au point x.z.y)
+        \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans le titre des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
@@ -107,6 +110,52 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item[\textcolor{orange}{\textbf{S}}] Modifier le type d'un utilisateur
     \item[\textcolor{gray}{\textbf{W}}] Créer de nouveaux utilisateurs
 \end{itemize}
+\pagebreak
+
+\subsection*{Recherche par \glspl{tag}}
+
+Une interrogation légitime est de savoir comment exprimer la recherche par \glspl{tag}, ce qui n'est bien entendu pas chose aisée.
+Pour l'illustrer, prenons l'exemple de quelques \glspl{fiche} et \glspl{tag}, que nous noterons resp. \textit{F}\textbf{X} et \textit{M}\textbf{X}
+(\textbf{X} étant remplacé par un numéro pour les distinguer), avec quelques exemples de requêtes.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+            & M1 & M2 & M3 \\ \hline
+            F1 & X  & X  &    \\ \hline
+            F2 &    & X  & X  \\ \hline
+            F3 & X  &    &    \\ \hline
+    \end{tabular}
+    \caption{Problématique de la recherche par \glspl{tag}}
+    \label{tab:fichesWithTagExample}
+\end{table}
+
+\begin{itemize}
+    \item Quelles sont les \glspl{fiche} qui disposent des \glspl{tag} M1 ou M2 ?
+    \item Quelles sont les \glspl{fiche} qui disposent du \gls{tag} M2 mais pas le M1 et le M2 réunis ?
+    \item Quelles sont les \glspl{fiche} qui ne disposent pas du \gls{tag} M3 ?
+\end{itemize}
+
+Comme vous pouvez le constater, ces requêtes, souvent particulièrement verbeuses, peuvent viser des réalités différentes et donc provoquer des situations confuses aussi bien pour un être humain que pour une machine (par exemple, si on combine des "et" et "ou" dans une même phrase, sans ponctuation adaptée). 
+Ceci pose de facto la question de la manière de représenter de telles requêtes.\\
+
+Afin d'exprimer le plus clairement possible cette grande diversité des requêtes, nous avons fait le choix de la 
+\textbf{FNC}\footnote{
+    Forme normale conjonctive - 
+    \url{https://fr.wikipedia.org/wiki/Forme\_normale\_conjonctive}
+}. De ce fait, nous pouvons ainsi exprimer respectivement par une forme non ambigue les exemples de requêtes précédentes \footnote{
+    Par souci de simplicité, nous n'allons pas introduire de nouvelles notations pour les littéraux : M\textbf{X} devant ici est compris comme "la fiche dispose du \gls{tag} n°X"
+} :
+
+\begin{itemize}
+    \item $M1 \lor M2$
+    \item $M2 \land (\neg M1 \lor \neg M2)$
+    \item $\neg M3$
+\end{itemize}
+
+Nous reviendrons d'ailleurs ultérieurement (cf section TODO, figure \ref{figure:rechercheBibliotheque}, ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+
 \pagebreak
 \subsection*{État d'une \gls{fiche}}
 
@@ -186,17 +235,46 @@ Une application web à destination d'un public varié et conséquent se doit d'a
 
 Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Olivier Goletti}, les conseils et recommandations ont souvent été pris en compte pour améliorer l'expérience utilisateur. Par la même occasion, nous avons fait tester l'application à différents utilisateurs (amis, designer) tout au long de la phase de développement afin de nous faire part de leur ressenti.
 
-% Expliquer la contrainte  Postgresql, cela va prendre de la place
 \pagebreak
 \section {Contraintes}
 
 Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
 
-Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...).
+Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...). \\
 
+Pour la partie \gls{backend}, il nous a été imposé de travailler avec une base de données relationnelle\footnote{
+    \href{https://fr.wikipedia.org/wiki/Base\_de\_donn\%C3\%A9es\_relationnelle}
+    {https://fr.wikipedia.org/wiki/Base\_de\_données\_relationnelle}
+} dont PostgreSQL\footnote{
+    \url{https://www.postgresql.org/}
+} a été le système de gestion imposé. Ce type de base de données dispose de propriétés très intéressantes dont notamment les \textbf{ACID}\footnote{
+    \href{https://fr.wikipedia.org/wiki/Propri\%C3\%A9t\%C3\%A9s\_ACID}
+    {https://fr.wikipedia.org/wiki/Propriétés\_ACID}
+}, que vous retrouvez sur la figure \ref{pic:ACIDproperties} (par souci de clarté, l'abréviation \textbf{MAJ} désigne le terme "mise(s) à jour") :
 
-% Expliquer les contraintes :
-%    - Maintenabilité / Extensibilité  du code
-%    - Gestion simple du système (quand Mens disait que les admins ne devaient pas avoir à toucher à la DB pour faire x ou y truc)
-%    - Interface orienté vers l'UX (une jolie instruction UI VS UX
-%    - etc...
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ACID.png}
+    \centering
+    \caption[Propriétés \textbf{ACID}]{Propriétés \textbf{ACID} \cite{bigdata_cap}}
+    \label{pic:ACIDproperties}
+\end{figure}
+
+\pagebreak
+
+Étant donné que ces propriétés sont assez contraignantes, le lecteur attentif (ou lectrice attentive) que vous êtes est en droit de remettre en question cette contrainte technique et il est donc utile de recourir au théorème \textbf{CAP} pour la justifier.
+Comme expliqué par un article \cite{acid_cap}, chaque lettre de cette anagramme représente une certaine propriété :
+\begin{description}
+    \item[\textbf{C}onsistency (Cohérence) :] "Une donnée n'a qu'un seul état visible, quel que soit le nombre de réplicas"
+    \item[\textbf{A}vailability (Disponibilité) :] "Tant que le système tourne (distribué ou non), la donnée doit être disponible"
+    \item[\textbf{P}artition Tolerance (Distribution) :] "Quel que soit le nombre de serveurs, toute requête doit fournir un résultat correct" 
+\end{description}
+
+Comme souligné dans ce même article \cite{acid_cap}, le théorème dit que "dans toute base de données, vous ne pouvez respecter au plus que 2 propriétés".
+Grâce à ce théorème, nous pouvons mieux justifier l'obligation de PostgreSQL par rapport à des solutions alternatives, comme le montre la figure \ref{pic:capTriangleWithSomeDatabases} :
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/triangleCAP_with_databases.png}
+    \centering
+    \caption[Triangle \textbf{CAP} avec quelques bases de données]{Triangle \textbf{CAP} avec quelques bases de données \cite{acid_cap}}
+    \label{pic:capTriangleWithSomeDatabases}
+\end{figure}
