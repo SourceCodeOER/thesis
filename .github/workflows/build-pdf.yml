@@ -1,5 +1,6 @@
 name: Build LaTeX document
-on: [push]
+# Trigger the workflow on push or pull request
+on: [push, pull_request]
 jobs:
   build_latex:
     runs-on: ubuntu-latest

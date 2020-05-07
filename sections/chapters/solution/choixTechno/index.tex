@@ -131,7 +131,7 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
 
 Le choix entre ces trois frameworks s'apparente à une décision plus que subjective, car ce sont tous les trois d'excellents outils de développement. \\
 
-Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Cependant, Vue détient le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
+Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Vue détient cependant le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
 
 % Temporairement on va changer le style de footnote, pour éviter une confusion
 \renewcommand{\thefootnote}{\alph{footnote}}
@@ -259,18 +259,22 @@ Compte tenu du nombre relativement élevé de librairies que nous avons utilisé
 % Axios (pour les requests)
 
 % Un page break pour l'instant
-\pagebreak
 \subsubsubsection{Librairies communes}
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-% Une \noindent\underline{} est cependant possibles
-\underline{Lodash}\\
+% Une \noindent\underline{} est cependant possible
+\underline{\href{https://lodash.com/}{Lodash}}\\
 
-TODO
+Cette librairie propose un grand nombre de fonctionnalités dont nous allons vous montrer un infime échantillon au moyen de cet exemple :
 
+\lstinputlisting[
+    style=ES6,
+    caption={Exemple des fonctionnalités de Lodash}
+]{codes/lodash.js}
+
+\pagebreak
 \subsubsubsection{Librairies pour le \Gls{frontend}}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{\href{https://logaretm.github.io/vee-validate/}{VeeValidate}}\\
 
 Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de caractères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire, ...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
@@ -287,7 +291,7 @@ ValidationObserver et ValidationProvider sont deux composants de VeeValidate per
 
 Lorsque l'utilisateur cliquera sur le bouton de connexion, une fonction de validation va être lancée pour dans un premier temps valider le formulaire. Si toutes les règles sont respectées, alors les données sont envoyées à l'API, sinon, un message d'erreur avec l'explication de la règle non respectée s'affichera juste en dessous du champ incorrect.\\
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\pagebreak
 \noindent\underline{\href{https://tiptap.scrumpy.io}{Tiptap}}\\
 
 Tiptap est un éditeur de texte riche "renderless" (ce terme signifie que la conception du design nous appartient). Cette librairie prévue pour fonctionner avec VueJS permet de mettre en place assez rapidement un éditeur de texte complet et flexible. On peut aisément y rajouter des options comme des triggers que l'on peut attacher à des boutons pour styliser le texte plus facilement. Pour exemple, voici à quoi ressemble l'éditeur de texte de la description d'une \gls{resinfo} :\\
@@ -318,25 +322,100 @@ Axios contient plusieurs méthodes dont \$post qui est utilisée dans l'exemple.
 
 Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses}{Promesse} contenant la réponse ou une erreur si la requête ne s'est pas bien exécutée. Une bonne pratique consiste donc à entourer la requête avec un bloc try/catch pour gérer les deux cas.\\
 
+% TODO - Un petit espace pour le code de ta figure (à adapter après)
+\vspace*{.7in}
 \subsubsubsection{Librairies pour le \Gls{backend}}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-\noindent\underline{Sequelize}\\
+\noindent\underline{\href{https://sequelize.org/master/}{Sequelize}}\\
 
-TODO \\
+Afin d'interagir avec la base de données en Postgresql (cf section \ref{sec:ContraintesCdc}), nous avons fait le choix d'utiliser la librairie Sequelize qui propose du mapping objet-relationnel\footnote{
+    En anglais, le terme utilisé est \textbf{O}bject-\textbf{R}elational \textbf{M}apping ou \textbf{ORM}.
+} (à titre informatif, d'autres alternatives similaires existent, notamment dans Loopback que nous avions étudié en table \ref{table:compFrameworksAPI}).\\
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+Cette approche, qui s'inscrit dans la lignée de la \textbf{POO}\footnote{
+    Programmation orientée objet -
+    \href{https://fr.wikipedia.org/wiki/Programmation\_orient\%C3\%A9e\_objet}{https://fr.wikipedia.org/wiki/Programmation\_orientée\_objet}
+}, consiste à interagir avec la base de données à travers un logiciel qui s'occupe de faire le lien entre les données stockées et les objets\footnote{
+    En \textbf{POO}, le terme "objet" désigne un type abstrait de données, pouvant représenter des choses du monde réel ou non, pouvant contenir un état (c.-à-d. leurs propriétés / caractéristiques) et/ou des comportements (c.-à-d. du code).
+} qui les représentent
+, nous épargnant ainsi l'usage du \textbf{SQL} (ou un autre langage complexe) et les conversions manuellles de données de chaque côté. 
+Nous vons proposons d'ailleurs une illustration récapitulatif en figure \ref{fig:ORMExplanations}.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/libraries/orms-bridge.png}
+    \centering
+    \caption[Finalité d'un \textbf{ORM}]{Finalité d'un \textbf{ORM}}
+    \label{fig:ORMExplanations}
+\end{figure}
+
+De ce fait, cela permet de simplifier les interactions entre le \gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
+    quelques restrictions / spécificités / différences techniques peuvent néanmois se présenter entre le système d'origine et de destination ...
+). \\
+
 \noindent\underline{OpenAPI-enforcer}\\
 
-TODO \\
+Il s'agit d'une librairie développée et massivement utilisée par la \textbf{BYU}\footnote{
+    Brigham Young University - \url{https://www.byu.edu/about}
+}. 
+Elle permet, sur base de document(s) respectant la \Gls{oas}, d'enrichir notre \Gls{api} de nombreuses fonctionnalités très intéressantes dont voici quelques-unes :
 
+\begin{itemize}
+    \item Analyse, désérialisation et validation des paramètres de requêtes \textbf{HTTP}.
+    \item Mécanisme de réponse automatique en cas d'erreur
+    \item Association automatique des chemins au code
+\end{itemize}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-\noindent\underline{Passport}\\
+Nous vous invitons à découvrir la figure \ref{fig:OASEnforcer} qui propose une explication condensée de la librairie.
+Nous reviendrons plus en détail sur son intégration dans la section \ref{chapter:api} : cette sous-section ne constituant qu'une brève introduction.
+À titre informatif, cette librairie se décline en 3 sous-librairies :
 
-TODO \\
+\begin{itemize}
+    \item openapi-enforcer\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer}
+    } : le cœur de la librairie
+    \item openapi-enforcer-middleware\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer-middleware}
+    } : le \gls{middleware} de la librairie
+    \item openapi-enforcer-multer\footnote{
+        \url{https://github.com/byu-oit/openapi-enforcer-multer}
+    } : un \gls{middleware} optionnel qui s'occupe automatique de l'upload de fichiers (cf section \ref{section:analyseFonctionnelle})
+\end{itemize}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-\noindent\underline{Supertest}\\
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/libraries/openapi-enforcer.png}
+    \centering
+    \caption[Vue globale de la librairie openapi-enforcer]{Vue globale de la librairie openapi-enforcer 
+        \footnotemark
+    }
+    \label{fig:OASEnforcer}
+\end{figure}
+\footnotetext{
+    \url{https://byu-oit.github.io/openapi-enforcer-middleware/getting-started\#setup}
+}
 
-TODO \\
+\noindent\underline{\href{http://www.passportjs.org/}{Passport.js}}\\
+
+Comme abordé en section \ref{section:analyseFonctionnelle}, une authentification des utilisateurs est requise pour accéder à certaines fonctionnalités.
+Il est cependant adéquat de ne pas se limiter, car comme expliqué en section \ref{section:AnalyseNonFonctionnelle} (partie "Sécurité"), l'association d'un nom d'utilisateur et d'un mot de passe ne constitue que l'une des très nombreuses stratégies pour s'authentifier (par exemple via un réseau social).
+C'est précisément à cette fin que répond ce \gls{middleware} d'authentification, permettant ainsi l'intégration de stratégies multiples.
+En effet, nous avons utilisé dans notre solution 2 stratégies :
+
+\begin{itemize}
+    \item passport-json\footnote{
+        \url{https://github.com/JamesMGreene/passport-json}
+    } : pour authentifier l'utilisateur lors de sa première visite
+    \item passport-jwt\footnote{
+        \url{http://www.passportjs.org/packages/passport-jwt/}
+        } : pour implémenter un mécanisme d'authentification \textbf{JWT}\footnote{
+            \url{https://jwt.io/}
+        }, afin de ne pas redemander à l'utilisateur de se ré-authentifier à chaque requête
+\end{itemize}
+
+\noindent\underline{\href{https://github.com/visionmedia/supertest}{Supertest}}\\
+
+Librairie permettant de réaliser des assertions en HTTP de manière plus aisée.
+Une de ses particularités est d'être "framework-agnostic", ce qui permet d'utiliser le framework de test de notre choix, dont notamment celui de Facebook : Jest\footnote{
+    \url{https://jestjs.io/}
+}. (Nous reviendrons sur la dimension des tests de manière plus approfondie dans le chapitre ???(validation) )\\
+
+\pagebreak
