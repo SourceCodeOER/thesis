@@ -393,9 +393,23 @@ Nous reviendrons plus en détail sur son intégration dans la section \ref{chapt
     \url{https://byu-oit.github.io/openapi-enforcer-middleware/getting-started\#setup}
 }
 
-\noindent\underline{Passport}\\
+\noindent\underline{\href{http://www.passportjs.org/}{Passport.js}}\\
 
-TODO \\
+Comme abordé en section \ref{section:analyseFonctionnelle}, une authentification des utilisateurs est requise pour accéder à certaines fonctionnalités.
+Il est cependant adéquat de ne pas se limiter, car comme expliqué en section \ref{section:AnalyseNonFonctionnelle} (partie "Sécurité"), l'association d'un nom d'utilisateur et d'un mot de passe ne constitue que l'une des très nombreuses stratégies pour s'authentifier (par exemple via un réseau social).
+C'est précisément à cette fin que répond ce \gls{middleware} d'authentification, permettant ainsi l'intégration de stratégies multiples.
+En effet, nous avons utilisé dans notre solution 2 stratégies :
+
+\begin{itemize}
+    \item passport-json\footnote{
+        \url{https://github.com/JamesMGreene/passport-json}
+    } : pour authentifier l'utilisateur lors de sa première visite
+    \item passport-jwt\footnote{
+        \url{http://www.passportjs.org/packages/passport-jwt/}
+        } : pour implémenter un mécanisme d'authentification \textbf{JWT}\footnote{
+            \url{https://jwt.io/}
+        }, afin de ne pas redemander à l'utilisateur de se ré-authentifier à chaque requête
+\end{itemize}
 
 \noindent\underline{Supertest}\\
 
