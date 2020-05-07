@@ -131,7 +131,7 @@ Pour calculer le résultat total pour un framework précis, il s'agit de la somm
 
 Le choix entre ces trois frameworks s'apparente à une décision plus que subjective, car ce sont tous les trois d'excellents outils de développement. \\
 
-Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Cependant, Vue détient le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
+Puisqu'il fallait bien trancher, \textit{Vue.js} a été la solution retenue pour la partie front-end car nous l'avions déjà utilisé par le passé. Ce framework est aussi populaire qu'\textit{Angular} mais moins que \textit{React}. Vue détient cependant le plus grand nombre de "\textit{stars}" sur GitHub, ceci traduisant un intérêt non négligeable pour ce framework au sein de la communauté des développeurs.\\
 
 % Temporairement on va changer le style de footnote, pour éviter une confusion
 \renewcommand{\thefootnote}{\alph{footnote}}
@@ -259,18 +259,22 @@ Compte tenu du nombre relativement élevé de librairies que nous avons utilisé
 % Axios (pour les requests)
 
 % Un page break pour l'instant
-\pagebreak
 \subsubsubsection{Librairies communes}
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
-% Une \noindent\underline{} est cependant possibles
-\underline{Lodash}\\
+% Une \noindent\underline{} est cependant possible
+\underline{\href{https://lodash.com/}{Lodash}}\\
 
-TODO
+Cette librairie propose un grand nombre de fonctionnalités dont nous allons vous montrer un infime échantillon au moyen de cet exemple :
 
+\lstinputlisting[
+    style=ES6,
+    caption={Exemple des fonctionnalités de Lodash}
+]{codes/lodash.js}
+
+\pagebreak
 \subsubsubsection{Librairies pour le \Gls{frontend}}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{\href{https://logaretm.github.io/vee-validate/}{VeeValidate}}\\
 
 Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de caractères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire, ...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
@@ -287,7 +291,7 @@ ValidationObserver et ValidationProvider sont deux composants de VeeValidate per
 
 Lorsque l'utilisateur cliquera sur le bouton de connexion, une fonction de validation va être lancée pour dans un premier temps valider le formulaire. Si toutes les règles sont respectées, alors les données sont envoyées à l'API, sinon, un message d'erreur avec l'explication de la règle non respectée s'affichera juste en dessous du champ incorrect.\\
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
+\pagebreak
 \noindent\underline{\href{https://tiptap.scrumpy.io}{Tiptap}}\\
 
 Tiptap est un éditeur de texte riche "renderless" (ce terme signifie que la conception du design nous appartient). Cette librairie prévue pour fonctionner avec VueJS permet de mettre en place assez rapidement un éditeur de texte complet et flexible. On peut aisément y rajouter des options comme des triggers que l'on peut attacher à des boutons pour styliser le texte plus facilement. Pour exemple, voici à quoi ressemble l'éditeur de texte de la description d'une \gls{resinfo} :\\
@@ -320,23 +324,19 @@ Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/doc
 
 \subsubsubsection{Librairies pour le \Gls{backend}}
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{Sequelize}\\
 
 TODO \\
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{OpenAPI-enforcer}\\
 
 TODO \\
 
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{Passport}\\
 
 TODO \\
 
-% Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant
 \noindent\underline{Supertest}\\
 
 TODO \\
