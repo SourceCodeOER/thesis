@@ -5,7 +5,7 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     env:
-      FINAL_FILENAME: Source Code - un catalogue open source d’exercices informatiques.pdf
+      FINAL_FILENAME: Dewit_03281500_Yakoub_13861700_2020.pdf
       LATEX_FILENAME: main.pdf
       MAIN_LATEX: main.tex
     steps:
