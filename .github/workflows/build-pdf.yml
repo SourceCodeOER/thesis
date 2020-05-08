@@ -21,8 +21,8 @@ jobs:
       - name: Upload result file
         uses: actions/upload-artifact@v2
         with:
-          name: main.pdf
-          path: main.pdf
+          name: ${{ env.FINAL_FILENAME }}
+          path: ${{ env.FINAL_FILENAME }}
       - name: Upload result file into latest tag
         if: github.ref == 'refs/heads/master'
         uses: Xotl/cool-github-releases@v1.1.2
