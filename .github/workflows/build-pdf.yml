@@ -14,6 +14,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@master
         with:
+          extra_system_packages: "xindy"
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
