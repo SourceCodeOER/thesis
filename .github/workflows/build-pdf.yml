@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Set timezone for date
         run: |
-          timedatectl set-timezone ${{ env.DATE_TIMEZONE }}
+          sudo timedatectl set-timezone ${{ env.DATE_TIMEZONE }}
       - name: Get current date
         run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M:%S')"
       - name: Generate version number
