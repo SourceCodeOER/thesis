@@ -11,9 +11,20 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+      # For weird reasons, xindy binaries are not available in Tex Live (xindy.x86_64-linuxmusl) 
+      # https://github.com/xu-cheng/latex-action/issues/32#issuecomment-626086551
+      - name: Workaround script for xindy
+        run: |
+          content="$(tail -n +3 .github/workflows/texlive_workaround.sh)"
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-env name=TEXLIVE_WORKAROUND::$content"
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@master
+        uses: xu-cheng/latex-action@v2
         with:
+          pre_compile: | 
+            ${{ env.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
