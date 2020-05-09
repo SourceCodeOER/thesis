@@ -36,8 +36,8 @@ jobs:
           path: ${{ env.FINAL_FILENAME }}
       - name: Get current date
         if: github.ref == 'refs/heads/master'
-        run: echo "::set-output name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M%S')"
-      - name: Upload result file into latest tag
+        run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M%S')"
+      - name: Upload result file into releases
         if: github.ref == 'refs/heads/master'
         uses: Xotl/cool-github-releases@v1.1.2
         with:
