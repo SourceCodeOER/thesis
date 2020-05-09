@@ -11,20 +11,20 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+      # For weird reasons, xindy binaries are not available in Tex Live (xindy.x86_64-linuxmusl) 
+      # https://github.com/xu-cheng/latex-action/issues/32#issuecomment-626086551
+      - name: Workaround script for xindy
+        run: |
+          content="$(tail -n +3 .github/workflows/texlive_workaround.sh)"
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-env name=TEXLIVE_WORKAROUND::$content"
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           pre_compile: | 
-            ln -sf /opt/texlive/texdir/texmf-dist/scripts/xindy/xindy.pl /opt/texlive/texdir/bin/x86_64-linuxmusl/xindy
-            ln -sf /opt/texlive/texdir/texmf-dist/scripts/xindy/texindy.pl /opt/texlive/texdir/bin/x86_64-linuxmusl/texindy
-            wget https://sourceforge.net/projects/xindy/files/xindy-source-components/2.4/xindy-kernel-3.0.tar.gz
-            tar xf xindy-kernel-3.0.tar.gz
-            cd xindy-kernel-3.0/src
-            apk add make
-            apk add clisp --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
-            make
-            cp -f xindy.mem /opt/texlive/texdir/bin/x86_64-linuxmusl/
-            cd ../..
+            ${{ env.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
