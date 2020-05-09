@@ -24,6 +24,7 @@ jobs:
             apk add clisp --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
             make
             cp -f xindy.mem /opt/texlive/texdir/bin/x86_64-linuxmusl/
+            cd ../..
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
