@@ -24,7 +24,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           pre_compile: | 
-            "${{ env.TEXLIVE_WORKAROUND }}"
+            ${{ env.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
