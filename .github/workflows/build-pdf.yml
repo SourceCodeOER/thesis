@@ -38,10 +38,9 @@ jobs:
           name: ${{ env.FINAL_FILENAME }}
           path: ${{ env.FINAL_FILENAME }}
       - name: Get current date
-        if: github.ref == 'refs/heads/master'
-        run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M%S')"
-      - name: Get new version number
-        run: echo "::set-env name=CURRENT_VERSION::${GITHUB_SHA::12}"
+        run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M:%S')"
+      - name: Generate version number
+        run: echo "::set-env name=CURRENT_VERSION::$(date +'%d%m%Y_%H-%M-%S')"
       - name: Upload result file into releases
         if: github.ref == 'refs/heads/master'
         uses: Xotl/cool-github-releases@v1.1.2
