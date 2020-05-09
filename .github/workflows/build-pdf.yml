@@ -14,9 +14,6 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@master
         with:
-          # Need that to sort glossary items (including the ones with accents)
-          # https://www.ctan.org/pkg/xindy
-          pre_compile: "tlmgr install xindy"
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
