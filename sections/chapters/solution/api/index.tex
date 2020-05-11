@@ -41,7 +41,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
         \href{https://sourcecodeoer.github.io/sourcecode\_api/}{https://sourcecodeoer.github.io/sourcecode\_api/}.
         Pour la générer en local, cela se fait via la commande : 
         npx redoc-cli bundle api.yml -o docs/index.html 
-    } (cf figure TODO pour un exemple disponible hors-ligne)
+    } (cf figure \ref{fig:exampleDoc} pour un exemple)
     \item upload / files : resp. lieu de stockage des fichiers importés / stockés 
     \item .github : nos scripts d'automatisation (cf section TODO) 
     \item bin : du code n'entrant dans aucun autre dossier
@@ -50,23 +50,47 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 \pagebreak
 \subsection{Points clés de l'implémention}
 
-\subsubsection{Paramétrisation de \Gls{api}}
+\subsubsection{Paramétrisation de l'\Gls{api}}
 
 Comme révélé en section \ref{section:AnalyseNonFonctionnelle}, il convient d'accorder un certain contrôle aux utilisateurs finaux.
 Une manière de configurer une telle application est d'utiliser des \glspl{envvar}, 
 qui permettent, contrairement à d'autres approches (comme les fichiers de configuration \textbf{JSON}, \textbf{YAML}, ...), 
-changer de valeur directement, sans éteindre/rédémarrer l'application par exemple. \\
+de changer de valeur directement, sans éteindre/rédémarrer l'application par exemple. \\
 
-Nous avons les possibilités suivantes (la liste détaillée des \glspl{envvar} est disponible dans le fichier README.MD) :
+Nous avons accordé les possibilités suivantes (la liste détaillée des \glspl{envvar} est disponible dans le fichier README.MD) :
 
 \begin{itemize}
     \item Changer le port utilisé par l'\Gls{api}
     \item Changer l'URI pour se connecter à la base de données
     \item Changer la politique de traçabilité (cf section 4.2 - partie "Sécurité")
-    \item Changer la 
+    \item Changer la durée de validité du token \textbf{JWT} (cf section \ref{section:choixTechnologiques})
 \end{itemize}
 
-\subsubsection{\Gls{oas}}
+\subsubsection{Documentation de l'\Gls{api}}
+
+De manière synthétique, \Gls{oas}\footnote{
+    Pour des exemples concrets, veuillez vous référer au fichier api.yml et le dossier openapi
+} a été plébiscité pour les raisons suivantes :
+
+\begin{itemize}
+    \item Peut être utilisé par des outils divers pour de multiples finalités :
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+        \item apporter des fonctionnalités supplémentaires / construire un projet \gls{frontend} plus rapidement, comme OpenAPI-enforcer (cf figure \ref{fig:OASEnforcer})
+        \item pour générer de la documentation (cf figure \ref{fig:exampleDoc}), comme Redoc\footnote{
+            \url{https://github.com/Redocly/redoc}
+        }
+    \end{itemize}
+    \item Non dépendant du code : de ce fait, plus facile à maintenir et à faire évoluer
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.44\textheight,keepaspectratio]{images/serveur/doc_example.PNG}
+    \centering
+    \caption{Exemple de documentation \textbf{HTML} générée sur base de fichiers \Gls{oas}}
+    \label{fig:exampleDoc}
+\end{figure}
+
+\pagebreak
 \subsubsection{\Gls{middleware}}
 \subsubsection{Recherche par \glspl{tag}}
 
