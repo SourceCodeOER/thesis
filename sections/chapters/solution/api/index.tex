@@ -12,8 +12,7 @@
 % 2.4 Configuration variable environnement
 
 Cette section est entièrement dédiée à la conception du \gls{backend} de \texttt{SourceCode}.
-Puisque cette partie est l'extrême opposée de la précédente (cf section \ref{chapter:client}), nous l'aborderons par sa réalisation technique.
-Étant donné qu'une présentation exhaustive serait une tâche chronophage, nous nous concentrerons sur l'essentiel.
+Puisque cette partie est l'extrême opposée de la précédente (cf section \ref{chapter:client}), nous l'aborderons par sa réalisation technique, en se concentrant sur l'essentiel.
 
 \subsection{Structure du projet}
 
@@ -37,15 +36,36 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
     \item openapi : nos fichiers \Gls{oas}, utilisés par openapi-enforcer (cf figure \ref{fig:OASEnforcer})
     \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par openapi-enforcer (cf figure \ref{fig:OASEnforcer})
     \item tests : nos tests pour valider l'implémentation (cf chap TODO)
+    \item docs : la documentation de l'\Gls{api} en \textbf{HTML}\footnote{
+        Celle-ci est automatiquement publiée sur 
+        \href{https://sourcecodeoer.github.io/sourcecode\_api/}{https://sourcecodeoer.github.io/sourcecode\_api/}.
+        Pour la générer en local, cela se fait via la commande : 
+        npx redoc-cli bundle api.yml -o docs/index.html 
+    } (cf figure TODO pour un exemple disponible hors-ligne)
     \item upload / files : resp. lieu de stockage des fichiers importés / stockés 
     \item .github : nos scripts d'automatisation (cf section TODO) 
     \item bin : du code n'entrant dans aucun autre dossier
 \end{itemize}
 
-
+\pagebreak
 \subsection{Points clés de l'implémention}
 
 \subsubsection{Paramétrisation de \Gls{api}}
+
+Comme révélé en section \ref{section:AnalyseNonFonctionnelle}, il convient d'accorder un certain contrôle aux utilisateurs finaux.
+Une manière de configurer une telle application est d'utiliser des \glspl{envvar}, 
+qui permettent, contrairement à d'autres approches (comme les fichiers de configuration \textbf{JSON}, \textbf{YAML}, ...), 
+changer de valeur directement, sans éteindre/rédémarrer l'application par exemple. \\
+
+Nous avons les possibilités suivantes (la liste détaillée des \glspl{envvar} est disponible dans le fichier README.MD) :
+
+\begin{itemize}
+    \item Changer le port utilisé par l'\Gls{api}
+    \item Changer l'URI pour se connecter à la base de données
+    \item Changer la politique de traçabilité (cf section 4.2 - partie "Sécurité")
+    \item Changer la 
+\end{itemize}
+
 \subsubsection{\Gls{oas}}
 \subsubsection{\Gls{middleware}}
 \subsubsection{Recherche par \glspl{tag}}
@@ -60,7 +80,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 
 \subsection{\texorpdfstring{\Gls{cli}}{CLI}}
 \subsection{Docker}
-\subsection{}
+\subsection{Github Actions}
 
 
 % Pas besoin d'expliquer tout , seulement l'essentiel : 
