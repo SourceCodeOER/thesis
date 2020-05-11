@@ -105,7 +105,7 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
     \label{fig:middlewareOnion}
 \end{figure}
 
-\begin{itemize}
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item La requête est interceptée par le serveur.
     \item La requête traverse successivement chaque "couche" (\gls{middleware} 1, 2, ...) jusqu'à atteindre le cœur de l'application, 
     à condition qu'il n'y ait pas eu d'erreurs lors du parcours.
@@ -113,8 +113,8 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
 \end{itemize}
 
 La grande force de cette approche est qu'elle permet de déléguer\footnote{
-    On peut citer par exemple l'authentification (cf section \ref{section:AnalyseNonFonctionnelle} - partie "Sécurité"), la validation des requêtes, ...
-} et se concentrer ainsi sur l'essentiel. Il est également possible de combiner plusieurs \glspl{middleware} en un seul dans une même "couche", par des \gls{library} comme connect-chain-if
+    Par exemple l'authentification (cf section \ref{section:AnalyseNonFonctionnelle}), la validation des requêtes (cf figure \ref{fig:OASEnforcer}), ...
+} et se concentrer ainsi sur l'essentiel. Il est également possible de combiner plusieurs \glspl{middleware} en un seul dans une même "couche", par des \glspl{library} comme connect-chain-if
 \footnote{
     \url{https://www.npmjs.com/package/connect-chain-if}
 }.
@@ -122,11 +122,29 @@ La grande force de cette approche est qu'elle permet de déléguer\footnote{
 \subsubsection{Recherche par \glspl{tag}}
 \label{section:SearchTagImpl}
 
-\ref{code:searchTags}
+Pour rappel, nous avions abordé au chapitre \ref{chapter:analyseDesBesoins} (cf table \ref{tab:fichesWithTagExample}) la problématique de la recherche et de la solution théorique que nous envisagions.
+
+
+Avec notre implémentation (cf code \ref{code:searchTags} - la méthode tagsConditionsBuilder) et les "scopes" en Sequelize (cf section \ref{section:choixTechnologiques}), 
+il est possible de l'appliquer à l'exemple en table \ref{tab:fichesWithTagExample}, avec les 3 mêmes requêtes que nous avions utilisées :
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+            recherche / \gls{fiche} & F1 & F2 & F3 \\ \hline
+            [ [1, 2] ] & \checkmark  & \checkmark  &    \\ \hline
+            [2, [-1, -2] ] &    & \checkmark  &   \\ \hline
+            [-3] & \checkmark &    & \checkmark   \\ \hline
+    \end{tabular}
+    \caption{Solution technique de la recherche par \glspl{tag}}
+    \label{tab:fichesWithTagImpl}
+\end{table}
 
 % DIVERS
 % - Docker (en annexe, les deux docker-compose)
 % - CLI : max une page ou deux (expliquer ce qu'il y a dedans, en ref l'annexe A)
+\pagebreak
 \section{Divers}
 \label{chapter:solutionDivers}
 
