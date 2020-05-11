@@ -75,7 +75,7 @@ De manière synthétique, \Gls{oas}\footnote{
 \begin{itemize}
     \item Peut être utilisé par des outils divers pour de multiples finalités :
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-        \item apporter des fonctionnalités supplémentaires / construire un projet \gls{frontend} plus rapidement, comme OpenAPI-enforcer (cf figure \ref{fig:OASEnforcer})
+        \item apporter des fonctionnalités supplémentaires / construire un projet plus rapidement, comme OpenAPI-enforcer (cf figure \ref{fig:OASEnforcer})
         \item pour générer de la documentation (cf figure \ref{fig:exampleDoc}), comme Redoc\footnote{
             \url{https://github.com/Redocly/redoc}
         }
@@ -99,7 +99,7 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
 } dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{images/serveur/middleware_onion.png}
+    \includegraphics[width=\textwidth,height=0.25\textheight,keepaspectratio]{images/serveur/middleware_onion.png}
     \centering
     \caption{\Glspl{middleware} : modèle de l'oignon}
     \label{fig:middlewareOnion}
@@ -123,7 +123,9 @@ La grande force de cette approche est qu'elle permet de déléguer\footnote{
 \label{section:SearchTagImpl}
 
 Pour rappel, nous avions abordé au chapitre \ref{chapter:analyseDesBesoins} (cf table \ref{tab:fichesWithTagExample}) la problématique de la recherche et de la solution théorique que nous envisagions.
-
+Notre implémentation repose sur un champ précalculé\footnote{
+    Par soucis de performance, il est préférable d'avoir cette information directement, plutôt que la calculer sur la table intermédiaire entre les \glspl{fiche} et les \glspl{tag} à chaque fois.
+}, présenté sous la forme d'un tableau d'entiers
 
 Avec notre implémentation (cf code \ref{code:searchTags} - la méthode tagsConditionsBuilder) et les "scopes" en Sequelize (cf section \ref{section:choixTechnologiques}), 
 il est possible de l'appliquer à l'exemple en table \ref{tab:fichesWithTagExample}, avec les 3 mêmes requêtes que nous avions utilisées :
