@@ -9,12 +9,13 @@ Après cela, en chapitre \ref{chapter:analyseDesBesoins}, nous nous sommes conce
 
 Dans le chapitre \ref{chapter:solution}, nous avons enfin expliqué notre solution à la problématique du partage de \glspl{resinfo} en détaillant l'architecture de \texttt{SourceCode} aussi bien du côté \gls{frontend} que du \gls{backend}.\\
 
-Dans ce chapitre-ci, nous nous efforçons d'avoir un regard critique sur \texttt{SourceCode}. Par la validation du projet (test avec des utilisateurs externes, test de la qualité du code), les différentes métriques du projet et l'état de ce dernier, nous voulons nous assurer que notre prototype ait un sens et contribue utilement à la problématique des \glspl{resinfo}.
+Dans ce chapitre-ci, nous nous efforçons d'avoir un regard critique sur \texttt{SourceCode}. Par la validation du projet (test avec des utilisateurs externes, test de la qualité du code) et les différentes métriques du projet, nous voulons nous assurer que notre prototype ait un sens et contribue utilement à la problématique des \glspl{resinfo}.
 
 \section{Validation}
 \label{section:validation}
 
 \subsection{Validation externe}
+\label{section:validationExterne}
 
 Pour valider notre travail, nous avions initialement planifié deux séances de validation afin de récolter les avis d'un panel d'utilisateurs suffisamment large.
 Pour cause de COVID-19, il n'a été possible d'organiser qu'une seule, avec sept utilisateurs. Chaque personne se voyait attribuer deux rôles différents (visiteur-utilisateur ou visiteur-administrateur) afin de prendre connaissance des fonctionnalités les plus importantes de \texttt{SourceCode}. Notre évaluation a pu être réalisée grâce à Google Forms (réponses, graphiques) et vous retrouverez l'intégralité de ce sondage dans l'annexe ???.\\
@@ -177,9 +178,74 @@ Cette séance de validation a globalement été positive et instructive. Le mess
 Nous avons appris que la plateforme dispose d'un design et d'une ergonomie satisfaisants. Il faut néanmoins y apporter quelques mises à jour pour rendre le projet mature, notamment au niveau de l'ergonomie.
 Certaines des fonctionnalités mentionnées dans les critiques ont pu être intégrées à \texttt{SourceCode} pour l'améliorer le plus possible. Pour celles qui n'ont pas été ajoutées, nous les avons référencées dans le chapitre ???.
 
+\subsection{Code coverage}
+
+Le \gls{backend} a aussi eu sa forme de validation avec un ensemble de tests pour s'assurer que l'\gls{api} fait bien ce qu'on attend d'elle.\\
+
+Nous avons principalement utilisé le \textit{branch coverage}, dont nous allons vous expliquer son fonctionnement avec un exemple.\\
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{images/analyseCritique/CFG.png}
+    \centering
+    \caption{Exemple d'un CFG pour le branch coverage}
+\end{figure}
+
+Sur cette image illustrant la méthode \texttt{binsearch} (recherche binaire), nous pouvons découper en plusieurs parties le code afin de dessiner le schéma présenté sur la droite. Ce dernier désigne un graphe de flot de contrôle (GFC) représentant tous les chemins qui peuvent être suivis par un programme lors de son exécution.\\
+
+Pour le \textit{branch coverage}, on dit que chaque branche doit être exécutée au moins une fois. Dans le cas du GFC, cela se traduit par le passage sur chaque arête au moins une fois.\\
+
+Mesure : $ C_{branche} =  \frac{\# \; branches \; exécutées}{\# \; branches}  $\\
+
+Avec 48 tests, nous avons pu atteindre une couverture maximale (100\%) car chaque méthode a été testée extensivement avec le \textit{branch coverage}.\\
+
+Vous pouvez d'ailleurs consulter les résultats depuis \url{https://codecov.io/gh/SourceCodeOER/sourcecode_api/list/master/}.
+
+
+
 \section{Métriques}
-% Petits rappels de SQA ^^ 
-% LOC ( lines of code ) / Code coverage
-\section{État du projet}
-% Fonctionnalité
-% Etat du prototype
+
+Cette section traduit notre implication sur ce projet. Pour ce faire, nous avons repris des statistiques des répertoires GitHub du \gls{frontend} et de l'\gls{api}. La notion la plus intéressante à prendre en compte sera le graphe d'activité pour les deux répertoires car nous avons tenté de respecter le planning imposé (voir \ref{pic:ganttChart}).
+
+\subsection{Statistiques}
+
+\begin{itemize}
+    \item Nombre de lignes de code (frontend + backend) : 21685 + 10158 = 31843
+    \begin{itemize}
+        \item Le nombre de lignes de code a été calculé en retirant tous les fichiers générés automatiquement par un script (ex : npm install qui va créer un fichier \textit{package-lock.json}).
+    \end{itemize}
+    \item Nombre de pull request résolues (frontend + backend) : 49 + 79 = 128
+    \begin{itemize}
+        \item Nous avons beaucoup utilisé les pull request avec GitHub car nous voulions garder une trace des mises à jour importantes effectuées. Elles ont aussi été extrèmement utiles avec l'intégration continue de \textit{Docker} qui nous permettait de rapidement tester l'application avec l'une d'elles.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Graphe d'activité}
+
+\texttt{SourceCode} a connu un développement plus ou moins constant durant l'année académique 2019-2020. Étant donné que le \gls{frontend} et le \gls{backend} sont intimement liés, vous pourrez constater sur le graphe \ref{figure:frontendActivity} et \ref{figure:backendActivity} que la forte activité de l'un compense l'activité au ralenti de l'autre répertoire.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{images/analyseCritique/graph_frontend.png}
+    \centering
+    \caption{GitHub : graphe d'activité (frontend)}
+    \label{figure:frontendActivity}
+\end{figure}
+
+Les fonctionnalités les plus importantes comme la recherche dans la bibliothèque, la consultation d'une \gls{fiche} et la gestion des \glspl{resinfo} ont été intégrées durant la période d'octobre à janvier, après quoi nous avons amélioré l'expérience d'utilisation de l'application en appliquant quelques mises à jour et corrections de bugs jusqu'au mois de mai.\\
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{images/analyseCritique/graph_backend.png}
+    \centering
+    \caption{GitHub : graphe d'activité (backend)}
+    \label{figure:backendActivity}
+\end{figure}
+
+
+Globalement, nous avons respecté le planning \ref{pic:ganttChart} que nous nous sommes imposés. Nous avons cependant effectué une dernière mise à jour prenant en compte un maximum des remarques relatées en section \ref{section:validationExterne} car nous voulions prouver que \texttt{SourceCode} est capable de s'adapter aux besoins des utilisateurs.
+
+\subsection{Conclusion}
+
+Ce chapitre était agréable à rédiger car nous avons pu constater si \texttt{SourceCode} est un projet qui tient la route à son stade de développement.\\
+
+La séance de validation nous a été extrêmement bénéfique car les remarques étaient constructives. Cela nous conforte dans l'idée que notre plateforme a des chances de devenir mature et utilisable par une communauté. Quoi qu'il en soit, notre projet est \textit{Open Source} et pourra donc toujours évoluer avec sa communauté. C'est d'ailleurs notre plus grand souhait pour cette plateforme.\\
+
+Au niveau du planning, il semble que nous ayons respecté ce qui était initialement mis en place au vu de nos graphes d'activité. Nous avons tenté d'être constant tout au long du projet car ce dernier demande beaucoup d'investissement en matière de recherche et de développement. Il semblerait que cela ait porté ses fruits.
