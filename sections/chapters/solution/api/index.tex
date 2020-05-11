@@ -84,14 +84,41 @@ De manière synthétique, \Gls{oas}\footnote{
 \end{itemize}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.44\textheight,keepaspectratio]{images/serveur/doc_example.PNG}
+    \includegraphics[width=\textwidth,height=0.44\textheight,keepaspectratio]{images/serveur/doc_example.png}
     \centering
     \caption{Exemple de documentation \textbf{HTML} générée sur base de fichiers \Gls{oas}}
     \label{fig:exampleDoc}
 \end{figure}
 
 \pagebreak
-\subsubsection{\Gls{middleware}}
+\subsubsection{\Glspl{middleware}}
+
+Pour rappel (cf section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
+Une de ses particularités est l'usage de \glspl{middleware}\footnote{
+    Quelques exemples : ceux que nous avions expliqué en section \ref{section:choixTechnologiques} (Passport.js, OpenAPI-enforcer) ou ceux que vous trouverez dans le dossier middlewares
+} dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.30\textheight,keepaspectratio]{images/serveur/middleware_onion.png}
+    \centering
+    \caption{\Glspl{middleware} : modèle de l'oignon}
+    \label{fig:middlewareOnion}
+\end{figure}
+
+\begin{itemize}
+    \item La requête est interceptée par le serveur.
+    \item La requête traverse successivement chaque "couche" (\gls{middleware} 1, 2, ...) jusqu'à atteindre le cœur de l'application, 
+    à condition qu'il n'y ait pas eu d'erreurs lors du parcours.
+    \item Quelque soit la situation, une réponse est toujours envoyé au client de la requête.
+\end{itemize}
+
+La grande force de cette approche est qu'elle permet de déléguer\footnote{
+    On peut citer par exemple l'authentification (cf section \ref{section:AnalyseNonFonctionnelle} - partie "Sécurité"), la validation des requêtes, ...
+} et se concentrer ainsi sur l'essentiel. Il est également possible de combiner plusieurs \glspl{middleware} en un seul dans une même "couche", par des \gls{library} comme connect-chain-if
+\footnote{
+    \url{https://www.npmjs.com/package/connect-chain-if}
+}.
+
 \subsubsection{Recherche par \glspl{tag}}
 
 \ref{code:searchTags}
