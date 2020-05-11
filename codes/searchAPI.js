@@ -1,3 +1,5 @@
+// Extracted from models/Exercises (it should be renamed to "Fiche" one day)
+// The interesting method is tagsConditionsBuilder
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
