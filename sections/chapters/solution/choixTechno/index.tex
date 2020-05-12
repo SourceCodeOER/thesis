@@ -83,10 +83,8 @@ Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait êt
 \end{itemize}
 
 Pour calculer le résultat total pour un framework précis, il s'agit de la somme des résultats obtenus pour chacun des critères avec notre système de notation : \textbf{M}, \textbf{S} et \textbf{B} (resp. 0, 0.5 et 1).
-% TODO Un petit texte en plus du simple tableau aidera à justifier ton choix et montrera que t'as pas simplement choisi le framework X parce que tu aimes Vue.js ^^
 
 \subsubsection*{Framework pour le front-end}
-% TODO à remplacer par ceux que tu as "comparé"
 \begin{table}[H]
     \centering
     \begin{threeparttable}
@@ -348,8 +346,10 @@ Nous vons proposons d'ailleurs une illustration récapitulatif en figure \ref{fi
     \label{fig:ORMExplanations}
 \end{figure}
 
-De ce fait, cela permet de simplifier les interactions entre le \gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
-    quelques restrictions / spécificités / différences techniques peuvent néanmois se présenter entre le système d'origine et de destination ...
+De ce fait, cela permet de simplifier les interactions\footnote{
+    Par exemple, de nombreux \textbf{ORM}s, y compris Sequelize, intègrent la notion de "scopes queries" (\url{https://sequelize.org/master/manual/scopes.html}), permettant de réutiliser du code pour des requêtes fréquemment utilisées.
+} entre le \gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
+    quelques restrictions / spécificités / différences techniques peuvent néanmoins se présenter entre le système d'origine et de destination ...
 ). \\
 
 \noindent\underline{OpenAPI-enforcer}\\

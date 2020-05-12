@@ -1,0 +1,21 @@
+% Bien qu'intéressant, ces codes là prennent trop de places donc je les mets ici
+
+\chapter{Extraits de codes}
+
+% Selon la doc, on peut aussi mettre des label
+%\lstinputlisting[label={}]{src/to/code.js}
+\lstinputlisting[
+    style=ES6,
+    caption={Point d'entrée d'une application, sur base de Yargs}
+]{codes/mainCLI.js}
+
+\lstinputlisting[
+    style=ES6,
+    caption={Exemple d'une implémentation d'une commande "Yargs"}
+]{codes/crawler.js}
+
+\lstinputlisting[
+    style=ES6,
+    caption={Implémentation de la recherche par \glspl{tag}},
+    label={code:searchTags}
+]{codes/searchAPI.js}

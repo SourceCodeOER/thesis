@@ -131,6 +131,7 @@
 \usepackage[dvipsnames]{xcolor}
 
 % Pour les maudits accents dans listings, vaut mieux prévenir que guérir
+% Aussi gérer les lignes trop longues 
 \lstset{%
 inputencoding=utf8,
 extendedchars=true,
@@ -176,7 +177,11 @@ literate=%
   backgroundcolor=\color{white},
   basicstyle=\ttfamily,
   breakatwhitespace=false,
-  breaklines=false,
+  % To deal with too long lines
+  % https://tex.stackexchange.com/questions/116534/lstlisting-line-wrapping
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  % in the original JSES6Base, it was breaklines=false
   captionpos=b,
   columns=fullflexible,
   commentstyle=\color{mediumgray}\upshape,
@@ -262,6 +267,10 @@ literate=%
     \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}
     %\setcounter{tocdepth}{#1}%
 }
+
+% Pour renommer les listings
+\renewcommand\lstlistlistingname{Table des extraits de code}
+\renewcommand{\lstlistingname}{Code} % Listing->Code
 
 % Pour être sur que ces footnotes soient bien en bottom de page
 \usepackage[bottom]{footmisc}

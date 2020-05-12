@@ -1,5 +1,3 @@
-% TODO introduire l'application, les fonctionnalités et les types d'user brièvement
-
 \chapter{Analyse des besoins}
 \label{chapter:analyseDesBesoins}
 % Partie dans laquelle on explique les features / requirements attendues
@@ -49,7 +47,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
     \begin{itemize}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans le titre des \glspl{fiche}
-        \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états
+        \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états (cf figure \ref{pic:stateDiagramForFiches})
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs créateurs
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs identifiants
@@ -64,7 +62,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
             \item le nombre de votants pour une \gls{fiche}
             \item la date de la dernière modification de la \gls{fiche}
             \item le titre de la \gls{fiche}
-            \item l'état de la \gls{fiche}
+            \item l'état de la \gls{fiche} (cf figure \ref{pic:stateDiagramForFiches})
             \item l'identifiant de la \gls{fiche}
         \end{itemize}
     \item[\textcolor{green}{\textbf{C}}] Choisir quelles propriétés des \glspl{fiche} que l'on souhaite consulter
@@ -75,7 +73,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier)
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche}  lui appartenant
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (des restrictions que nous détaillerons dans la section TODO sont présentes pour éviter des dérives)
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (cf figure \ref{pic:stateDiagramForFiches} : pour éviter des dérives, seuls les états \textbf{DRAFT}, \textbf{PENDING} et \textbf{ARCHIVED} sont possibles pour ce rôle spécifique)
     \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s)
     \item[\textcolor{orange}{\textbf{S}}] Gérer des favoris
     \item[\textcolor{orange}{\textbf{S}}] Utiliser des favoris dans la recherche de \gls{fiche}s
@@ -88,18 +86,18 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
     \item[\textcolor{red}{\textbf{M}}] Importer plusieurs \glspl{fiche} sur base d'un fichier JSON.
         Cette fonctionnalité comprend les fonctionnalités sous-jacentes suivantes :
         \begin{itemize}
-            \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer
-            \item Créer automatiquement les \glspl{tag} non existants dans le système (avec éventuellement un état de départ)
+            \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer (cf figure \ref{pic:stateDiagramForFiches})
+            \item Créer automatiquement les \glspl{tag} non existants dans le système, avec éventuellement un état de départ (cf figure \ref{pic:stateDiagramForTags})
             \item Créer automatiquement les \glspl{tagCat} non existantes dans le système
             \item Associer les \glspl{tag} à leurs \glspl{fiche} respectives. 
         \end{itemize}
     \item[\textcolor{red}{\textbf{M}}] Exporter des \glspl{fiche} au format JSON
-    \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s) (avec éventuellement un état spécifique pour chacun)
+    \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s), avec éventuellement un état spécifique pour chacun (cf figure \ref{pic:stateDiagramForTags})
     \item[\textcolor{red}{\textbf{M}}] Modifier un \gls{tag} 
     \item[\textcolor{red}{\textbf{M}}] Modifier une \gls{tagCat} 
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'un ou plusieurs mot(s) clé(s)
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'un ou plusieurs mot(s) clé(s) (cf figure \ref{pic:stateDiagramForTags})
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche} 
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} (aucune restriction)
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} (cf figure \ref{pic:stateDiagramForFiches}: aucune restriction)
     \item[\textcolor{red}{\textbf{M}}] Créer ou trouver des \glspl{tagCat}
     \item[\textcolor{orange}{\textbf{S}}] Lister tous les utilisateurs de l'application (sans distinction)
 \end{itemize}
@@ -133,7 +131,7 @@ Pour l'illustrer, prenons l'exemple de quelques \glspl{fiche} et \glspl{tag}, qu
 
 \begin{itemize}
     \item Quelles sont les \glspl{fiche} qui disposent des \glspl{tag} M1 ou M2 ?
-    \item Quelles sont les \glspl{fiche} qui disposent du \gls{tag} M2 mais pas le M1 et le M2 réunis ?
+    \item Quelles sont les \glspl{fiche} qui disposent du \gls{tag} M2, mais pas le M1 et le M2 réunis ?
     \item Quelles sont les \glspl{fiche} qui ne disposent pas du \gls{tag} M3 ?
 \end{itemize}
 
@@ -154,7 +152,7 @@ Afin d'exprimer le plus clairement possible cette grande diversité des requête
     \item $\neg M3$
 \end{itemize}
 
-Nous reviendrons d'ailleurs ultérieurement (cf section TODO, figure \ref{figure:rechercheBibliotheque}, ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+Nous reviendrons d'ailleurs ultérieurement (cf section \ref{section:SearchTagImpl}, figure \ref{figure:rechercheBibliotheque}, ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
 
 \pagebreak
 \subsection*{État d'une \gls{fiche}}
@@ -221,8 +219,6 @@ consistant en 3 piliers :
     \item[Autorisation :] Il s'agit du fait de vérifier quelles ressources accessibles et les opérations (par exemple les \Gls{crud}) permises sur celles-ci pour l'utilisateur authentifié.
     \item[Traçabilité :] Il s'agit du fait d'enregistrer tous les faits et gestes des utilisateurs authentifiés. Les informations ainsi collectées permettent principalement de prévenir/comprendre des problèmes. 
 \end{description}
-
-% TODO maybe citer la section dans l'implémentation
 
 \subsection*{Maintenance et évolution}
 
