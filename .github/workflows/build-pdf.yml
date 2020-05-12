@@ -9,8 +9,6 @@ jobs:
       LATEX_FILENAME: main.pdf
       MAIN_LATEX: main.tex
       DATE_TIMEZONE: Europe/Brussels
-    outputs:
-      fixCommands: ${{ steps.fixStep.outputs.TEXLIVE_WORKAROUND }}
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
@@ -21,21 +19,9 @@ jobs:
         run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M:%S')"
       - name: Generate version number
         run: echo "::set-env name=CURRENT_VERSION::$(date +'%d%m%Y_%H-%M-%S')"
-      # For weird reasons, xindy binaries are not available in Tex Live (xindy.x86_64-linuxmusl) 
-      # https://github.com/xu-cheng/latex-action/issues/32#issuecomment-626086551
-      - name: Workaround script for xindy
-        id: fixStep
-        run: |
-          content="$(tail -n +3 .github/workflows/texlive_workaround.sh)"
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=TEXLIVE_WORKAROUND::$content"
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          pre_compile: | 
-            ${{ steps.fixStep.outputs.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
       - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
         run: |
