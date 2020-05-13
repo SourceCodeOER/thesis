@@ -6,10 +6,11 @@ Ce chapitre tente de rassembler tous les futurs travaux qui pourront être appor
 Durant notre année académique, nos promoteurs ont gardé un oeil sur le projet afin de nous proposer quelques pistes pour améliorer l'application.
 Parallèlement, nous avons pu rencontrer \textit{Christine Jacqmot}, membre du Louvain Learning Lab, qui nous a partagé son expérience des \gls{oer} avec quelques conseils pour notre plateforme. Enfin, la séance de validation (voir \ref{section:validation}) avec des utilisateurs nous a aussi permis d'élargir nos perspectives pour \texttt{SourceCode}.
 
-\section{Liste}
+\section{Liste des améliorations}
 
 \begin{itemize}
     \item Améliorer le système de validation des \glspl{resinfo} en ajoutant un système de tickets (issues) comme GitHub. Cela permettra au créateur de la ressource de communiquer avec les administrateurs en sachant ce qui ne va pas avec sa \gls{fiche}.
+    \item Faciliter la modération de \glspl{resinfo} en automatisant la recherche de ressources similaires à d'autres ou non pertinentes (contenu injurieux, mal écrit,...).
     \item Ajouter des métriques supplémentaires pour les \glspl{resinfo} :
     \begin{enumerate}
         \item Nombre de fois où la \gls{resinfo} a été consultée.
@@ -20,7 +21,7 @@ Parallèlement, nous avons pu rencontrer \textit{Christine Jacqmot}, membre du L
     \item Ajouter le multi-upload de fichier dans le formulaire de création/modification d'une \gls{resinfo}.
     \item Ajouter le preview de fichier quand c'est possible (image, pdf, word,...) dans le formulaire de création/modification de \glspl{resinfo}.
     \item Avoir la possibilité de rendre certains favoris publics afin de les partager avec les autres et les sauvegarder dans ses propres favoris.
-    \item Ajouter la compatibilité avec les normes Dublin Core et LOM (pratique pour l'export sous un certain format et l'import capable de convertir les formats).
+    \item Ajouter la compatibilité avec les normes Dublin Core et LOM (pratique pour l'export sous un certain format et l'import capable de convertir les formats). Cela permettra à \texttt{SourceCode} de s'ouvrir à d'autres plateformes qui utilisent d'autres normes.
     \item Gestion de la recherche approximative dans la bibliothèque avec propositions de recherche.
     \item Améliorer la lisibilité des \glspl{tag} dans le formulaire de création de \glspl{resinfo} ou de favoris. Il faut pouvoir distinguer à quelle \gls{tagCat} un \gls{tag} appartient, sans devoir rechercher dans le panneau de filtres.
     \item Améliorer l'éditeur de texte pour la création/modification d'une \gls{resinfo}.
@@ -33,7 +34,7 @@ Parallèlement, nous avons pu rencontrer \textit{Christine Jacqmot}, membre du L
     \item Pouvoir résoudre certains exercices directement depuis la plateforme avec l'automatisation de la correction du code.
     \item Créer un espace de discussion autour d'une \gls{resinfo}. Cela peut être utile pour poser des questions sur la résolution d'un exercice.
     \item Ajouter un support complet du responsive sur la plateforme (voir contrainte \ref{sec:ContraintesCdc})
-    \item Ajouter une recherche avancée dans la bibliothèque avec des conditions (NOT, AND, OR).
+    \item Ajouter une recherche avancée dans la bibliothèque avec des conditions (NOT, AND, OR). Cela a déjà été intégré côté \gls{backend}, il reste donc à l'ajouter dans le \gls{frontend}.
     \item Pouvoir modifier son profil et consulter certaines statistiques comme :
     \begin{enumerate}
         \item La moyenne de cotation des \glspl{resinfo}
