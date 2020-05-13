@@ -240,22 +240,6 @@ De nombreuses applications, y compris la nôtre, partagent des besoins communs :
 Compte tenu du nombre relativement élevé de \glspl{library} que nous avons utilisées dans les diverses parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
 
 
-% Pour l'instant, j'ai listé ceci (mais à voir si tu vois d'autres à expliquer)
-% Liste des libraries à expliquer :
-
-% Lodash (toi et moi on l'utilise tôt ou tard)
-
-% Sequelize (avec une explication sur les ORM, qui devra tôt ou tard arriver)
-% OpenAPI-enforcer (mon truc qui autovalide des trucs en OAS)
-% passport (pour gérer les stratégies d'authentification)
-% supertest (pour les tests)
-% (jsonwebtoken (pour l'autorisation) (TODO : peut être pas aussi intéressant ?))
-
-% vee-validate (ce que tu utilises pour valider des forms)
-% Highlight.js (ce que tu utilises pour render les blocs de code)
-% Tiptap (éditeur de texte)
-% Axios (pour les requests)
-
 % Un page break pour l'instant
 \subsubsubsection{\Glspl{library} communes}
 
@@ -319,8 +303,6 @@ Axios contient plusieurs méthodes dont \$post qui est utilisée dans l'exemple.
 
 Chacune de ces méthodes retourne une \href{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses}{Promesse} contenant la réponse ou une erreur si la requête ne s'est pas bien exécutée. Une bonne pratique consiste donc à entourer la requête avec un bloc try/catch pour gérer les deux cas.\\
 
-% TODO - Un petit espace pour le code de ta figure (à adapter après)
-\vspace*{.7in}
 \subsubsubsection{\Glspl{library} pour le \Gls{backend}}
 
 \noindent\underline{\href{https://sequelize.org/master/}{Sequelize}}\\
@@ -358,7 +340,7 @@ Il s'agit d'une \gls{library} développée et massivement utilisée par la \text
 }. 
 Elle permet, sur base de document(s) respectant la \Gls{oas}, d'enrichir notre \Gls{api} de nombreuses fonctionnalités très intéressantes dont voici quelques-unes :
 
-\begin{itemize}
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item Analyse, désérialisation et validation des paramètres de requêtes \textbf{HTTP}.
     \item Mécanisme de réponse automatique en cas d'erreur
     \item Association automatique des chemins au code
@@ -368,7 +350,7 @@ Nous vous invitons à découvrir la figure \ref{fig:OASEnforcer} qui propose une
 Nous reviendrons plus en détail sur son intégration dans la section \ref{chapter:api} : cette sous-section ne constituant qu'une brève introduction.
 À titre informatif, cette \gls{library} se décline en 3 sous-\glspl{library} :
 
-\begin{itemize}
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item openapi-enforcer\footnote{
         \url{https://github.com/byu-oit/openapi-enforcer}
     } : le cœur de la \gls{library}
@@ -399,7 +381,7 @@ Il est cependant adéquat de ne pas se limiter, car comme expliqué en section \
 C'est précisément à cette fin que répond ce \gls{middleware} d'authentification, permettant ainsi l'intégration de stratégies multiples.
 En effet, nous avons utilisé dans notre solution 2 stratégies :
 
-\begin{itemize}
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item passport-json\footnote{
         \url{https://github.com/JamesMGreene/passport-json}
     } : pour authentifier l'utilisateur lors de sa première visite
@@ -415,6 +397,6 @@ En effet, nous avons utilisé dans notre solution 2 stratégies :
 \Gls{library} permettant de réaliser des assertions en HTTP de manière plus aisée.
 Une de ses particularités est d'être "framework-agnostic", ce qui permet d'utiliser le framework de test de notre choix, dont notamment celui de Facebook : Jest\footnote{
     \url{https://jestjs.io/}
-}. (Nous reviendrons sur la dimension des tests de manière plus approfondie dans le chapitre ???(validation) )\\
+}. (nous reviendrons sur la dimension des tests de manière plus approfondie dans la section \ref{section:codeCoverage})\\
 
 \pagebreak
