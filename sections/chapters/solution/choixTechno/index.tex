@@ -310,11 +310,10 @@ Les boutons en dessous du champ texte permettent de formater le texte (gras, ita
 
 \Gls{library} facilitant de manière drastique la conception de requêtes HTTP. Nous utilisons donc Axios pour communiquer avec notre API. Voici un exemple d'utilisation : \\
 
-\begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/libraries/axios.png}
-    \centering
-    \caption[Axios : Exemple d'utilisation]{Exemple d'une POST request}
-\end{figure}
+\lstinputlisting[
+    style=ES6,
+    caption={Axios : Exemple d'utilisation d'une POST request}
+]{codes/axios.ts}
 
 Axios contient plusieurs méthodes dont \$post qui est utilisée dans l'exemple. Il suffit de donner en premier argument le endpoint (/api/search) et le payload que l'on veut envoyer en deuxième argument.\\
 
