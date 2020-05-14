@@ -158,8 +158,12 @@ Comme nous l'évoquions précédemment (cf. annexe \ref{annexe:AnalyseBiblio}), 
     Comme le montre le point d'entrée du \Gls{cli}, à savoir "index.js" (que nous avons inclus dans l'annexe \ref{code:mainYargs}), il sera aisé d'ajouter de nouvelles commandes à l'avenir.
 }.
 
-% TODO illustration by Alexandre
-% TODO texte pour introduire figure d'Alexandre
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/serveur/CLI.jpg}
+    \centering
+    \caption{\Gls{cli} - inventaire des commandes disponibles}
+    \label{fig:cliCommands}
+\end{figure}
 
 Chaque commande disposant naturellement de ses propres règles en matière d'arguments et/ou d'options.
 Fort heureusement, Yargs possède un éventail de fonctionnalités très diversifié, que nous allons illustrer un échantillon représentatif sur la commande "crawler" (cf. annexe \ref{code:crawlerYargs}) :
@@ -168,12 +172,10 @@ Fort heureusement, Yargs possède un éventail de fonctionnalités très diversi
     \item La possibilité de restreindre un choix uniquement à certaines valeurs (ligne 16)
     \item La possibilité d'identifier quels options et arguments ont été donnés à la commande (lignes 59-62)
     \item La possibilité de charger un fichier de configuration (lignes 39-40), permettant ainsi de ne pas devoir réécrire l'entièreté de la ligne de commande pour l'invoquer. 
-    \item ...
 \end{itemize}
 Veuillez noter que nous avons appliqué le "principe ouvert/fermé"\footnote{
     La lettre \textbf{O} dans l'anagramme \textbf{SOLID} (\url{https://fr.wikipedia.org/wiki/SOLID\_(informatique)}), qui présente quelques principes pour la programmation orientée objet
-} dans cette commande : en effet, il est possible d'utiliser des stratégies d'indexation déjà implémentées ou non (
-ex: "inginious-git" qui s'occupe de \glspl{resinfo} au format INGInious\footnote{
+} dans cette commande : en effet, il est possible d'utiliser des stratégies d'indexation déjà implémentées ou non (ex: "inginious-git" qui s'occupe de \glspl{resinfo} au format INGInious\footnote{
     \url{https://inginious.info.ucl.ac.be/}
 }, disponibles via Git\footnote{
     \url{https://git-scm.com/}
