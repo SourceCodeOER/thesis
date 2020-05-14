@@ -164,10 +164,23 @@ Comme nous l'évoquions précédemment (cf. annexe \ref{annexe:AnalyseBiblio}), 
 
 % TODO code B2
 
-Chaque commande disposant 
-\begin{itemize}
-    \item La possibilité d'utiliser 
+Chaque commande disposant naturellement de ses propres règles en matière d'arguments et / ou d'options.
+Fort heureusement, Yargs possède un éventail de fonctionnalités très diversifié, que nous allons illustrer un échantillon représentatif sur la commande "crawler" (cf. annexe TODO) :
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+    \item La possibilité d'indiquer si une option est nécessaire ou non (ligne 28)
+    \item La possibilité de restreindre un choix uniquement à certaines valeurs (ligne 16)
+    \item La possibilité d'identifier quels options et arguments ont été donnés à la commande (lignes 59-62)
+    \item La possibilité de charger un fichier de configuration (lignes 39-40), permettant ainsi de ne pas devoir réécrire l'entièreté de la ligne de commande pour l'invoquer. 
+    \item ...
 \end{itemize}
+Veuillez noter que nous avons appliqué le "principe ouvert/fermé"\footnote{
+    Le lettre \textbf{O} dans l'anagramme \textbf{SOLID} (\url{https://fr.wikipedia.org/wiki/SOLID\_(informatique)}), qui présente quelques principes pour la programmation orienté object
+} dans cette commande : en effet, il est possible d'utiliser des stratégies d'indexation déjà implémentés (
+ex: "inginious-git" qui s'occupe de \glspl{resinfo} au format INGInious\footnote{
+    \url{https://inginious.info.ucl.ac.be/}
+}, disponibles via Git\footnote{
+    \url{https://git-scm.com/}
+}), tout en conservant le même comportement, quelque soit la situation. 
 
 Par respect de la norme que nous avons crée (cf. annexe \ref{annexe:AnalyseBiblio}), nous avons également adopté le \textbf{JSON} et les mêmes conventions d'écriture 
 pour les fichiers d'entrée / de sortie des différentes commandes, à quelques exceptions près que nous avons détaillé dans le fichier README.MD. 
