@@ -18,7 +18,7 @@ Pour répondre aux besoins exprimés en chapitre \ref{chapter:analyseDesBesoins}
 \end{figure}
 
 Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structure officielle de Sequelize\footnote{
-    \url{https://github.com/sequelize/cli} - command "sequelize init"
+    \url{https://github.com/sequelize/cli} - commande "sequelize init"
 }, sur laquelle nous avons ajouté quelques dossiers :
 
 % A voir s'il faut minimiser l'itemize
@@ -84,7 +84,7 @@ De manière synthétique, \Gls{oas}\footnote{
 \pagebreak
 \subsubsection{\Glspl{middleware}}
 
-Pour rappel (cf section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
+Pour rappel (cf. section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
 Une de ses particularités est l'usage de \glspl{middleware}\footnote{
     Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-enforcer
 } dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
@@ -187,6 +187,23 @@ pour les fichiers d'entrée / de sortie des différentes commandes, à quelques 
 
 \pagebreak
 \subsection{Docker}
+
+\footnote{
+    \url{https://www.docker.com/why-docker}
+}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.38\textheight,keepaspectratio]{images/serveur/dockerTaxonomy.png}
+    \centering
+    \caption[Taxonomie des termes et concepts Docker]{Taxonomie des termes et concepts Docker \footnotemark}
+    \label{fig:dockerTaxonomy}
+\end{figure}
+\footnotetext{
+    \url{https://docs.microsoft.com/fr-fr/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries}
+}
+
+
+\pagebreak
 \subsection{Github Actions}
 
 permettant de réaliser en outre du \gls{ci_cd}
