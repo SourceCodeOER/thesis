@@ -3,7 +3,7 @@
 
 \subsection*{Choix de l'environnement de programmation}
 
-Parmi la myriade de langages de programmation (avec leurs différentes plateformes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plate-forme Node.js pour toutes les parties de notre solution (\gls{backend}, \gls{frontend} et \Gls{cli}). \\
+Parmi la myriade de langages de programmation (avec leurs différentes plateformes logicielles existantes) possibles, nous avons opté pour le langage JavaScript et la plateforme Node.js pour toutes les parties de notre solution (\gls{backend}, \gls{frontend} et \Gls{cli}). \\
 
 Ce langage ne vous est peut-être pas tout à fait inconnu en effet, il est souvent utilisé conjointement avec les interfaces HTML du côté client. Le JavaScript est souvent mal considéré par les utilisateurs, lesquels mettent en cause ses difficultés. \\
 
@@ -70,7 +70,7 @@ Dès lors, ce choix, qui possède aussi son lot d'inconvénients, ne saurait êt
     La présence d'une documentation suffisamment claire et explicite pour répondre aux principales questions sur son utilisation.
     La qualifier n'est pas une tâche aisée, puisque souvent soumise exclusivement à notre subjectivité personnelle : en effet, des mesures quantitatives telles que le ratio entre le nombre de lignes de commentaires (\textbf{CLOC}) et le nombre total de lignes de code (\textbf{LOC}) n'aident pas, car quantité n'est pas synonyme de qualité ... 
     \item[\textbf{Fcts}] Fonctionnalités : \\
-    Le nombre de fonctions utilitaires ainsi que de leur degré réciproque d'utilité / de praticité perçu par les utilisateurs. Un choix binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
+    Le nombre de fonctions utilitaires ainsi que de leur degré réciproque d'utilité / de praticité perçue par les utilisateurs. Un choix binaire ne peut dès lors pas s'appliquer : une solution minimaliste en nombre de fonctionnalités pourrait davantage répondre à nos besoins.
     \item[\textbf{Maint}] Maintenabilité d'une application créée avec ce framework : \\
     Il s'agit du degré de facilité avec laquelle la maintenance du code est accomplie. Plusieurs paramètres dont la structure et la complexité du code impactent ce critère. Il s'agit dès lors de ne pas négliger ce critère, car rien n'exclut l'ajout de nouvelles fonctionnalités ou la découverte de bugs à l'avenir.
     \item[\textbf{Pop}] Popularité : \\
@@ -259,7 +259,7 @@ Cette \gls{library} propose un grand nombre de fonctionnalités dont nous allons
 
 \noindent\underline{\href{https://logaretm.github.io/vee-validate/}{VeeValidate}}\\
 
-Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de caractères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire, ...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
+Un excellent framework, construit pour VueJS, responsable de la validation des différents formulaires présents sur \texttt{SourceCode}. Très facilement, nous pouvons importer des règles de validation (\textit{min} pour minimum de caractères, \textit{max} pour maximum de caractère, \textit{required} pour champs obligatoire ...) depuis VeeValidate et les ajouter au composant responsable de la validation du champ.\\
 
 Voici un petit exemple d'utilisation tiré du fichier \texttt{login.vue}, responsable d'afficher la page de connexion à un compte :\\
 
@@ -269,7 +269,7 @@ Voici un petit exemple d'utilisation tiré du fichier \texttt{login.vue}, respon
     \caption[VeeValidate : Exemple d'utilisation]{Exemple sur la page login}
 \end{figure}
 
-ValidationObserver et ValidationProvider sont deux composants de VeeValidate permettant de gérer un formulaire. Le premier fait office de conteneur, auquel on attache un ou plusieurs ValidationProvider responsables d'un champ en particulier (texte, checkbox, ...). Pour chaque ValidationProvider, il suffit d'ajouter une règle de validation comme c'est le cas pour le champ email : required|email (champ obligatoire et doit être un email).\\
+ValidationObserver et ValidationProvider sont deux composants de VeeValidate permettant de gérer un formulaire. Le premier fait office de conteneur, auquel on attache un ou plusieurs ValidationProvider responsables d'un champ en particulier (texte, checkbox ...). Pour chaque ValidationProvider, il suffit d'ajouter une règle de validation comme c'est le cas pour le champ email : required|email (champ obligatoire et doit être un email).\\
 
 Lorsque l'utilisateur cliquera sur le bouton de connexion, une fonction de validation va être lancée pour dans un premier temps valider le formulaire. Si toutes les règles sont respectées, alors les données sont envoyées à l'API, sinon, un message d'erreur avec l'explication de la règle non respectée s'affichera juste en dessous du champ incorrect.\\
 
@@ -317,8 +317,8 @@ Cette approche, qui s'inscrit dans la lignée de la \textbf{POO}\footnote{
 }, consiste à interagir avec la base de données à travers un logiciel qui s'occupe de faire le lien entre les données stockées et les objets\footnote{
     En \textbf{POO}, le terme "objet" désigne un type abstrait de données, pouvant représenter des choses du monde réel ou non, pouvant contenir un état (c.-à-d. leurs propriétés / caractéristiques) et/ou des comportements (c.-à-d. du code).
 } qui les représentent
-, nous épargnant ainsi l'usage du \textbf{SQL} (ou un autre langage complexe) et les conversions manuellles de données de chaque côté. 
-Nous vons proposons d'ailleurs une illustration récapitulatif en figure \ref{fig:ORMExplanations}.
+, nous épargnant ainsi l'usage du \textbf{SQL} (ou un autre langage complexe) et les conversions manuelles de données de chaque côté. 
+Nous vous proposons d'ailleurs une illustration récapitulative en figure \ref{fig:ORMExplanations}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/libraries/orms-bridge.png}
@@ -330,10 +330,9 @@ Nous vons proposons d'ailleurs une illustration récapitulatif en figure \ref{fi
 De ce fait, cela permet de simplifier les interactions\footnote{
     Par exemple, de nombreux \textbf{ORM}s, y compris Sequelize, intègrent la notion de "scopes queries" (\url{https://sequelize.org/master/manual/scopes.html}), permettant de réutiliser du code pour des requêtes fréquemment utilisées.
 } entre le \gls{backend} et la base de données, afin de pouvoir changer vers un autre système de gestion de base de données théoriquement sans modifier la logique interne (
-quelques restrictions / spécificités / différences techniques peuvent néanmoins se présenter entre le système d'origine et de destination ...
-). \\
+quelques restrictions / spécificités / différences techniques peuvent néanmoins se présenter entre le système d'origine et de destination ...). \\
 
-\noindent\underline{OpenAPI-enforcer}\\
+\noindent\underline{OpenAPI-Enforcer}\\
 
 Il s'agit d'une \gls{library} développée et massivement utilisée par la \textbf{BYU}\footnote{
     Brigham Young University - \url{https://www.byu.edu/about}
@@ -365,7 +364,7 @@ Nous reviendrons plus en détail sur son intégration dans la section \ref{chapt
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/libraries/openapi-enforcer.png}
     \centering
-    \caption[Vue globale de la \gls{library} openapi-enforcer]{Vue globale de la \gls{library} openapi-enforcer 
+    \caption[Vue globale de la \gls{library} OpenAPI-Enforcer]{Vue globale de la \gls{library} OpenAPI-Enforcer 
         \footnotemark
     }
     \label{fig:OASEnforcer}

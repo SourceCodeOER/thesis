@@ -24,8 +24,8 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 % A voir s'il faut minimiser l'itemize
 % nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}
 \begin{itemize}
-    \item openapi : nos fichiers \Gls{oas}, utilisés par openapi-enforcer (cf. figure \ref{fig:OASEnforcer})
-    \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par openapi-enforcer (cf. figure \ref{fig:OASEnforcer})
+    \item openapi : nos fichiers \Gls{oas}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
+    \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
     \item tests : nos tests pour valider l'implémentation (cf. section \ref{section:validation})
     \item docs : la documentation de l'\Gls{api} en \textbf{HTML}\footnote{
         Celle-ci est automatiquement publiée sur 
@@ -66,7 +66,7 @@ De manière synthétique, \Gls{oas}\footnote{
 \begin{itemize}
     \item Peut être utilisé par des outils divers pour de multiples finalités :
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-        \item apporter des fonctionnalités supplémentaires / construire un projet plus rapidement, comme OpenAPI-enforcer (cf. figure \ref{fig:OASEnforcer})
+        \item apporter des fonctionnalités supplémentaires / construire un projet plus rapidement, comme OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
         \item pour générer de la documentation (cf. figure \ref{fig:exampleDoc}), comme Redoc\footnote{
             \url{https://github.com/Redocly/redoc}
         }
@@ -86,7 +86,7 @@ De manière synthétique, \Gls{oas}\footnote{
 
 Pour rappel (cf. section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
 Une de ses particularités est l'usage de \glspl{middleware}\footnote{
-    Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-enforcer
+    Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-Enforcer
 } dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
 
 \begin{figure}[H]
@@ -100,7 +100,7 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
     \item La requête est interceptée par le serveur.
     \item La requête traverse successivement chaque "couche" (\gls{middleware} 1, 2, ...) jusqu'à atteindre le cœur de l'application, 
     à condition qu'il n'y ait pas eu d'erreurs lors du parcours.
-    \item Quelque soit la situation, une réponse est toujours envoyée au client de la requête.
+    \item Quelle que soit la situation, une réponse est toujours envoyée au client de la requête.
 \end{itemize}
 
 La grande force de cette approche est qu'elle permet de déléguer\footnote{
@@ -179,7 +179,7 @@ Veuillez noter que nous avons appliqué le "principe ouvert/fermé"\footnote{
     \url{https://inginious.info.ucl.ac.be/}
 }, disponibles via Git\footnote{
     \url{https://git-scm.com/}
-}), tout en conservant le même comportement, quelque soit la situation. 
+}), tout en conservant le même comportement, quelle que soit la situation. 
 
 Par respect de la norme que nous avons crée (cf. annexe \ref{annexe:AnalyseBiblio}), nous avons également adopté le \textbf{JSON} et les mêmes conventions d'écriture 
 pour les fichiers d'entrée / de sortie des différentes commandes, à quelques exceptions près que nous avons détaillé dans le fichier README.MD. 
@@ -209,7 +209,7 @@ Voici un récapitulatif des concepts clés :
 }
 
 Nous avons ainsi découpé notre application en 3 images\footnote{
-    Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}) 
+    Elles sont disponibles sur Docker Hub (\url{https://hub.docker.com/}) 
     et générées sur base de fichiers Dockerfile, présents dans chaque repository Github.
     Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'entièreté de \texttt{SourceCode} avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
 } :
@@ -221,9 +221,9 @@ Nous avons ainsi découpé notre application en 3 images\footnote{
 \end{itemize}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.13\textheight]{images/serveur/dockerHub.PNG}
+    \includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{images/serveur/dockerHub.PNG}
     \centering
-    \caption{Docker - des images prêtes à l'emploi}
+    \caption{Docker Hub - des images prêtes à l'emploi}
     \label{fig:dockerImages}
 \end{figure}
 
