@@ -188,9 +188,15 @@ pour les fichiers d'entrée / de sortie des différentes commandes, à quelques 
 \pagebreak
 \subsection{Docker}
 
-\footnote{
+Comme expliqué par son site officiel\footnote{
     \url{https://www.docker.com/why-docker}
-}
+}, il s'agit d'une plateforme de conteneurisation permettant de paqueter une application.
+Dans un conteneur sont contenus une application ainsi que tous les éléments dont elle a besoin pour fonctionner (code source, \glspl{library}, ...).
+Celui-ci pouvant être utilisé sur n'importe quelle machine, tout en restant plus léger que des alternatives existantes
+\footnote{
+    Davantage d'explications sont disponibles sur \url{https://www.docker.com/resources/what-container}
+}.
+Voici un récapitulatif des concepts / termes clés en Docker :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.38\textheight,keepaspectratio]{images/serveur/dockerTaxonomy.png}
@@ -202,6 +208,22 @@ pour les fichiers d'entrée / de sortie des différentes commandes, à quelques 
     \url{https://docs.microsoft.com/fr-fr/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries}
 }
 
+Nous avons ainsi découpé notre application en 3 images\footnote{
+    Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}), le registry par défaut
+} :
+
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+    \item sourcecode-front : le \gls{frontend} de \texttt{SourceCode}
+    \item sourcecode\_api : le \gls{backend} de \texttt{SourceCode}
+    \item sourcecode-postgres : une base de données en Postgresql, contenant des données extraites par le \Gls{cli}, pour la démonstration de notre solution (cf. section \ref{section:validation})
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=0.16\textheight,keepaspectratio]{images/serveur/dockerHub.PNG}
+    \centering
+    \caption{Docker - des images prêtes à l'emploi}
+    \label{fig:dockerImages}
+\end{figure}
 
 \pagebreak
 \subsection{Github Actions}
