@@ -152,7 +152,24 @@ Afin d'exprimer le plus clairement possible cette grande diversité des requête
     \item $\neg M3$
 \end{itemize}
 
+Dès lors, il est plus aisé d'identifier quelle(s) \gls{fiche}(s) corresponde(nt) à nos critères de recherche 
+(à des fins de clarté, nous utiliserons le symbole \checkmark ici, mais également dans la table \ref{tab:fichesWithTagImpl}).
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+            recherche / \gls{fiche} & F1 & F2 & F3 \\ \hline
+            $M1 \lor M2$ & \checkmark  & \checkmark  &    \\ \hline
+            $M2 \land (\neg M1 \lor \neg M2)$ &    & \checkmark  &   \\ \hline
+            $\neg M3$ & \checkmark &    & \checkmark   \\ \hline
+    \end{tabular}
+    \caption{Solution théorique de la recherche par \glspl{tag}}
+    \label{tab:fichesWithTagTh}
+\end{table}
+
 Nous reviendrons d'ailleurs ultérieurement (cf. section \ref{section:SearchTagImpl}, figure \ref{figure:rechercheBibliotheque} ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+Vous pourrez noter, qu'en dépit de conventions d'écriture différentes (car inhérentes au contexte), les tables \ref{tab:fichesWithTagTh} et \ref{tab:fichesWithTagImpl} expriment les mêmes principes.
 
 \pagebreak
 \subsection*{État d'une \gls{fiche}}
