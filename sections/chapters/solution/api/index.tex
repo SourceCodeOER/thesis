@@ -191,7 +191,7 @@ Comme expliqué par son site officiel\footnote{
 Dans un conteneur sont contenus une application ainsi que tous les éléments dont elle a besoin pour fonctionner (code source, \glspl{library}, ...).
 Le \gls{deploiement} pouvant être réalisé sur n'importe quelle machine, tout en restant plus léger que des alternatives existantes
 \footnote{
-    Davantage d'explications sont disponibles sur \url{https://www.docker.com/resources/what-container}
+    Des explications sont disponibles sur \url{https://www.docker.com/resources/what-container}
 }.
 Voici un récapitulatif des concepts clés :
 
@@ -206,7 +206,9 @@ Voici un récapitulatif des concepts clés :
 }
 
 Nous avons ainsi découpé notre application en 3 images\footnote{
-    Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}), le registry par défaut
+    Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}) 
+    et générés sur base de fichiers Dockerfile, présent dans chaque repository Github.
+    Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'application avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
 } :
 
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
@@ -216,7 +218,7 @@ Nous avons ainsi découpé notre application en 3 images\footnote{
 \end{itemize}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.15\textheight]{images/serveur/dockerHub.PNG}
+    \includegraphics[width=\textwidth,height=0.13\textheight]{images/serveur/dockerHub.PNG}
     \centering
     \caption{Docker - des images prêtes à l'emploi}
     \label{fig:dockerImages}
