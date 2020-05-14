@@ -46,7 +46,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 Comme révélé en section \ref{section:AnalyseNonFonctionnelle}, il convient d'accorder un certain contrôle aux utilisateurs finaux.
 Une manière de configurer une telle application est d'utiliser des \glspl{envvar}, 
 qui permettent, contrairement à d'autres approches (comme les fichiers de configuration \textbf{JSON}, \textbf{YAML}, ...), 
-de changer de valeur directement, sans éteindre/rédémarrer l'application par exemple. \\
+de changer de valeur directement, sans éteindre/redémarrer l'application par exemple. \\
 
 Nous avons accordé les possibilités suivantes (la liste détaillée des \glspl{envvar} est disponible dans le fichier README.MD) :
 
@@ -161,7 +161,7 @@ Comme nous l'évoquions précédemment (cf. annexe \ref{annexe:AnalyseBiblio}), 
 % TODO illustration by Alexandre
 % TODO texte pour introduire figure d'Alexandre
 
-Chaque commande disposant naturellement de ses propres règles en matière d'arguments et / ou d'options.
+Chaque commande disposant naturellement de ses propres règles en matière d'arguments et/ou d'options.
 Fort heureusement, Yargs possède un éventail de fonctionnalités très diversifié, que nous allons illustrer un échantillon représentatif sur la commande "crawler" (cf. annexe \ref{code:crawlerYargs}) :
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item La possibilité d'indiquer si une option est nécessaire ou non (ligne 28)
@@ -171,8 +171,8 @@ Fort heureusement, Yargs possède un éventail de fonctionnalités très diversi
     \item ...
 \end{itemize}
 Veuillez noter que nous avons appliqué le "principe ouvert/fermé"\footnote{
-    Le lettre \textbf{O} dans l'anagramme \textbf{SOLID} (\url{https://fr.wikipedia.org/wiki/SOLID\_(informatique)}), qui présente quelques principes pour la programmation orienté object
-} dans cette commande : en effet, il est possible d'utiliser des stratégies d'indexation déjà implémentés (
+    La lettre \textbf{O} dans l'anagramme \textbf{SOLID} (\url{https://fr.wikipedia.org/wiki/SOLID\_(informatique)}), qui présente quelques principes pour la programmation orientée objet
+} dans cette commande : en effet, il est possible d'utiliser des stratégies d'indexation déjà implémentées ou non (
 ex: "inginious-git" qui s'occupe de \glspl{resinfo} au format INGInious\footnote{
     \url{https://inginious.info.ucl.ac.be/}
 }, disponibles via Git\footnote{
@@ -208,7 +208,7 @@ Voici un récapitulatif des concepts clés :
 
 Nous avons ainsi découpé notre application en 3 images\footnote{
     Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}) 
-    et générées sur base de fichiers Dockerfile, présent dans chaque repository Github.
+    et générées sur base de fichiers Dockerfile, présents dans chaque repository Github.
     Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'entièreté de \texttt{SourceCode} avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
 } :
 
@@ -230,18 +230,18 @@ Nous avons ainsi découpé notre application en 3 images\footnote{
 \label{section:GithubActions}
 
 Vous avez peut-être noté la présence d'un dossier \textit{.github} dans chacun des repositories composant notre solution.
-Pour rappel (cf. section \ref{chapter:api}), ce dossier contient des scripts permettant d'automatiser un ensemble de tâches récurrentes, par le billet de Github Actions.
+Pour rappel (cf. section \ref{chapter:api}), ce dossier contient des scripts permettant d'automatiser un ensemble de tâches récurrentes, par le biais de Github Actions.
 Comme expliqué par Github\footnote{
     \url{https://github.com/features/actions}
 }, Github Actions est une fonctionnalité permettant d'automatiser nos workflows\footnote{
     Si ce terme vous êtes inconnu, nous vous invitons à le découvrir sur \url{https://fr.wikipedia.org/wiki/Workflow}
 }  
 directement sur base du code hébergé chez Github (dont notamment du \gls{ci_cd}).
-Ceci nous permettant de maintenir constantamment un niveau de qualité, via les quelques workflows que nous avons conçu :
+Ceci nous permettant de maintenir constantamment un niveau de qualité, via les quelques workflows que nous avons conçus :
 
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-    \item Créer un nouvelle image Docker, à chaque modification du code source (cf. section \ref{section:docker})
-    \item Tester le bon fonctionnement de l'\Gls{api}, à chaque modification du code source, par le billet de tests (cf. chapitre \ref{section:validation})
+    \item Créer une nouvelle image Docker, à chaque modification du code source (cf. section \ref{section:docker})
+    \item Tester le bon fonctionnement de l'\Gls{api}, à chaque modification du code source, par le biais de tests (cf. chapitre \ref{section:validation})
     \item Vérifier la validité de la documentation en \Gls{oas}, à chaque modification du code source
     \item Générer la documentation en \textbf{HTML} (cf. figure \ref{fig:exampleDoc})
     \item Détecter et identifier les changements de l'\Gls{api} suggestibles d'impacter les clients l'utilisant, dont notamment le \gls{frontend}
