@@ -34,7 +34,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
         npx redoc-cli bundle api.yml -o docs/index.html 
     } (cf. figure \ref{fig:exampleDoc} pour un exemple)
     \item upload / files : resp. lieu de stockage des fichiers importés / stockés 
-    \item .github : nos scripts d'automatisation (cf. section \ref{section:GithubActions}) 
+    \item .github : nos scripts d'automatisation de type Github Actions (cf. section \ref{section:GithubActions}) 
     \item bin : du code n'entrant dans aucun autre dossier
 \end{itemize}
 
@@ -184,6 +184,7 @@ pour les fichiers d'entrée / de sortie des différentes commandes, à quelques 
 
 \pagebreak
 \subsection{Docker}
+\label{section:docker}
 
 Comme expliqué par son site officiel\footnote{
     \url{https://www.docker.com/why-docker}
@@ -228,5 +229,27 @@ Nous avons ainsi découpé notre application en 3 images\footnote{
 \subsection{Github Actions}
 \label{section:GithubActions}
 
-permettant de réaliser en outre du \gls{ci_cd}
+Vous avez peut-être noté la présence d'un dossier \textit{.github} dans chacun des repositories composant notre solution.
+Pour rappel (cf. section \ref{chapter:api}), ce dossier contient des scripts permettant d'automatiser un ensemble de tâches récurrentes, par le billet de Github Actions.
+Comme expliqué par Github\footnote{
+    \url{https://github.com/features/actions}
+}, Github Actions est une fonctionnalité permettant d'automatiser nos workflows\footnote{
+    Si ce terme vous êtes inconnu, nous vous invitons à le découvrir sur \url{https://fr.wikipedia.org/wiki/Workflow}
+}  
+directement sur base du code hébergé chez Github (dont notamment du \gls{ci_cd}).
+Ceci nous permettant de maintenir constantamment un niveau de qualité, via les quelques workflows que nous avons conçu :
 
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+    \item Créer un nouvelle image Docker, à chaque modification du code source (cf. section \ref{section:docker})
+    \item Tester le bon fonctionnement de l'\Gls{api}, à chaque modification du code source, par le billet de tests (cf. chapitre \ref{section:validation})
+    \item Vérifier la validité de la documentation en \Gls{oas}, à chaque modification du code source
+    \item Générer la documentation en \textbf{HTML} (cf. figure \ref{fig:exampleDoc})
+    \item Détecter et identifier les changements de l'\Gls{api} suggestibles d'impacter les clients l'utilisant, dont notamment le \gls{frontend}
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/serveur/workflowGithubActions.PNG}
+    \centering
+    \caption{Github Actions - exemple de workflows}
+    \label{fig:GithubActionsExample}
+\end{figure}
