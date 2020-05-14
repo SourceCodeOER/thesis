@@ -100,7 +100,7 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
     \item La requête est interceptée par le serveur.
     \item La requête traverse successivement chaque "couche" (\gls{middleware} 1, 2, ...) jusqu'à atteindre le cœur de l'application, 
     à condition qu'il n'y ait pas eu d'erreurs lors du parcours.
-    \item Quelque soit la situation, une réponse est toujours envoyée au client de la requête.
+    \item Quelle que soit la situation, une réponse est toujours envoyée au client de la requête.
 \end{itemize}
 
 La grande force de cette approche est qu'elle permet de déléguer\footnote{
@@ -179,7 +179,7 @@ Veuillez noter que nous avons appliqué le "principe ouvert/fermé"\footnote{
     \url{https://inginious.info.ucl.ac.be/}
 }, disponibles via Git\footnote{
     \url{https://git-scm.com/}
-}), tout en conservant le même comportement, quelque soit la situation. 
+}), tout en conservant le même comportement, quelle que soit la situation. 
 
 Par respect de la norme que nous avons crée (cf. annexe \ref{annexe:AnalyseBiblio}), nous avons également adopté le \textbf{JSON} et les mêmes conventions d'écriture 
 pour les fichiers d'entrée / de sortie des différentes commandes, à quelques exceptions près que nous avons détaillé dans le fichier README.MD. 
@@ -209,7 +209,7 @@ Voici un récapitulatif des concepts clés :
 }
 
 Nous avons ainsi découpé notre application en 3 images\footnote{
-    Elles sont disponibles sur Dockerhub (\url{https://hub.docker.com/}) 
+    Elles sont disponibles sur Docker Hub (\url{https://hub.docker.com/}) 
     et générées sur base de fichiers Dockerfile, présents dans chaque repository Github.
     Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'entièreté de \texttt{SourceCode} avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
 } :
@@ -221,9 +221,9 @@ Nous avons ainsi découpé notre application en 3 images\footnote{
 \end{itemize}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.13\textheight]{images/serveur/dockerHub.PNG}
+    \includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{images/serveur/dockerHub.PNG}
     \centering
-    \caption{Docker - des images prêtes à l'emploi}
+    \caption{Docker Hub - des images prêtes à l'emploi}
     \label{fig:dockerImages}
 \end{figure}
 
