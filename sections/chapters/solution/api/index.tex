@@ -145,7 +145,36 @@ il est possible de l'appliquer à l'exemple en table \ref{tab:fichesWithTagExamp
 \section{Divers}
 \label{chapter:solutionDivers}
 
+Dans cette section, nous aborderons quelques éléments secondaires de \texttt{SourceCode}.
+En effet, en dehors du développement, il existe bien d'autres facettes importantes du cycle de vie\footnote{
+    En anglais, ce terme est connu sous le nom de "software lifecycle". (\url{https://web.maths.unsw.edu.au/~lafaye/CCM/genie-logiciel/cycle-de-vie.htm})
+} d'un logiciel : le \gls{deploiement} / la \gls{maintenance}  ...
+
 \subsection{\texorpdfstring{\Gls{cli}}{CLI}}
+
+Comme nous l'évoquions précédemment (cf. annexe \ref{annexe:AnalyseBiblio}), il convient de disposer d'outils pour indexer / mettre en ligne un nombre conséquent de 
+\glspl{resinfo}, provenant de diverses sources, en un minimum de temps. C'est pour répondre à ce besoin que nous avons développé un \Gls{cli}, sur base du framework Yargs
+(cf. section \ref{section:choixTechnologiques})\footnote{
+    % TODO Code B1
+    Comme le montre le point d'entrée du \Gls{cli}, à savoir "index.js" (que nous avons inclus dans l'annexe ???), il sera aisé d'ajouter de nouvelles commandes à l'avenir.
+}.
+
+% TODO illustration by Alexandre
+% TODO texte pour introduire figure d'Alexandre
+
+% TODO code B2
+
+Chaque commande disposant 
+\begin{itemize}
+    \item La possibilité d'utiliser 
+\end{itemize}
+
+Par respect de la norme que nous avons crée (cf. annexe \ref{annexe:AnalyseBiblio}), nous avons également adopté le \textbf{JSON} et les mêmes conventions d'écriture 
+pour les fichiers d'entrée / de sortie des différentes commandes, à quelques exceptions près que nous avons détaillé dans le fichier README.MD. 
+
+\pagebreak
 \subsection{Docker}
 \subsection{Github Actions}
+
+permettant de réaliser en outre du \gls{ci_cd}
 
