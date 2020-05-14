@@ -86,7 +86,7 @@ De manière synthétique, \Gls{oas}\footnote{
 
 Pour rappel (cf. section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
 Une de ses particularités est l'usage de \glspl{middleware}\footnote{
-    Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-Enforcer
+    Par exemple, aux \glspl{middleware} en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-Enforcer
 } dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
 
 \begin{figure}[H]
@@ -99,7 +99,7 @@ Une de ses particularités est l'usage de \glspl{middleware}\footnote{
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item La requête est interceptée par le serveur.
     \item La requête traverse successivement chaque "couche" (\gls{middleware} 1, 2, ...) jusqu'à atteindre le cœur de l'application, 
-    à condition qu'il n'y ait pas eu d'erreurs lors du parcours.
+    à condition qu'il n'y ait pas eu d'erreurs avant.
     \item Quelle que soit la situation, une réponse est toujours envoyée au client de la requête.
 \end{itemize}
 

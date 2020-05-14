@@ -7,7 +7,7 @@
 
 La phase d'analyse est dans la vie d'un projet l'une des phases les plus critiques, car celle-ci formalise les besoins des clients sous tous ses aspects afin que toutes les parties (dont les développeurs) puissent se mettre d'accord. Pour pallier les nombreuses difficultés inhérentes au contexte, plusieurs méthodes reconnues existent (notamment \Gls{QQOQCCP} et UML). \\
 
-La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple, mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de \glspl{resinfo}. Contrairement à d'autres domaines et l'existence de normes pour organiser les informations d'une \gls{resinfo} (\textit{Dublin Core} / \textit{LOM} pour ne citer que quelques unes), il n'existe pas de consensus sur l'arborescence / la taxonomie des \glspl{tag} (cf annexe \ref{annexe:AnalyseBiblio}).
+La principale fonctionnalité attendue de l'application web est la recherche de \glspl{fiche} sur base d'une combinaison de critères divers et variés (dont notamment des \glspl{tag}) pourrait sembler à première vue simple, mais il n'en est rien. En effet, la question sous-jacente est le problème du référencement de \glspl{resinfo}. Contrairement à d'autres domaines et l'existence de normes pour organiser les informations d'une \gls{resinfo} (\textit{Dublin Core} / \textit{LOM} pour ne citer que quelques unes), il n'existe pas de consensus sur l'arborescence / la taxonomie des \glspl{tag} (cf. annexe \ref{annexe:AnalyseBiblio}).
 
 \section{Analyse fonctionnelle}
 \label{section:analyseFonctionnelle}
@@ -37,7 +37,7 @@ Afin de les prioriser en fonction de leurs importances respectives, nous avons u
     \item \textcolor{gray}{\textbf{W}on't} : C'est ce qui "ne sera pas fait cette fois, mais sera fait plus tard" (\textbf{luxe})
 \end{itemize}
 
-À titre informatif, le choix du \textbf{JSON} se justifie par la norme que nous avons élaborée (cf annexe \ref{annexe:AnalyseBiblio}), qui l'utilise afin de pouvoir manipuler plus aisément les données contenues dans celui-ci.
+À titre informatif, le choix du \textbf{JSON} se justifie par la norme que nous avons élaborée (cf. annexe \ref{annexe:AnalyseBiblio}), qui l'utilise afin de pouvoir manipuler plus aisément les données contenues dans celui-ci.
 Des explications complémentaires sur d'autres aspects de cet inventaire seront apportées dans les prochaines sections de ce chapitre.
 
 \subsubsection*{Tout visiteur peut : }
@@ -47,7 +47,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
     \begin{itemize}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans les \glspl{tag} des \glspl{fiche}
         \item[\textcolor{red}{\textbf{M}}] Rechercher dans le titre des \glspl{fiche}
-        \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états (cf figure \ref{pic:stateDiagramForFiches})
+        \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs états (cf. figure \ref{pic:stateDiagramForFiches})
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} sur base d'un certain seuil sur le résultat moyen accordé par les utilisateurs
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs créateurs
         \item[\textcolor{red}{\textbf{M}}] Rechercher les \glspl{fiche} par leurs identifiants
@@ -62,7 +62,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
             \item le nombre de votants pour une \gls{fiche}
             \item la date de la dernière modification de la \gls{fiche}
             \item le titre de la \gls{fiche}
-            \item l'état de la \gls{fiche} (cf figure \ref{pic:stateDiagramForFiches})
+            \item l'état de la \gls{fiche} (cf. figure \ref{pic:stateDiagramForFiches})
             \item l'identifiant de la \gls{fiche}
         \end{itemize}
     \item[\textcolor{green}{\textbf{C}}] Choisir quelles propriétés des \glspl{fiche} que l'on souhaite consulter
@@ -73,7 +73,7 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
 \begin{itemize}
     \item[\textcolor{red}{\textbf{M}}] Mettre en ligne une \gls{fiche}  (avec éventuellement un fichier)
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche}  lui appartenant
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (cf figure \ref{pic:stateDiagramForFiches} : pour éviter des dérives, seuls les états \textbf{DRAFT}, \textbf{PENDING} et \textbf{ARCHIVED} sont possibles pour ce rôle spécifique)
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} lui appartenant (cf. figure \ref{pic:stateDiagramForFiches} : pour éviter des dérives, seuls les états \textbf{DRAFT}, \textbf{PENDING} et \textbf{ARCHIVED} sont possibles pour ce rôle spécifique)
     \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s)
     \item[\textcolor{orange}{\textbf{S}}] Gérer des favoris
     \item[\textcolor{orange}{\textbf{S}}] Utiliser des favoris dans la recherche de \gls{fiche}s
@@ -86,18 +86,18 @@ Des explications complémentaires sur d'autres aspects de cet inventaire seront 
     \item[\textcolor{red}{\textbf{M}}] Importer plusieurs \glspl{fiche} sur base d'un fichier JSON.
         Cette fonctionnalité comprend les fonctionnalités sous-jacentes suivantes :
         \begin{itemize}
-            \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer (cf figure \ref{pic:stateDiagramForFiches})
-            \item Créer automatiquement les \glspl{tag} non existants dans le système, avec éventuellement un état de départ (cf figure \ref{pic:stateDiagramForTags})
+            \item Ajouter éventuellement un état spécifique pour chacune des \glspl{fiche} à importer (cf. figure \ref{pic:stateDiagramForFiches})
+            \item Créer automatiquement les \glspl{tag} non existants dans le système, avec éventuellement un état de départ (cf. figure \ref{pic:stateDiagramForTags})
             \item Créer automatiquement les \glspl{tagCat} non existantes dans le système
             \item Associer les \glspl{tag} à leurs \glspl{fiche} respectives. 
         \end{itemize}
     \item[\textcolor{red}{\textbf{M}}] Exporter des \glspl{fiche} au format JSON
-    \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s), avec éventuellement un état spécifique pour chacun (cf figure \ref{pic:stateDiagramForTags})
+    \item[\textcolor{red}{\textbf{M}}] Proposer un nouveau ou plusieurs mot(s) clé(s), avec éventuellement un état spécifique pour chacun (cf. figure \ref{pic:stateDiagramForTags})
     \item[\textcolor{red}{\textbf{M}}] Modifier un \gls{tag} 
     \item[\textcolor{red}{\textbf{M}}] Modifier une \gls{tagCat} 
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'un ou plusieurs mot(s) clé(s) (cf figure \ref{pic:stateDiagramForTags})
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'un ou plusieurs mot(s) clé(s) (cf. figure \ref{pic:stateDiagramForTags})
     \item[\textcolor{red}{\textbf{M}}] Modifier les informations d'une \gls{fiche} 
-    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} (cf figure \ref{pic:stateDiagramForFiches}: aucune restriction)
+    \item[\textcolor{red}{\textbf{M}}] Changer l'état d'une \gls{fiche} (cf. figure \ref{pic:stateDiagramForFiches}: aucune restriction)
     \item[\textcolor{red}{\textbf{M}}] Créer ou trouver des \glspl{tagCat}
     \item[\textcolor{orange}{\textbf{S}}] Lister tous les utilisateurs de l'application (sans distinction)
 \end{itemize}
@@ -152,7 +152,7 @@ Afin d'exprimer le plus clairement possible cette grande diversité des requête
     \item $\neg M3$
 \end{itemize}
 
-Nous reviendrons d'ailleurs ultérieurement (cf section \ref{section:SearchTagImpl}, figure \ref{figure:rechercheBibliotheque}, ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+Nous reviendrons d'ailleurs ultérieurement (cf. section \ref{section:SearchTagImpl}, figure \ref{figure:rechercheBibliotheque} ...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
 
 \pagebreak
 \subsection*{État d'une \gls{fiche}}
@@ -238,7 +238,7 @@ Au fur et à mesure de nos meetings avec le \textit{Pr. Kim Mens} et \textit{Oli
 
 Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
 
-Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout, ...). \\
+Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout ...). \\
 
 Pour la partie \gls{backend}, il nous a été imposé de travailler avec une base de données relationnelle\footnote{
     \href{https://fr.wikipedia.org/wiki/Base\_de\_donn\%C3\%A9es\_relationnelle}
