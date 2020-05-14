@@ -24,8 +24,8 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 % A voir s'il faut minimiser l'itemize
 % nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}
 \begin{itemize}
-    \item openapi : nos fichiers \Gls{oas}, utilisés par openapi-enforcer (cf. figure \ref{fig:OASEnforcer})
-    \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par openapi-enforcer (cf. figure \ref{fig:OASEnforcer})
+    \item openapi : nos fichiers \Gls{oas}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
+    \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
     \item tests : nos tests pour valider l'implémentation (cf. section \ref{section:validation})
     \item docs : la documentation de l'\Gls{api} en \textbf{HTML}\footnote{
         Celle-ci est automatiquement publiée sur 
@@ -66,7 +66,7 @@ De manière synthétique, \Gls{oas}\footnote{
 \begin{itemize}
     \item Peut être utilisé par des outils divers pour de multiples finalités :
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-        \item apporter des fonctionnalités supplémentaires / construire un projet plus rapidement, comme OpenAPI-enforcer (cf. figure \ref{fig:OASEnforcer})
+        \item apporter des fonctionnalités supplémentaires / construire un projet plus rapidement, comme OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
         \item pour générer de la documentation (cf. figure \ref{fig:exampleDoc}), comme Redoc\footnote{
             \url{https://github.com/Redocly/redoc}
         }
@@ -86,7 +86,7 @@ De manière synthétique, \Gls{oas}\footnote{
 
 Pour rappel (cf. section \ref{section:choixTechnologiques}), Express a été le "squelette" sur lequel nous avons construit notre application.
 Une de ses particularités est l'usage de \glspl{middleware}\footnote{
-    Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-enforcer
+    Par exemple, ceux en section \ref{section:choixTechnologiques} : Passport.js et OpenAPI-Enforcer
 } dont nous pouvons expliquer le fonctionnement général par le biais de cette illustration :
 
 \begin{figure}[H]
