@@ -33,9 +33,9 @@ jobs:
           pre_compile: | 
             ${{ steps.fixStep.outputs.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
-      - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
+      - name: rename ${{ env.MAIN_FILENAME }}.pdf to ${{ env.FINAL_FILENAME }}
         run: |
-          mv "${{ env.LATEX_FILENAME }}.pdf" "${{ env.FINAL_FILENAME }}"
+          mv "${{ env.MAIN_FILENAME }}.pdf" "${{ env.FINAL_FILENAME }}"
       - name: Upload result file
         uses: actions/upload-artifact@v2
         with:
