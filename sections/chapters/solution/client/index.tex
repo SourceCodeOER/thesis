@@ -249,7 +249,7 @@ Voici les différents états que peut prendre la \gls{resinfo} (découle de notr
     \end{itemize}
 \end{itemize}
 
-Le diagramme UML pour l'état d'un \gls{resinfo} se retrouve en figure \ref{pic:stateDiagramForFiches}.
+Le diagramme UML pour l'état d'une \gls{resinfo} se retrouve en figure \ref{pic:stateDiagramForFiches}.
 
 \subsubsubsection{Gestion du statut de la ressource}
 
@@ -261,13 +261,15 @@ Pour modifier l'état d'une ou plusieurs ressources, il faut dans un premier tem
     \item Archiver
 \end{itemize}
 
+Plus d'options seront disponibles pour les administrateurs car il est évident qu'un utilisateur ne puisse pas valider sa propre ressource par exemple.
+
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/gestion-options.png}
     \caption[SourceCode : créer une \gls{resinfo}]{Gestion des \glspl{resinfo} personnelles (creer-exercice ou \_id)}
     \centering
 \end{figure}
 
-\subsubsubsection{Création/modification d'une ressource}
+\subsubsection{Création/modification d'une ressource}
 
 La fiche d'une \gls{resinfo} est composée des éléments suivants :
 
@@ -380,9 +382,13 @@ La gestion des \glspl{resinfo} fonctionne exactement comme la gestion de ses pro
 
 L'administrateur possède les fonctionnalités additionnelles suivantes pour la gestion des \glspl{resinfo} :
 
-\paragraph{Export des résultats de recherche} En filtrant les \glspl{resinfo} par \glspl{tag} et/ou par titre de recherche, vous pouvez exporter tous les résultats correspondant à ce filtrage dans un fichier JSON. Le format de ce fichier est décrit sur l'api (\url{https://sourcecodeoer.github.io/sourcecode_api/#operation/ExportExercises}).
+\subsubsubsection{Export des résultats de recherche}
+ 
+En filtrant les \glspl{resinfo} par \glspl{tag} et/ou par titre de recherche, vous pouvez exporter tous les résultats correspondant à ce filtrage dans un fichier JSON. Le format de ce fichier est décrit sur l'api (\url{https://sourcecodeoer.github.io/sourcecode_api/#operation/ExportExercises}).
 
-\paragraph{Actions supplémentaires} Par rapport à un utilisateur classique, vous pouvez changer l'état d'une \gls{resinfo} de manière plus large avec les états suivants :
+\subsubsubsection{Actions supplémentaires} 
+
+Par rapport à un utilisateur classique, vous pouvez changer l'état d'une \gls{resinfo} de manière plus large avec les états suivants :
 
 \begin{itemize}
     \item Valide
@@ -394,7 +400,9 @@ L'administrateur possède les fonctionnalités additionnelles suivantes pour la 
 
 Pour connaître la signification de ces états, reportez-vous à la section \ref{section:gestionResInfo} concernant la partie : statuts d'une \gls{resinfo}
 
-\paragraph{Champ supplémentaire dans le tableau des ressources} le créateur de la \gls{resinfo}. À ce stade du développement, nous ne pouvons pas contacter l'utilisateur directement depuis la plateforme. C'est définitivement une piste que nous allons explorer dans le chapitre \ref{chapter:pourAllerPlusLoin} car nous aurions voulu intégrer un système de tickets complétant la validation par statut d'une ressource.
+\subsubsubsection{Champ supplémentaire dans le tableau des ressources} 
+
+Le créateur de la \gls{resinfo}. À ce stade du développement, nous ne pouvons pas contacter l'utilisateur directement depuis la plateforme. C'est définitivement une piste que nous allons explorer dans le chapitre \ref{chapter:pourAllerPlusLoin} car nous aurions voulu intégrer un système de tickets complétant la validation par statut d'une ressource.\\
 
 \subsubsection{L'importation de \glspl{resinfo}}
 
