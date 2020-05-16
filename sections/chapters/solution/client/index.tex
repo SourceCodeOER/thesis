@@ -221,6 +221,7 @@ Plusieurs informations sont disponibles pour identifier les ressources informati
 
 
 \subsubsubsection{Statuts d'une \gls{resinfo}}
+\label{section:statutDuneRessource}
 
 Nous prêtons attention à la qualité du contenu sur la plateforme. Nous avons donc mis en place un système de statuts pour donner une indication sur l'état d'une \gls{resinfo}.\\
 
@@ -351,7 +352,7 @@ Nous parlons du statut des \glspl{tag} de manière plus concise dans la section 
 
 \subsubsection{La consultation de profil}
 
-À ce stade-ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En revanche, cette fonctionnalité est déjà disponible côté backend (cf. section ???).\\
+À ce stade-ci du développement, le \gls{frontend} autorise seulement la consultation du profil et non la modification de celui-ci par l'utilisateur. En revanche, cette fonctionnalité est déjà disponible côté backend (cf. documentation : \url{https://sourcecodeoer.github.io/sourcecode_api/#operation/updateUser}).\\
 
 Dans le chapitre \ref{chapter:pourAllerPlusLoin}, nous développons quelques pistes d'améliorations concernant cette page afin de la rendre encore plus utile.
 
@@ -388,17 +389,9 @@ En filtrant les \glspl{resinfo} par \glspl{tag} et/ou par titre de recherche, vo
 
 \subsubsubsection{Actions supplémentaires} 
 
-Par rapport à un utilisateur classique, vous pouvez changer l'état d'une \gls{resinfo} de manière plus large avec les états suivants :
+Par rapport à un utilisateur classique, vous pouvez changer l'état d'une \gls{resinfo} de manière plus large comme l'archivage ou la validation.
 
-\begin{itemize}
-    \item Valide
-    \item Invalide
-    \item En attente
-    \item Archive
-    \item Brouillon
-\end{itemize}
-
-Pour connaître la signification de ces états, reportez-vous à la section \ref{section:gestionResInfo} concernant la partie : statuts d'une \gls{resinfo}
+Pour connaître ces états et leur utilité, reportez-vous à la section \ref{section:statutDuneRessource} et la section \ref{section:analyseFonctionnelle} pour l'état d'une \gls{fiche}.
 
 \subsubsubsection{Champ supplémentaire dans le tableau des ressources} 
 
