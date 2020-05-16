@@ -12,8 +12,15 @@
 \pagebreak
 \begingroup
     \let\clearpage\relax
-    \listoffigures
-    \listoftables
+    % prints main list of figures
+    \printlist[main]{lof}{}{
+        \chapter*{\listfigurename}
+    }
+    % prints main list of tables
+    \printlist[main]{lot}{}{
+        \chapter*{\listtablename}
+    }
+    % TODO trouver un moyen de restreindre celui-là
     \lstlistoflistings
 \endgroup
 

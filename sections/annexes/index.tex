@@ -1,8 +1,17 @@
-% Ici on includera que des pdf et/ou images 
-% ( car trop compliqué de gérer plusieurs bibliographies dans le même document en latex )
-
-% il devrait pas y avoir de soucis pour conserver les titres avec les pdfs
-% https://tex.stackexchange.com/questions/440046/title-of-subsection-on-included-multi-page-pdf
+% On imprime une table des figures / tables pour mieux naviguer ici
+\begingroup
+    \let\clearpage\relax
+    % prints main list of figures
+    \printlist[appendices]{lof}{}{
+        \chapter*{\listfigurenameappendixes}
+    }
+    % prints main list of tables
+    \printlist[appendices]{lot}{}{
+        \chapter*{\listtablenameappendixes}
+    }
+    % TODO trouver un moyen de restreindre celui-là
+    %\lstlistoflistings
+\endgroup
 
 \import{sections/annexes/problematique/}{index}
 \pagebreak

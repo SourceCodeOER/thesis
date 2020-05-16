@@ -10,6 +10,10 @@
 % Numérotation en chiffres romains ( I , II )
 \frontmatter
 
+% Start partial lists
+\startlist[main]{lof}% starts main list of figures
+\startlist[main]{lot}% starts main list of tables
+
 % Table des matières + autres tables
 \import{sections/}{tables}
 
@@ -39,14 +43,30 @@
 
 \chapter{Conclusion}
 
+% Stop partial lists
+\stoplist[main]{lof}% stops main list of figures
+\stoplist[main]{lot}% stops main list of figures
+
 % juste avant la bibliographie et les annexes
 \backmatter
 
 % Bibliographie
 \import{sections/}{bibliographie}
 
+% Start partial lists
+\startlist[appendices]{lof}% starts appendices list of figures
+\startlist[appendices]{lot}% starts appendices list of tables
+
+% Pour modifier plus facilement le nom - Ici, je recycles ceux de base
+\newcommand\listfigurenameappendixes{\listfigurename}
+\newcommand\listtablenameappendixes{\listtablename}
+
 % Annexes
 % Explications : https://texfaq.org/FAQ-appendix
 \begin{appendices}
     \input{sections/annexes/index}
 \end{appendices}
+
+% Stop partial lists
+\stoplist[main]{lof}% stops main list of figures
+\stoplist[main]{lot}% stops main list of figures
