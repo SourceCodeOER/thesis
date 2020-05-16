@@ -1,26 +1,22 @@
 name: Build LaTeX document
 # Trigger the workflow on push or pull request
 on: [push, pull_request]
+env:
+  FINAL_FILENAME: Dewit_03281500_Yakoub_13861700_2020.pdf
+  MAIN_LATEX: main.tex
+  DATE_TIMEZONE: Europe/Brussels
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    env:
-      FINAL_FILENAME: Dewit_03281500_Yakoub_13861700_2020.pdf
-      LATEX_FILENAME: main.pdf
-      MAIN_LATEX: main.tex
-      DATE_TIMEZONE: Europe/Brussels
     outputs:
       fixCommands: ${{ steps.fixStep.outputs.TEXLIVE_WORKAROUND }}
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
-      - name: Set timezone for date
+      - name: Extract filename from ${{ env.MAIN_LATEX }}
         run: |
-          sudo timedatectl set-timezone ${{ env.DATE_TIMEZONE }}
-      - name: Get current date
-        run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M:%S')"
-      - name: Generate version number
-        run: echo "::set-env name=CURRENT_VERSION::$(date +'%d%m%Y_%H-%M-%S')"
+          echo "::set-env name=MAIN_FILENAME::$(echo ${{ env.MAIN_LATEX }} | sed 's/\.[^.]*$//')"
       # For weird reasons, xindy binaries are not available in Tex Live (xindy.x86_64-linuxmusl) 
       # https://github.com/xu-cheng/latex-action/issues/32#issuecomment-626086551
       - name: Workaround script for xindy
@@ -37,16 +33,36 @@ jobs:
           pre_compile: | 
             ${{ steps.fixStep.outputs.TEXLIVE_WORKAROUND }}
           root_file: ${{ env.MAIN_LATEX }}
-      - name: rename ${{ env.LATEX_FILENAME }} to ${{ env.FINAL_FILENAME }}
+      - name: rename ${{ env.MAIN_FILENAME }}.pdf to ${{ env.FINAL_FILENAME }}
         run: |
-          mv "${{ env.LATEX_FILENAME }}" "${{ env.FINAL_FILENAME }}"
+          mv "${{ env.MAIN_FILENAME }}.pdf" "${{ env.FINAL_FILENAME }}"
       - name: Upload result file
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.FINAL_FILENAME }}
           path: ${{ env.FINAL_FILENAME }}
+  release_latex:
+    runs-on: ubuntu-latest
+    needs: build_latex
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: ${{ env.FINAL_FILENAME }}
+# See : https://github.com/actions/download-artifact/issues/14
+      - name: Restore permissions
+        run: |
+          chmod -R 777 ${{ env.FINAL_FILENAME }}
+      - name: Set timezone for date
+        run: |
+          sudo timedatectl set-timezone ${{ env.DATE_TIMEZONE }}
+      - name: Get current date
+        run: echo "::set-env name=CURRENT_DATETIME::$(date +'%d/%m/%Y %H:%M:%S')"
+      - name: Generate version number
+        run: echo "::set-env name=CURRENT_VERSION::$(date +'%d%m%Y_%H-%M-%S')"
       - name: Upload result file into releases
-        if: github.ref == 'refs/heads/master'
         uses: Xotl/cool-github-releases@v1.1.2
         with:
           mode: update
