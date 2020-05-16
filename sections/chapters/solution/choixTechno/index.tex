@@ -11,13 +11,9 @@ Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avanta
 
 Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript du côté serveur qui servira à répondre aux requêtes du client, tout en bénéficiant des avantages du JavaScript. \\
 
-% width=\textwidth,height=\textheight,keepaspectratio
-% height=0.24\textheight semble être la seule solution
-% car scale fait n'importe quoi
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.24\textheight,keepaspectratio]{images/SchemaNodejs.png}
     \centering
-    % Un caption alternative pour ne pas afficher la ref dans la table des figures
     \caption[Du JavaScript aussi bien côté serveur que client]{Du JavaScript aussi bien côté serveur que client~\cite{NodejsIllustrations}}
     \label{pic:WhatIsNodeJs}
 \end{figure}
@@ -42,11 +38,9 @@ Malheureusement, la compilation et l'interprétation ont chacune leurs qualités
 Dans tout système, il existe des tâches coûteuses en temps : des appels à la base de données, etc.
 Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces taches avant de réaliser autre chose. Ceci est un gâchis dans la mesure où des tâches moins gourmandes en temps sont ainsi bloquées. Node.js permet, par son mode de fonctionnement non bloquant, des gains de performances, comme illustré ci-dessous.
 
-% width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.19\textheight,keepaspectratio]{images/ComparaisonBloquantOuNon.png}
     \centering
-    % Un caption alternative pour ne pas afficher la ref dans la table des figures
     \caption[Bloquant/non bloquant : un exemple pour l'illustrer]{Bloquant/non bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
     \label{pic:BloquantOrNot}
 \end{figure}
@@ -55,7 +49,7 @@ Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces ta
 
 \subsection*{Choix des frameworks}
 
-% Sans doute une référence à mettre
+% TODO Sans doute une référence à mettre
 De manière générale, un framework peut être considéré comme une boite à outils très pratique nous permettant de développer une application conséquente en disposant de fonctionnalités et d'une structure de base. Nous pouvons citer 2 avantages majeurs à son usage : 
 \begin{itemize}
     \item Une architecture spécialement prévue (et souvent éprouvée) pour résoudre des classes de problèmes précises permettant ainsi une maintenabilité / évolutivité  de l'application
@@ -140,8 +134,6 @@ Au-dessus de \textit{Vue.js}, nous avons utilisé le framework \textit{Nuxt.js}\
 \renewcommand{\thefootnote}{\arabic{footnote}}
 
 \subsubsection*{Framework pour l'\Gls{api}}
-
-%\thinspace % 
 
 \begin{table}[H]
     \centering
@@ -240,7 +232,6 @@ De nombreuses applications, y compris la nôtre, partagent des besoins communs :
 Compte tenu du nombre relativement élevé de \glspl{library} que nous avons utilisées dans les diverses parties de notre solution, nous évoquerons ici uniquement que les plus conséquentes. \\
 
 
-% Un page break pour l'instant
 \subsubsubsection{\Glspl{library} communes}
 
 % Sorry mais les \paragraph ne t'autorisent pas à faire un titre avant

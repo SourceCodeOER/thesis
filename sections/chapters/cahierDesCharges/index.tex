@@ -1,7 +1,5 @@
 \chapter{Analyse des besoins}
 \label{chapter:analyseDesBesoins}
-% Partie dans laquelle on explique les features / requirements attendues
-% On y trouve sans doute :
 
 \epigraph{<< Les choses paraissent simples jusqu'à ce qu'on commence à les analyser >>}{Audrey Niffenegger}
 
@@ -13,9 +11,6 @@ La principale fonctionnalité attendue de l'application web est la recherche de 
 \label{section:analyseFonctionnelle}
 
 \subsection*{Les différents types d'utilisateurs}
-
-% Comme expliqué par les Echos\cite{SOD}, la séparation des tâches est "un concept qui requière différents acteurs possédant des rôles et responsabilités différents pour la réalisation d’un ensemble de tâches dont l’exécution par un unique acteur pourrait potentiellement conduire à des fraudes ou des erreurs". \\
-
 
 \paragraph{} \texttt{SourceCode} repose sur la participation active d'acteurs variés. Cela nécessite la mise en place d'une organisation sous forme de rôles afin de maintenir cette plateforme de ressources \textit{cohérente} et \textit{qualitative}. Notre analyse nous a permis d'isoler \textbf{4 types d'utilisateurs} disposant de \textit{privilèges additionnels} (en plus de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
 
@@ -183,7 +178,6 @@ Au cours de notre analyse des processus de partage/modération de \glspl{resinfo
 C'est ainsi que nous avons décidé d'associer un état à chaque \gls{fiche}, permettant ainsi de distinguer la situation de chacune au cours de ses processus (cf. annexe \ref{annexe:AnalyseBiblio} - table 4.1 : élément "state"). 
 Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
-% width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/StateFiches.png}
     \centering
@@ -196,7 +190,7 @@ Le diagramme UML à états ci-dessous représente ces états et les principales 
 Une des questions annexes au sujet des \glspl{fiche} est la gestion des \glspl{tag}. En effet, les \glspl{tag} étant des éléments indispensables d'une \gls{fiche} de qualité pour un meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
 
 Durant notre analyse, nous avons pu constater deux écoles de pensée bien distinctes (comparable à ce qui existe en économie) : 
-% Avec mon rajout de texte, il vaut mieux sauter l'itemize à la page suivante libre
+
 \pagebreak
 \begin{itemize}
     \item laissez-faire : Il s'agit de donner une liberté totale en matière de marquage (en utilisant aussi bien des \glspl{tag} existants que non). Bien que cette approche a le mérite de faire émerger de nouveaux \glspl{tag} par les contributions d'utilisateurs, cela restreint les possibilités de modération.
@@ -208,7 +202,6 @@ C'est pourquoi nous avons fait le choix d'une 3e voie, qui se situe donc entre c
 Tout comme les \glspl{fiche}, il s'agit d'associer un état à chaque \gls{tag} pour distinguer sa situation propre (cf. annexe \ref{annexe:AnalyseBiblio} - table 4.2 : élément "state"). 
 Le diagramme UML à états ci-dessous représente ces états et les principales transitions entre états (pour ne pas surcharger celui-ci) :
 
-% width=\textwidth,height=\textheight,keepaspectratio
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/StateTags.png}
     \centering
