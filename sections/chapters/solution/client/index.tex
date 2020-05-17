@@ -33,12 +33,6 @@ Avant d'aller plus loin, considérez la section \ref{section:challengesToDefeat}
 
 La création d'un compte permet d'accéder à des fonctionnalités supplémentaires comme la création de favoris ou de \glspl{resinfo}.\\
 
-\begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/client/register.png}
-    \centering
-    \caption[SourceCode : interface de création de comptes]{Interface de création de comptes}
-\end{figure}
-
 Par défaut, un compte créé offre les privilèges d'un \textbf{utilisateur}. Voici pour rappel (section \ref{section:analyseFonctionnelle}) les différents types d'utilisateurs pouvant accéder à la plateforme :
 
 \begin{itemize}
@@ -82,12 +76,13 @@ Cette section peut se découper en deux parties distinctes :
 
 La page \textit{bibliothèque} contient toutes les \glspl{resinfo} ajoutées par la communauté et ayant été validées par les administrateurs de la plateforme. Elle est accessible publiquement, pour tout type d'utilisateurs.\\
 
-Concernant l'interface, nous nous sommes inspirés de \textit{Coderbyte} et \textit{Hackerrank} pour le panneau de filtres et le preview des \glspl{resinfo} (voir section \ref{section:situation}). Il était important pour nous de conserver une interface simple et déjà utilisée par certaines applications web.
+Concernant l'interface, nous nous sommes inspirés de \textit{Coderbyte} et \textit{Hackerrank} pour le panneau de filtres et le preview des \glspl{resinfo} (cf. section \ref{section:situation}). Il était important pour nous de conserver une interface simple et déjà utilisée par certaines applications web.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/search-library.png}
     \centering
     \caption[SourceCode : page bibliothèque]{page bibliothèque}
+    \label{figure:bibliothequeOverview}
 \end{figure}
 
 \subsubsubsection{Preview d'une \gls{resinfo}}
@@ -108,7 +103,7 @@ Le preview d'une ressource contient les informations suivantes :
     \end{itemize}
     Nous avons choisi 5 \glspl{tag} maximum à afficher pour que le preview de la ressource soit toujours facilement visible. Pour la justification du choix des \glspl{tag}, nous l'expliquons en annexe \ref{annexe:AnalyseBiblio}, table 4.3 avec quelques éléments récurrents que nous avons pu identifier avec les autres normes.
     Les autres \glspl{tag} seront consultables depuis l'interface de la \gls{fiche} (cf. section \ref{section:ficheResInfo})
-    \item La cotation de la ressource (sur 5). Nous détaillons d'ailleurs son utilité dans la section suivante (\ref{section:ficheResInfo}).
+    \item La cotation de la ressource (sur 5). Nous détaillons d'ailleurs son utilité dans la section \ref{section:systemeDeVote}.
 \end{itemize}
 
 \subsubsubsection{Le panneau à onglets}
@@ -120,7 +115,7 @@ Il existe dès lors 3 types d'onglets :
 
 \paragraph{Filtres} Ils permettent d'affiner la recherche de \glspl{resinfo}. Les \glspl{tag} cochés apparaitront juste au-dessus des résultats. Si un \gls{tag} ne convient plus à la recherche, il suffit de décocher un des tags en question ou de cliquer sur la croix du label représentant le \gls{tag} sélectionné.\\
 
-Comme vous pourrez le constater sur la figure \ref{figure:rechercheBibliotheque}, le panneau de filtres n'est plus à la même position que ce que nous avions imaginé avec notre patchwork \ref{figure:patchwork}. Dans ce dernier, nous avions intégré le filtrage de \glspl{tag} dans une interface dédiée à cet effet.\\
+Comme vous pourrez le constater sur la figure \ref{figure:bibliothequeOverview}, le panneau de filtres n'est plus à la même position que ce que nous avions imaginé avec notre patchwork \ref{figure:patchwork}. Dans ce dernier, nous avions intégré le filtrage de \glspl{tag} dans une interface dédiée à cet effet.\\
 
 Dans l'interface actuelle, nous voulions que tout soit facilement accessible compte tenu du fait que nous allions intégrer l'historique et le système de favori au même endroit (ce que nous n'avions pas encore décidé au stade du patchwork).\\
 
@@ -171,6 +166,7 @@ En effet, la recherche dans la bibliothèque fonctionne avec les filtres (\glspl
 De la même manière, plus la \gls{resinfo} contient de \glspl{tag} dans des \glspl{tagCat} différentes, plus il sera facile de la retrouver avec le panneau de filtres. Il est donc important que le créateur de la \gls{fiche} fasse preuve d'exhaustivité dans le choix des \glspl{tag} et de pertinence. Le cas échéant, les administrateurs se réservent le droit d'invalider la ressource ou de la laisser passer, sans grande chance d'être retrouvée par d'autres utilisateurs de la plateforme.
 
 \subsubsubsection{Système de vote}
+\label{section:systemeDeVote}
 
 Sur la \gls{fiche} de la \gls{resinfo}, vous pouvez donner une note sur la qualité de la ressource sur 5 étoiles. Il suffit de cliquer sur une des étoiles pour donner un score (seulement si vous possédez un compte).\\
 
@@ -282,6 +278,10 @@ La fiche d'une \gls{resinfo} est composée des éléments suivants :
     \item Un lien externe (URL)
 \end{itemize}
 
+Un point important sur ce formulaire est la possibilité de proposer un \gls{tag} à la plateforme. Il peut arriver que l'application ne propose pas tous les \glspl{tag} auxquels les utilisateurs aspirent. De la même manière que ces derniers contribuent à la plateforme en ajoutant des ressources, pourquoi ne pourraient-ils pas aussi contribuer à étendre la liste des \glspl{tag} ? Il suffit donc de sélectionner une categorie particulière et fournir un nom pour le \gls{tag}.\\
+
+Si ce dernier n'existe pas encore dans le système, il sera alors ajouté dans l'interface de gestion des \glspl{tag} avec le statut "en attente" afin que les administrateurs puissent le prendre en charge.
+
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/create-exercise.png}
     \centering
@@ -381,7 +381,7 @@ Ce module est uniquement accessible aux (super-)administrateurs.
 
 La gestion des \glspl{resinfo} fonctionne exactement comme la gestion de ses propres \glspl{resinfo}. Reportez-vous donc à la section \ref{section:gestionResInfo} pour connaître les fonctionnalités communes aux utilisateurs et aux administrateurs.
 
-L'administrateur possède les fonctionnalités additionnelles suivantes pour la gestion des \glspl{resinfo} :
+L'administrateur possède en outre les fonctionnalités additionnelles suivantes pour la gestion des \glspl{resinfo} :
 
 \subsubsubsection{Export des résultats de recherche}
  
