@@ -1,16 +1,16 @@
 % On imprime une table des figures / tables pour mieux naviguer ici
 \begingroup
     \let\clearpage\relax
-    % prints main list of figures
+    % prints appendices list of figures
     \printlist[appendices]{lof}{}{
         \chapter*{\listfigurenameappendixes}
     }
-    % prints main list of tables
+    % prints appendices list of tables
     \printlist[appendices]{lot}{}{
         \chapter*{\listtablenameappendixes}
     }
-    % TODO trouver un moyen de restreindre celui-là
-    %\lstlistoflistings
+    % prints appendices list of tables listings
+    \listofappendixlistings
 \endgroup
 
 \import{sections/annexes/problematique/}{index}
