@@ -253,6 +253,40 @@ literate=%
 \renewcommand{\appendixtocname}{Annexes}
 \renewcommand{\setthesection}{\Alph{section}}
 
+% Pour avoir une table de listings dans les annexes
+\makeatletter
+
+  \providecommand{\phantomsection}{}
+  % Pour modifier plus facilement le nom - Ici, je recycles ceux de base
+  \newcommand\appendixlistingname{\lstlistlistingname}
+  \newcommand{\listofappendixlistings}{%
+  % Applying the same trick as listings does with \lstlistoflistings: Modifying \@starttoc such that it can load only .apl files
+    \begingroup
+      \let\@starttoc@orig\@starttoc%
+      \renewcommand{\contentsname}{\appendixlistingname}
+      \renewcommand{\@starttoc}[1]{%
+        \@starttoc@orig{apl}%
+      }%    
+      \phantomsection
+      \addcontentsline{toc}{section}{\appendixlistingname}
+      \tableofcontents% Calling \tableofcontents with the `.apl` file instead of `.toc`
+    \endgroup
+  }
+
+  \newcommand{\appendixFix}{%
+  \setcounter{lstlisting}{0}%
+  \@ifundefined{theHlstlisting}{%
+    }{%
+      \renewcommand{\theHlstlisting}{appendix}
+    }%
+  \write\@auxout{%
+    \string\let\string\latex@tf@lol\string\tf@lol% Store the original `\tf@lol` file handle
+    \string\let\string\tf@lol\string\tf@apl% 
+  }%
+}{}{}
+
+\makeatother
+
 % Pour ignorer des figures / tables des tables
 % C'est uniquement pour les annexes, pour ne pas polluer le tout
 % \captionsetup{list=no} pour cacher
