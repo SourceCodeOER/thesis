@@ -268,7 +268,8 @@ literate=%
         \@starttoc@orig{apl}%
       }%    
       \phantomsection
-      \addcontentsline{toc}{section}{\appendixlistingname}
+      % uncomment if you want this in table of contents
+      %\addcontentsline{toc}{section}{\appendixlistingname}
       \tableofcontents% Calling \tableofcontents with the `.apl` file instead of `.toc`
     \endgroup
   }
