@@ -143,7 +143,7 @@ Afin d'exprimer le plus clairement possible cette grande diversité des requête
 
 \begin{itemize}
     \item $M1 \lor M2$
-    \item $M2 \land (\neg M1 \lor \neg M2)$
+    \item $M2 \land \neg M1$
     \item $\neg M3$
 \end{itemize}
 
@@ -156,7 +156,7 @@ Dès lors, il est plus aisé d'identifier quelle(s) \gls{fiche}(s) corresponde(n
         \hline
             recherche / \gls{fiche} & F1 & F2 & F3 \\ \hline
             $M1 \lor M2$ & \checkmark  & \checkmark  &    \\ \hline
-            $M2 \land (\neg M1 \lor \neg M2)$ &    & \checkmark  &   \\ \hline
+            $M2 \land \neg M1$ &    & \checkmark  &   \\ \hline
             $\neg M3$ & \checkmark &    & \checkmark   \\ \hline
     \end{tabular}
     \caption{Solution théorique de la recherche par \glspl{tag}}
@@ -185,13 +185,13 @@ Le diagramme UML à états ci-dessous représente ces états et les principales 
     \label{pic:stateDiagramForFiches}
 \end{figure}
 
+\pagebreak
 \subsection*{État d'un \gls{tag}}
 
 Une des questions annexes au sujet des \glspl{fiche} est la gestion des \glspl{tag}. En effet, les \glspl{tag} étant des éléments indispensables d'une \gls{fiche} de qualité pour un meilleur référencement, il convient d'établir une stratégie précise pour exploiter au mieux ceux-ci. \\
 
 Durant notre analyse, nous avons pu constater deux écoles de pensée bien distinctes (comparable à ce qui existe en économie) : 
 
-\pagebreak
 \begin{itemize}
     \item laissez-faire : Il s'agit de donner une liberté totale en matière de marquage (en utilisant aussi bien des \glspl{tag} existants que non). Bien que cette approche a le mérite de faire émerger de nouveaux \glspl{tag} par les contributions d'utilisateurs, cela restreint les possibilités de modération.
     \item l'interventionnisme : Il s'agit de restreindre le choix en matière de marquage (exclusivement des \glspl{tag} existants). Bien que cette approche rend la modération facile, cela restreint les possibilités de s'adapter à une réalité changeante.
@@ -256,11 +256,11 @@ Pour la partie \gls{backend}, il nous a été imposé de travailler avec une bas
     \href{https://fr.wikipedia.org/wiki/Base\_de\_donn\%C3\%A9es\_relationnelle}
     {https://fr.wikipedia.org/wiki/Base\_de\_données\_relationnelle}
 } dont PostgreSQL\footnote{
-    \url{https://www.postgresql.org/}
+    \href{https://www.postgresql.org/}{https://www.postgresql.org/}
 } a été le système de gestion imposé. Ce type de base de données dispose de propriétés très intéressantes dont notamment les \textbf{ACID}\footnote{
     \href{https://fr.wikipedia.org/wiki/Propri\%C3\%A9t\%C3\%A9s\_ACID}
     {https://fr.wikipedia.org/wiki/Propriétés\_ACID}
-}, que vous retrouvez sur la figure \ref{pic:ACIDproperties} (par souci de clarté, l'abréviation \textbf{MAJ} désigne le terme "mise(s) à jour") :
+}, que vous retrouvez sur la figure \ref{pic:ACIDproperties} :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/cahierDesCharges/ACID.png}
@@ -271,7 +271,7 @@ Pour la partie \gls{backend}, il nous a été imposé de travailler avec une bas
 
 \pagebreak
 
-Étant donné que ces propriétés sont assez contraignantes, le lecteur attentif (ou lectrice attentive) que vous êtes est en droit de remettre en question cette contrainte technique et il est donc utile de recourir au théorème \textbf{CAP} pour la justifier.
+Étant donné que ces propriétés sont assez contraignantes, le lecteur attentif (ou lectrice attentive) que vous êtes est en droit de remettre en question cette contrainte technique et il est donc utile de recourir au théorème \textbf{CAP} pour mieux la justifier.
 Comme expliqué par un article \cite{acid_cap}, chaque lettre de cette anagramme représente une certaine propriété :
 \begin{description}
     \item[\textbf{C}onsistency (Cohérence) :] "Une donnée n'a qu'un seul état visible, quel que soit le nombre de réplicas"
@@ -280,7 +280,7 @@ Comme expliqué par un article \cite{acid_cap}, chaque lettre de cette anagramme
 \end{description}
 
 Comme souligné dans ce même article \cite{acid_cap}, le théorème dit que "dans toute base de données, vous ne pouvez respecter au plus que 2 propriétés".
-Grâce à ce théorème, nous pouvons mieux justifier l'obligation de PostgreSQL par rapport à des solutions alternatives, comme le montre la figure \ref{pic:capTriangleWithSomeDatabases} :
+Grâce à ce théorème, nous pouvons mieux comparer PostgreSQL par rapport à des solutions alternatives, comme le montre la figure \ref{pic:capTriangleWithSomeDatabases} :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/cahierDesCharges/triangleCAP_with_databases.png}
@@ -288,3 +288,7 @@ Grâce à ce théorème, nous pouvons mieux justifier l'obligation de PostgreSQL
     \caption[Triangle \textbf{CAP} avec quelques bases de données]{Triangle \textbf{CAP} avec quelques bases de données \cite{acid_cap}}
     \label{pic:capTriangleWithSomeDatabases}
 \end{figure}
+
+En effet, pour remplir les objectifs expliqués en section \ref{section:challengesToDefeat}, il convient de sélectionner les propriétés de cohérence et de disponibilité.
+Comme vous pouvez le constater, PostgreSQL est l'un des candidats possibles qui correspondent le mieux à nos besoins.
+À titre informatif, il va de soi qu'une évolution des besoins à l'avenir peut se produire et entrainer une remise en question.
