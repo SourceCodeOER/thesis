@@ -1,2 +1,32 @@
-\includepdf[pages=1,pagecommand=\chapter{Analyse Bibliographique}\label{annexe:AnalyseBiblio}, offset=0 -1cm, scale=0.8]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
-\includepdf[pages=2-,pagecommand={},width=1.2\textwidth]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
+\includepdf[
+    pages=1,
+    pagecommand=\chapter{Analyse Bibliographique}\label{annexe:AnalyseBiblio},
+    offset=0 -1cm, 
+    scale=0.8
+]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
+\includepdf[
+    pages=2-,
+    pagecommand={},
+    width=1.2\textwidth,
+    % To have items into list of figures / tables / listings
+    % WARNING : As explained by the doc, this option is experimental (it MAY change but I don't think so : many people used that)
+    % SECOND WARNING : the page number argument is the real position from starting point !!
+    addtolist={
+        5, figure, {Les 15 éléments de la Dublin Core}, fig:dcListElements,
+        6, figure, {Les 9 catégories d'éléments de la LOM}, fig:LOMTable,
+        7, figure, {Représentation hiérarchique de la LOM}, fig:LOMChart,
+        7, figure, {Correspondance des éléments entre la Dublin Core et la LOM}, fig:mappingDcLom,
+        8, table, {Les 5 types de données de la LOM}, tab:typeLOM,
+        9, figure, {MLR - Spécification d’un élément de données}, fig:mlr,
+        9, figure, {MLR - Exemple de spécification d’un élément de données}, fig:mlr2,
+        10, figure, {Représentation simplifiée de la MLR}, fig:mlr3,
+        11, figure, {Exemple de taxonomie pour les exercices de programmation}, fig:taxonomieEx,
+        12, figure, {Liste des sous-domaines de l'informatique selon la CC2005}, fig:AllDomainInInfo,
+        13, figure, {Exemple de hiérarchie de compétences}, fig:comptenceTree,
+        13, figure, {Catégories d'exercices informatiques}, fig:CatExoList,
+        15, table, {Éléments de base de notre norme}, tab:baseNorm,
+        16, table, {Éléments d'un mot-clé de notre norme}, tab:KeyElementsNorm,
+        16, table, {Quelques éléments additionnels de notre norme}, tab:ExtendedElementsNorm,
+        17, lstlisting, {Exemple d'une ressource information avec notre norme}, code:exampleJson
+    }
+]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
