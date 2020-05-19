@@ -23,6 +23,11 @@
 \usepackage{graphicx}
 % Pour l'include de pdf dans les annexes
 \usepackage{pdfpages}
+% Truc nécessaire pour éviter un bug avec pdfpages et listings
+\makeatletter    
+  \def\ext@lstlisting{lol}
+\makeatother
+
 % Pour utiliser l'option [H] dans begin{figure}
 \usepackage{float}
 % Pour rajouter ces fameuses sous sections
