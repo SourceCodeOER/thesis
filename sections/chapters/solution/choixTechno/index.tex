@@ -12,7 +12,7 @@ Néanmoins, ce langage riche n’en reste pas pour la cause dépourvu d’avanta
 Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript du côté serveur qui servira à répondre aux requêtes du client, tout en bénéficiant des avantages du JavaScript. \\
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.24\textheight,keepaspectratio]{images/choixTechnologiques/SchemaNodejs.png}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{images/choixTechnologiques/SchemaNodejs.png}
     \centering
     \caption[Du JavaScript aussi bien côté serveur que client]{Du JavaScript aussi bien côté serveur que client~\cite{NodejsIllustrations}}
     \label{pic:WhatIsNodeJs}
@@ -20,9 +20,11 @@ Node.js nous permet désormais, à l'instar du PHP, d'écrire du code JavaScript
 
 Deux points sont élémentaires pour expliquer l'intérêt et la rapidité de Nodejs : le moteur JavaScript V8 et son fonctionnement non bloquant. \\
 
+\pagebreak
+
 Ce moteur, développé par Google, très performant et optimisé propose la compilation à la volée (en anglais, JIT , just-in-time compilation) , approche hybride entre la compilation et l'interprétation, dont nous pouvons schématiser leur mode de fonctionnement individuel par la figure suivante :
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.2\textheight,keepaspectratio]{images/choixTechnologiques/compilationVSinterpretation.png}
+    \includegraphics[width=\textwidth,height=0.25\textheight,keepaspectratio]{images/choixTechnologiques/compilationVSinterpretation.png}
     \centering
     \caption{Compilation et interprétation - mode de fonctionnement}
 \end{figure}
@@ -39,7 +41,7 @@ Dans tout système, il existe des tâches coûteuses en temps : des appels à la
 Dans un mode de fonctionnement bloquant, il convient d'attendre la fin de ces taches avant de réaliser autre chose. Ceci est un gâchis dans la mesure où des tâches moins gourmandes en temps sont ainsi bloquées. Node.js permet, par son mode de fonctionnement non bloquant, des gains de performances, comme illustré ci-dessous.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.19\textheight,keepaspectratio]{images/choixTechnologiques/ComparaisonBloquantOuNon.png}
+    \includegraphics[width=\textwidth,height=0.25\textheight,keepaspectratio]{images/choixTechnologiques/ComparaisonBloquantOuNon.png}
     \centering
     \caption[Bloquant/non bloquant : un exemple pour l'illustrer]{Bloquant/non bloquant : un exemple pour l'illustrer~\cite{NodejsIllustrations}}
     \label{pic:BloquantOrNot}
