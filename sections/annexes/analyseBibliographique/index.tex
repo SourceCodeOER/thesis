@@ -1,8 +1,11 @@
-\chapter{Analyse Bibliographique}\label{annexe:AnalyseBiblio}
-% Issue with titlesec title and includepdf : I should workaround
-\includegraphics[
-    page=1,
-    width=\linewidth
+\includepdf[
+    pages=-,
+    offset=0cm -1cm,
+    width=\textwidth,
+    pagecommand={
+        \chapter{Analyse Bibliographique}
+        \label{annexe:AnalyseBiblio}
+    },
 ]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
 
 \includepdf[
