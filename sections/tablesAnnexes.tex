@@ -1,0 +1,28 @@
+% On imprime une table des figures / tables pour mieux naviguer ici
+\begingroup
+    \let\clearpage\relax
+    % Temporary reduce size of headers, to fit all of this on one page
+    \makeatletter
+        \titleformat{\chapter}[frame]
+            {\normalfont}
+            { \filright 
+              \MakeUppercase{\chaptertitlename}\ 
+              \thechapter
+              \enspace
+            }
+            {0.5em}
+            {\bfseries\filleft}
+        \titlespacing*{\chapter}{0pt}{0pt}{20pt}
+    \makeatother
+
+    % prints appendices list of figures
+    \printlist[appendices]{lof}{}{
+        \chapter*{\listfigurenameappendixes}
+    }
+    % prints appendices list of tables
+    \printlist[appendices]{lot}{}{
+        \chapter*{\listtablenameappendixes}
+    }
+    % prints appendices list of tables listings
+    \listofappendixlistings
+\endgroup

@@ -1,0 +1,13 @@
+\begingroup
+    \let\clearpage\relax
+    % prints main list of figures
+    \printlist[main]{lof}{}{
+        \chapter*{\listfigurename}
+    }
+    % prints main list of tables
+    \printlist[main]{lot}{}{
+        \chapter*{\listtablename}
+    }
+    % print main listings
+    \lstlistoflistings
+\endgroup

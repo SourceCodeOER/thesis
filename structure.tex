@@ -14,8 +14,8 @@
 \startlist[main]{lof}% starts main list of figures
 \startlist[main]{lot}% starts main list of tables
 
-% Table des matières + autres tables
-\import{sections/}{tables}
+% Table des matières
+\tableofcontents
 
 % Le glossaire
 % Pour forcer l'affichage de tout ( mais pas idéal car cela n'affiche pas les bonnes pages pour les termes ): https://tex.stackexchange.com/a/492011/129702
@@ -73,3 +73,8 @@
 % Stop partial lists
 \stoplist[appendices]{lof}% stops main list of figures
 \stoplist[appendices]{lot}% stops main list of tables
+
+% Tables des figures / tables / extraits de code [PRINCIPALE]
+\import{sections/}{tablesMain}
+% Tables des figures / tables / extraits de code [ANNEXES]
+\import{sections/}{tablesAnnexes}
