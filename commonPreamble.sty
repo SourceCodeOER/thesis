@@ -292,9 +292,21 @@ literate=%
 \makeatother
 
 % Pour la toc
-\usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
+\usepackage{multicol}
+\newcommand*{\multicolumntoc}{2}
 \setlength{\columnseprule}{0.5pt}
+
+\makeatletter
+
+\newcommand\beautifultableofcontents{%
+    \begin{multicols}{\multicolumntoc}[\section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}]%
+    \@starttoc{toc}%
+    \end{multicols}%
+    }
+
+\makeatother 
 
 % Pour ignorer des figures / tables des tables
 % C'est uniquement pour les annexes, pour ne pas polluer le tout
