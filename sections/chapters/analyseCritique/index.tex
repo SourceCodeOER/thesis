@@ -1,14 +1,6 @@
 % Truc qu'Olivier a tellement insisté
 \chapter{Analyse critique}
 
-Prenons maintenant un peu de recul sur ce projet...\\
-
-Au chapitre \ref{chapter:problematique}, nous avons d'abord défini les besoins clés d'une application de partage de \glspl{resinfo} en analysant une série de plateformes web existantes.\\
-
-Après cela, en chapitre \ref{chapter:analyseDesBesoins}, nous nous sommes concentrés sur une analyse plus profonde de notre plateforme en y relatant les fonctionnalités à intégrer avec la méthode \textbf{\textit{MoSCoW}}, les besoins à satisfaire pour que la plateforme puisse être utilisée par le grand public, ainsi que les contraintes qui nous ont été imposées (en incluant celles que nous nous sommes imposées).\\
-
-Dans le chapitre \ref{chapter:solution}, nous avons enfin expliqué notre solution à la problématique du partage de \glspl{resinfo} en détaillant l'architecture de \texttt{SourceCode} aussi bien du côté \gls{frontend} que du \gls{backend}.\\
-
 Dans ce chapitre-ci, nous nous efforçons d'avoir un regard critique sur \texttt{SourceCode}. Par la validation du projet (test avec des utilisateurs externes, test de la qualité du code) et les différentes métriques du projet, nous voulons nous assurer que notre prototype ait un sens et contribue utilement à la problématique des \glspl{resinfo}.
 
 \section{Validation}
@@ -17,10 +9,11 @@ Dans ce chapitre-ci, nous nous efforçons d'avoir un regard critique sur \texttt
 \subsection{Validation externe}
 \label{section:validationExterne}
 
-Pour valider notre travail, nous avions initialement planifié deux séances de validation afin de récolter les avis d'un panel d'utilisateurs suffisamment large.
-Pour cause de COVID-19, il n'a été possible d'organiser qu'une seule, avec sept utilisateurs. Chaque personne se voyait attribuer deux rôles différents (visiteur-utilisateur ou visiteur-administrateur) afin de prendre connaissance des fonctionnalités les plus importantes de \texttt{SourceCode}. Notre évaluation a pu être réalisée grâce à Google Forms (réponses, graphiques) et vous retrouverez l'intégralité de ce sondage dans l'annexe \ref{annexe:googleForm}\\
+Pour valider notre travail, nous avions initialement planifié deux séances de validation afin de récolter les avis d'un panel d'utilisateurs suffisamment large et diversifié.
+Pour cause de COVID-19, nous n'avons pu organiser qu'une seule séance via Teams avec les utilisateurs disponibles : la partie professorale du panel ne disposant généralement plus d'assez de disponibilités à nous accorder. 
+Chaque personne se voyait attribuer deux rôles différents (visiteur-utilisateur ou visiteur-administrateur) afin de prendre connaissance des fonctionnalités les plus importantes de \texttt{SourceCode}. Notre évaluation a pu être réalisée grâce à Google Forms (réponses, graphiques) et vous retrouverez l'intégralité de ce sondage dans l'annexe \ref{annexe:googleForm}.\\
 
-Parmi les participants, six d'entre eux font partie de l'\textit{UCLouvain} de la faculté \textit{EPL}, dont quatre étudiants de master en sciences informatiques et deux doctorants. La septième personne est une professeure en section informatique à la \textit{HELHa} de Mons.\\
+Parmi les participants, six d'entre eux font partie de la faculté \textit{EPL} de l'\textit{UCLouvain}, dont quatre étudiants de master en sciences informatiques et deux doctorants. La septième personne est une professeure en section informatique à la \textit{HELHa} de Mons.\\
 
 Un des premiers objectifs de cette séance fut de faire comprendre le but de la plateforme, son utilité. Cela semblait être acquis par la majorité sauf pour une personne. Il n'est pas exclu de penser que cette dernière était biaisée par la plateforme \textit{INGInious} de l'\textit{UCLouvain}, car elle l'a prise comme point de référence pour juger \texttt{SourceCode}.\\
 
@@ -37,7 +30,8 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Le texte de la barre de recherche est trop petit, et en bleu trop clair. \textbf{(corrigé)}
     \item Un peu difficile de scroller dans la liste des tags (jusqu'à 3 scrollbars). \textbf{(corrigé)}
 \end{itemize}
-\bigskip
+
+Nos observations :
 
 \begin{enumerate}
     \item La gestion des fautes de frappe ou recherche approximative est une fonctionnalité qui pourrait être très utile pour la bibliothèque (le but étant de faciliter la recherche au maximum).
@@ -50,7 +44,7 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Quand on crée un favori puis le modifie, difficile de se souvenir de quelle catégorie appartient le tag qu'on a sélectionné précédemment : soit renommer le tag, soit créer un moyen de savoir de quelle catégorie le tag appartient. (1)
 \end{itemize}
 
-\bigskip
+Nos observations :
 
 \begin{enumerate}
     \item Lors de l'édition d'un favori ou d'une \gls{resinfo}, les \glspl{tag} ajoutés sont affichés dans une section du formulaire en mode pêle-mêle (sans les catégories auxquels ils se rapportent). Le seul moyen de vérifier la catégorie à laquelle un \gls{tag} appartient est de naviguer dans le panneau à onglets. Nous discuterons des futures améliorations possibles dans le chapitre \ref{chapter:pourAllerPlusLoin}.
@@ -66,11 +60,12 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Un peu difficile d'utiliser le panneau des tags (c'est une première) (3)
 \end{itemize}
 
-\bigskip
+Nos observations :
+
 \begin{enumerate}
     \item Actuellement, il faut d'abord créer un bloc de code puis copier-coller le code que l'on veut formater dedans. La \gls{library} d'édition de texte que nous utilisons (Tiptap) ne gère pas nativement ce qui a été soulevé dans la remarque. En revanche, cette même \gls{library} est extensible et autorise la modification/l'ajout de fonctionnalités de manière aisée. Il est donc tout à fait envisageable de corriger le tir dans une prochaine mise à jour de l'application.
     \item Certaines personnes se plaignaient que la boîte d'édition était trop petite (ou trop grande). Dans son état actuel, \texttt{SourceCode} n'est pas responsive, et dans la perspective où elle le serait, ce problème sera certainement réglé pour tout écran.
-    \item Comme cela a déjà été soulevé dans la section concernant la bibliothèque, le panneau des \glspl{tag} est un peu lourd à l'utilisation. Il y avait jusqu'à 3 scrollbars pour naviguer dans le panneau, ce qui diminuait considérablement l'accessibilité. Nous avons donc changé ce comportement en faisant en sorte d'afficher une seule scrollbar, avec un accès plus clair à la barre de recherche sous chaque \glspl{tagCat}.
+    \item Comme cela a déjà été soulevé dans la section concernant la bibliothèque, le panneau des \glspl{tag} est un peu lourd à l'utilisation. Il y avait jusqu'à 3 scrollbars pour naviguer dans le panneau, ce qui diminuait considérablement l'accessibilité. Nous avons donc corrigé ce comportement en faisant en sorte d'afficher une seule scrollbar, avec un accès plus clair à la barre de recherche sous chaque \glspl{tagCat}.
 \end{enumerate}
 
 \subsubsection*{Esthétique et ergonomie}
@@ -80,7 +75,9 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Le bouton retour dans le header est un peu perturbant, car on ne le remarque pas avant d'avoir vraiment pris en main le site. \textbf{(corrigé)}
     \item Un dark mode (1)
 \end{itemize}
-\bigskip
+
+Nos observations :
+
 \begin{enumerate}
     \item Le dark mode n'est pas une fonctionnalité nécessaire à la plateforme, mais elle pourrait ajouter un plus côté attractivité.
 \end{enumerate}
@@ -97,7 +94,9 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Le système de tags (utilisé correctement par les utilisateurs) semble flexible et potentiellement très utile.
     \item Visuellement attrayant.
 \end{itemize}
-\bigskip
+
+Nos observations :
+
 \begin{enumerate}
     \item La grande communauté dépendra surtout de la qualité de l'application et de son utilité. Les exercices que nous avons utilisés pour la séance de validation étaient importés à partir de quatre cours hébergés sur la plateforme \textit{INGInious}. Nous pouvons donc aisément fournir plus de contenu rien qu'en important tous les cours stockés sur cette même plateforme avec l'avantage d'un système de \glspl{tag} plus avancé.
 \end{enumerate}
@@ -110,11 +109,12 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item L'application est très complète, mais le souci vient justement de cela : la courbe d'apprentissage est assez pentue, mais après cela, l'outil deviendrait très puissant (difficulté pour les professeurs un peu moins "tech savvy"). (3)
 \end{itemize}
 
-\bigskip
+Nos observations :
+
 \begin{enumerate}
     \item \texttt{SourceCode} pourra très rapidement posséder une riche bibliothèque de \glspl{resinfo} rien qu'avec les exercices stockés sur la plateforme \textit{INGInious}. Avec la promotion de la plateforme auprès d'autres institutions scolaires, \texttt{SourceCode} pourrait alors prétendre à une popularité certaine dans le monde des ressources partagées. Il s'agit alors de savoir vendre son produit avec les bons arguments...
     \item Nous n'avions pas pensé à cela pour le prototype. Nous voulions d'abord créer un système cohérent et fonctionnel au niveau de la gestion des \glspl{resinfo} et \glspl{tag}. Les différents statuts attribuables à ces mêmes \glspl{resinfo} et \glspl{tag} jouent déjà un rôle majeur dans la gestion (ex: trier les \glspl{resinfo} non valides ou en attente de validation ...). En termes d'améliorations, nous pourrions automatiser le processus de validation afin que les administrateurs ne soient pas débordés (cf. chapitre \ref{chapter:pourAllerPlusLoin}).
-    \item C'est un point intéressant pour nous. \texttt{SourceCode} est une application qui tente de faciliter le plus possible la recherche et la gestion de \glspl{resinfo} (système de filtres, historique, favoris ...). Malheureusement, ajouter une pléthore de fonctionnalités peut aussi devenir une barrière à l'utilisation, car l'utilisateur doit d'abord apprendre à les maîtriser. Une des premières solutions que nous avons mises en place était la création d'une section tutoriel sur la plateforme, mais cela n'est qu'une solution de contournement. Il faut que la plateforme puisse évoluer en termes d'ergonomie pour rendre l'interface plus accessible aux utilisateurs.
+    \item C'est un point intéressant pour nous. \texttt{SourceCode} est une application qui tente de faciliter le plus possible la recherche et la gestion de \glspl{resinfo} (système de filtres, historique, favoris ...). Malheureusement, ajouter une pléthore de fonctionnalités peut aussi devenir une barrière à l'utilisation, car l'utilisateur doit d'abord apprendre à les maîtriser. Une des premières solutions que nous avons mises en place était la création d'une section tutoriel sur la plateforme, mais cela n'est qu'une solution de contournement. Une autre idée serait de prévoir une interface en fonction du public ciblé (débutant, "tech savvy" ...).
 \end{enumerate}
 
 \subsubsection*{Que pouvons-nous faire pour améliorer l'application ?}
@@ -125,7 +125,9 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Améliorer l'agencement des menus. (1)
     \item Une fonction mot de passe oublié pour les utilisateurs. (2)
 \end{itemize}
-\bigskip
+
+Nos observations :
+
 \begin{enumerate}
     \item Dans les retours d'utilisation, les testeurs étaient perturbés avec le menu principal et le panneau latéral. La confusion venait du fait que le menu principal comportait des chevrons, ce qui laissait penser à une structure à plusieurs niveaux (listes). Le panneau de filtres contenait aussi ces mêmes chevrons, alors nous avons supprimé ces derniers sur le menu principal pour enlever cette confusion.
     \item C'est une fonctionnalité importante pour ce genre d'application, mais nous n'avons pas pris le temps de l'intégrer. Nous l'ajoutons dans le chapitre \ref{chapter:pourAllerPlusLoin}.
@@ -140,7 +142,9 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Pour moi c'est plus qu'un prototype au stade où elle en est. S'il fallait vraiment une fonctionnalité en plus, ça serait de pouvoir ajouter ses solutions sur la plateforme. (1)
     \item Une manière d'interagir entre les étudiants et les "créateurs d'exercices" ? Histoire de pouvoir au moins poser des questions et ne pas être aussi détachés. (2)
 \end{itemize}
-\bigskip
+
+Nos observations :
+
 \begin{enumerate}
     \item \texttt{SourceCode} n'est pas prévu pour résoudre des exercices depuis la plateforme. À ce stade-ci, on peut la considérer comme un référenceur de \glspl{resinfo} qui faciliterait la recherche de ressources particulière avec un système de recherche complet. Dans une perspective future, \texttt{SourceCode} pourrait avoir son propre correcteur d'exercices si la ressource nécessite une résolution. Dans ce cas, cela profiterait aux étudiants pour s'évaluer.
     \item Certaines plateformes comme Hackerrank ou Coderbyte ont prévu une section forum pour chaque exercice/challenge. C'est une fonctionnalité intéressante, mais elle va de pair avec le point précédent.
@@ -153,7 +157,9 @@ Les sous-sections suivantes résument les critiques émises sur \texttt{SourceCo
     \item Il faudrait juste voir comment gérer l'accès entre votre plateforme et celles qui permettent la correction des exercices (Inginious). Par exemple un moyen de linker votre plateforme avec les autres, pour qu'en un clic on arrive directement sur l'exercice inginious en étant déjà connecté dessus.
     \item Sans être intégrée à une plateforme automatisée de correction de code, et sans une gestion de parcours et de lien entre les exercices, sans doute pas beaucoup. Elle sera limitée à une utilisation par les enseignants pour créer leurs propres cours. (1)
 \end{itemize}
-\bigskip
+
+Nos observations :
+
 \begin{enumerate}
     \item La plateforme est d'abord créée pour l'équipe pédagogique, prônant le partage de \glspl{resinfo} dans une bibliothèque triée par \glspl{tag}. Une prochaine étape serait alors d'intégrer un système de correction d'exercices directement depuis la plateforme. Nous n'avions pas eu le temps d'intégrer une telle fonctionnalité, mais cela pourrait définitivement être utile aux étudiants.
 \end{enumerate}
@@ -240,7 +246,7 @@ Globalement, nous avons respecté le planning \ref{pic:ganttChart} que nous nous
 
 \subsection{Conclusion}
 
-Ce chapitre était agréable à rédiger, car nous avons pu constater si \texttt{SourceCode} est un projet qui tient la route à son stade de développement.\\
+À travers ce chapitre, nous avons pu constater si \texttt{SourceCode} est un projet qui tient la route à son stade de développement.\\
 
 La séance de validation nous a été extrêmement bénéfique, car les remarques étaient constructives. Cela nous conforte dans l'idée que notre plateforme a des chances de devenir mature et utilisable par une communauté. Quoi qu'il en soit, notre projet est \textit{Open Source} et pourra donc toujours évoluer avec sa communauté. C'est d'ailleurs notre plus grand souhait pour cette plateforme.\\
 
