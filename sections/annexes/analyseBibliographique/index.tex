@@ -1,13 +1,17 @@
 \includepdf[
-    pages=1,
-    pagecommand=\chapter{Analyse Bibliographique}\label{annexe:AnalyseBiblio},
-    offset=0 -1cm, 
-    scale=0.8
+    pages={1},
+    offset=0cm -1cm,
+    width=\textwidth,
+    pagecommand={
+        \fboxrule0.4pt
+        \chapter{Analyse Bibliographique}
+        \label{annexe:AnalyseBiblio}
+    },
 ]{sections/annexes/analyseBibliographique/Analyse_Bibliographique.pdf}
+
 \includepdf[
     pages=2-,
-    pagecommand={},
-    width=1.2\textwidth,
+    width=\textwidth,
     % To have items into list of figures / tables / listings
     % WARNING : As explained by the doc, this option is experimental (it MAY change but I don't think so : many people used that)
     % SECOND WARNING : the page number argument is the real position from starting point !!

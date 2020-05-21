@@ -1,18 +1,3 @@
-% On imprime une table des figures / tables pour mieux naviguer ici
-\begingroup
-    \let\clearpage\relax
-    % prints appendices list of figures
-    \printlist[appendices]{lof}{}{
-        \chapter*{\listfigurenameappendixes}
-    }
-    % prints appendices list of tables
-    \printlist[appendices]{lot}{}{
-        \chapter*{\listtablenameappendixes}
-    }
-    % prints appendices list of tables listings
-    \listofappendixlistings
-\endgroup
-
 \import{sections/annexes/problematique/}{index}
 \pagebreak
 \import{sections/annexes/analyseBibliographique/}{index}
