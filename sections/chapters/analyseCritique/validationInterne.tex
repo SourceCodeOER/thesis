@@ -3,7 +3,6 @@
 
 Cette section traduit notre implication sur ce projet. 
 Pour ce faire, nous avons repris des statistiques des répertoires GitHub du \gls{frontend} et de l'\gls{api}. 
-Une notion intéressante à prendre en compte sera le graphe d'activité pour les deux répertoires, car nous avons tenté de respecter le planning imposé (cf. \ref{pic:ganttChart}).
 
 \subsection{Statistiques}
 
@@ -14,7 +13,7 @@ Une notion intéressante à prendre en compte sera le graphe d'activité pour le
     \end{itemize}
     \item Nombre de pull requests résolues (\gls{frontend} + \gls{backend}) : 49 + 79 = 128
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-        \item Nous avons beaucoup utilisé les pull requests pour garder une trace des mises à jour importantes effectuées. Cela a été extrêmement utile avec l'intégration continue en \textit{Docker} pour rapidement tester l'application avec l'une d'elles (cf. section \ref{section:docker}).
+        \item Nous avons beaucoup utilisé les pull requests pour garder une trace des mises à jour importantes effectuées. Cela a été extrêmement utile avec l'intégration continue en \textit{Docker} pour tester rapidement l'application avec l'une d'elles (cf. section \ref{section:docker}).
     \end{itemize}
     \item Nombre de tests fonctionnels (\gls{backend}) : 48
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
@@ -33,9 +32,12 @@ Une notion intéressante à prendre en compte sera le graphe d'activité pour le
         }.
         Veuillez noter que nous avons exclu du calcul quelques lignes difficiles, voire impossible à tester afin d'avoir un taux plus réaliste.
     \end{itemize}
-    \item Note Codacy de qualité du code (\gls{backend} + \gls{frontend}) :  A / B
+    \item Note Codacy\footnote{
+        \href{https://www.codacy.com/}{https://www.codacy.com/}
+    } de qualité du code (\gls{backend} / \gls{frontend}) :  A / B
     \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-        \item 
+        \item Il s'agit d'une plateforme qui analyse le code source pour produire diverses mesures (pourcentage de code dupliqué, complexité du code ...).
+        Elle vérifie / analyse également la lisibilité du code en fonction de conventions de codage courantes.
     \end{itemize}       
 \end{itemize}
 
