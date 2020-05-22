@@ -37,11 +37,18 @@
 \import{sections/chapters/problematique/}{index}
 \import{sections/chapters/approche/}{index}
 \import{sections/chapters/cahierDesCharges/}{index}
+
+% On limite ici la toc aux sections
+\setcustomtocdepth{1}
+
 \import{sections/chapters/solution/}{index}
 \import{sections/chapters/analyseCritique/}{index}
-\import{sections/chapters/pourAllerPlusLoin/}{index}
 
-\chapter{Conclusion}
+% On limite ici la toc aux chapitres
+\setcustomtocdepth{0}
+
+\import{sections/chapters/pourAllerPlusLoin/}{index}
+\import{sections/chapters/conclusion/}{index}
 
 % Stop partial lists
 \stoplist[main]{lof}% stops main list of figures
@@ -63,6 +70,9 @@
 
 % Pour marquer la séparation avec les extraits de code des annexes
 \appendixFix
+
+% Ici on va limiter les annexes au niveau 1 (cad les sections)
+\setcustomtocdepth{1}
 
 % Annexes
 % Explications : https://texfaq.org/FAQ-appendix
