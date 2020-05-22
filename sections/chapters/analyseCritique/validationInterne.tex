@@ -9,15 +9,15 @@ Une notion intéressante à prendre en compte sera le graphe d'activité pour le
 
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item Nombre de lignes de code (\gls{frontend} + \gls{backend}) : 21685 + 10158 = 31843
-    \begin{itemize}
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
         \item Le nombre de lignes de code a été calculé en retirant tous les fichiers générés automatiquement (ex : npm install qui va créer un fichier \textit{package-lock.json}).
     \end{itemize}
     \item Nombre de pull requests résolues (\gls{frontend} + \gls{backend}) : 49 + 79 = 128
-    \begin{itemize}
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
         \item Nous avons beaucoup utilisé les pull requests pour garder une trace des mises à jour importantes effectuées. Cela a été extrêmement utile avec l'intégration continue en \textit{Docker} pour rapidement tester l'application avec l'une d'elles (cf. section \ref{section:docker}).
     \end{itemize}
     \item Nombre de tests fonctionnels (\gls{backend}) : 48
-    \begin{itemize}
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
         \item Plutôt que de tester individuellement chaque partie de l'application (comme le ferait des tests 
         unitaires\footnote{
             \href{https://fr.wikipedia.org/wiki/Test\_unitaire}{https://fr.wikipedia.org/wiki/Test\_unitaire}
@@ -25,12 +25,18 @@ Une notion intéressante à prendre en compte sera le graphe d'activité pour le
         Cette vérification est notamment très utile en \gls{ci_cd} (cf. figure \ref{fig:GithubActionsExample}).
     \end{itemize}
     \item Couverture du code (\gls{backend}) :  100\%
-    \begin{itemize}
-        \item Il s'agit de mesurer la proportion du code source exécutée lors de tests : nous considérons ici la définition générale, car celle-ci peut se décliner sous d'autres formes\footnote{
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+        \item Il s'agit de mesurer la proportion du code source exécutée lors de tests\footnote{
+            Vous pouvez consulter les résultats depuis \href{https://codecov.io/gh/SourceCodeOER/sourcecode\_api/branch/master}{https://codecov.io/gh/SourceCodeOER/sourcecode\_api/branch/master}
+        } : nous considérons ici la définition générale, car celle-ci peut se décliner sous d'autres formes\footnote{
             \href{https://fr.wikipedia.org/wiki/Couverture\_de\_code}{https://fr.wikipedia.org/wiki/Couverture\_de\_code}, \cite{concept_cfg}, ...
         }.
         Veuillez noter que nous avons exclu du calcul quelques lignes difficiles, voire impossible à tester afin d'avoir un taux plus réaliste.
-    \end{itemize}    
+    \end{itemize}
+    \item Note Codacy de qualité du code (\gls{backend} + \gls{frontend}) :  A / B
+    \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+        \item 
+    \end{itemize}       
 \end{itemize}
 
 \subsection{Graphe d'activité}
