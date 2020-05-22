@@ -299,10 +299,15 @@ literate=%
 \makeatletter
 
 \newcommand\beautifultableofcontents{%
-    \begin{multicols}{\multicolumntoc}[\section*{\contentsname
-        \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}]%
-    \@starttoc{toc}%
+    \begin{multicols}{\multicolumntoc}
+      [\chapter*{
+          \contentsname
+          \@mkboth{%
+           \MakeUppercase\contentsname}
+          {\MakeUppercase\contentsname}
+        }
+      ]%
+        \@starttoc{toc}%
     \end{multicols}%
     }
 
