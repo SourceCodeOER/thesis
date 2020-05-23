@@ -11,20 +11,74 @@ Pour répondre aux besoins exprimés en chapitre \ref{chapter:analyseDesBesoins}
 
 % Généré avec tree sur Windows et https://carbon.now.sh/
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.25\textheight,keepaspectratio]{images/serveur/tree_folders.png}
     \centering
+    \begin{forest}
+        for tree={
+          font=\ttfamily,
+          grow'=0,
+          child anchor=west,
+          parent anchor=south,
+          anchor=west,
+          calign=first,
+          inner xsep=7pt,
+          edge path={
+            \noexpand\path [draw, \forestoption{edge}]
+            (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
+          },
+          % style for your file node 
+          file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]
+            (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},
+            inner xsep=2pt,font=\small\ttfamily
+                       },
+          before typesetting nodes={
+            if n=1
+              {insert before={[,phantom]}}
+              {}
+          },
+          fit=band,
+          before computing xy={l=15pt},
+        }  
+      [sourcecode\_api
+        [.github
+        ]
+        [bin
+        ]
+        [config
+        ]
+        [controllers
+        ]
+        [docs
+        ]
+        [files
+        ]
+        [middlewares
+        ]
+        [migrations
+        ]
+        [models
+        ]
+        [openapi
+        ]
+        [tests
+        ]
+        [app.js,file
+        ]
+        [app.yml,file
+        ]
+      ]
+   \end{forest}
     \caption[SourceCode : Arborescence de l'API]{Arborescence de l'\Gls{api}}
     \label{fig:arborenceAPI}
 \end{figure}
 
 Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structure officielle de Sequelize\footnote{
     \url{https://github.com/sequelize/cli} - commande "sequelize init"
-}, sur laquelle nous avons ajouté quelques dossiers :
+}, sur laquelle nous avons ajouté quelques dossiers et fichiers :
 
 % A voir s'il faut minimiser l'itemize
 % nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}
-\begin{itemize}
-    \item openapi : nos fichiers \Gls{oas}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
+    \item openapi : nos fichiers \Gls{oas}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer}) (le point d'entrée étant app.yml)
     \item controllers : nos fichiers chargés de répondre aux requêtes \textbf{HTTP}, utilisés par OpenAPI-Enforcer (cf. figure \ref{fig:OASEnforcer})
     \item tests : nos tests pour valider l'implémentation (cf. section \ref{section:validation})
     \item docs : la documentation de l'\Gls{api} en \textbf{HTML}\footnote{
@@ -36,6 +90,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
     \item upload / files : resp. lieu de stockage des fichiers importés / stockés 
     \item .github : nos scripts d'automatisation de type Github Actions (cf. section \ref{section:GithubActions}) 
     \item bin : du code n'entrant dans aucun autre dossier
+    \item app.js : le point d'entrée principal de l'\Gls{api}, construite sur Express (cf. section \ref{section:choixTechnologiques})
 \end{itemize}
 
 \pagebreak
