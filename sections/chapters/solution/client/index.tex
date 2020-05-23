@@ -12,7 +12,7 @@ Afin de vous donner une idée plus claire de ce qui va être abordé, voici une 
     \begin{forest}
         highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
         forked edges,
-        for tree={grow'=0,font=\ttfamily, inner sep = 1pt, outer sep = 0pt}
+        for tree={folder,grow'=0,font=\ttfamily, inner sep = 1pt, outer sep = 0pt}
         [/
          [login,highlight]
          [register,highlight]
@@ -212,8 +212,25 @@ Le module de gestion comprend :
 Ce module est accessible aux utilisateurs (possédant un compte) et aux administrateurs.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.2\textheight,keepaspectratio]{images/client/gestion.jpeg}
     \centering
+    \begin{forest}
+        highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
+        forked edges,
+        for tree={folder,grow'=0,font=\ttfamily, inner sep = 1pt, outer sep = 0pt}
+        [gestion/
+         [mes-exercices,
+          [/,highlight]
+          [creer-exercice,highlight]
+          [\textunderscore id/,highlight]
+         ]
+         [mes-favoris/,
+          [/,highlight]
+          [creer-favori,highlight]
+          [\textunderscore id/,highlight]          
+         ]
+         [profil,highlight]
+        ]
+    \end{forest}
     \caption[SourceCode : module de gestion (URL)]{Module de gestion (URL)}
 \end{figure}
 
