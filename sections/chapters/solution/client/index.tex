@@ -8,8 +8,20 @@ Pour ce faire, nous allons naviguer à travers les différentes pages de la plat
 Afin de vous donner une idée plus claire de ce qui va être abordé, voici une représentation du groupe d'URL de premier niveau que contient \texttt{SourceCode}.\\
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.15\textheight,keepaspectratio]{images/client/overview_client.jpeg}
     \centering
+    \begin{forest}
+        highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
+        forked edges,
+        for tree={folder,grow'=0,font=\ttfamily, inner sep = 1pt, outer sep = 0pt}
+        [/
+         [login,highlight]
+         [register,highlight]
+         [exercices/]
+         [gestion/]
+         [administration/]
+         [tutoriel]
+        ]
+    \end{forest}
     \caption[SourceCode : Représentation des URL de premier niveau]{URL de premier niveau}
 \end{figure}
 
@@ -62,8 +74,16 @@ Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son
 La bibliothèque constitue l'élément central de \texttt{SourceCode} pour le partage de ressources. C'est dans cet espace que les \glspl{resinfo} validées par la communauté apparaitront.\\
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.08\textheight,keepaspectratio]{images/client/exercices.jpeg}
     \centering
+    \begin{forest}
+        highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
+        forked edges,
+        for tree={folder,grow'=0,font=\ttfamily}
+        [exercices/
+         [/,highlight]
+         [\textunderscore id/,highlight]
+        ]
+    \end{forest}
     \caption[SourceCode : partie bibliothèque]{Partie bibliothèque (URL)}
 \end{figure}
 
@@ -192,8 +212,25 @@ Le module de gestion comprend :
 Ce module est accessible aux utilisateurs (possédant un compte) et aux administrateurs.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.2\textheight,keepaspectratio]{images/client/gestion.jpeg}
     \centering
+    \begin{forest}
+        highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
+        forked edges,
+        for tree={folder,grow'=0,font=\ttfamily, inner sep = 1pt, outer sep = 0pt}
+        [gestion/
+         [mes-exercices,
+          [/,highlight]
+          [creer-exercice,highlight]
+          [\textunderscore id/,highlight]
+         ]
+         [mes-favoris/,
+          [/,highlight]
+          [creer-favori,highlight]
+          [\textunderscore id/,highlight]          
+         ]
+         [profil,highlight]
+        ]
+    \end{forest}
     \caption[SourceCode : module de gestion (URL)]{Module de gestion (URL)}
 \end{figure}
 
@@ -364,7 +401,7 @@ Dans le chapitre \ref{chapter:pourAllerPlusLoin}, nous développons quelques pis
 
 Le module d'administration comprend :
 
-\begin{itemize}
+\begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
     \item La gestion des \glspl{resinfo} (\textit{exercices/})
     \item L'importation de \glspl{resinfo} (\textit{importer-des-exercices})
     \item La gestion des \glspl{tag} (\textit{tags/})
@@ -375,8 +412,30 @@ Le module d'administration comprend :
 Ce module est uniquement accessible aux (super-)administrateurs.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,height=0.25\textheight,keepaspectratio]{images/client/administration.jpeg}
     \centering
+    \begin{forest}
+        highlight/.style={fill=cyan,fill opacity=0.4,rounded corners},
+        for tree={grow'=0,font=\ttfamily,inner sep = 1pt, outer sep = 3pt}
+        [administration/
+         [exercices/
+          [/,highlight]
+          [creer-exercice/,highlight]
+          [\textunderscore id/,highlight]
+         ]
+         [tags/
+          [/,highlight]
+          [creer-tag,highlight]
+          [\textunderscore id/,highlight]
+         ]
+         [categories/
+          [/,highlight] 
+          [creer-categorie,highlight]
+          [\textunderscore id/,highlight]
+         ]
+         [utilisateurs,highlight]
+         [importer-des-exercices,highlight]
+        ]
+    \end{forest}
     \caption[SourceCode : partie administration (URL)]{Partie administration (URL)}
 \end{figure}
 
