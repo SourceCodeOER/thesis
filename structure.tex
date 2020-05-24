@@ -7,26 +7,26 @@
 % ./ si folder courant
 %\import{folder}{fichier.tex}
 
-% Remerciements ( Un classique )
-\import{sections/}{remerciements}
-
 % Numérotation en chiffres romains ( I , II )
 \frontmatter
+
+% Table des matières
+\beautifultableofcontents
+
+% Le Préambule
+\import{sections/}{preambule}
+
+% Remerciements ( Un classique )
+\import{sections/}{remerciements}
 
 % Start partial lists
 \startlist[main]{lof}% starts main list of figures
 \startlist[main]{lot}% starts main list of tables
 
-% Table des matières
-\beautifultableofcontents
-
 % Le glossaire
 % Pour forcer l'affichage de tout ( mais pas idéal car cela n'affiche pas les bonnes pages pour les termes ): https://tex.stackexchange.com/a/492011/129702
 %\glsaddall
 \printglossary
-
-% Le Préambule
-\import{sections/}{preambule}
 
 % Numérotation en chiffres arabes ( 1, 2 , )
 \mainmatter
