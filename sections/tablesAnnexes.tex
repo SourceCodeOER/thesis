@@ -1,31 +1,38 @@
 \clearpage
 \phantomsection
-\addcontentsline{toc}{chapter}{Table des illustrations des annexes}
 % On imprime une table des figures / tables pour mieux naviguer ici
 \begingroup
     \let\clearpage\relax
     % Temporary reduce size of headers, to fit all of this on one page
     \makeatletter
-        \titleformat{\chapter}[frame]
+        \titleformat{\section}[frame]
             {\normalfont}
             { \filright 
-              \MakeUppercase{\chaptertitlename}\ 
-              \thechapter
+              \MakeUppercase{\thesection}\ 
               \enspace
             }
             {0.5em}
             {\bfseries\filleft}
-        \titlespacing*{\chapter}{0pt}{0pt}{20pt}
+        \titlespacing*{\section}{0pt}{0pt}{5pt}
+        \titlespacing*{\chapter}{0pt}{0pt}{5pt}
     \makeatother
+    
+    % Title above these part
+    \chapter*{Table des illustrations des annexes}
+    \addcontentsline{toc}{chapter}{Table des illustrations des annexes}
 
     % prints appendices list of figures
     \printlist[appendices]{lof}{}{
-        \chapter*{\listfigurenameappendixes}
+        \section*{\listfigurenameappendixes}
     }
     % prints appendices list of tables
     \printlist[appendices]{lot}{}{
-        \chapter*{\listtablenameappendixes}
+        \section*{\listtablenameappendixes}
     }
     % prints appendices list of tables listings
-    \listofappendixlistings
+    % Workaround : Toc use chapter but here I want this part to look like section
+    \begingroup
+        \let\chapter\section
+        \listofappendixlistings
+    \endgroup
 \endgroup

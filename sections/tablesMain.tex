@@ -1,16 +1,45 @@
 \clearpage
 \phantomsection
-\addcontentsline{toc}{chapter}{Table des illustrations}
 \begingroup
     \let\clearpage\relax
+    % Change spacing of items
+    \makeatletter
+        \titleformat{\section}[frame]
+        {\normalfont}
+        { \filright 
+        \MakeUppercase{\thesection}\ 
+        \enspace
+        }
+        {0.5em}
+        {\bfseries\filleft}
+        \titlespacing*{\section}{0pt}{0pt}{5pt}
+        \titlespacing*{\chapter}{0pt}{0pt}{5pt}
+    \makeatother
+
+    % Title above these part
+    \chapter*{Table des illustrations}
+    \addcontentsline{toc}{chapter}{Table des illustrations}
+
+    % Temporary disable spaces between Table of ... items
+    \renewcommand\addvspace[1]{}
+
+    % Force TO. entries to be small
+    % \small doesn't fit in one page so I must use \footnotesize	
+    \footnotesize
+
     % prints main list of figures
     \printlist[main]{lof}{}{
-        \chapter*{\listfigurename}
+        \section*{\listfigurename}
     }
     % prints main list of tables
     \printlist[main]{lot}{}{
-        \chapter*{\listtablename}
+        \section*{\listtablename}
     }
-    % print main listings
-    \lstlistoflistings
+
+    % prints list of tables listings
+    % Workaround : Toc use chapter but here I want this part to look like section
+    \begingroup
+        \let\chapter\section
+        \lstlistoflistings
+    \endgroup
 \endgroup
