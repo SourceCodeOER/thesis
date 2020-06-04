@@ -39,7 +39,7 @@ Le tableau ci-dessous regroupe les différents sites web parcourus. Dans les sou
     \label{table:compPlateforme}
 \end{table}
 
-Avant d'aller plus loin, nous tenons à mentionner l'outil \href{https://oer.uclouvain.be/}{OER UCLouvain} hors du champ de notre analyse. En effet, notre projet est une version simplifiée de leur application, car nous ne traitons qu'un seul domaine des \gls{oer} : les \glspl{resinfo}. Par conséquent, le système de recherche que le site propose ne correspond pas à la vision que nous avons pour notre type de plateforme étant donné qu'il est beaucoup plus complexe que ce que nous voulons mettre en place : Un catalogue de \glspl{resinfo}. Néanmoins, nous avons pu discuter avec \textit{Christine Jacqmot}, membre du \textit{Louvain Learning Lab}, afin de lui présenter notre projet et de voir comment se comporte l'outil \href{https://oer.uclouvain.be/}{OER UCLouvain} côté administration. Ses conseils nous ont aidé à améliorer notre prototype et dans le cas échéant, à rajouter dans le chapitre \ref{chapter:pourAllerPlusLoin} des précieuses pistes d'améliorations.
+Avant d'aller plus loin, nous tenons à mentionner l'outil \href{https://oer.uclouvain.be/}{OER UCLouvain} hors du champ de notre analyse. En effet, notre projet est une version simplifiée de leur application, car nous ne traitons qu'un seul domaine des \gls{oer} : les \glspl{resinfo}. Par conséquent, le système de recherche que le site propose ne correspond pas à la vision que nous avons pour notre type de plateforme étant donné qu'il est beaucoup plus complexe que ce que nous voulons mettre en place : Un catalogue de \glspl{resinfo}. Néanmoins, nous avons pu discuter avec \textit{Christine Jacqmot}, membre du \textit{Louvain Learning Lab}, afin de lui présenter notre projet et de voir comment se comporte l'outil \href{https://oer.uclouvain.be/}{OER UCLouvain} côté administration. Ses conseils nous ont aidés à améliorer notre prototype et dans le cas échéant, à rajouter dans le chapitre \ref{chapter:pourAllerPlusLoin} des précieuses pistes d'améliorations.
 \pagebreak
 \subsection*{Practice-it}
 
@@ -137,7 +137,7 @@ Cette plateforme cherche à améliorer les compétences des développeurs en pro
 
 \begin{itemize}
     \item Malgré un choix varié de \glspl{tag}, ces derniers ne sont pas classés dans des catégories différentes.
-    \item Les \glspl{tag} ne sont pas directement accessibles depuis l'interface car il faut scroller.
+    \item Les \glspl{tag} ne sont pas directement accessibles depuis l'interface, car il faut scroller.
     \item Aucune spécificité au niveau des langages de programmation (exemple: des exercices en C pour la gestion de la mémoire).
     \item Il faut obligatoirement se connecter pour s'exercer avec la plateforme.
 \end{itemize}
@@ -212,7 +212,7 @@ Cette plateforme est un exemple concret de site web que nous ne voulons pas cré
 
 Cette analyse nous a permis de partir sur de bonnes bases pour la création de notre application web. Nous voulions nous inspirer de certaines interfaces proposant de bonnes idées au niveau de la recherche pure, car cette dernière sera l'une des fonctionnalités principales de \texttt{SourceCode}. \\
 
-Certaines fonctionnalités comme l'espace de discussion sur un challenge spécifique ou encore la soumission de sa solution directement sur la plateforme demeurent de bonnes idées, mais pas nécessaires à l'élaboration d'une application comme \texttt{SourceCode} car l'objectif premier est le référencement de \glspl{resinfo} avant tout. Dans une perspective future, l'intégration de ce genre de fonctionnalités pourrait bien sûr être envisageable, ce qui rendrait ce projet encore plus flexible.\\
+Certaines fonctionnalités comme l'espace de discussion sur un challenge spécifique ou encore la soumission de sa solution directement sur la plateforme demeurent de bonnes idées, mais pas nécessaires à l'élaboration d'une application comme \texttt{SourceCode}, car l'objectif premier est le référencement de \glspl{resinfo} avant tout. Dans une perspective future, l'intégration de ce genre de fonctionnalités pourrait bien sûr être envisageable, ce qui rendrait ce projet encore plus flexible.\\
 
 Avec le support de cette analyse, nous avons pu constituer une liste des éléments importants devant être intégrés au projet. Cela a aussi servi à mettre sur papier nos idées à travers un patchwork que vous pourrez consulter dans la section \ref{section:problem}.
 
@@ -236,7 +236,7 @@ Pour poursuivre avec le critère de \textit{qualité} du contenu, il serait judi
 
 Toujours dans l'optique d'améliorer la qualité du contenu de la plateforme, un \textbf{système de vote} devrait être mis en place afin de laisser la communauté s'exprimer sur la pertinence d'une \gls{resinfo}. La modération est une première instance de validation des \glspl{resinfo} ajoutées sur la plateforme, mais nous estimons que la communauté doit aussi pouvoir donner son avis. Cela permettrait d'une part au créateur de la \gls{resinfo} d'améliorer sa \gls{fiche} et d'autre part aux administrateurs d'émettre une nouvelle évaluation de la \gls{resinfo}.\\
 
-Afin de vous donner une petite idée de ce que nous avons imaginé après la première analyse des plateformes, nous vous proposons quelques illustrations de notre patchwork pour la partie bibliothèque et la consultation d'une \gls{fiche}. \textbf{Ceci n'est pas un design final de \texttt{SourceCode}} mais plutôt une mise sur papier de notre conception de l'application web au vu des critères exposés précédemment.\\
+Afin de vous donner une petite idée de ce que nous avons imaginé après la première analyse des plateformes, nous vous proposons quelques illustrations de notre patchwork pour la partie bibliothèque et la consultation d'une \gls{fiche}. \textbf{Ceci n'est pas un design final de \texttt{SourceCode}}, mais plutôt une mise sur papier de notre conception de l'application web au vu des critères exposés précédemment.\\
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/library.JPG}
@@ -279,4 +279,4 @@ Pour conclure ce chapitre et cette section, il est important de noter que la cr�
 
 Chaque page doit être réfléchie en matière d'ergonomie et de design pour que l'utilisateur ait envie de continuer à naviguer sur la plateforme. Côté développement, l'ensemble du code doit être suffisamment modulaire afin d'apporter de nouvelles fonctionnalités de manière aisée (évolution de l'application). Au plus du temps sera investi dans un tel projet, au plus ce dernier sera mature et agréable à prendre en main pour chaque classe d'utilisateur, car nous aurons appris à comprendre leurs besoins. Nous pensons particulièrement à la recherche de \glspl{resinfo} et à la gestion de ces mêmes \glspl{resinfo}, \glspl{tag}, \glspl{tagCat}.\\
 
-\texttt{SourceCode} n'aura pas la prétention d'être en version finale, il se positionnera plus sur la dénomination de \textbf{prototype}. En effet, notre volonté principale est avant tout de contribuer au domaine des ressources partagées, car nous pensons que ce dernier est porteur d'une riche communauté d'entre-aide. C'est pourquoi le titre de notre mémoire contient les mots \textbf{\textit{open source}} car nous prenons exemple sur ce mode d'organisation pour créer cet outil de partage.
+\texttt{SourceCode} n'aura pas la prétention d'être en version finale, il se positionnera plus sur la dénomination de \textbf{prototype}. En effet, notre volonté principale est avant tout de contribuer au domaine des ressources partagées, car nous pensons que ce dernier est porteur d'une riche communauté d'entre-aide. C'est pourquoi le titre de notre mémoire contient les mots \textbf{\textit{open source}}, car nous prenons exemple sur ce mode d'organisation pour créer cet outil de partage.
