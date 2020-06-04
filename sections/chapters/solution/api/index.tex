@@ -94,7 +94,7 @@ Cette structure ne vous est peut-être pas inconnue, car il s'agit de la structu
 \end{itemize}
 
 \pagebreak
-\subsection{Points clés de l'implémention}
+\subsection{Points clés de l'implémentation}
 
 \subsubsection{Paramétrisation de l'\Gls{api}}
 \label{section:apiConfig}
@@ -172,7 +172,7 @@ La grande force de cette approche est qu'elle permet de déléguer\footnote{
 Pour rappel, nous avions abordé au chapitre \ref{chapter:analyseDesBesoins} (cf. table \ref{tab:fichesWithTagExample}) la problématique de la recherche et de la solution théorique que nous envisagions.
 Notre implémentation repose sur un champ précalculé\footnote{
     Par souci de performances, il est préférable d'avoir cette information directement, plutôt que la calculer sur la table intermédiaire entre les \glspl{fiche} et les \glspl{tag} à chaque fois.
-}, de type tableau d'entiers (ex: [1,2,3] signifie que la \gls{fiche} dispose des \glspl{tag} avec les identifiants 1, 2 et 3).
+}, de type tableau d'entiers (ex. [1,2,3] signifie que la \gls{fiche} dispose des \glspl{tag} avec les identifiants 1, 2 et 3).
 Avec notre implémentation (cf. code \ref{code:searchTags}), notre format de requête
 \footnote{
    Les crochets ayant la même signification que les parenthèses de la \textbf{FNC} ; 
