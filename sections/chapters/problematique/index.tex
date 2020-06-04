@@ -80,7 +80,7 @@ Cette plateforme a la volonté d'aider les développeurs à améliorer leurs com
     \item Le tableau de bord est séparé en plusieurs sections pratiques :
     \begin{itemize}
         \item Compétences de l'utilisateur
-        \item Les différentes compétences proposées (langage de programmation, mathématiques ...)
+        \item Les différentes compétences proposées (langage de programmation, mathématiques,...)
         \item Tutoriel
     \end{itemize}
     \item Une barre de recherche est disponible pour trouver des exercices / challenges par leur titre.
@@ -205,7 +205,7 @@ Cette plateforme est un exemple concret de site web que nous ne voulons pas cré
 
 \begin{itemize}
     \item Pas de barre de recherche pour trouver un exercice en fonction de son titre.
-    \item Classification sommaire des \glspl{tag} (les langages de programmation sont mélangés avec les thématiques ...).
+    \item Classification sommaire des \glspl{tag} (les langages de programmation sont mélangés avec les thématiques,...).
 \end{itemize}
 
 \subsection*{Conclusion sur l'analyse}
@@ -222,7 +222,7 @@ Avec le support de cette analyse, nous avons pu constituer une liste des éléme
 
 Compte tenu de l'analyse des plateformes précédentes, nous allons nous intéresser aux obstacles à franchir pour créer une plateforme de partage de \glspl{resinfo}, en particulier la nôtre.\\
 
-La recherche de \glspl{resinfo} demeure la base de \texttt{SourceCode}. Par conséquent, l'élaboration d'une \textbf{bibliothèque} proposant une recherche efficace et pratique est un premier jalon à traverser. Il faut que l'utilisateur comprenne assez rapidement comment interagir avec l'interface pour trouver des \glspl{resinfo} correspondant à ses critères de recherche (exemples : exercices avec le langage C, thématique sur les pointeurs ...).\\
+La recherche de \glspl{resinfo} demeure la base de \texttt{SourceCode}. Par conséquent, l'élaboration d'une \textbf{bibliothèque} proposant une recherche efficace et pratique est un premier jalon à traverser. Il faut que l'utilisateur comprenne assez rapidement comment interagir avec l'interface pour trouver des \glspl{resinfo} correspondant à ses critères de recherche (exemples : exercices avec le langage C, thématique sur les pointeurs,...).\\
 
 Se pose ensuite la question du \textbf{contenu d'une \gls{fiche}}. Cette dernière contiendrait probablement un titre et une description (énoncé d'un exercice, tutoriel), mais le plus important reste son \textbf{référencement} à travers l'application. Il s'agirait alors d'intégrer un système de \glspl{tag} cohérent permettant de retrouver rapidement une \gls{fiche} dans la bibliothèque.\\
 
@@ -232,7 +232,7 @@ Pour qu'une application de cette envergure soit facilement maintenable en termes
 
 Étant donné qu'une multitude d'utilisateurs ajouteraient du contenu sur la plateforme, un système de \textbf{modération} semble important à mettre en place. Dans cette perspective, il est alors question de déterminer une organisation sous \textit{différents types d'utilisateurs} avec des privilèges propres (simple visiteur, utilisateur avec un compte, administrateur). Sans cette modération, la plateforme ne pourrait pas prétendre à du contenu de qualité, car tout type de ressource serait alors publié dans la bibliothèque.\\
 
-Pour poursuivre avec le critère de \textit{qualité} du contenu, il serait judicieux d'élaborer un \textbf{système de statuts} pour les ressources publiées. Les ressources validées seraient ainsi visibles dans la bibliothèque (accessible à tout public) tandis que les autres (non valides, en attente ...) seraient uniquement visibles depuis les interfaces de gestion. Reste à déterminer le nombre de statuts et leur utilité.\\
+Pour poursuivre avec le critère de \textit{qualité} du contenu, il serait judicieux d'élaborer un \textbf{système de statuts} pour les ressources publiées. Les ressources validées seraient ainsi visibles dans la bibliothèque (accessible à tout public) tandis que les autres (non valides, en attente,...) seraient uniquement visibles depuis les interfaces de gestion. Reste à déterminer le nombre de statuts et leur utilité.\\
 
 Toujours dans l'optique d'améliorer la qualité du contenu de la plateforme, un \textbf{système de vote} devrait être mis en place afin de laisser la communauté s'exprimer sur la pertinence d'une \gls{resinfo}. La modération est une première instance de validation des \glspl{resinfo} ajoutées sur la plateforme, mais nous estimons que la communauté doit aussi pouvoir donner son avis. Cela permettrait d'une part au créateur de la \gls{resinfo} d'améliorer sa \gls{fiche} et d'autre part aux administrateurs d'émettre une nouvelle évaluation de la \gls{resinfo}.\\
 
@@ -266,8 +266,8 @@ Afin de vous donner une petite idée de ce que nous avons imaginé après la pre
 Après avoir formalisé les besoins d'une application de partage de \glspl{resinfo}, nous allons maintenant lister ce que nous allons mettre en place pour réaliser notre plateforme. Notez que cette liste est introductive à l'analyse fonctionnelle relatée dans la section \ref{section:analyseFonctionnelle}, mais nous avions besoin de cette étape pour avoir une vue au global de \texttt{SourceCode} avant d'aller un peu plus dans les détails.
 
 \begin{itemize}
-    \item Proposer une interface simple et ergonomique à destination d'un public varié. Pour rappel, la cible principale est l'équipe pédagogique (professeurs, doctorants, formateurs ...), le reste étant majoritairement des étudiants. Peu importe le type d'utilisateur, l'outil doit être suffisamment clair que pour comprendre les fonctionnalités clés de l'application (recherche de \glspl{resinfo}, création de \glspl{fiche}, gestion des favoris ...).
-    \item Créer un système de \glspl{tag} évolutif et extensible. Nous entendons par là la possibilité de créer/modifier/proposer des \glspl{tag}, créer/modifier des \glspl{tagCat} ... Cela permettra ainsi de ne pas figer l'application sur une poignée de \glspl{tag}, mais aussi de s'adapter à de nouvelles conventions en renommant certains d'entre eux.
+    \item Proposer une interface simple et ergonomique à destination d'un public varié. Pour rappel, la cible principale est l'équipe pédagogique (professeurs, doctorants, formateurs,...), le reste étant majoritairement des étudiants. Peu importe le type d'utilisateur, l'outil doit être suffisamment clair que pour comprendre les fonctionnalités clés de l'application (recherche de \glspl{resinfo}, création de \glspl{fiche}, gestion des favoris ...).
+    \item Créer un système de \glspl{tag} évolutif et extensible. Nous entendons par là la possibilité de créer/modifier/proposer des \glspl{tag}, créer/modifier des \glspl{tagCat},... . Cela permettra ainsi de ne pas figer l'application sur une poignée de \glspl{tag}, mais aussi de s'adapter à de nouvelles conventions en renommant certains d'entre eux.
     \item Proposer une interface de modération complète pour gérer les \glspl{tag}, les \glspl{tagCat}, les \glspl{resinfo} et les utilisateurs. En outre, les interfaces d'administration ne seraient disponibles qu'à partir du moment où l'utilisateur possède un compte éligible d'administrateur. Les autres interfaces de gestion pour ses propres \glspl{resinfo} devraient être accessibles aux utilisateurs possédant un simple compte utilisateur.
     \item La recherche de \glspl{resinfo} doit fonctionner de manière efficace. À ce propos, le site \textit{coderByte} propose une bonne façon de rechercher des exercices, avec un panneau latéral comportant des \glspl{tag} rangés dans des catégories. Nous allons donc nous inspirer de cette pratique pour naviguer dans la bibliothèque, tout en ajoutant une barre de recherche pour naviguer dans les titres des \glspl{resinfo}.
     \item Créer et intégrer à l'application un outil pour importer/exporter rapidement des \glspl{resinfo}, des \glspl{tag} et \glspl{tagCat}. Ajouter des \glspl{resinfo} peut être chronophage dans le cas où il y aurait quelques dizaines de \glspl{fiche} à créer depuis l'interface de gestion. Nous souhaitons donc automatiser le processus de création en proposant un format d'import acceptant les éléments précédemment cités. À l'inverse, exporter des \glspl{resinfo} depuis notre plateforme devrait être rendu possible afin de partager les ressources avec d'autres plateformes par exemple.
