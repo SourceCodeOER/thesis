@@ -12,7 +12,7 @@ La principale fonctionnalité attendue de l'application web est la recherche de 
 
 \subsection*{Les différents types d'utilisateurs}
 
-\paragraph{} \texttt{SourceCode} repose sur la participation active d'acteurs variés. Cela nécessite la mise en place d'une organisation sous forme de rôles afin de maintenir cette plateforme de ressources \textit{cohérente} et \textit{qualitative}. Notre analyse nous a permis d'isoler \textbf{4 types d'utilisateurs} disposant de \textit{privilèges additionnels} (en plus de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
+\paragraph{} \texttt{Source Code} repose sur la participation active d'acteurs variés. Cela nécessite la mise en place d'une organisation sous forme de rôles afin de maintenir cette plateforme de ressources \textit{cohérente} et \textit{qualitative}. Notre analyse nous a permis d'isoler \textbf{4 types d'utilisateurs} disposant de \textit{privilèges additionnels} (en plus de leurs privilèges propres, chacun hérite aussi de ceux du précédent de la présente liste) :
 
 \begin{itemize}
     \item \textbf{Visiteur} : Il s'agit d'un utilisateur non inscrit à notre plateforme. Il ne peut rechercher et consulter que les \glspl{fiche} de ressources validées par un administrateur.
@@ -164,7 +164,7 @@ Dès lors, il est plus aisé d'identifier quelle(s) \gls{fiche}(s) corresponde(n
     \label{tab:fichesWithTagTh}
 \end{table}
 
-Nous reviendrons d'ailleurs ultérieurement (cf. section \ref{section:SearchTagImpl}, figure \ref{figure:bibliothequeOverview}...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{SourceCode}.
+Nous reviendrons d'ailleurs ultérieurement (cf. section \ref{section:SearchTagImpl}, figure \ref{figure:bibliothequeOverview}...) sur les façons dont nous avons mis en place cette réflexion dans l'implémentation de \texttt{Source Code}.
 Vous pourrez noter, qu'en dépit de conventions d'écriture différentes (car inhérentes au contexte), les tables \ref{tab:fichesWithTagTh} et \ref{tab:fichesWithTagImpl} expriment les mêmes principes.
 
 \pagebreak
@@ -249,7 +249,7 @@ Au fur et à mesure de nos meetings avec le professeur \textit{Kim Mens} et \tex
 \section {Contraintes}
 \label{sec:ContraintesCdc}
 
-Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{SourceCode}.\\
+Une première contrainte évidente est indubitablement le temps. Nous avons consacré une année académique entière sur ce mémoire, mais ce n'est certainement pas assez pour rendre mature \texttt{Source Code}.\\
 
 Pour la partie \gls{frontend}, nous avons décidé de nous consacrer uniquement sur le design et l'ergonomie d'un desktop ayant une largeur minimale de 1550 pixels. Pour l'instant, nous avons recommandé aux utilisateurs de l'application ayant une petite résolution de modifier l'échelle du navigateur internet afin d'avoir une expérience optimale malgré notre contrainte. Créer les autres déclinaisons pour petits desktop, tablettes et smartphones ne nous auraient pas permis d'intégrer toutes les fonctionnalités qu'on avait prévu d'ajouter sur la plateforme, car cela aurait pris trop de temps (modifier la disposition des éléments, créer de nouveaux éléments, changer le layout ...). \\
 

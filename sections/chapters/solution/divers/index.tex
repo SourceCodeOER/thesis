@@ -2,7 +2,7 @@
 \section{Divers}
 \label{chapter:solutionDivers}
 
-Dans cette section, nous aborderons quelques éléments secondaires de \texttt{SourceCode}.
+Dans cette section, nous aborderons quelques éléments secondaires de \texttt{Source Code}.
 En effet, en dehors du développement, il existe bien d'autres facettes importantes du cycle de vie\footnote{
     En anglais, ce terme est connu sous le nom de "software lifecycle". (\url{https://web.maths.unsw.edu.au/~lafaye/CCM/genie-logiciel/cycle-de-vie.htm})
 } d'un logiciel : le \gls{deploiement} / la \gls{maintenance}  ...
@@ -68,12 +68,12 @@ Voici un récapitulatif des concepts clés :
 Nous avons ainsi découpé notre application en 3 images\footnote{
     Elles sont disponibles sur Docker Hub (\url{https://hub.docker.com/}) 
     et générées sur base de fichiers Dockerfile, présents dans chaque repository Github de code.
-    Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'entièreté de \texttt{SourceCode} avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
+    Notons enfin la présence dans le repository miscellaneous de fichiers docker-compose-***.yml pour déployer automatiquement l'entièreté de \texttt{Source Code} avec Docker Compose, en fonction de l'environnement souhaité (plus d'informations dans le README.MD).
 } :
 
 \begin{itemize}[nosep,noitemsep,topsep=0pt,partopsep=0pt,after=\vspace*{2pt}]
-    \item sourcecode-front : le \gls{frontend} de \texttt{SourceCode}
-    \item sourcecode\_api : le \gls{backend} de \texttt{SourceCode}
+    \item sourcecode-front : le \gls{frontend} de \texttt{Source Code}
+    \item sourcecode\_api : le \gls{backend} de \texttt{Source Code}
     \item sourcecode-postgres : une base de données en Postgresql, contenant des données extraites par le \Gls{cli}, pour la démonstration de notre solution (cf. section \ref{section:validation})
 \end{itemize}
 

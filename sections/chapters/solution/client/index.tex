@@ -1,11 +1,11 @@
 \section{Client}
 \label{chapter:client}
 
-Cette section est entièrement dédiée à la conception du \gls{frontend} de \texttt{SourceCode}. Étant donné qu'il s'agit de la partie visuelle et ergonomique du site, nous aborderons cette thématique de manière plus illustrative.\\
+Cette section est entièrement dédiée à la conception du \gls{frontend} de \texttt{Source Code}. Étant donné qu'il s'agit de la partie visuelle et ergonomique du site, nous aborderons cette thématique de manière plus illustrative.\\
 
 Pour ce faire, nous allons naviguer à travers les différentes pages de la plateforme en expliquant nos choix d'implémentation et les fonctionnalités qui ont été mises en place.\\
 
-Afin de vous donner une idée plus claire de ce qui va être abordé, voici une représentation du groupe d'URL de premier niveau que contient \texttt{SourceCode}.\\
+Afin de vous donner une idée plus claire de ce qui va être abordé, voici une représentation du groupe d'URL de premier niveau que contient \texttt{Source Code}.\\
 
 \begin{figure}[H]
     \centering
@@ -22,26 +22,26 @@ Afin de vous donner une idée plus claire de ce qui va être abordé, voici une 
          [tutoriel]
         ]
     \end{forest}
-    \caption[SourceCode : Représentation des URL de premier niveau]{URL de premier niveau}
+    \caption[Source Code : Représentation des URL de premier niveau]{URL de premier niveau}
 \end{figure}
 
 Cette figure sera notre fil conducteur tout au long de cette section, car nous allons analyser chaque partie en profondeur. 
 Les URL en \textbf{noir} signifient qu'elles renferment un niveau supplémentaire d'URL tandis que les \textbf{bleus} désignent une page de contenu.\\
 
-Les deux premières URL de la figure désignent les interfaces de connexion à \texttt{SourceCode} ainsi que la création d'un compte.\\
+Les deux premières URL de la figure désignent les interfaces de connexion à \texttt{Source Code} ainsi que la création d'un compte.\\
 
-L'URL \textit{/exercices} représente la bibliothèque de \glspl{resinfo}. C'est dans cet espace que le coeur de \texttt{SourceCode} réside, car c'est là que le système de recherche a été pensé pour tout le reste de la plateforme. En outre,
+L'URL \textit{/exercices} représente la bibliothèque de \glspl{resinfo}. C'est dans cet espace que le coeur de \texttt{Source Code} réside, car c'est là que le système de recherche a été pensé pour tout le reste de la plateforme. En outre,
 cette même URL contient aussi la consultation de \glspl{fiche} lorsque les critères de recherche de l'utilisateur sont satisfaits. À noter que tout type d'utilisateur peut accéder à ces pages.\\
 
 L'URL \textit{/gestion} renferme tout ce dont un utilisateur (connecté avec son compte) peut effectuer sur la plateforme pour enrichir son utilisation. On y répertorie la gestion/création/modification de ses propres \glspl{resinfo}, la gestion/création/modification de ses favoris pour faciliter la recherche et enfin, la consultation de son profil. Cette partie est accessible aux utilisateurs et (super-)administrateurs.\\
 
-L'URL \textit{/administration} contient les fonctionnalités exigeant le plus haut niveau de privilèges sur \texttt{SourceCode}. Cette partie est donc entièrement dédiée aux administrateurs et super-administrateurs. Ils peuvent gérer absolument toutes les \glspl{resinfo} disponibles sur la plateforme (impliquant aussi la modification et création de celles-ci), l'importation/exportation de \glspl{resinfo}, la gestion/création/modification de \glspl{tag}, la gestion/création/modification des \glspl{tagCat} et finalement la gestion des utilisateurs de la plateforme.\\
+L'URL \textit{/administration} contient les fonctionnalités exigeant le plus haut niveau de privilèges sur \texttt{Source Code}. Cette partie est donc entièrement dédiée aux administrateurs et super-administrateurs. Ils peuvent gérer absolument toutes les \glspl{resinfo} disponibles sur la plateforme (impliquant aussi la modification et création de celles-ci), l'importation/exportation de \glspl{resinfo}, la gestion/création/modification de \glspl{tag}, la gestion/création/modification des \glspl{tagCat} et finalement la gestion des utilisateurs de la plateforme.\\
 
 \pagebreak
 
-L'URL \textit{/tutoriel} concerne un aspect plus ludique de \texttt{SourceCode}. À travers différentes pages, une thématique de l'application est décortiquée afin que l'utilisateur puisse améliorer sa prise en main avec la plateforme.\\
+L'URL \textit{/tutoriel} concerne un aspect plus ludique de \texttt{Source Code}. À travers différentes pages, une thématique de l'application est décortiquée afin que l'utilisateur puisse améliorer sa prise en main avec la plateforme.\\
 
-Avant d'aller plus loin, considérez la section \ref{section:challengesToDefeat} afin de vous remettre en tête ce que nous voulions apporter à \texttt{SourceCode}.
+Avant d'aller plus loin, considérez la section \ref{section:challengesToDefeat} afin de vous remettre en tête ce que nous voulions apporter à \texttt{Source Code}.
 
 \subsection{Connexion et création de comptes}
 
@@ -61,7 +61,7 @@ Le formulaire de création nécessite une adresse email (unique), un mot de pass
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=0.35\textheight,keepaspectratio]{images/client/login.png}
     \centering
-    \caption[SourceCode : interface de connexion]{Interface de connexion}
+    \caption[Source Code : interface de connexion]{Interface de connexion}
 \end{figure}
 
 Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son adresse email et son mot de passe. Pour l'instant, une session d'une heure lui sera attribuée pour gérer ses ressources, favoris, ... Après quoi il sera redirigé vers la page de login pour entrer à nouveau ses identifiants. Ce comportement est bien évidemment modifiable depuis l'api (cf. section \ref{section:apiConfig}), mais nous avions surtout choisi ce timing pour la séance de validation de notre plateforme (cf. \ref{annexe:googleForm}).\\
@@ -71,7 +71,7 @@ Lorsque l'utilisateur possède déjà un compte, il lui suffit de renseigner son
 
 \subsection{Exercices}
 
-La bibliothèque constitue l'élément central de \texttt{SourceCode} pour le partage de ressources. C'est dans cet espace que les \glspl{resinfo} validées par la communauté apparaitront.\\
+La bibliothèque constitue l'élément central de \texttt{Source Code} pour le partage de ressources. C'est dans cet espace que les \glspl{resinfo} validées par la communauté apparaitront.\\
 
 \begin{figure}[H]
     \centering
@@ -84,7 +84,7 @@ La bibliothèque constitue l'élément central de \texttt{SourceCode} pour le pa
          [\textunderscore id/,highlight]
         ]
     \end{forest}
-    \caption[SourceCode : partie bibliothèque]{Partie bibliothèque (URL)}
+    \caption[Source Code : partie bibliothèque]{Partie bibliothèque (URL)}
 \end{figure}
 
 Cette section peut se découper en deux parties distinctes :
@@ -105,7 +105,7 @@ Concernant l'interface, nous nous sommes inspirés de \textit{Coderbyte} et \tex
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/search-library.png}
     \centering
-    \caption[SourceCode : page bibliothèque]{page bibliothèque}
+    \caption[Source Code : page bibliothèque]{page bibliothèque}
     \label{figure:bibliothequeOverview}
 \end{figure}
 
@@ -170,14 +170,14 @@ Vous pouvez supprimer ou modifier les favoris depuis ce panneau en passant la so
 \subsubsection{La \gls{fiche} d’une \gls{resinfo}}
 \label{section:ficheResInfo}
 
-Les \glspl{resinfo} sont le cœur de \texttt{SourceCode}. Elles représentent toutes les contributions émises par la communauté. Elles peuvent être consultées depuis la bibliothèque en cliquant sur "voir l'exercice".\\
+Les \glspl{resinfo} sont le cœur de \texttt{Source Code}. Elles représentent toutes les contributions émises par la communauté. Elles peuvent être consultées depuis la bibliothèque en cliquant sur "voir l'exercice".\\
 
 Voici à quoi ressemble la structure d'une \gls{fiche} :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/fiche.png}
     \centering
-    \caption[SourceCode : la représentation d'une \gls{fiche}]{la représentation d'une \gls{fiche}}
+    \caption[Source Code : la représentation d'une \gls{fiche}]{la représentation d'une \gls{fiche}}
 \end{figure}
 
 Lorsque la ressource vous appartient ou que vous êtes un administrateur, un bouton de modification apparait dans le coin supérieur droit de la \gls{fiche} de la ressource. Cliquer sur le bouton mènera sur le formulaire de modification de la ressource (cf. section \ref{section:gestionResInfo} pour la gestion côté utilisateur ou section \ref{section:resInfoAdmin} pour la gestion côté (super-)administrateur).\\
@@ -231,7 +231,7 @@ Ce module est accessible aux utilisateurs (possédant un compte) et aux administ
          [profil,highlight]
         ]
     \end{forest}
-    \caption[SourceCode : module de gestion (URL)]{Module de gestion (URL)}
+    \caption[Source Code : module de gestion (URL)]{Module de gestion (URL)}
 \end{figure}
 
 \subsubsection{Gestion de \glspl{resinfo} personnelles}
@@ -242,7 +242,7 @@ La recherche fonctionne de la même manière que dans la bibliothèque, à la di
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/gestion-exercices.png}
     \centering
-    \caption[SourceCode : gestion des \glspl{resinfo} personnelles]{Gestion des \glspl{resinfo} personnelles (mes-exercices/)}
+    \caption[Source Code : gestion des \glspl{resinfo} personnelles]{Gestion des \glspl{resinfo} personnelles (mes-exercices/)}
 \end{figure}
 
 Plusieurs informations sont disponibles pour identifier les ressources informatiques :
@@ -303,7 +303,7 @@ Plus d'options seront disponibles pour les administrateurs, car il est évident 
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/gestion-options.png}
-    \caption[SourceCode : créer une \gls{resinfo}]{Gestion des \glspl{resinfo} personnelles (creer-exercice ou \_id)}
+    \caption[Source Code : créer une \gls{resinfo}]{Gestion des \glspl{resinfo} personnelles (creer-exercice ou \_id)}
     \centering
 \end{figure}
 
@@ -361,7 +361,7 @@ Pour gérer les favoris, il suffit de passer la souris sur l'un d'eux. Deux icô
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/gestion-favorite.png}
-    \caption[SourceCode : gestion des favoris]{Gestion des favoris (mes-favoris/)}
+    \caption[Source Code : gestion des favoris]{Gestion des favoris (mes-favoris/)}
 \end{figure}
 
 \subsubsubsection{Formulaire de création/modification d'un favori}
@@ -376,7 +376,7 @@ Voici les différents champs à remplir pour créer un favori :
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/favorite-form.png}
-    \caption[SourceCode : création/modification des favoris]{Création/modification des favoris (creer-favori ou \_id)}
+    \caption[Source Code : création/modification des favoris]{Création/modification des favoris (creer-favori ou \_id)}
     \centering
 \end{figure}
 
@@ -436,7 +436,7 @@ Ce module est uniquement accessible aux (super-)administrateurs.
          [importer-des-exercices,highlight]
         ]
     \end{forest}
-    \caption[SourceCode : partie administration (URL)]{Partie administration (URL)}
+    \caption[Source Code : partie administration (URL)]{Partie administration (URL)}
 \end{figure}
 
 \subsubsection{La gestion des \glspl{resinfo}}
@@ -462,12 +462,12 @@ Le créateur de la \gls{resinfo}. À ce stade du développement, nous ne pouvons
 
 \subsubsection{L'importation de \glspl{resinfo}}
 
-Améliorer le processus de création de \glspl{resinfo} est une de nos principales préoccupations pour \texttt{SourceCode}. Nous avons alors développé une interface prenant en charge l'importation de \glspl{resinfo}.
+Améliorer le processus de création de \glspl{resinfo} est une de nos principales préoccupations pour \texttt{Source Code}. Nous avons alors développé une interface prenant en charge l'importation de \glspl{resinfo}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/client/import.png}
     \centering
-    \caption[SourceCode : importation des \glspl{resinfo}]{Importation des \glspl{resinfo} (importer-des-exercices)}
+    \caption[Source Code : importation des \glspl{resinfo}]{Importation des \glspl{resinfo} (importer-des-exercices)}
 \end{figure}
 
 Les \glspl{resinfo} doivent être importées avec un fichier JSON respectant un des deux formats que nous vous invitons à consulter :
@@ -488,7 +488,7 @@ L'interface de gestion prévue à cet effet est semblable à celle de la gestion
 
 \subsubsubsection{Statuts des \glspl{tag}}
 
-De la même manière que pour les \glspl{resinfo}, nous proposons un système de statuts pour donner une indication sur l'état d'un \gls{tag} (la figure \ref{pic:stateDiagramForTags} représente ces états sur un diagramme UML). Nous voulons que le système de \glspl{tag} soit évolutif et flexible. Nous laissons donc les utilisateurs de la plateforme ajouter leurs \glspl{resinfo}, mais aussi des propositions de \glspl{tag} afin d'agrandir le vocabulaire de \texttt{SourceCode}.\\
+De la même manière que pour les \glspl{resinfo}, nous proposons un système de statuts pour donner une indication sur l'état d'un \gls{tag} (la figure \ref{pic:stateDiagramForTags} représente ces états sur un diagramme UML). Nous voulons que le système de \glspl{tag} soit évolutif et flexible. Nous laissons donc les utilisateurs de la plateforme ajouter leurs \glspl{resinfo}, mais aussi des propositions de \glspl{tag} afin d'agrandir le vocabulaire de \texttt{Source Code}.\\
 
 Cela passe bien évidemment par la validation des administrateurs, qui agissent de concert pour offrir un vocabulaire contrôlé aux utilisateurs, évoluant ainsi en fonction des besoins (cf. analyse bibliographique en annexe \ref{annexe:AnalyseBiblio}).
 
@@ -513,7 +513,7 @@ Voici la liste des différents statuts que peut prendre un \gls{tag} :
     \end{itemize}
 \end{itemize}
 
-La suppression physique d'un \gls{tag} est possible, mais elle est réservée au super-administrateur car c'est une opération irréversible. C'est pour cela que l'existence d'un statut "obsolète" a été mis en place : garder une trace sur l'évolution du vocabulaire de \texttt{SourceCode}.
+La suppression physique d'un \gls{tag} est possible, mais elle est réservée au super-administrateur car c'est une opération irréversible. C'est pour cela que l'existence d'un statut "obsolète" a été mis en place : garder une trace sur l'évolution du vocabulaire de \texttt{Source Code}.
 
 \subsubsubsection{Création/modification de \glspl{tag}}
 
@@ -533,7 +533,7 @@ La gestion des \glspl{tagCat} se limite uniquement à la modification du titre o
 
 \subsubsection{La gestion des utilisateurs}
 
-Les administrateurs ont accès à la liste de tout type d'utilisateur ayant un compte enregistré sur \texttt{SourceCode}. Ils peuvent accéder aux informations suivantes :
+Les administrateurs ont accès à la liste de tout type d'utilisateur ayant un compte enregistré sur \texttt{Source Code}. Ils peuvent accéder aux informations suivantes :
 
 \begin{itemize}
     \item Le nom de l'utilisateur
