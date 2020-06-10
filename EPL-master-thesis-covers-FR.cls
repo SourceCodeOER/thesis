@@ -100,7 +100,7 @@
 		\ifdef{\@secondsupervisor}{, \@secondsupervisor}{}\ifdef{\@thirdsupervisor}{, \@thirdsupervisor}{}}
       \\
       % readers
-      \ifdef{\@readertwo}{Lecteurs:}{Lecteur:}{\bfseries
+      \ifdef{\@readertwo}{Lecteurs:}{Lectrice:}{\bfseries
 		\tabto{\tabReader}\@readerone
 		\ifdef{\@readertwo}{, \@readertwo}{}\ifdef{\@readerthree}{, \@readerthree}{}\ifdef{\@readerfour}{, \@readerfour}{}\ifdef{\@readerfive}{, \@readerfive}{}}
 	  \\
