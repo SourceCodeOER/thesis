@@ -5,6 +5,7 @@ env:
   FINAL_FILENAME: Dewit_03281500_Yakoub_13861700_2020.pdf
   MAIN_LATEX: main.tex
   DATE_TIMEZONE: Europe/Brussels
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true  
 
 jobs:
   build_latex:

@@ -7,7 +7,7 @@ wget https://sourceforge.net/projects/xindy/files/xindy-source-components/2.4/xi
 tar xf xindy-kernel-3.0.tar.gz
 cd xindy-kernel-3.0/src
 apk add make
-apk add clisp --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+apk add clisp --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 make
 cp -f xindy.mem /opt/texlive/texdir/bin/x86_64-linuxmusl/
 cd ../..
